@@ -172,20 +172,20 @@
     </tr>
     <tr>
       <th>method</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifiying the method to be
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the method to be
 used (see details). Any unambiguous substring can be given.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>similarity</code> returns a symetric matrix of class
+    <p><code>similarity</code> returns a symmetric matrix of class
  <a href='SimilarityMatrix-class.html'>SimilarityMatrix</a>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>\(\beta\)-diversity can be measured by addressing <em>similarity</em>
  between pairs of samples/cases (Brainerd-Robinson, Jaccard, Morisita-Horn
- and Sorenson indices). Similarity bewteen pairs of taxa/types can be
+ and Sorenson indices). Similarity between pairs of taxa/types can be
  measured by assessing the degree of co-occurrence (binomial co-occurrence).</p>
 <p>Jaccard, Morisita-Horn and Sorenson indices provide a scale of similarity
  from <code>0</code>-<code>1</code> where <code>1</code> is perfect similarity and <code>0</code> is
@@ -260,25 +260,25 @@ used (see details). Any unambiguous substring can be given.</p></td>
 
 <span class='co'># Jaccard measure (presence/absence data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (jaccard):
-#&gt; (fc3be638-ceaa-4682-a14b-6b5054095dfe)
+#&gt; (c420a0ef-c79e-4bd1-aab2-2e954ed13be1)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4615385
 #&gt; managed   0.4615385 1.0000000</div><div class='input'>
 <span class='co'># Sorenson measure (presence/absence data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (sorenson):
-#&gt; (593271aa-b183-44d4-a74b-b0907a820598)
+#&gt; (a17fe458-baf8-456e-88ad-f2e7c1a59090)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.6315789
 #&gt; managed   0.6315789 1.0000000</div><div class='input'>
 <span class='co'># Jaccard measure (Bray's formula ; count data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (bray):
-#&gt; (d67e85cd-cb35-4e91-8a9e-f446ecb87421)
+#&gt; (9cdf5bed-2564-4110-8ca6-8f0f4245138f)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4442754
 #&gt; managed   0.4442754 1.0000000</div><div class='input'>
 <span class='co'># Morisita-Horn measure (count data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (morisita):
-#&gt; (c7234ced-4f43-4874-8d28-d73cf1b6c1aa)
+#&gt; (42b2e4c3-49ab-46f5-a177-36cd2eafe8fa)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.8134497
 #&gt; managed   0.8134497 1.0000000</div></pre>

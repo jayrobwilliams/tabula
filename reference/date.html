@@ -223,7 +223,7 @@ less than the <code>cutoff</code> value will be retained.</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifiying the resampling
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the resampling
 method to be used. This must be one of "<code>jackknife</code>",
 "<code>bootstrap</code>" (see details). Any unambiguous substring can be given.</p></td>
     </tr>
@@ -245,7 +245,8 @@ method to be used. This must be one of "<code>jackknife</code>",
 <p><code>refine_dates</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>date_event</code> estimates the event and accumation dates of an assemblage.</p>
+    <p><code>date_event</code> estimates the event and accumulation dates of an
+assemblage.</p>
 <p><code>refine_dates</code> checks the stability of a date model with resampling
 methods.</p>
 <p><code>set_dates</code> and <code>get_dates</code> allow to get or set the dates of an
@@ -292,7 +293,7 @@ object.</p>
  given MCD. For each assemblage, a large number of new bootstrap replicates
  is created, with the same sample size, by resampling the original
  assemblage with replacement. MCDs are calculated for each replicates and
- upper and lower boudaries of the confidence interval associated with each
+ upper and lower boundaries of the confidence interval associated with each
  MCD are then returned. Confidence interval are not estimated for assemblages
  with only a single type (<code>NA</code>s are returned).</p>
     <h2 class="hasAnchor" id="event-and-accumulation-dates"><a class="anchor" href="#event-and-accumulation-dates"></a>Event and Accumulation Dates</h2>
@@ -310,7 +311,7 @@ object.</p>
  process reflecting the duration or succession of events on the scale of
  archaeological time, and at worst, as imprecise dating due to contamination
  of the context by residual or intrusive material." In other words,
- accumulation dates estimate occurence of archaeological events and rhythms
+ accumulation dates estimate occurrence of archaeological events and rhythms
  of the long term.</p>
 <p>This method relies on strong archaeological and statistical assumptions.
  Use it only if you know what you are doing (see references below and the
@@ -326,7 +327,7 @@ object.</p>
  whether certain type/fabric has a substantial influence on the date
  estimate.
  A six columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the results of
- the resamping procedure (jackknifing fabrics) for each assemblage (in rows)
+ the resampling procedure (jackknifing fabrics) for each assemblage (in rows)
  with the following columns:</p><dl class='dl-horizontal'>
   <dt>id</dt><dd><p>An identifier to link each row to an assemblage.</p></dd>
   <dt>date</dt><dd><p>The jackknife event date estimate.</p></dd>
@@ -342,7 +343,7 @@ object.</p>
  each of the original assemblage with replacement. Then, examination of the
  bootstrap statistics makes it possible to pinpoint assemblages that require
  further investigation.
- A six columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the boostrap
+ A six columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
  distribution statistics for each replicated assemblage (in rows)
  with the following columns:</p><dl class='dl-horizontal'>
   <dt>id</dt><dd><p>An identifier to link each row to an assemblage.</p></dd>

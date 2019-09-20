@@ -188,13 +188,13 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <a class="sourceLine" id="cb2-19" data-line-number="19">## (we use a bootstrapping procedure to estimate the confidence interval)</a>
 <a class="sourceLine" id="cb2-20" data-line-number="20">zuni_mcd &lt;-<span class="st"> </span><span class="kw"><a href="../reference/date.html">date_mcd</a></span>(zuni_count, <span class="dt">dates =</span> zuni_mid, <span class="dt">errors =</span> zuni_error)</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(zuni_mcd)</a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;       id      date    error     lower    upper</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1161.1088 1163.307</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1136.6052 1139.818</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1153.3898 1156.955</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.3882 1090.943</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1089.3752 1095.853</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  835.0576  842.321</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;       id      date    error     lower     upper</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1161.3274 1163.4819</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1138.7896 1141.8422</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1152.0494 1155.4648</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.3618 1090.8757</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1088.3989 1095.0792</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  836.3731  843.8019</span></a>
 <a class="sourceLine" id="cb2-29" data-line-number="29"></a>
 <a class="sourceLine" id="cb2-30" data-line-number="30">## Plot dates</a>
 <a class="sourceLine" id="cb2-31" data-line-number="31"><span class="kw">set_dates</span>(zuni_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">value =</span> zuni_mcd<span class="op">$</span>date, <span class="dt">error =</span> zuni_mcd<span class="op">$</span>error)</a>
@@ -212,13 +212,13 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <h2 class="hasAnchor">
 <a href="#definition-1" class="anchor"></a>Definition</h2>
 <p>Event and accumulation dates are density estimates of the occupation and duration of an archaeological site <span class="citation">(Bellanger, Husi, and Tomassone 2006; Bellanger, Tomassone, and Husi 2008; Bellanger and Husi 2012)</span>.</p>
-<p>The event date is an estimation of the <em>terminus post-quem</em> of an archaeological assemblage. The accumulation date represents the “chronological profile” of the assemblage. According to <span class="citation">Bellanger and Husi (2012)</span>, accumulation date can be interpreted “at best […] as a formation process reflecting the duration or succession of events on the scale of archaeological time, and at worst, as imprecise dating due to contamination of the context by residual or intrusive material.” In other words, accumulation dates estimate occurence of archaeological events and rhythms of the long term.</p>
+<p>The event date is an estimation of the <em>terminus post-quem</em> of an archaeological assemblage. The accumulation date represents the “chronological profile” of the assemblage. According to <span class="citation">Bellanger and Husi (2012)</span>, accumulation date can be interpreted “at best […] as a formation process reflecting the duration or succession of events on the scale of archaeological time, and at worst, as imprecise dating due to contamination of the context by residual or intrusive material.” In other words, accumulation dates estimate occurrence of archaeological events and rhythms of the long term.</p>
 <div id="event-date" class="section level3">
 <h3 class="hasAnchor">
 <a href="#event-date" class="anchor"></a>Event Date</h3>
 <p>Event dates are estimated by fitting a Gaussian multiple linear regression model on the factors resulting from a correspondence analysis - somewhat similar to the idea introduced by <span class="citation">Poblome and Groenen (2003)</span>. This model results from the known dates of a selection of reliable contexts and allows to predict the event dates of the remaining assemblages.</p>
 <p>First, a correspondence analysis (CA) is carried out to summarize the information in the count matrix <span class="math inline">\(X\)</span>. The correspondence analysis of <span class="math inline">\(X\)</span> provides the coordinates of the <span class="math inline">\(m\)</span> rows along the <span class="math inline">\(q\)</span> factorial components, denoted <span class="math inline">\(f_{ik} ~\forall i \in \left[ 1,m \right], k \in \left[ 1,q \right]\)</span>.</p>
-<p>Then, assuming that <span class="math inline">\(n\)</span> assemblages are reliably dated by another source, a Gaussian multiple linear regression model is fitted on the factorial components for the <span class="math inline">\(n\)</span> dated asemblages:</p>
+<p>Then, assuming that <span class="math inline">\(n\)</span> assemblages are reliably dated by another source, a Gaussian multiple linear regression model is fitted on the factorial components for the <span class="math inline">\(n\)</span> dated assemblages:</p>
 <p><span class="math display">\[
 t^E_i = \beta_{0} + \sum_{k = 1}^{q} \beta_{k} f_{ik} + \epsilon_i ~\forall i \in [1,n]
 \]</span> where <span class="math inline">\(t^E_i\)</span> is the known date point estimate of the <span class="math inline">\(i\)</span>th assemblage, <span class="math inline">\(\beta_k\)</span> are the regression coefficients and <span class="math inline">\(\epsilon_i\)</span> are normally, identically and independently distributed random variables, <span class="math inline">\(\epsilon_i \sim \mathcal{N}(0,\sigma^2)\)</span>.</p>
@@ -252,7 +252,7 @@ F =
 \widehat{V_i} = \widehat{\sigma}^2 \left( f_i^T \left( F'F \right)^{-1} f_i + 1 \right)
 \]</span></p>
 <p>were <span class="math inline">\(\widehat{\sigma} = \frac{\sum_{i=1}^{n} \left( t_i - \widehat{t^E_i} \right)^2}{n - q - 1}\)</span>.</p>
-<p>The probability densitiy of an event date <span class="math inline">\(t^E_i\)</span> can be described as a normal distribution:</p>
+<p>The probability density of an event date <span class="math inline">\(t^E_i\)</span> can be described as a normal distribution:</p>
 <p><span class="math display">\[
 t^E_i \sim \mathcal{N}(\widehat{t^E_i},\widehat{V_i})
 \]</span></p>
@@ -261,15 +261,15 @@ t^E_i \sim \mathcal{N}(\widehat{t^E_i},\widehat{V_i})
 <h3 class="hasAnchor">
 <a href="#accumulation-date" class="anchor"></a>Accumulation Date</h3>
 <p>As row (assemblages) and columns (types) CA coordinates are linked together through the so-called transition formulae, event dates for each type <span class="math inline">\(t^E_j\)</span> can be predicted following the same procedure as above.</p>
-<p>Then, the accumulation date <span class="math inline">\(t^A_i\)</span> is defined as the weighted mean of the event date of the ceramic types found in a given assemblage. The weights are the conditionnal frequencies of the respective types in the assemblage (akin to the MCD).</p>
+<p>Then, the accumulation date <span class="math inline">\(t^A_i\)</span> is defined as the weighted mean of the event date of the ceramic types found in a given assemblage. The weights are the conditional frequencies of the respective types in the assemblage (akin to the MCD).</p>
 <p>The accumulation date is estimated as: <span class="math display">\[ 
 \widehat{t^A_i} = \sum_{j = 1}^{p} \widehat{t^E_j} \times \frac{x_{ij}}{x_{i \cdot}}
 \]</span></p>
-<p>The probability densitiy of an accumulation date <span class="math inline">\(t^A_i\)</span> can be described as a Gaussian mixture:</p>
+<p>The probability density of an accumulation date <span class="math inline">\(t^A_i\)</span> can be described as a Gaussian mixture:</p>
 <p><span class="math display">\[
 t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^2)
 \]</span></p>
-<p>Interestingly, the integral of the accumulation date offers an estimates of the cumulative occurrence of archaeological events, which is close enought to the definition of the <em>tempo plot</em> introduced by <span class="citation">Dye (2016)</span>.</p>
+<p>Interestingly, the integral of the accumulation date offers an estimates of the cumulative occurrence of archaeological events, which is close enough to the definition of the <em>tempo plot</em> introduced by <span class="citation">Dye (2016)</span>.</p>
 </div>
 </div>
 <div id="limitation-1" class="section level2">
@@ -287,7 +287,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <li>Is continuous through time.</li>
 <li>Exhibits the form of a unimodal curve.</li>
 </ul>
-<p>Theses assumptions create a distributional model and ordering is accomplished by arranging the matrix so that the class distributions approximate the required pattern. The resulting order is infered to be chronological.</p>
+<p>Theses assumptions create a distributional model and ordering is accomplished by arranging the matrix so that the class distributions approximate the required pattern. The resulting order is inferred to be chronological.</p>
 <p>Predicted dates have to be interpreted with care: these dates are highly dependent on the range of the known dates and the fit of the regression.</p>
 </div>
 <div id="usage-1" class="section level2">

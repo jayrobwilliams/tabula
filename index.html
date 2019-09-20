@@ -159,7 +159,7 @@
 <li>Other numeric matrix:
 <ul>
 <li>
-<code>OccurrenceMatrix</code> represents a co-occurence matrix.</li>
+<code>OccurrenceMatrix</code> represents a co-occurrence matrix.</li>
 <li>
 <code>SimilarityMatrix</code> represents a (dis)similarity matrix.</li>
 </ul>
@@ -195,9 +195,9 @@
 <a class="sourceLine" id="cb5-17" data-line-number="17"></a>
 <a class="sourceLine" id="cb5-18" data-line-number="18">## Coerce to a co-occurrence matrix</a>
 <a class="sourceLine" id="cb5-19" data-line-number="19">D &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_occurrence</a></span>(A1)</a></code></pre></div>
-<p>Several types of graphs are available in <code>tabula</code> which uses <code>ggplot2</code> for plotting informations. This makes it easy to customize diagramms (e.g. using themes and scales).</p>
+<p>Several types of graphs are available in <code>tabula</code> which uses <code>ggplot2</code> for plotting informations. This makes it easy to customize diagrams (e.g. using themes and scales).</p>
 <p>Spot matrix[1] allows direct examination of data:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Plot co-occurence of types</span></a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Plot co-occurrence of types</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># (i.e. how many times (percent) each pairs of taxa occur together </span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># in at least one sample.)</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">mississippi <span class="op">%&gt;%</span></a>
@@ -207,7 +207,7 @@
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.box =</span> <span class="st">"horizontal"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_sequential.html">scale_colour_YlOrBr</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-plot-occ-1.png" style="display: block; margin: auto;"></p>
-<p>Bertin or Ford (battleship curve) diagramms can be plotted, with statistic threshold (including B. Desachy’s <a href="https://doi.org/10.3406/pica.2004.2396">sériographe</a>).</p>
+<p>Bertin or Ford (battleship curve) diagrams can be plotted, with statistic threshold (including B. Desachy’s <a href="https://doi.org/10.3406/pica.2004.2396">sériographe</a>).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/plot_bar.html">plot_bertin</a></span>(<span class="dt">threshold =</span> mean) <span class="op">+</span></a>
@@ -229,7 +229,7 @@
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co"># Correspondance analysis-based seriation</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8">(indices &lt;-<span class="st"> </span><span class="kw"><a href="reference/seriation.html">seriate_reciprocal</a></span>(incidence, <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)))</a>
 <a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;    Matrix ID: e4191b56-813e-49b1-b989-6c7520fa71a7 </span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;    Matrix ID: 7ff145b5-32f6-4f16-a298-37c6eb6a46a9 </span></a>
 <a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;    Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12 </span></a>
 <a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;    Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10 </span></a>
 <a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;    Method: reciprocal</span></a>
@@ -248,7 +248,7 @@
 <div id="dating" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dating" class="anchor"></a>Dating</h3>
-<p>This package provides an implementation of the chronological modeling method developed by Bellanger and Husi (<a href="https://doi.org/10.1016/j.jas.2011.06.031">2012</a>). This method is slightly modified here and allows the construction of different probability density curves of archaeological assembalge dates (<em>event</em>, <em>activity</em> and <em>tempo</em>). Note that this implementation is experimental (see <code><a href="https://rdrr.io/r/utils/help.html">help(date_event)</a></code>).</p>
+<p>This package provides an implementation of the chronological modeling method developed by Bellanger and Husi (<a href="https://doi.org/10.1016/j.jas.2011.06.031">2012</a>). This method is slightly modified here and allows the construction of different probability density curves of archaeological assemblage dates (<em>event</em>, <em>activity</em> and <em>tempo</em>). Note that this implementation is experimental (see <code><a href="https://rdrr.io/r/utils/help.html">help(date_event)</a></code>).</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Coerce dataset to abundance (count) matrix</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2">zuni_counts &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>(zuni)</a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co"># Assume that some assemblages are reliably dated (this is NOT a real example)</span></a>
@@ -274,7 +274,7 @@
 <div id="analysis" class="section level3">
 <h3 class="hasAnchor">
 <a href="#analysis" class="anchor"></a>Analysis</h3>
-<p><em>Diversity</em> can be measured according to several indices (sometimes refered to as indices of <em>heterogeneity</em>):</p>
+<p><em>Diversity</em> can be measured according to several indices (sometimes referred to as indices of <em>heterogeneity</em>):</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/diversity.html">diversity</a></span>(<span class="dt">simplify =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
@@ -299,7 +299,7 @@
 <a class="sourceLine" id="cb12-22" data-line-number="22"><span class="co">#&gt; 11-N-4  0.000000e+00 7.116363e-01 7.961107e-05 0.7116363</span></a></code></pre></div>
 <p>Note that <code>berger</code>, <code>mcintosh</code> and <code>simpson</code> methods return a <em>dominance</em> index, not the reciprocal form usually adopted, so that an increase in the value of the index accompanies a decrease in diversity.</p>
 <p>Corresponding <em>evenness</em> (i.e. a measure of how evenly individuals are distributed across the sample) can also be computed, as well as <em>richness</em> and <em>rarefaction</em>.</p>
-<p>Several methods can be used to acertain the degree of <em>turnover</em> in taxa composition along a gradient on qualitative (presence/absence) data. It assumes that the order of the matrix rows (from <em>1</em> to <em>n</em>) follows the progression along the gradient/transect.</p>
+<p>Several methods can be used to ascertain the degree of <em>turnover</em> in taxa composition along a gradient on qualitative (presence/absence) data. It assumes that the order of the matrix rows (from <em>1</em> to <em>n</em>) follows the progression along the gradient/transect.</p>
 <p>Diversity can also be measured by addressing <em>similarity</em> between pairs of sites:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">## Calculate the Brainerd-Robinson index</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">## Plot the similarity matrix</a>
@@ -328,7 +328,7 @@
 <div id="contributing" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contributing" class="anchor"></a>Contributing</h2>
-<p>Please note that the <code>tabula</code> project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the <code>tabula</code> project is released with a <a href="https://github.com/nfrerebeau/tabula/blob/master/.github/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <ol>
 <li><p>Adapted from Dan Gopstein’s original <a href="https://dgopstein.github.io/articles/spot-matrix/">idea</a>.</p></li>
 <li><p>Adapted from Ben Marwick’s original <a href="https://github.com/benmarwick/signatselect/">idea</a>.</p></li>

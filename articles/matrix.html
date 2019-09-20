@@ -125,7 +125,7 @@
 <li>
 <code>FrequencyMatrix</code> represents relative frequency data.</li>
 <li>
-<code>OccurrenceMatrix</code> represents a co-occurence matrix.</li>
+<code>OccurrenceMatrix</code> represents a co-occurrence matrix.</li>
 <li>
 <code>SimilarityMatrix</code> represents a (dis)similarity matrix.</li>
 </ul>
@@ -138,7 +138,7 @@
 </li>
 </ul>
 <p><em>It assumes that you keep your data tidy</em>: each variable (taxon/type) must be saved in its own column and each observation (assemblage/sample/case) must be saved in its own row. Note that missing values are not allowed.</p>
-<p>Methods for a variety of functions applied to objects from these classes provide tools for analysis, seriation and dating of archaeological assembalges. See <code><a href="https://rdrr.io/r/utils/help.html">help(methods)</a></code> to list all available methods for these classes.</p>
+<p>Methods for a variety of functions applied to objects from these classes provide tools for analysis, seriation and dating of archaeological assemblages. See <code><a href="https://rdrr.io/r/utils/help.html">help(methods)</a></code> to list all available methods for these classes.</p>
 <p>The internal structure of S4 classes implemented in <strong>tabula</strong> is depicted in the UML class diagram in the following figure.</p>
 <div class="figure">
 <img src="classes.svg" alt="UML class diagram of the S4 classes structure."><p class="caption">UML class diagram of the S4 classes structure.</p>
@@ -162,7 +162,7 @@
 <div id="co-occurrence-matrix" class="section level3">
 <h3 class="hasAnchor">
 <a href="#co-occurrence-matrix" class="anchor"></a>Co-occurrence matrix</h3>
-<p>A co-occurrence matrix is a symetric matrix with zeros on its main diagonal, which works out how many times (expressed in percent) each pairs of taxa occur together in at least one sample.</p>
+<p>A co-occurrence matrix is a symmetric matrix with zeros on its main diagonal, which works out how many times (expressed in percent) each pairs of taxa occur together in at least one sample.</p>
 <p>The <span class="math inline">\(p \times p\)</span> co-occurrence matrix <span class="math inline">\(D = \left[ d_{i,j} \right] ~\forall i,j \in \left[ 1,p \right]\)</span> is defined over an <span class="math inline">\(m \times p\)</span> abundance matrix <span class="math inline">\(A = \left[ a_{x,y} \right] ~\forall x \in \left[ 1,m \right], y \in \left[ 1,p \right]\)</span> as:</p>
 <p><span class="math display">\[ d_{i,j} = \sum_{x = 1}^{m} \bigcap_{y = i}^{j} a_{xy} \]</span></p>
 <p>with row and column sums:</p>
@@ -195,7 +195,7 @@
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="../reference/CountMatrix-class.html">CountMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>),</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">            <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 10 x 10 count data matrix:</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; (667b3aa2-0a97-4b74-aafb-2f6efad1f900)</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; (3f9fd507-595a-43e0-a00d-bc058ec0419b)</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;    V1 V2 V3 V4 V5 V6 V7 V8 V9 V10</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 1   2  6  2  3  9  7  9  3  3   6</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 2   9  9  8  7  9 10  6  8  9   0</span></a>
@@ -213,7 +213,7 @@
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="../reference/IncidenceMatrix-class.html">IncidenceMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>),</a>
 <a class="sourceLine" id="cb2-22" data-line-number="22">                <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 10 x 10 presence/absence data matrix:</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; (d52e1f6e-b42a-4c45-9e1f-aef218185135)</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; (41cbcae2-92af-4abe-bd19-17340c0fb6da)</span></a>
 <a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt;       V1    V2    V3    V4    V5    V6    V7    V8    V9   V10</span></a>
 <a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 1   TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE</span></a>
 <a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 2   TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</span></a>
@@ -256,7 +256,7 @@
 <div id="visualization" class="section level1">
 <h1 class="hasAnchor">
 <a href="#visualization" class="anchor"></a>Visualization</h1>
-<p>Several types of graphs are available in <strong>tabula</strong> which uses <strong>ggplot2</strong> for plotting informations. This makes it easy to customize diagramms (e.g. using themes and scales).</p>
+<p>Several types of graphs are available in <strong>tabula</strong> which uses <strong>ggplot2</strong> for plotting informations. This makes it easy to customize diagrams (e.g. using themes and scales).</p>
 <div id="spot-plot" class="section level2">
 <h2 class="hasAnchor">
 <a href="#spot-plot" class="anchor"></a>Spot plot</h2>
@@ -272,7 +272,7 @@
 Spot plot
 </p>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">## Plot co-occurence of types</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">## Plot co-occurrence of types</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">## (i.e. how many times (percent) each pairs of taxa occur together </a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">## in at least one sample.)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">mississippi <span class="op">%&gt;%</span></a>
@@ -300,7 +300,7 @@ Spot plot of co-occurrence
 Heatmap
 </p>
 </div>
-<p>PVI is calculated for each cell as the percentage to the column theoretical independence value: PVI greater than <span class="math inline">\(1\)</span> represent positive deviations from the independance, whereas PVI smaller than <span class="math inline">\(1\)</span> represent negative deviations <span class="citation">(Desachy 2004)</span>. The PVI matrix allows to explore deviations from independence (an intuitive graphical approach to <span class="math inline">\(\chi^2\)</span>), in such a way that a high-contrast matrix has quite significant deviations, with a low risk of being due to randomness <span class="citation">(Desachy 2004)</span>.</p>
+<p>PVI is calculated for each cell as the percentage to the column theoretical independence value: PVI greater than <span class="math inline">\(1\)</span> represent positive deviations from the independence, whereas PVI smaller than <span class="math inline">\(1\)</span> represent negative deviations <span class="citation">(Desachy 2004)</span>. The PVI matrix allows to explore deviations from independence (an intuitive graphical approach to <span class="math inline">\(\chi^2\)</span>), in such a way that a high-contrast matrix has quite significant deviations, with a low risk of being due to randomness <span class="citation">(Desachy 2004)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">## Reproduce B. Desachy's matrigraphe</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">boves <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
@@ -315,7 +315,7 @@ Matrigraphe
 <div id="bar-plot" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bar-plot" class="anchor"></a>Bar plot</h2>
-<p><span class="citation">Bertin (1977)</span> or <span class="citation">Ford (1962)</span> (battleship curve) diagramms can also be plotted, with statistic threshold.</p>
+<p><span class="citation">Bertin (1977)</span> or <span class="citation">Ford (1962)</span> (battleship curve) diagrams can also be plotted, with statistic threshold.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/plot_bar.html">plot_bertin</a></span>(<span class="dt">threshold =</span> mean) <span class="op">+</span></a>

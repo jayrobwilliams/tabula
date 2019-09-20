@@ -224,7 +224,7 @@
 <h2 class="hasAnchor">
 <a href="#rarefaction" class="anchor"></a>Rarefaction</h2>
 <p>It is not always possible to ensure that all sample sizes are equal and the number of different taxa increases with sample size and sampling effort <span class="citation">(Magurran 1988)</span>. Then, <em>rarefaction</em> (<span class="math inline">\(E(S)\)</span>) is the number of taxa expected if all samples were of a standard size <span class="math inline">\(n\)</span> (i.e. taxa per fixed number of individuals). Rarefaction assumes that imbalances between taxa are due to sampling and not to differences in actual abundances.</p>
-<p><span class="citation">Hurlbert (1971)</span> unbiaised estimate of <span class="citation">Sander (1968)</span> rarefaction:</p>
+<p><span class="citation">Hurlbert (1971)</span> unbiased estimate of <span class="citation">Sander (1968)</span> rarefaction:</p>
 <p><span class="math display">\[ E(S) = \sum_{i = 1}^{S} 1 - \frac{{N - N_i} \choose n}{N \choose n} \]</span> Where <span class="math inline">\(n\)</span> is the sub-sample size.</p>
 </div>
 <div id="diversity-and-evenness" class="section level2">
@@ -249,7 +249,7 @@
 <p><span class="math display">\[ E = \frac{H'}{H'_{max}} = \frac{H'}{\ln S} = - \sum_{i = 1}^{S} p_i \log_S p_i \]</span></p>
 <p>When <span class="math inline">\(p_i\)</span> is unknown in the population, an estimate is given by <span class="math inline">\(\hat{p}_i =\frac{n_i}{N}\)</span> (maximum likelihood estimator - MLE). As the use of <span class="math inline">\(\hat{p}_i\)</span> results in a biased estimate, <span class="citation">Hutcheson (1970)</span> and <span class="citation">Bowman et al. (1971)</span> suggest the use of:</p>
 <p><span class="math display">\[ \hat{H}' = - \sum_{i = 1}^{S} \hat{p}_i \ln \hat{p}_i - \frac{S - 1}{N} + \frac{1 - \sum_{i = 1}^{S} \hat{p}_i^{-1}}{12N^2} + \frac{\sum_{i = 1}^{S} (\hat{p}_i^{-1} - \hat{p}_i^{-2})}{12N^3} + \cdots \]</span></p>
-<p>This error is rarely significant <span class="citation">(Peet 1974)</span>, so the unbiaised form is not implemented here (for now).</p>
+<p>This error is rarely significant <span class="citation">(Peet 1974)</span>, so the unbiased form is not implemented here (for now).</p>
 </div>
 <div id="brillouin-diversity-index" class="section level5">
 <h5 class="hasAnchor">
@@ -336,7 +336,7 @@
 <div id="definitions-2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#definitions-2" class="anchor"></a>Definitions</h3>
-<p>The following methods can be used to acertain the degree of turnover in taxa composition along a gradient on qualitative (presence/absence) data. This assumes that the order of the matrix rows (from 1 to <span class="math inline">\(m\)</span>) follows the progression along the gradient/transect.</p>
+<p>The following methods can be used to ascertain the degree of turnover in taxa composition along a gradient on qualitative (presence/absence) data. This assumes that the order of the matrix rows (from 1 to <span class="math inline">\(m\)</span>) follows the progression along the gradient/transect.</p>
 <p>We denote the <span class="math inline">\(m \times p\)</span> incidence matrix by <span class="math inline">\(X = \left[ x_{ij} \right] ~\forall i \in \left[ 1,m \right], j \in \left[ 1,p \right]\)</span> and the <span class="math inline">\(p \times p\)</span> corresponding co-occurrence matrix by <span class="math inline">\(Y = \left[ y_{ij} \right] ~\forall i,j \in \left[ 1,p \right]\)</span>, with row and column sums:</p>
 
 <div id="whittaker-measure-whittaker1960" class="section level4">
@@ -437,7 +437,7 @@
 <div id="abundance-models" class="section level1">
 <h1 class="hasAnchor">
 <a href="#abundance-models" class="anchor"></a>Abundance models</h1>
-<p>Ranks <em>vs</em> abundance plot can be used for abundance models (model fitting will be implemented in a futur release):</p>
+<p>Ranks <em>vs</em> abundance plot can be used for abundance models (model fitting will be implemented in a future release):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/plot_line.html">plot_rank</a></span>(<span class="dt">log =</span> <span class="st">"xy"</span>, <span class="dt">facet =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>

@@ -46,7 +46,7 @@
 <meta property="og:description" content="seriate_* computes a permutation order for rows and/or columns.
 permute rearranges a data matrix according to a permutation order.
 get_order returns the seriation order for rows and columns.
-refine_seriation performs a partial bootstrap correspondance analysis
+refine_seriation performs a partial bootstrap correspondence analysis
  seriation." />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -153,13 +153,13 @@ refine_seriation performs a partial bootstrap correspondance analysis
     <p><code>seriate_*</code> computes a permutation order for rows and/or columns.</p>
 <p><code>permute</code> rearranges a data matrix according to a permutation order.</p>
 <p><code>get_order</code> returns the seriation order for rows and columns.</p>
-<p><code>refine_seriation</code> performs a partial bootstrap correspondance analysis
+<p><code>refine_seriation</code> performs a partial bootstrap correspondence analysis
  seriation.</p>
     </div>
 
     <pre class="usage"><span class='fu'>seriate_reciprocal</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
-<span class='fu'>seriate_correspondance</span>(<span class='no'>object</span>, <span class='no'>subset</span>, <span class='no'>...</span>)
+<span class='fu'>seriate_correspondence</span>(<span class='no'>object</span>, <span class='no'>subset</span>, <span class='no'>...</span>)
 
 <span class='fu'>seriate_idds</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
@@ -185,15 +185,15 @@ refine_seriation performs a partial bootstrap correspondance analysis
   <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>100</span>)
 
 <span class='co'># S4 method for CountMatrix,missing</span>
-<span class='fu'>seriate_correspondance</span>(<span class='no'>object</span>,
+<span class='fu'>seriate_correspondence</span>(<span class='no'>object</span>,
   <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
 
 <span class='co'># S4 method for IncidenceMatrix,missing</span>
-<span class='fu'>seriate_correspondance</span>(<span class='no'>object</span>,
+<span class='fu'>seriate_correspondence</span>(<span class='no'>object</span>,
   <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix,BootCA</span>
-<span class='fu'>seriate_correspondance</span>(<span class='no'>object</span>, <span class='no'>subset</span>,
+<span class='fu'>seriate_correspondence</span>(<span class='no'>object</span>, <span class='no'>subset</span>,
   <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix,PermutationOrder</span>
@@ -289,20 +289,20 @@ indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></co
 <li><p>Exhibits the form of a unimodal curve.</p></li>
 </ol><p>Theses assumptions create a distributional model and ordering is
  accomplished by arranging the matrix so that the class distributions
- approximate the required pattern. The resulting order is infered
+ approximate the required pattern. The resulting order is inferred
  to be chronological.</p>
 <p>The following seriation methods are available:</p><dl class='dl-horizontal'>
-  <dt>correspondance</dt><dd><p>Correspondance analysis-based seriation.
-  Correspondance analysis (CA) is an effective method for the seriation of
+  <dt>correspondence</dt><dd><p>Correspondence analysis-based seriation.
+  Correspondence analysis (CA) is an effective method for the seriation of
   archaeological assemblages. The order of the rows and columns is given by
   the coordinates along one dimension of the CA space, assumed to account
   for temporal variation. The direction of temporal change within the
-  correspondance analysis space is arbitrary: additional information is
+  correspondence analysis space is arbitrary: additional information is
   needed to determine the actual order in time.</p></dd>
-  <dt>reciprocal</dt><dd><p>Reciprocal ranking (incidence data) or averaging
-  (frequency data) seriation. These procedures iteratively rearrange rows
-  and/or columns according to their weighted rank in the data matrix until
-  convergence. Note that this procedure could enter into an infinite loop.
+  <dt>reciprocal</dt><dd><p>Reciprocal ranking seriation. These procedures
+  iteratively rearrange rows and/or columns according to their weighted rank
+  in the data matrix until convergence.
+  Note that this procedure could enter into an infinite loop.
   If no convergence is reached before the maximum number of iterations, it
   stops with a warning.</p></dd>
  
@@ -321,10 +321,10 @@ indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></co
  a given <code>cutoff</code> value.</p>
 <p>According to Peebles and Schachner (2012), "[this] point removal procedure
  [results in] a reduced dataset where the position of individuals within the
- CA are highly stable and which produces an ordering consistend with the
+ CA are highly stable and which produces an ordering consistent with the
  assumptions of frequency seriation."</p>
 <p>If the results of <code><a href='deprecated.html'>refine</a></code> is used as an input argument in
- <code>seriate</code>, a correspondance analysis is performed on the subset of
+ <code>seriate</code>, a correspondence analysis is performed on the subset of
  <code>object</code> which matches the samples to be kept. Then excluded samples
  are projected onto the dimensions of the CA coordinate space using the row
  transition formulae. Finally, row coordinates onto the first dimension
@@ -360,7 +360,7 @@ indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></co
 <span class='co'>## Expected column order: N, A, C, K, P, L, B, E, I, M, D, G, O, J, F, H</span>
 (<span class='no'>compiegne_indices</span> <span class='kw'>&lt;-</span> <span class='fu'>seriate_reciprocal</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
                                          <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Permutation order for matrix seriation: 
-#&gt;    Matrix ID: fde721a3-99d7-4867-83e9-73108f059c40 
+#&gt;    Matrix ID: dd8437af-a2ab-4a15-87b5-59d373c2dc15 
 #&gt;    Row order: 1 2 3 4 5 
 #&gt;    Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8 
 #&gt;    Method: reciprocal</div><div class='input'>
