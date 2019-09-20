@@ -189,12 +189,12 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <a class="sourceLine" id="cb2-20" data-line-number="20">zuni_mcd &lt;-<span class="st"> </span><span class="kw"><a href="../reference/date.html">date_mcd</a></span>(zuni_count, <span class="dt">dates =</span> zuni_mid, <span class="dt">errors =</span> zuni_error)</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(zuni_mcd)</a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;       id      date    error     lower     upper</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1161.3274 1163.4819</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1138.7896 1141.8422</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1152.0494 1155.4648</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.3618 1090.8757</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1088.3989 1095.0792</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  836.3731  843.8019</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1160.8189 1162.9467</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1135.6573 1138.8697</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1153.3103 1156.8504</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.4263 1090.9550</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1088.9831 1095.3856</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  836.7468  844.3604</span></a>
 <a class="sourceLine" id="cb2-29" data-line-number="29"></a>
 <a class="sourceLine" id="cb2-30" data-line-number="30">## Plot dates</a>
 <a class="sourceLine" id="cb2-31" data-line-number="31"><span class="kw">set_dates</span>(zuni_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">value =</span> zuni_mcd<span class="op">$</span>date, <span class="dt">error =</span> zuni_mcd<span class="op">$</span>error)</a>
