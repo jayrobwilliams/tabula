@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -61,19 +61,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/bibliography.html">5. Bibliography</a>
+      <a href="../articles/matrix.html">Matrix Classes</a>
     </li>
     <li>
-      <a href="../articles/dating.html">4. Dating Methods</a>
+      <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
     <li>
-      <a href="../articles/diversity.html">2. Diversity Measures</a>
+      <a href="../articles/seriation.html">Seriation Methods</a>
     </li>
     <li>
-      <a href="../articles/matrix.html">1. Matrix Classes</a>
+      <a href="../articles/dating.html">Dating Methods</a>
     </li>
     <li>
-      <a href="../articles/seriation.html">3. Seriation</a>
+      <a href="../articles/bibliography.html">Bibliography</a>
     </li>
   </ul>
 </li>
@@ -84,7 +84,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +104,7 @@
       <h1>3. Seriation</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2019-09-20</h4>
+            <h4 class="date">2019-10-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/seriation.Rmd"><code>vignettes/seriation.Rmd</code></a></small>
       <div class="hidden name"><code>seriation.Rmd</code></div>
@@ -157,7 +157,7 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8">## it stops with a warning.</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">(indices &lt;-<span class="st"> </span><span class="kw"><a href="../reference/seriation.html">seriate_reciprocal</a></span>(incidence1, <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">stop =</span> <span class="dv">100</span>))</a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;    Matrix ID: d8375b08-77e9-4ee3-a409-a69500e3c4cb </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;    Matrix ID: 508f1256-6f60-46cf-a5fa-3229f3555eac </span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;    Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12 </span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;    Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10 </span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;    Method: reciprocal</span></a>
@@ -294,7 +294,7 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">## Get CA-based seriation order</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">(zuni_refined &lt;-<span class="st"> </span><span class="kw"><a href="../reference/seriation.html">seriate_correspondence</a></span>(zuni_counts, zuni_keep, <span class="dt">margin =</span> <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    Matrix ID: 413b412e-9057-4022-aaab-45fe6759ef9a </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    Matrix ID: 5cba5328-dc51-4b1d-8754-f7034fd79261 </span></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;    Row order: 372 350 387 367 110 417 364 357 407 160 373 406 356 344 348 384 378 362 339 383... (400 more) </span></a>
 <a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;    Column order: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 </span></a>
 <a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;    Method: refined correspondence</span></a></code></pre></div>

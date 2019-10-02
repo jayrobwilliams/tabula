@@ -85,7 +85,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -100,19 +100,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/bibliography.html">5. Bibliography</a>
+      <a href="../articles/matrix.html">Matrix Classes</a>
     </li>
     <li>
-      <a href="../articles/dating.html">4. Dating Methods</a>
+      <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
     <li>
-      <a href="../articles/diversity.html">2. Diversity Measures</a>
+      <a href="../articles/seriation.html">Seriation Methods</a>
     </li>
     <li>
-      <a href="../articles/matrix.html">1. Matrix Classes</a>
+      <a href="../articles/dating.html">Dating Methods</a>
     </li>
     <li>
-      <a href="../articles/seriation.html">3. Seriation</a>
+      <a href="../articles/bibliography.html">Bibliography</a>
     </li>
   </ul>
 </li>
@@ -123,7 +123,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -216,13 +216,14 @@
     <div class='dont-index'><p><a href='NumericMatrix-class.html'>NumericMatrix</a></p>
 <p>Other abundance matrix: <code><a href='CountMatrix-class.html'>CountMatrix-class</a></code>,
   <code><a href='FrequencyMatrix-class.html'>FrequencyMatrix-class</a></code></p>
-<p>Other matrix class: <code><a href='CountMatrix-class.html'>CountMatrix-class</a></code>,
+<p>Other matrix: <code><a href='CountMatrix-class.html'>CountMatrix-class</a></code>,
   <code><a href='FrequencyMatrix-class.html'>FrequencyMatrix-class</a></code>,
   <code><a href='IncidenceMatrix-class.html'>IncidenceMatrix-class</a></code>,
   <code><a href='LogicalMatrix-class.html'>LogicalMatrix-class</a></code>,
   <code><a href='Matrix-class.html'>Matrix-class</a></code>,
   <code><a href='NumericMatrix-class.html'>NumericMatrix-class</a></code>,
-  <code><a href='SimilarityMatrix-class.html'>SimilarityMatrix-class</a></code></p></div>
+  <code><a href='SimilarityMatrix-class.html'>SimilarityMatrix-class</a></code>,
+  <code><a href='coerce.html'>coerce</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Create a count data matrix</span>
@@ -230,11 +231,11 @@
                   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'>## Access</span>
-<span class='fu'><a href='access.html'>get_id</a></span>(<span class='no'>A1</span>)</div><div class='output co'>#&gt; [1] "0f8d629a-ce34-4f77-883d-53dd43ec56cb"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>A1</span>) <span class='co'># Get the matrix dimensions</span></div><div class='output co'>#&gt; [1] 10 10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='co'># Get the column names</span></div><div class='output co'>#&gt;  [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='kw'>&lt;-</span> <span class='no'>letters</span>[<span class='fl'>11</span>:<span class='fl'>20</span>] <span class='co'># Set the column names</span>
+<span class='fu'><a href='access.html'>get_id</a></span>(<span class='no'>A1</span>)</div><div class='output co'>#&gt; [1] "88ea7fa6-4d31-4b8e-9b81-f02aa1ae34a1"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>A1</span>) <span class='co'># Get the matrix dimensions</span></div><div class='output co'>#&gt; [1] 10 10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='co'># Get the column names</span></div><div class='output co'>#&gt;  [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='kw'>&lt;-</span> <span class='no'>letters</span>[<span class='fl'>11</span>:<span class='fl'>20</span>] <span class='co'># Set the column names</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>A1</span>) <span class='co'># Get the rownames</span></div><div class='output co'>#&gt;  [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>A1</span>) <span class='kw'>&lt;-</span> <span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>10</span>] <span class='co'># Set the row names</span>
 
 <span class='co'>## Subset</span>
-<span class='no'>A1</span><span class='kw'>[[</span><span class='st'>"id"</span>]] <span class='co'># Get the matrix ID</span></div><div class='output co'>#&gt; [1] "0f8d629a-ce34-4f77-883d-53dd43ec56cb"</div><div class='input'><span class='no'>A1</span>[, ] <span class='co'># Get all values</span></div><div class='output co'>#&gt;   k  l  m n  o p  q  r s  t
+<span class='no'>A1</span><span class='kw'>[[</span><span class='st'>"id"</span>]] <span class='co'># Get the matrix ID</span></div><div class='output co'>#&gt; [1] "88ea7fa6-4d31-4b8e-9b81-f02aa1ae34a1"</div><div class='input'><span class='no'>A1</span>[, ] <span class='co'># Get all values</span></div><div class='output co'>#&gt;   k  l  m n  o p  q  r s  t
 #&gt; A 9  0 10 9  4 4 10  6 6  7
 #&gt; B 4 10  5 1  4 4  0  4 8  9
 #&gt; C 3 10  5 9  2 2  0  7 4  8
