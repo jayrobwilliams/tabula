@@ -13,6 +13,9 @@
     <loc>http://tabula.archaeo.science/reference/DateModel-class.html</loc>
   </url>
   <url>
+    <loc>http://tabula.archaeo.science/reference/DiversityIndex.html</loc>
+  </url>
+  <url>
     <loc>http://tabula.archaeo.science/reference/FrequencyMatrix-class.html</loc>
   </url>
   <url>
@@ -58,10 +61,10 @@
     <loc>http://tabula.archaeo.science/reference/deprecated.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/diversity.html</loc>
+    <loc>http://tabula.archaeo.science/reference/geography.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/geography.html</loc>
+    <loc>http://tabula.archaeo.science/reference/heterogeneity-index.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/merzbach.html</loc>
@@ -76,6 +79,9 @@
     <loc>http://tabula.archaeo.science/reference/plot_date.html</loc>
   </url>
   <url>
+    <loc>http://tabula.archaeo.science/reference/plot_diversity.html</loc>
+  </url>
+  <url>
     <loc>http://tabula.archaeo.science/reference/plot_line.html</loc>
   </url>
   <url>
@@ -85,7 +91,7 @@
     <loc>http://tabula.archaeo.science/reference/plot_spot.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/richness.html</loc>
+    <loc>http://tabula.archaeo.science/reference/richness-index.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/seriation.html</loc>
@@ -103,7 +109,7 @@
     <loc>http://tabula.archaeo.science/reference/test.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/turnover-method.html</loc>
+    <loc>http://tabula.archaeo.science/reference/turnover-index.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/zuni.html</loc>

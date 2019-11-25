@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zuni ceramics — zuni • tabula</title>
+<title>Diversity Plot — plot_diversity • tabula</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,8 @@
 
 
 
-<meta property="og:title" content="Zuni ceramics — zuni" />
-<meta property="og:description" content="A dataset containing ceramic counts from the Zuni region of the American
- Southwest." />
+<meta property="og:title" content="Diversity Plot — plot_diversity" />
+<meta property="og:description" content="Diversity Plot" />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -141,65 +140,71 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Zuni ceramics</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>zuni.Rd</code></div>
+    <h1>Diversity Plot</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot-diversity.R'><code>R/plot-diversity.R</code></a></small>
+    <div class="hidden name"><code>plot_diversity.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing ceramic counts from the Zuni region of the American
- Southwest.</p>
+    <p>Diversity Plot</p>
     </div>
 
-    <pre class="usage"><span class='no'>zuni</span></pre>
+    <pre class="usage"><span class='fu'>plot_diversity</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
+<span class='co'># S4 method for DiversityIndex</span>
+<span class='fu'>plot_diversity</span>(<span class='no'>object</span>)</pre>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>A <a href='DiversityIndex.html'>DiversityIndex</a> object to be plotted.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Currently not used.</p></td>
+    </tr>
+    </table>
 
-    <p>A numeric matrix with 420 rows (assemblages) and 18 variables
- (ceramic types). The numbers in brackets correspond to the date range of
- each type (in AD years):</p><dl class='dl-horizontal'>
-   <dt>LINO</dt><dd><p>Lino Gray (575-875).</p></dd>
-   <dt>KIAT</dt><dd><p>Kiatuthlanna Black-on-white (850-910).</p></dd>
-   <dt>RED</dt><dd><p>Red Mesa Black-on-white (900-1030).</p></dd>
-   <dt>GALL</dt><dd><p>Gallup Black-on-white (1025-1150).</p></dd>
-   <dt>ESC</dt><dd><p>Escavada Black-on-white (1050-1150).</p></dd>
-   <dt>PUBW</dt><dd><p>Puerco Black-on-white (1050-1200).</p></dd>
-   <dt>RES</dt><dd><p>Reserve Black-on-white (1071-1115).</p></dd>
-   <dt>TULA</dt><dd><p>Tularosa Black-on-white (1175-1300).</p></dd>
-   <dt>PINE</dt><dd><p>Pinedale Black-on-white (1275-1325).</p></dd>
-   <dt>PUBR</dt><dd><p>Puerco Black-on-red (1050-1200).</p></dd>
-   <dt>WING</dt><dd><p>Wingate Black-on-red (1070-1200).</p></dd>
-   <dt>WIPO</dt><dd><p>Wingate Polychrome (1150-1250).</p></dd>
-   <dt>SJ</dt><dd><p>St. Johns Black-on-red/Polychrome (1200-1300).</p></dd>
-   <dt>LSJ</dt><dd><p>St. Johns glaze, Techado Polychrome (1275-1300).</p></dd>
-   <dt>SPR</dt><dd><p>Springerville Polychrome (1250-1300).</p></dd>
-   <dt>PINER</dt><dd><p>Pinedale Black-on-red/Polychrome (1275-1325).</p></dd>
-   <dt>HESH</dt><dd><p>Heshotauthla Polychrome (1285-1400).</p></dd>
-   <dt>KWAK</dt><dd><p>Kwakina Polychrome (1285-1400).</p></dd>
- 
-</dl>
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p>Peeples, M. A., &amp; Schachner, G. (2012). Refining correspondence
- analysis-based ceramic seriation of regional data sets. <em>Journal of
- Archaeological Science</em>, 39(8), 2818-2827.
- DOI: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other datasets: <code><a href='boves.html'>boves</a></code>,
-  <code><a href='compiegne.html'>compiegne</a></code>, <code><a href='merzbach.html'>merzbach</a></code>,
-  <code><a href='mississippi.html'>mississippi</a></code></p></div>
+    <div class='dont-index'><p><a href='heterogeneity-index.html'>index_heterogeneity</a>, <a href='heterogeneity-index.html'>index_evenness</a>,
+ <a href='richness-index.html'>index_richness</a></p>
+<p>Other plot: <code><a href='plot_bar.html'>plot_bar</a></code>,
+  <code><a href='plot_date.html'>plot_date</a></code>, <code><a href='plot_line.html'>plot_line</a></code>,
+  <code><a href='plot_matrix.html'>plot_matrix</a></code>, <code><a href='plot_spot.html'>plot_spot</a></code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>magrittr</span>)
+
+<span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"shannon"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># \donttest{</span>
+<span class='co'>## Assemblage diversity size comparison</span>
+<span class='co'>## Warning: this may take a few seconds!</span>
+<span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"shannon"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='richness-index.html'>index_richness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-3.png' alt='' width='700' height='433' /></div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#source">Source</a></li>
+      <li><a href="#arguments">Arguments</a></li>
       <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>N. Frerebeau</p>
   </div>
 </div>
 

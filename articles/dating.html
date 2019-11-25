@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
       <h1>4. Dating Methods</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2019-10-02</h4>
+            <h4 class="date">2019-11-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/dating.Rmd"><code>vignettes/dating.Rmd</code></a></small>
       <div class="hidden name"><code>dating.Rmd</code></div>
@@ -189,12 +189,12 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <a class="sourceLine" id="cb2-20" data-line-number="20">zuni_mcd &lt;-<span class="st"> </span><span class="kw"><a href="../reference/date.html">date_mcd</a></span>(zuni_count, <span class="dt">dates =</span> zuni_mid, <span class="dt">errors =</span> zuni_error)</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(zuni_mcd)</a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;       id      date    error     lower     upper</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1161.4770 1163.6605</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1136.7875 1140.1328</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1151.3299 1154.9558</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.0430 1090.5570</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1088.5737 1095.2669</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  838.6492  846.6008</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1160.8949 1163.1739</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1135.4458 1138.7022</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1153.2114 1156.9083</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.3344 1090.8656</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1085.2737 1091.9513</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  835.3453  843.0689</span></a>
 <a class="sourceLine" id="cb2-29" data-line-number="29"></a>
 <a class="sourceLine" id="cb2-30" data-line-number="30">## Plot dates</a>
 <a class="sourceLine" id="cb2-31" data-line-number="31"><span class="kw">set_dates</span>(zuni_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">value =</span> zuni_mcd<span class="op">$</span>date, <span class="dt">error =</span> zuni_mcd<span class="op">$</span>error)</a>
@@ -400,7 +400,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <p>Dean, Jeffrey S. 1978. “Independent Dating in Archaeological Analysis.” In <em>Advances in Archaeological Method and Theory</em>, 223–55. Elsevier. <a href="https://doi.org/10.1016/B978-0-12-003101-6.50013-5" class="uri">https://doi.org/10.1016/B978-0-12-003101-6.50013-5</a>.</p>
 </div>
 <div id="ref-dunnell1970">
-<p>Dunnell, Robert C. 1970. “Seriation Method and Its Evaluation.” <em>American Antiquity</em> 35 (03): 305–19. <a href="https://doi.org/10.2307/278341" class="uri">https://doi.org/10.2307/278341</a>.</p>
+<p>Dunnell, Robert C. 1970. “Seriation Method and Its Evaluation.” <em>American Antiquity</em> 35 (3): 305–19. <a href="https://doi.org/10.2307/278341" class="uri">https://doi.org/10.2307/278341</a>.</p>
 </div>
 <div id="ref-dye2016">
 <p>Dye, Thomas S. 2016. “Long-Term Rhythms in the Development of Hawaiian Social Stratification.” <em>Journal of Archaeological Science</em> 71 (July): 1–9. <a href="https://doi.org/10.1016/j.jas.2016.05.006" class="uri">https://doi.org/10.1016/j.jas.2016.05.006</a>.</p>
@@ -409,7 +409,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <p>O’Brien, Michael J, and R. Lee Lyman. 2002. <em>Seriation, Stratigraphy, and Index Fossils: The Backbone of Archaeological Dating</em>. Dordrecht: Springer.</p>
 </div>
 <div id="ref-poblome2003">
-<p>Poblome, J., and P. J. F. Groenen. 2003. “Constrained Correspondence Analysis for Seriation of Sagalassos Tablewares.” In <em>The Digital Heritage of Archaeology</em>, edited by M. Doerr and A. Sarris. Athens: Hellenic Ministry of Culture.</p>
+<p>Poblome, J., and P. J. F. Groenen. 2003. “Constrained Correspondence Analysis for Seriation of Sagalassos Tablewares.” In <em>The Digital Heritage of Archaeology</em>, edited by M. Doerr and A. Sarris. Hellenic Ministry of Culture.</p>
 </div>
 <div id="ref-south1977">
 <p>South, S. A. 1977. <em>Method and Theory in Historical Archaeology</em>. Studies in Archeology. New York: Academic Press.</p>

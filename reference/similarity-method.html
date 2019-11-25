@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
       </span>
     </div>
 
@@ -225,8 +225,9 @@ used (see details). Any unambiguous substring can be given.</p></td>
  DOI: <a href='https://doi.org/10.2307/276978'>10.2307/276978</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other diversity: <code><a href='diversity.html'>diversity</a></code>,
-  <code><a href='richness.html'>richness</a></code>, <code><a href='turnover-method.html'>turnover</a></code></p></div>
+    <div class='dont-index'><p>Other diversity: <code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
+  <code><a href='richness-index.html'>richness-index</a></code>,
+  <code><a href='turnover-index.html'>turnover-index</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Data from Huntley 2008</span>
@@ -260,25 +261,25 @@ used (see details). Any unambiguous substring can be given.</p></td>
 
 <span class='co'># Jaccard measure (presence/absence data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (jaccard):
-#&gt; (39dc0461-7b97-4d1b-964f-007e99265551)
+#&gt; (496e1f9e-d98e-4086-a74b-9f003426823a)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4615385
 #&gt; managed   0.4615385 1.0000000</div><div class='input'>
 <span class='co'># Sorenson measure (presence/absence data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (sorenson):
-#&gt; (0be1f695-04a6-424b-aaf5-c682014ba207)
+#&gt; (010e25a4-35f4-48df-9ee9-e4cad04dfd36)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.6315789
 #&gt; managed   0.6315789 1.0000000</div><div class='input'>
 <span class='co'># Jaccard measure (Bray's formula ; count data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (bray):
-#&gt; (248b1947-2c6a-4b7c-8de8-fa04c746d3c0)
+#&gt; (6a178b4a-1201-4f21-be18-f3c9b7f185b1)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4442754
 #&gt; managed   0.4442754 1.0000000</div><div class='input'>
 <span class='co'># Morisita-Horn measure (count data)</span>
 <span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (morisita):
-#&gt; (77860f05-3c45-48fb-9f1c-d9c9591f81f6)
+#&gt; (bf87f7f6-9ba7-4000-9a81-8ef65bb3eb65)
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.8134497
 #&gt; managed   0.8134497 1.0000000</div></pre>

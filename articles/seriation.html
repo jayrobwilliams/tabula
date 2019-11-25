@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
       <h1>3. Seriation</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2019-10-02</h4>
+            <h4 class="date">2019-11-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/seriation.Rmd"><code>vignettes/seriation.Rmd</code></a></small>
       <div class="hidden name"><code>seriation.Rmd</code></div>
@@ -157,7 +157,7 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8">## it stops with a warning.</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">(indices &lt;-<span class="st"> </span><span class="kw"><a href="../reference/seriation.html">seriate_reciprocal</a></span>(incidence1, <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">stop =</span> <span class="dv">100</span>))</a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;    Matrix ID: 508f1256-6f60-46cf-a5fa-3229f3555eac </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;    Matrix ID: 1d76e829-b514-4414-912c-a68d2220cbf5 </span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;    Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12 </span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;    Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10 </span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;    Method: reciprocal</span></a>
@@ -294,7 +294,7 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">## Get CA-based seriation order</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">(zuni_refined &lt;-<span class="st"> </span><span class="kw"><a href="../reference/seriation.html">seriate_correspondence</a></span>(zuni_counts, zuni_keep, <span class="dt">margin =</span> <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    Matrix ID: 5cba5328-dc51-4b1d-8754-f7034fd79261 </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    Matrix ID: bf66e914-532a-4b1a-a751-74b56f1888d3 </span></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;    Row order: 372 350 387 367 110 417 364 357 407 160 373 406 356 344 348 384 378 362 339 383... (400 more) </span></a>
 <a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;    Column order: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 </span></a>
 <a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;    Method: refined correspondence</span></a></code></pre></div>
@@ -305,13 +305,13 @@
 <a href="#references" class="anchor"></a>References</h1>
 <div id="refs" class="references">
 <div id="ref-desachy2004">
-<p>Desachy, Bruno. 2004. “Le sériographe EPPM : un outil informatisé de sériation graphique pour tableaux de comptages.” <em>Revue archéologique de Picardie</em> 3 (1): 39–56. <a href="https://doi.org/10.3406/pica.2004.2396" class="uri">https://doi.org/10.3406/pica.2004.2396</a>.</p>
+<p>Desachy, Bruno. 2004. “Le Sériographe EPPM: Un Outil Informatisé de Sériation Graphique Pour Tableaux de Comptages.” <em>Revue Archéologique de Picardie</em> 3 (1): 39–56. <a href="https://doi.org/10.3406/pica.2004.2396" class="uri">https://doi.org/10.3406/pica.2004.2396</a>.</p>
 </div>
 <div id="ref-dunnell1970">
-<p>Dunnell, Robert C. 1970. “Seriation Method and Its Evaluation.” <em>American Antiquity</em> 35 (03): 305–19. <a href="https://doi.org/10.2307/278341" class="uri">https://doi.org/10.2307/278341</a>.</p>
+<p>Dunnell, Robert C. 1970. “Seriation Method and Its Evaluation.” <em>American Antiquity</em> 35 (3): 305–19. <a href="https://doi.org/10.2307/278341" class="uri">https://doi.org/10.2307/278341</a>.</p>
 </div>
 <div id="ref-ihm2005">
-<p>Ihm, Peter. 2005. “A Contribution to the History of Seriation in Archaeology.” In <em>Classification the Ubiquitous Challenge</em>, edited by Claus Weihs and Wolfgang Gaul, 307–16. Berlin Heidelberg: Springer. <a href="https://doi.org/10.1007/3-540-28084-7_34" class="uri">https://doi.org/10.1007/3-540-28084-7_34</a>.</p>
+<p>Ihm, Peter. 2005. “A Contribution to the History of Seriation in Archaeology.” In <em>Classification – the Ubiquitous Challenge</em>, edited by Claus Weihs and Wolfgang Gaul, 307–16. Berlin Heidelberg: Springer. <a href="https://doi.org/10.1007/3-540-28084-7_34" class="uri">https://doi.org/10.1007/3-540-28084-7_34</a>.</p>
 </div>
 <div id="ref-peeples2012">
 <p>Peeples, Matthew A., and Gregson Schachner. 2012. “Refining Correspondence Analysis-Based Ceramic Seriation of Regional Data Sets.” <em>Journal of Archaeological Science</em> 39 (8): 2818–27. <a href="https://doi.org/10.1016/j.jas.2012.04.040" class="uri">https://doi.org/10.1016/j.jas.2012.04.040</a>.</p>

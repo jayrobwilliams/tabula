@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
       </span>
     </div>
 
@@ -143,19 +143,60 @@
       <small>Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="tabula-1-3-0" class="section level2">
+    <div id="tabula-1-4-0" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tabula-1-3-0" class="anchor"></a>tabula 1.3.0</h2>
+<a href="#tabula-1-4-0" class="anchor"></a>tabula 1.4.0</h2>
+<ul>
+<li>Published in the <a href="https://doi.org/10.21105/joss.01821"><em>Journal of Open Source Software</em></a>.</li>
+</ul>
 <div id="new-classes-and-methods" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-classes-and-methods" class="anchor"></a>New classes and methods</h3>
 <ul>
 <li>
-<code>Matrix</code> this S4 class is now the superclass of all matrix-like classes.</li>
+<code>DiversityIndex</code>, <code>HeterogeneityIndex</code>, <code>EvennessIndex</code> and <code>RichnessIndex</code> S4 classes represent diversity index.</li>
 <li>
-<code>AbundanceMatrix</code> this virtual S4 class is defined as the superclass of <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code>.</li>
+<code><a href="../reference/heterogeneity-index.html">index_heterogeneity()</a></code> replaces <code><a href="../reference/deprecated.html">diversity()</a></code>.</li>
 <li>
-<code>SpaceTime</code> this S4 class represents space-time informations.</li>
+<code><a href="../reference/heterogeneity-index.html">index_evenness()</a></code> replaces <code><a href="../reference/deprecated.html">evenness()</a></code>.</li>
+<li>
+<code><a href="../reference/richness-index.html">index_richness()</a></code> replaces <code><a href="../reference/deprecated.html">richness()</a></code>.</li>
+<li>
+<code><a href="../reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
+<li>
+<code><a href="../reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs.</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
+<li>Add replacement methods for the <code>*Matrix</code> classes.</li>
+</ul>
+</div>
+<div id="bugfixes-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bugfixes-changes" class="anchor"></a>Bugfixes &amp; changes</h3>
+<ul>
+<li>Deprecate <code><a href="../reference/deprecated.html">diversity()</a></code>, <code><a href="../reference/deprecated.html">evenness()</a></code> and <code><a href="../reference/deprecated.html">richness()</a></code>.</li>
+</ul>
+</div>
+<div id="internals" class="section level3">
+<h3 class="hasAnchor">
+<a href="#internals" class="anchor"></a>Internals</h3>
+<ul>
+<li>Display progress bars only if <code><a href="https://rdrr.io/r/base/interactive.html">interactive()</a></code> is <code>TRUE</code> and {pbapply} is installed.</li>
+</ul>
+</div>
+</div>
+    <div id="tabula-1-3-0-release-date-2019-09-20" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tabula-1-3-0-release-date-2019-09-20" class="anchor"></a>tabula 1.3.0 (release date: 2019-09-20)</h2>
+<p><a href="https://doi.org/10.5281/zenodo.3455385"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3455385.svg" alt="DOI"></a></p>
+<div id="new-classes-and-methods-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-classes-and-methods-1" class="anchor"></a>New classes and methods</h3>
+<ul>
+<li>
+<code>Matrix</code> S4 class is now the superclass of all matrix-like classes.</li>
+<li>
+<code>AbundanceMatrix</code> virtual S4 class is defined as the superclass of <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code>.</li>
+<li>
+<code>SpaceTime</code> S4 class represents space-time informations.</li>
 <li>
 <code>as_*()</code> coerce a <code>matrix</code> or <code>data.frame</code> to a <code>CountMatrix</code>, <code>FrequencyMatrix</code>, <code>IncidenceMatrix</code>, <code>OccurrenceMatrix</code> or <code>SimilarityMatrix</code>.</li>
 <li>
@@ -188,9 +229,9 @@
 <code><a href="../reference/test.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
 </ul>
 </div>
-<div id="bugfixes-changes" class="section level3">
+<div id="bugfixes-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-1" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code> now also contain the <code>SpaceTime</code> class.</li>
@@ -207,9 +248,9 @@
 <li>The <code><a href="../reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
 </ul>
 </div>
-<div id="internals" class="section level3">
+<div id="internals-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals" class="anchor"></a>Internals</h3>
+<a href="#internals-1" class="anchor"></a>Internals</h3>
 <ul>
 <li>Reduce required R version to 3.2.</li>
 <li>Error handling has been revised and error messages have been harmonized.</li>
@@ -234,9 +275,10 @@
     <div id="tabula-1-2-0-release-date-2019-03-20" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tabula-1-2-0-release-date-2019-03-20" class="anchor"></a>tabula 1.2.0 (release date: 2019-03-20)</h2>
-<div id="new-classes-and-methods-1" class="section level3">
+<p><a href="https://doi.org/10.5281/zenodo.2600844"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2600844.svg" alt="DOI"></a></p>
+<div id="new-classes-and-methods-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-classes-and-methods-1" class="anchor"></a>New classes and methods</h3>
+<a href="#new-classes-and-methods-2" class="anchor"></a>New classes and methods</h3>
 <ul>
 <li>The function <code>dateEvent()</code> allows to compute chronological models as described in Bellanger and Husi (2006).</li>
 <li>
@@ -251,9 +293,9 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code> operators for several classes.</li>
 </ul>
 </div>
-<div id="bugfixes-changes-1" class="section level3">
+<div id="bugfixes-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-1" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-2" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code>OccurrenceMatrix</code> now stores the number of times each pair of taxa occurs together in at least one sample.</li>
@@ -274,9 +316,9 @@
 <code><a href="../reference/deprecated.html">seriate()</a></code> gained a new argument to pass a <code>BootCA</code> object.</li>
 </ul>
 </div>
-<div id="internals-1" class="section level3">
+<div id="internals-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-1" class="anchor"></a>Internals</h3>
+<a href="#internals-2" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add an optional progress bars with {pbapply} in long running functions.</li>
 </ul>
@@ -285,9 +327,10 @@
     <div id="tabula-1-1-0-release-date-2018-12-30" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tabula-1-1-0-release-date-2018-12-30" class="anchor"></a>tabula 1.1.0 (release date: 2018-12-30)</h2>
-<div id="bugfixes-changes-2" class="section level3">
+<p><a href="https://doi.org/10.5281/zenodo.2529084"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2529084.svg" alt="DOI"></a></p>
+<div id="bugfixes-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-2" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-3" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code><a href="../reference/similarity-method.html">similarity()</a></code> now returns a symmetric matrix.</li>
@@ -298,17 +341,14 @@
 <a href="#enhancements-2" class="anchor"></a>Enhancements</h3>
 <ul>
 <li>
-<code><a href="../reference/richness.html">richness()</a></code> gained new estimators:
-<ul>
+<code><a href="../reference/deprecated.html">richness()</a></code> gained new estimators:</li>
 <li>For abundance data: Chao1, bias-corrected Chao1, improved Chao1 and Abundance-based Coverage Estimator (ACE).</li>
 <li>For replicated incidence data: Chao2, bias-corrected Chao2, improved Chao2 and Incidence-based Coverage Estimator (ICE).</li>
 </ul>
-</li>
-</ul>
 </div>
-<div id="internals-2" class="section level3">
+<div id="internals-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-2" class="anchor"></a>Internals</h3>
+<a href="#internals-3" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add references in the <code>Description</code> field of the DESCRIPTION file.</li>
 <li>Split the documentation for alpha-diversity measures.</li>
@@ -319,12 +359,13 @@
     <div id="tabula-1-0-0-release-date-2018-12-03" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tabula-1-0-0-release-date-2018-12-03" class="anchor"></a>tabula 1.0.0 (release date: 2018-12-03)</h2>
+<p><a href="https://doi.org/10.5281/zenodo.1881131"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1881131.svg" alt="DOI"></a></p>
 <ul>
 <li>Initial version on CRAN</li>
 </ul>
-<div id="new-classes-and-methods-2" class="section level3">
+<div id="new-classes-and-methods-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-classes-and-methods-2" class="anchor"></a>New classes and methods</h3>
+<a href="#new-classes-and-methods-3" class="anchor"></a>New classes and methods</h3>
 <ul>
 <li>
 <code>BootCA</code> this S4 class stores partial bootstrap CA-based seriation results.</li>
@@ -332,9 +373,9 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code> operators acting on <code>PermutationOrder</code> and <code>BootCA</code> to extract parts.</li>
 </ul>
 </div>
-<div id="bugfixes-changes-3" class="section level3">
+<div id="bugfixes-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-3" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-4" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code><a href="../reference/deprecated.html">refine()</a></code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
@@ -349,9 +390,9 @@
 <code><a href="../reference/similarity-method.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
 </ul>
 </div>
-<div id="internals-3" class="section level3">
+<div id="internals-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-3" class="anchor"></a>Internals</h3>
+<a href="#internals-4" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add a vignette for matrix seriation.</li>
 </ul>
@@ -360,8 +401,9 @@
     <div id="tabula-0-9-0-release-date-2018-11-16" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tabula-0-9-0-release-date-2018-11-16" class="anchor"></a>tabula 0.9.0 (release date: 2018-11-16)</h2>
+<p><a href="https://doi.org/10.5281/zenodo.1489945"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1489945.svg" alt="DOI"></a></p>
 <ul>
-<li>First release.</li>
+<li>Beta release.</li>
 </ul>
 </div>
   </div>
@@ -370,7 +412,8 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#tabula-1-3-0">1.3.0</a></li>
+        <li><a href="#tabula-1-4-0">1.4.0</a></li>
+        <li><a href="#tabula-1-3-0-release-date-2019-09-20">1.3.0</a></li>
         <li><a href="#tabula-1-2-0-release-date-2019-03-20">1.2.0</a></li>
         <li><a href="#tabula-1-1-0-release-date-2018-12-30">1.1.0</a></li>
         <li><a href="#tabula-1-0-0-release-date-2018-12-03">1.0.0</a></li>
