@@ -50,7 +50,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -73,9 +73,6 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/matrix.html">Matrix Classes</a>
-    </li>
-    <li>
       <a href="articles/diversity.html">Diversity Measures</a>
     </li>
     <li>
@@ -143,206 +140,182 @@
 <a href="#usage" class="anchor"></a>Usage</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Load packages</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tabula)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(khroma)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</a></code></pre></div>
-<p><strong>tabula</strong> provides a set of S4 classes that extend the basic <code>matrix</code> data type. These new classes represent different special types of matrix.</p>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; Loading required package: codex</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(khroma)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</a></code></pre></div>
+<p><strong>tabula</strong> uses a set of S4 classes that extend the basic <code>matrix</code> data type. These new classes represent different special types of matrix:</p>
 <ul>
-<li>Abundance matrix:
+<li>Numeric matrix:
 <ul>
 <li>
-<code>CountMatrix</code> represents count data,</li>
+<code>CountMatrix</code> represents absolute frequency data,</li>
 <li>
-<code>FrequencyMatrix</code> represents relative frequency data.</li>
+<code>AbundanceMatrix</code> represents relative frequency data,</li>
+<li>
+<code>OccurrenceMatrix</code> represents a co-occurrence matrix,</li>
+<li>
+<code>SimilarityMatrix</code> represents a (dis)similarity matrix,</li>
 </ul>
 </li>
 <li>Logical matrix:
 <ul>
 <li>
-<code>IncidenceMatrix</code> represents presence/absence data.</li>
-</ul>
-</li>
-<li>Other numeric matrix:
-<ul>
+<code>IncidenceMatrix</code> represents presence/absence data,</li>
 <li>
-<code>OccurrenceMatrix</code> represents a co-occurrence matrix.</li>
-<li>
-<code>SimilarityMatrix</code> represents a (dis)similarity matrix.</li>
+<code>StratigraphicMatrix</code> represents stratigraphic relationships.</li>
 </ul>
 </li>
 </ul>
 <p><em>It assumes that you keep your data tidy</em>: each variable (type/taxa) must be saved in its own column and each observation (sample/case) must be saved in its own row.</p>
-<p>These new classes are of simple use, on the same way as the base <code>matrix</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Define a count data matrix</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">quanti &lt;-<span class="st"> </span><span class="kw"><a href="reference/CountMatrix-class.html">CountMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">                      <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># Define a logical matrix</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># Data will be coerced with as.logical()</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">quali &lt;-<span class="st"> </span><span class="kw"><a href="reference/IncidenceMatrix-class.html">IncidenceMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">                         <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</a></code></pre></div>
-<p><strong>tabula</strong> uses coercing mechanisms (with validation methods) for data type conversions:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">## Create a count matrix</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">A1 &lt;-<span class="st"> </span><span class="kw"><a href="reference/CountMatrix-class.html">CountMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">                  <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">## Coerce counts to frequencies</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">B &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_frequency</a></span>(A1)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">## Row sums are internally stored before coercing to a frequency matrix</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">## (use totals() to get these values)</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">## This allows to restore the source data</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">A2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>(B)</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/r/base/all.html">all</a></span>(A1 <span class="op">==</span><span class="st"> </span>A2)</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; [1] TRUE</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">## Coerce to presence/absence</a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">C &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_incidence</a></span>(A1)</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">## Coerce to a co-occurrence matrix</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19">D &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_occurrence</a></span>(A1)</a></code></pre></div>
+<p>These new classes are of simple use, please refer to the documentation of the <a href="https://github.com/nfrerebeau/codex"><strong>codex</strong></a> package where these classes are defined.</p>
+<div id="visualization" class="section level3">
+<h3 class="hasAnchor">
+<a href="#visualization" class="anchor"></a>Visualization</h3>
 <p>Several types of graphs are available in <strong>tabula</strong> which uses <a href="https://github.com/tidyverse/ggplot2"><strong>ggplot2</strong></a> for plotting informations. This makes it easy to customize diagrams (e.g. using themes and scales).</p>
 <p>Spot matrix[1] allows direct examination of data:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Plot co-occurrence of types</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># (i.e. how many times (percent) each pairs of taxa occur together </span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># in at least one sample.)</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">mississippi <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_occurrence</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/plot_spot.html">plot_spot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">size =</span> <span class="st">""</span>, <span class="dt">colour =</span> <span class="st">"Co-occurrence"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.box =</span> <span class="st">"horizontal"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_sequential.html">scale_colour_YlOrBr</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Plot co-occurrence of types</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># (i.e. how many times (percent) each pairs of taxa occur together </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co"># in at least one sample.)</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">mississippi <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">as_occurrence</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/plot_spot.html">plot_spot</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">size =</span> <span class="st">""</span>, <span class="dt">colour =</span> <span class="st">"Co-occurrence"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.box =</span> <span class="st">"horizontal"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_sequential.html">scale_colour_YlOrBr</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-plot-occ-1.png" style="display: block; margin: auto;"></p>
 <p>Bertin or Ford (battleship curve) diagrams can be plotted, with statistic threshold (including B. Desachy’s <a href="https://doi.org/10.3406/pica.2004.2396">sériographe</a>).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/plot_bar.html">plot_bertin</a></span>(<span class="dt">threshold =</span> mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_fill_vibrant</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">as_count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/plot_bar.html">plot_bertin</a></span>(<span class="dt">threshold =</span> mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_fill_vibrant</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-bertin-1.png" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">compiegne <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/plot_bar.html">plot_ford</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">compiegne <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">as_count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/plot_bar.html">plot_ford</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-ford-1.png" style="display: block; margin: auto;"></p>
+</div>
 <div id="seriation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#seriation" class="anchor"></a>Seriation</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Build an incidence matrix with random data</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">12345</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">incidence &lt;-<span class="st"> </span><span class="kw"><a href="reference/IncidenceMatrix-class.html">IncidenceMatrix</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">400</span>, <span class="ot">TRUE</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.6</span>, <span class="fl">0.4</span>)),</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">                             <span class="dt">nrow =</span> <span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co"># Get seriation order on rows and columns</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co"># Correspondance analysis-based seriation</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">(indices &lt;-<span class="st"> </span><span class="kw"><a href="reference/seriation.html">seriate_reciprocal</a></span>(incidence, <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)))</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; Permutation order for matrix seriation: </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;    Matrix ID: 2b312a8d-5cc5-491c-ac5d-37eecd2f9bf2 </span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;    Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12 </span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;    Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10 </span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;    Method: reciprocal</span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="co"># Permute matrix rows and columns</span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">incidence2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/seriation.html">permute</a></span>(incidence, indices)</a></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Plot matrix</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="reference/plot_matrix.html">plot_heatmap</a></span>(incidence) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Original matrix"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TRUE"</span> =<span class="st"> "black"</span>, <span class="st">"FALSE"</span> =<span class="st"> "white"</span>))</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="kw"><a href="reference/plot_matrix.html">plot_heatmap</a></span>(incidence2) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Rearranged matrix"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TRUE"</span> =<span class="st"> "black"</span>, <span class="st">"FALSE"</span> =<span class="st"> "white"</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Build an incidence matrix with random data</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">12345</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">incidence &lt;-<span class="st"> </span><span class="kw">IncidenceMatrix</span>(<span class="dt">data =</span> <span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">400</span>, <span class="ot">TRUE</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.6</span>, <span class="fl">0.4</span>)),</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">                             <span class="dt">nrow =</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># Get seriation order on rows and columns</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co"># Correspondance analysis-based seriation</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">(indices &lt;-<span class="st"> </span><span class="kw"><a href="reference/seriation.html">seriate_reciprocal</a></span>(incidence, <span class="dt">margin =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)))</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; &lt;PermutationOrder: 4bffe51c-75f2-4bc3-a2d0-7c005a75b349&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; Permutation order for matrix seriation:</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; - Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12...</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; - Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10...</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; - Method: reciprocal</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co"># Permute matrix rows and columns</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">incidence2 &lt;-<span class="st"> </span><span class="kw"><a href="reference/seriation.html">permute</a></span>(incidence, indices)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Plot matrix</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="reference/plot_matrix.html">plot_heatmap</a></span>(incidence) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Original matrix"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TRUE"</span> =<span class="st"> "black"</span>, <span class="st">"FALSE"</span> =<span class="st"> "white"</span>))</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="kw"><a href="reference/plot_matrix.html">plot_heatmap</a></span>(incidence2) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Rearranged matrix"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TRUE"</span> =<span class="st"> "black"</span>, <span class="st">"FALSE"</span> =<span class="st"> "white"</span>))</a></code></pre></div>
 <p><img src="reference/figures/README-permute-incidence-1.png"><img src="reference/figures/README-permute-incidence-2.png"></p>
 </div>
 <div id="dating" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dating" class="anchor"></a>Dating</h3>
 <p>This package provides an implementation of the chronological modeling method developed by Bellanger and Husi (<a href="https://doi.org/10.1016/j.jas.2011.06.031">2012</a>). This method is slightly modified here and allows the construction of different probability density curves of archaeological assemblage dates (<em>event</em>, <em>activity</em> and <em>tempo</em>). Note that this implementation is experimental (see <code><a href="https://rdrr.io/r/utils/help.html">help(date_event)</a></code>).</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Coerce dataset to abundance (count) matrix</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">zuni_counts &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>(zuni)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co"># Assume that some assemblages are reliably dated (this is NOT a real example)</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co"># The names of the vector entries must match the names of the assemblages</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">set_dates</span>(zuni_counts) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">LZ0569 =</span> <span class="dv">1097</span>, <span class="dt">LZ0279 =</span> <span class="dv">1119</span>, <span class="dt">CS16 =</span> <span class="dv">1328</span>, <span class="dt">LZ0066 =</span> <span class="dv">1111</span>,</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">LZ0852 =</span> <span class="dv">1216</span>, <span class="dt">LZ1209 =</span> <span class="dv">1251</span>, <span class="dt">CS144 =</span> <span class="dv">1262</span>, <span class="dt">LZ0563 =</span> <span class="dv">1206</span>,</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">  <span class="dt">LZ0329 =</span> <span class="dv">1076</span>, <span class="dt">LZ0005Q =</span> <span class="dv">859</span>, <span class="dt">LZ0322 =</span> <span class="dv">1109</span>, <span class="dt">LZ0067 =</span> <span class="dv">863</span>,</a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">  <span class="dt">LZ0578 =</span> <span class="dv">1180</span>, <span class="dt">LZ0227 =</span> <span class="dv">1104</span>, <span class="dt">LZ0610 =</span> <span class="dv">1074</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">)</a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co"># Model the event date for each assemblage</span></a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">model &lt;-<span class="st"> </span><span class="kw"><a href="reference/date.html">date_event</a></span>(zuni_counts, <span class="dt">cutoff =</span> <span class="dv">90</span>)</a>
-<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co"># Plot activity and tempo distributions</span></a>
-<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="kw"><a href="reference/plot_date.html">plot_date</a></span>(model, <span class="dt">type =</span> <span class="st">"activity"</span>, <span class="dt">select =</span> <span class="st">"LZ1105"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Activity plot"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-17" data-line-number="17"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a>
-<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="kw"><a href="reference/plot_date.html">plot_date</a></span>(model, <span class="dt">type =</span> <span class="st">"tempo"</span>, <span class="dt">select =</span> <span class="st">"LZ1105"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Tempo plot"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-20" data-line-number="20"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Coerce dataset to abundance (count) matrix</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">zuni_counts &lt;-<span class="st"> </span><span class="kw">as_count</span>(zuni)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># Assume that some assemblages are reliably dated (this is NOT a real example)</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># The names of the vector entries must match the names of the assemblages</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw">set_dates</span>(zuni_counts) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">LZ0569 =</span> <span class="dv">1097</span>, <span class="dt">LZ0279 =</span> <span class="dv">1119</span>, <span class="dt">CS16 =</span> <span class="dv">1328</span>, <span class="dt">LZ0066 =</span> <span class="dv">1111</span>,</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">  <span class="dt">LZ0852 =</span> <span class="dv">1216</span>, <span class="dt">LZ1209 =</span> <span class="dv">1251</span>, <span class="dt">CS144 =</span> <span class="dv">1262</span>, <span class="dt">LZ0563 =</span> <span class="dv">1206</span>,</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="dt">LZ0329 =</span> <span class="dv">1076</span>, <span class="dt">LZ0005Q =</span> <span class="dv">859</span>, <span class="dt">LZ0322 =</span> <span class="dv">1109</span>, <span class="dt">LZ0067 =</span> <span class="dv">863</span>,</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="dt">LZ0578 =</span> <span class="dv">1180</span>, <span class="dt">LZ0227 =</span> <span class="dv">1104</span>, <span class="dt">LZ0610 =</span> <span class="dv">1074</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">)</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co"># Model the event date for each assemblage</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">model &lt;-<span class="st"> </span><span class="kw"><a href="reference/date.html">date_event</a></span>(zuni_counts, <span class="dt">cutoff =</span> <span class="dv">90</span>)</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co"># Plot activity and tempo distributions</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="kw"><a href="reference/plot_date.html">plot_date</a></span>(model, <span class="dt">type =</span> <span class="st">"activity"</span>, <span class="dt">select =</span> <span class="st">"LZ1105"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Activity plot"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a>
+<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="kw"><a href="reference/plot_date.html">plot_date</a></span>(model, <span class="dt">type =</span> <span class="st">"tempo"</span>, <span class="dt">select =</span> <span class="st">"LZ1105"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">title =</span> <span class="st">"Tempo plot"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-date-1.png"><img src="reference/figures/README-date-2.png"></p>
 </div>
 <div id="analysis" class="section level3">
 <h3 class="hasAnchor">
 <a href="#analysis" class="anchor"></a>Analysis</h3>
 <p><em>Diversity</em> can be measured according to several indices (sometimes referred to as indices of <em>heterogeneity</em>):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/heterogeneity-index.html">index_heterogeneity</a></span>(<span class="dt">method =</span> <span class="st">"shannon"</span>)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co">#&gt; &lt;HeterogeneityIndex: shannon&gt;</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt;                 index</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt; 10-P-1      1.2027955</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt; 11-N-9      0.7646565</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; 11-N-1      0.9293974</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; 11-O-10     0.8228576</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt; 11-N-4      0.7901428</span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#&gt; 13-N-5      0.9998430</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#&gt; 13-N-4      1.2051989</span></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#&gt; 13-N-16     1.1776226</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#&gt; 13-O-11     1.1533432</span></a>
-<a class="sourceLine" id="cb12-15" data-line-number="15"><span class="co">#&gt; 13-O-10     1.2884172</span></a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="co">#&gt; 13-P-1      1.1725355</span></a>
-<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="co">#&gt; 13-P-8      1.5296294</span></a>
-<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="co">#&gt; 13-P-10     1.7952443</span></a>
-<a class="sourceLine" id="cb12-19" data-line-number="19"><span class="co">#&gt; 13-O-7      1.1627477</span></a>
-<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="co">#&gt; 13-O-5      1.0718463</span></a>
-<a class="sourceLine" id="cb12-21" data-line-number="21"><span class="co">#&gt; 13-N-21     0.9205717</span></a>
-<a class="sourceLine" id="cb12-22" data-line-number="22"><span class="co">#&gt; 12-O-5      1.1751002</span></a>
-<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="co">#&gt; Holden Lake 0.7307620</span></a>
-<a class="sourceLine" id="cb12-24" data-line-number="24"><span class="co">#&gt; 13-N-15     1.1270126</span></a>
-<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="co">#&gt; 12-N-3      1.0270291</span></a>
-<a class="sourceLine" id="cb12-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb12-27" data-line-number="27">## Test difference in Shannon diversity between assemblages</a>
-<a class="sourceLine" id="cb12-28" data-line-number="28">## (returns a matrix of adjusted p values)</a>
-<a class="sourceLine" id="cb12-29" data-line-number="29">mississippi[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ] <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-30" data-line-number="30"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-31" data-line-number="31"><span class="st">  </span><span class="kw"><a href="reference/test.html">test_diversity</a></span>()</a>
-<a class="sourceLine" id="cb12-32" data-line-number="32"><span class="co">#&gt;               10-P-1       11-N-9       11-N-1   11-O-10</span></a>
-<a class="sourceLine" id="cb12-33" data-line-number="33"><span class="co">#&gt; 11-N-9  0.000000e+00           NA           NA        NA</span></a>
-<a class="sourceLine" id="cb12-34" data-line-number="34"><span class="co">#&gt; 11-N-1  3.609626e-08 8.538298e-05           NA        NA</span></a>
-<a class="sourceLine" id="cb12-35" data-line-number="35"><span class="co">#&gt; 11-O-10 2.415845e-13 4.735511e-01 2.860461e-02        NA</span></a>
-<a class="sourceLine" id="cb12-36" data-line-number="36"><span class="co">#&gt; 11-N-4  0.000000e+00 7.116363e-01 7.961107e-05 0.7116363</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">mississippi <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">as_count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/heterogeneity-index.html">index_heterogeneity</a></span>(<span class="dt">method =</span> <span class="st">"shannon"</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt; &lt;HeterogeneityIndex: 05b1f084-1042-4314-b597-72a5b9bb6d79&gt;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt; - Method: shannon</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt;             size     index</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt; 10-P-1       153 1.2027955</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; 11-N-9       758 0.7646565</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt; 11-N-1      1303 0.9293974</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt; 11-O-10      638 0.8228576</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">#&gt; 11-N-4      1266 0.7901428</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="co">#&gt; 13-N-5        79 0.9998430</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co">#&gt; 13-N-4       241 1.2051989</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co">#&gt; 13-N-16      171 1.1776226</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="co">#&gt; 13-O-11      128 1.1533432</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="co">#&gt; 13-O-10      226 1.2884172</span></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="co">#&gt; 13-P-1       360 1.1725355</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="co">#&gt; 13-P-8       192 1.5296294</span></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="co">#&gt; 13-P-10       91 1.7952443</span></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="co">#&gt; 13-O-7      1233 1.1627477</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21"><span class="co">#&gt; 13-O-5      1709 1.0718463</span></a>
+<a class="sourceLine" id="cb10-22" data-line-number="22"><span class="co">#&gt; 13-N-21      614 0.9205717</span></a>
+<a class="sourceLine" id="cb10-23" data-line-number="23"><span class="co">#&gt; 12-O-5       424 1.1751002</span></a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="co">#&gt; Holden Lake  360 0.7307620</span></a>
+<a class="sourceLine" id="cb10-25" data-line-number="25"><span class="co">#&gt; 13-N-15     1300 1.1270126</span></a>
+<a class="sourceLine" id="cb10-26" data-line-number="26"><span class="co">#&gt; 12-N-3       983 1.0270291</span></a>
+<a class="sourceLine" id="cb10-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb10-28" data-line-number="28">## Test difference in Shannon diversity between assemblages</a>
+<a class="sourceLine" id="cb10-29" data-line-number="29">## (returns a matrix of adjusted p values)</a>
+<a class="sourceLine" id="cb10-30" data-line-number="30">mississippi[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-31" data-line-number="31"><span class="st">  </span><span class="kw">as_count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-32" data-line-number="32"><span class="st">  </span><span class="kw"><a href="reference/test.html">test_diversity</a></span>()</a>
+<a class="sourceLine" id="cb10-33" data-line-number="33"><span class="co">#&gt;               10-P-1       11-N-9       11-N-1   11-O-10</span></a>
+<a class="sourceLine" id="cb10-34" data-line-number="34"><span class="co">#&gt; 11-N-9  0.000000e+00           NA           NA        NA</span></a>
+<a class="sourceLine" id="cb10-35" data-line-number="35"><span class="co">#&gt; 11-N-1  3.609626e-08 8.538298e-05           NA        NA</span></a>
+<a class="sourceLine" id="cb10-36" data-line-number="36"><span class="co">#&gt; 11-O-10 2.415845e-13 4.735511e-01 2.860461e-02        NA</span></a>
+<a class="sourceLine" id="cb10-37" data-line-number="37"><span class="co">#&gt; 11-N-4  0.000000e+00 7.116363e-01 7.961107e-05 0.7116363</span></a></code></pre></div>
 <p>Note that <code>berger</code>, <code>mcintosh</code> and <code>simpson</code> methods return a <em>dominance</em> index, not the reciprocal form usually adopted, so that an increase in the value of the index accompanies a decrease in diversity.</p>
 <p>Corresponding <em>evenness</em> (i.e. a measure of how evenly individuals are distributed across the sample) can also be computed, as well as <em>richness</em> and <em>rarefaction</em>.</p>
 <p>Several methods can be used to ascertain the degree of <em>turnover</em> in taxa composition along a gradient on qualitative (presence/absence) data. It assumes that the order of the matrix rows (from <em>1</em> to <em>n</em>) follows the progression along the gradient/transect.</p>
 <p>Diversity can also be measured by addressing <em>similarity</em> between pairs of sites:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">## Calculate the Brainerd-Robinson index</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">## Plot the similarity matrix</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">mississippi <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/similarity-method.html">similarity</a></span>(<span class="dt">method =</span> <span class="st">"brainerd"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/plot_spot.html">plot_spot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">size =</span> <span class="st">"Similarity"</span>, <span class="dt">colour =</span> <span class="st">"Similarity"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_sequential.html">scale_colour_iridescent</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">## Calculate the Brainerd-Robinson index</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">## Plot the similarity matrix</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">mississippi <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw">as_count</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/similarity-method.html">similarity</a></span>(<span class="dt">method =</span> <span class="st">"brainerd"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/plot_spot.html">plot_spot</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">size =</span> <span class="st">"Similarity"</span>, <span class="dt">colour =</span> <span class="st">"Similarity"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_sequential.html">scale_colour_iridescent</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-similarity-brainerd-1.png" style="display: block; margin: auto;"></p>
 <p>The Frequency Increment Test can be used to assess the detection and quantification of selective processes in the archaeological record[2].</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">## Keep only decoration types that have a maximum frequency of at least 50</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">keep &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/apply.html">apply</a></span>(<span class="dt">X =</span> merzbach, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(x) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">merzbach_count &lt;-<span class="st"> </span><span class="kw"><a href="reference/coerce.html">as_count</a></span>(merzbach[, keep])</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">## The data are grouped by phase</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">## We use the row names as time coordinates (roman numerals)</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">set_dates</span>(merzbach_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(merzbach)</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">## Plot time vs abundance and highlight selection</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="kw"><a href="reference/plot_date.html">plot_time</a></span>(merzbach_count, <span class="dt">highlight =</span> <span class="st">"FIT"</span>, <span class="dt">roll =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_color_contrast</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">## Keep only decoration types that have a maximum frequency of at least 50</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">keep &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/apply.html">apply</a></span>(<span class="dt">X =</span> merzbach, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(x) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">merzbach_count &lt;-<span class="st"> </span><span class="kw">as_count</span>(merzbach[, keep])</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">## The data are grouped by phase</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">## We use the row names as time coordinates (roman numerals)</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="kw">set_dates</span>(merzbach_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(merzbach)</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">## Plot time vs abundance and highlight selection</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="kw"><a href="reference/plot_date.html">plot_time</a></span>(merzbach_count, <span class="dt">highlight =</span> <span class="st">"FIT"</span>, <span class="dt">roll =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="st">  </span>khroma<span class="op">::</span><span class="kw"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_color_contrast</a></span>()</a></code></pre></div>
 <p><img src="reference/figures/README-plot-time-1.png" style="display: block; margin: auto;"></p>
 </div>
 </div>

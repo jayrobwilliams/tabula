@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -99,9 +99,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -155,15 +152,6 @@
 # S4 method for DateModel
 [(x, i, j, drop = TRUE)
 
-# S4 method for Matrix
-[(x, i, j) <- value
-
-# S4 method for Matrix
-[(x, i, j) <- value
-
-# S4 method for Matrix
-[[(x, i) <- value
-
 # S4 method for DiversityIndex
 [[(x, i)
 
@@ -174,24 +162,6 @@
 [[(x, i)
 
 # S4 method for PermutationOrder
-[[(x, i)
-
-# S4 method for SpaceTime
-[[(x, i)
-
-# S4 method for CountMatrix
-[[(x, i)
-
-# S4 method for FrequencyMatrix
-[[(x, i)
-
-# S4 method for IncidenceMatrix
-[[(x, i)
-
-# S4 method for OccurrenceMatrix
-[[(x, i)
-
-# S4 method for SimilarityMatrix
 [[(x, i)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -218,10 +188,6 @@ entries in that dimension are selected.</p></td>
 the lowest possible dimension? This only works for extracting elements,
 not for the replacement.</p></td>
     </tr>
-    <tr>
-      <th>value</th>
-      <td><p>A possible value for <code>x</code>.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -231,49 +197,6 @@ not for the replacement.</p></td>
 
     <div class='dont-index'><p>Other mutator: <code><a href='access.html'>access</a></code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Create a count data matrix</span>
-<span class='no'>A1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='CountMatrix-class.html'>CountMatrix</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>0</span>:<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>TRUE</span>),
-                  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'>## Access</span>
-<span class='fu'><a href='access.html'>get_id</a></span>(<span class='no'>A1</span>)</div><div class='output co'>#&gt; [1] "bbbd65b8-36a2-434e-ab27-7dc84c929b3b"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>A1</span>) <span class='co'># Get the matrix dimensions</span></div><div class='output co'>#&gt; [1] 10 10</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='co'># Get the column names</span></div><div class='output co'>#&gt;  [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>A1</span>) <span class='kw'>&lt;-</span> <span class='no'>letters</span>[<span class='fl'>11</span>:<span class='fl'>20</span>] <span class='co'># Set the column names</span>
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>A1</span>) <span class='co'># Get the rownames</span></div><div class='output co'>#&gt;  [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>A1</span>) <span class='kw'>&lt;-</span> <span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>10</span>] <span class='co'># Set the row names</span>
-
-<span class='co'>## Subset</span>
-<span class='no'>A1</span><span class='kw'>[[</span><span class='st'>"id"</span>]] <span class='co'># Get the matrix ID</span></div><div class='output co'>#&gt; [1] "bbbd65b8-36a2-434e-ab27-7dc84c929b3b"</div><div class='input'><span class='no'>A1</span>[, ] <span class='co'># Get all values</span></div><div class='output co'>#&gt;    k  l  m  n o p q r  s  t
-#&gt; A  0  0  0  6 2 7 2 7  3  0
-#&gt; B  3  5  0  1 0 2 9 3  8  8
-#&gt; C  8  2  2  2 9 1 2 9  5  0
-#&gt; D  9  4  2  0 6 5 1 9  9  4
-#&gt; E  8  9  9  1 5 6 5 6  2  8
-#&gt; F  7  9 10  2 7 6 5 8  8  3
-#&gt; G  7 10  5  0 9 2 2 0  1  6
-#&gt; H 10  3  3 10 3 7 2 2  0 10
-#&gt; I  6  2  1  0 9 4 5 2 10  5
-#&gt; J  3  4  3 10 4 9 0 1  4 10</div><div class='input'><span class='no'>A1</span>[<span class='fl'>1</span>, ] <span class='co'># Get the first row</span></div><div class='output co'>#&gt; k l m n o p q r s t 
-#&gt; 0 0 0 6 2 7 2 7 3 0 </div><div class='input'><span class='no'>A1</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), ] <span class='co'># Get the first three rows</span></div><div class='output co'>#&gt;   k l m n o p q r s t
-#&gt; A 0 0 0 6 2 7 2 7 3 0
-#&gt; B 3 5 0 1 0 2 9 3 8 8
-#&gt; C 8 2 2 2 9 1 2 9 5 0</div><div class='input'><span class='no'>A1</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>, <span class='st'>"C"</span>), <span class='fl'>1</span>] <span class='co'># Get the first three rows of the first column</span></div><div class='output co'>#&gt; A B C 
-#&gt; 0 3 8 </div><div class='input'><span class='no'>A1</span>[, <span class='fl'>1</span>, <span class='kw'>drop</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>] <span class='co'># Get the first column</span></div><div class='output co'>#&gt;    k
-#&gt; A  0
-#&gt; B  3
-#&gt; C  8
-#&gt; D  9
-#&gt; E  8
-#&gt; F  7
-#&gt; G  7
-#&gt; H 10
-#&gt; I  6
-#&gt; J  3</div><div class='input'>
-<span class='co'>## Coerce counts to frequencies</span>
-<span class='no'>B</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_frequency</a></span>(<span class='no'>A1</span>)
-<span class='co'>## Row sums are internally stored before coercing to a frequency matrix</span>
-<span class='fu'><a href='access.html'>get_totals</a></span>(<span class='no'>B</span>) <span class='co'># Get row sums</span></div><div class='output co'>#&gt;  A  B  C  D  E  F  G  H  I  J 
-#&gt; 27 39 40 49 59 65 42 50 44 48 </div><div class='input'><span class='co'>## This allows to restore the source data</span>
-<span class='no'>A2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_count</a></span>(<span class='no'>B</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>A1</span> <span class='kw'>==</span> <span class='no'>A2</span>)</div><div class='output co'>#&gt; [1] TRUE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -281,7 +204,6 @@ not for the replacement.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
     <h2>Author</h2>

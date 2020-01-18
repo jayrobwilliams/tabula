@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -99,9 +99,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -179,20 +176,21 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>magrittr</span>)
 
 <span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>as_count</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"shannon"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># \donttest{</span>
 <span class='co'>## Assemblage diversity size comparison</span>
 <span class='co'>## Warning: this may take a few seconds!</span>
 <span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>as_count</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"shannon"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'>
+  <span class='fu'>plot_diversity</span>()</div><div class='output co'>#&gt; <span class='error'>Error: &lt;DiversityIndex&gt; instance initialization:</span>
+#&gt; <span class='error'>* ‘simulated’ must not contain missing values (12 detected).</span></div><div class='input'>
 <span class='no'>merzbach</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='coerce.html'>as_count</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>as_count</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='richness-index.html'>index_richness</a></span>(<span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-3.png' alt='' width='700' height='433' /></div><div class='input'># }
+  <span class='fu'>plot_diversity</span>()</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

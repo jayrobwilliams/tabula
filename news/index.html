@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -98,9 +98,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -143,6 +140,25 @@
       <small>Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="tabula-1-5-0" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tabula-1-5-0" class="anchor"></a>tabula 1.5.0</h2>
+<div id="internals" class="section level3">
+<h3 class="hasAnchor">
+<a href="#internals" class="anchor"></a>Internals</h3>
+<ul>
+<li>Depend on {arkhe}.</li>
+</ul>
+</div>
+<div id="bugfixes-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bugfixes-changes" class="anchor"></a>Bugfixes &amp; changes</h3>
+<ul>
+<li>CRAN package check error with long doubles disabled has been fixed (tested with R-hub <code>debian-gcc-devel-nold</code>).</li>
+<li>CRAN package check notes have been fixed.</li>
+</ul>
+</div>
+</div>
     <div id="tabula-1-4-0-release-date-2019-11-25" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tabula-1-4-0-release-date-2019-11-25" class="anchor"></a>tabula 1.4.0 (release date: 2019-11-25)</h2>
@@ -165,20 +181,20 @@
 <li>
 <code><a href="../reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
 <li>
-<code><a href="../reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs.</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
+<code><a href="../reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
 <li>Add replacement methods for the <code>*Matrix</code> classes.</li>
 </ul>
 </div>
-<div id="bugfixes-changes" class="section level3">
+<div id="bugfixes-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-1" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>Deprecate <code><a href="../reference/deprecated.html">diversity()</a></code>, <code><a href="../reference/deprecated.html">evenness()</a></code> and <code><a href="../reference/deprecated.html">richness()</a></code>.</li>
 </ul>
 </div>
-<div id="internals" class="section level3">
+<div id="internals-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals" class="anchor"></a>Internals</h3>
+<a href="#internals-1" class="anchor"></a>Internals</h3>
 <ul>
 <li>Display progress bars only if <code><a href="https://rdrr.io/r/base/interactive.html">interactive()</a></code> is <code>TRUE</code> and {pbapply} is installed.</li>
 </ul>
@@ -205,7 +221,7 @@
 <li>
 <code><a href="../reference/date.html">date_mcd()</a></code> allows Mean Ceramic Date estimation.</li>
 <li>
-<code><a href="../reference/date.html">get_dates()</a></code> and <code>set_dates&lt;-</code> allow to extract and replace chronological informations in <code>AbundanceMatrix</code> objects.</li>
+<code>get_dates()</code> and <code>set_dates&lt;-</code> allow to extract and replace chronological informations in <code>AbundanceMatrix</code> objects.</li>
 <li>
 <code><a href="../reference/plot_bar.html">plot_bertin()</a></code> and <code><a href="../reference/plot_bar.html">plot_ford()</a></code> replace <code><a href="../reference/deprecated.html">plotBar()</a></code>.</li>
 <li>
@@ -230,9 +246,9 @@
 <code><a href="../reference/test.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
 </ul>
 </div>
-<div id="bugfixes-changes-1" class="section level3">
+<div id="bugfixes-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-1" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-2" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code> now also contain the <code>SpaceTime</code> class.</li>
@@ -249,9 +265,9 @@
 <li>The <code><a href="../reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
 </ul>
 </div>
-<div id="internals-1" class="section level3">
+<div id="internals-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-1" class="anchor"></a>Internals</h3>
+<a href="#internals-2" class="anchor"></a>Internals</h3>
 <ul>
 <li>Reduce required R version to 3.2.</li>
 <li>Error handling has been revised and error messages have been harmonized.</li>
@@ -267,9 +283,9 @@
 <ul>
 <li>When a <code>Matrix</code> object is first created, an identifier (UUID v4) is generated with <code>generate_uuid()</code>. This ID is preserved when coercing to another class. This makes it possible to identify objects representing the same initial data and associate them with the results of specific computations.</li>
 <li>
-<code><a href="../reference/geography.html">get_coordinates()</a></code> and <code>set_coordinates&lt;-</code> allow to extract and replace spatial informations in <code>AbundanceMatrix</code> objects.</li>
+<code>get_coordinates()</code> and <code>set_coordinates&lt;-</code> allow to extract and replace spatial informations in <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code><a href="../reference/geography.html">get_features()</a></code> allows to convert an <code>AbundanceMatrix</code> object to a <code>data.frame</code>. It is intended for compatibility with the {sf} package.</li>
+<code>get_features()</code> allows to convert an <code>AbundanceMatrix</code> object to a <code>data.frame</code>. It is intended for compatibility with the {sf} package.</li>
 </ul>
 </div>
 </div>
@@ -294,9 +310,9 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code> operators for several classes.</li>
 </ul>
 </div>
-<div id="bugfixes-changes-2" class="section level3">
+<div id="bugfixes-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-2" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-3" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code>OccurrenceMatrix</code> now stores the number of times each pair of taxa occurs together in at least one sample.</li>
@@ -317,9 +333,9 @@
 <code><a href="../reference/deprecated.html">seriate()</a></code> gained a new argument to pass a <code>BootCA</code> object.</li>
 </ul>
 </div>
-<div id="internals-2" class="section level3">
+<div id="internals-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-2" class="anchor"></a>Internals</h3>
+<a href="#internals-3" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add an optional progress bars with {pbapply} in long running functions.</li>
 </ul>
@@ -329,9 +345,9 @@
 <h2 class="hasAnchor">
 <a href="#tabula-1-1-0-cran-release-date-2018-12-30" class="anchor"></a>tabula 1.1.0 (CRAN release date: 2018-12-30)</h2>
 <p><a href="https://doi.org/10.5281/zenodo.2529084"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2529084.svg" alt="DOI"></a></p>
-<div id="bugfixes-changes-3" class="section level3">
+<div id="bugfixes-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-3" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-4" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code><a href="../reference/similarity-method.html">similarity()</a></code> now returns a symmetric matrix.</li>
@@ -347,9 +363,9 @@
 <li>For replicated incidence data: Chao2, bias-corrected Chao2, improved Chao2 and Incidence-based Coverage Estimator (ICE).</li>
 </ul>
 </div>
-<div id="internals-3" class="section level3">
+<div id="internals-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-3" class="anchor"></a>Internals</h3>
+<a href="#internals-4" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add references in the <code>Description</code> field of the DESCRIPTION file.</li>
 <li>Split the documentation for alpha-diversity measures.</li>
@@ -362,7 +378,7 @@
 <a href="#tabula-1-0-0-cran-release-date-2018-12-03" class="anchor"></a>tabula 1.0.0 (CRAN release date: 2018-12-03)</h2>
 <p><a href="https://doi.org/10.5281/zenodo.1881131"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1881131.svg" alt="DOI"></a></p>
 <ul>
-<li>Initial version on CRAN</li>
+<li>Initial version on CRAN.</li>
 </ul>
 <div id="new-classes-and-methods-3" class="section level3">
 <h3 class="hasAnchor">
@@ -374,9 +390,9 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code> operators acting on <code>PermutationOrder</code> and <code>BootCA</code> to extract parts.</li>
 </ul>
 </div>
-<div id="bugfixes-changes-4" class="section level3">
+<div id="bugfixes-changes-5" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bugfixes-changes-4" class="anchor"></a>Bugfixes &amp; changes</h3>
+<a href="#bugfixes-changes-5" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
 <code><a href="../reference/deprecated.html">refine()</a></code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
@@ -391,9 +407,9 @@
 <code><a href="../reference/similarity-method.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
 </ul>
 </div>
-<div id="internals-4" class="section level3">
+<div id="internals-5" class="section level3">
 <h3 class="hasAnchor">
-<a href="#internals-4" class="anchor"></a>Internals</h3>
+<a href="#internals-5" class="anchor"></a>Internals</h3>
 <ul>
 <li>Add a vignette for matrix seriation.</li>
 </ul>
@@ -413,6 +429,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#tabula-1-5-0">1.5.0</a></li>
         <li><a href="#tabula-1-4-0-release-date-2019-11-25">1.4.0</a></li>
         <li><a href="#tabula-1-3-0-cran-release-date-2019-09-20">1.3.0</a></li>
         <li><a href="#tabula-1-2-0-cran-release-date-2019-03-20">1.2.0</a></li>

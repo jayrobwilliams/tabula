@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4. Dating Methods • tabula</title>
+<title>Dating Methods • tabula</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="4. Dating Methods">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Dating Methods">
 <meta property="og:description" content="">
 <meta property="og:image" content="http://tabula.archaeo.science/logo.png">
 <meta name="twitter:card" content="summary">
@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -61,9 +61,6 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
-    <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
     <li>
@@ -101,10 +98,10 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>4. Dating Methods</h1>
+      <h1>Dating Methods</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2019-12-02</h4>
+            <h4 class="date">2020-01-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/dating.Rmd"><code>vignettes/dating.Rmd</code></a></small>
       <div class="hidden name"><code>dating.Rmd</code></div>
@@ -115,7 +112,8 @@
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Load packages</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tabula)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; Loading required package: arkhe</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</a></code></pre></div>
 <div id="not-all-dates-are-created-equal" class="section level1">
 <h1 class="hasAnchor">
 <a href="#not-all-dates-are-created-equal" class="anchor"></a>Not All Dates Are Created Equal</h1>
@@ -168,7 +166,7 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## Coerce the zuni dataset to an abundance (count) matrix</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">zuni_count &lt;-<span class="st"> </span><span class="kw"><a href="../reference/coerce.html">as_count</a></span>(zuni)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">zuni_count &lt;-<span class="st"> </span><span class="kw">as_count</span>(zuni)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">## Set the start and end dates for each ceramic type</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">zuni_dates &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
@@ -189,12 +187,12 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <a class="sourceLine" id="cb2-20" data-line-number="20">zuni_mcd &lt;-<span class="st"> </span><span class="kw"><a href="../reference/date.html">date_mcd</a></span>(zuni_count, <span class="dt">dates =</span> zuni_mid, <span class="dt">errors =</span> zuni_error)</a>
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(zuni_mcd)</a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;       id      date    error     lower     upper</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1160.4137 1162.5457</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1135.4164 1138.6964</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1153.2660 1156.9465</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.2803 1090.7947</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1086.8237 1093.5794</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  837.3173  845.2399</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 1 LZ1105 1162.5000 49.03861 1162.3109 1164.4109</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 2 LZ1103 1137.8378 18.82518 1137.2133 1140.4867</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 3 LZ1100 1154.4643 24.20615 1152.4909 1156.1573</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 4 LZ1099 1090.6250 26.51650 1090.3131 1090.8369</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; 5 LZ1097 1092.1875 26.51650 1087.4755 1094.1214</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; 6 LZ1096  841.0714 43.59484  837.6162  845.1481</span></a>
 <a class="sourceLine" id="cb2-29" data-line-number="29"></a>
 <a class="sourceLine" id="cb2-30" data-line-number="30">## Plot dates</a>
 <a class="sourceLine" id="cb2-31" data-line-number="31"><span class="kw">set_dates</span>(zuni_count) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">value =</span> zuni_mcd<span class="op">$</span>date, <span class="dt">error =</span> zuni_mcd<span class="op">$</span>error)</a>
@@ -299,7 +297,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <a class="sourceLine" id="cb3-4" data-line-number="4">## previous example.</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">## Coerce the zuni dataset to an abundance (count) matrix</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">zuni_count &lt;-<span class="st"> </span><span class="kw"><a href="../reference/coerce.html">as_count</a></span>(zuni)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">zuni_count &lt;-<span class="st"> </span><span class="kw">as_count</span>(zuni)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">## Randomly picks 100 assemblages and assume that they are reliably dated</a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">## (this is NOT a real example)</a>
@@ -336,18 +334,19 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <a class="sourceLine" id="cb3-41" data-line-number="41"><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></a>
 <a class="sourceLine" id="cb3-42" data-line-number="42"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-43" data-line-number="43"><span class="co">#&gt; Residual standard error: 2.584 on 90 degrees of freedom</span></a>
-<a class="sourceLine" id="cb3-44" data-line-number="44"><span class="co">#&gt; Multiple R-squared:  0.9997, Adjusted R-squared:  0.9997 </span></a>
-<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co">#&gt; F-statistic: 3.92e+04 on 9 and 90 DF,  p-value: &lt; 2.2e-16</span></a>
-<a class="sourceLine" id="cb3-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb3-47" data-line-number="47">## Estimated event dates</a>
-<a class="sourceLine" id="cb3-48" data-line-number="48"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(model[[<span class="st">"rows"</span>]])</a>
-<a class="sourceLine" id="cb3-49" data-line-number="49"><span class="co">#&gt;             date     lower     upper     error</span></a>
-<a class="sourceLine" id="cb3-50" data-line-number="50"><span class="co">#&gt; LZ1105 1160.9936 1159.5885 1162.3986 0.7072351</span></a>
-<a class="sourceLine" id="cb3-51" data-line-number="51"><span class="co">#&gt; LZ1103 1139.2874 1138.4197 1140.1552 0.4367789</span></a>
-<a class="sourceLine" id="cb3-52" data-line-number="52"><span class="co">#&gt; LZ1100 1156.3392 1155.3922 1157.2862 0.4766701</span></a>
-<a class="sourceLine" id="cb3-53" data-line-number="53"><span class="co">#&gt; LZ1099 1093.4200 1091.4810 1095.3590 0.9759917</span></a>
-<a class="sourceLine" id="cb3-54" data-line-number="54"><span class="co">#&gt; LZ1097 1092.5475 1090.9819 1094.1130 0.7880311</span></a>
-<a class="sourceLine" id="cb3-55" data-line-number="55"><span class="co">#&gt; LZ1096  841.6006  840.2618  842.9394 0.6738873</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-44" data-line-number="44"><span class="co">#&gt;   (320 observations deleted due to missingness)</span></a>
+<a class="sourceLine" id="cb3-45" data-line-number="45"><span class="co">#&gt; Multiple R-squared:  0.9997, Adjusted R-squared:  0.9997 </span></a>
+<a class="sourceLine" id="cb3-46" data-line-number="46"><span class="co">#&gt; F-statistic: 3.92e+04 on 9 and 90 DF,  p-value: &lt; 2.2e-16</span></a>
+<a class="sourceLine" id="cb3-47" data-line-number="47"></a>
+<a class="sourceLine" id="cb3-48" data-line-number="48">## Estimated event dates</a>
+<a class="sourceLine" id="cb3-49" data-line-number="49"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(model[[<span class="st">"rows"</span>]])</a>
+<a class="sourceLine" id="cb3-50" data-line-number="50"><span class="co">#&gt;             date     lower     upper     error</span></a>
+<a class="sourceLine" id="cb3-51" data-line-number="51"><span class="co">#&gt; LZ1105 1160.9936 1159.5885 1162.3986 0.7072351</span></a>
+<a class="sourceLine" id="cb3-52" data-line-number="52"><span class="co">#&gt; LZ1103 1139.2874 1138.4197 1140.1552 0.4367789</span></a>
+<a class="sourceLine" id="cb3-53" data-line-number="53"><span class="co">#&gt; LZ1100 1156.3392 1155.3922 1157.2862 0.4766701</span></a>
+<a class="sourceLine" id="cb3-54" data-line-number="54"><span class="co">#&gt; LZ1099 1093.4200 1091.4810 1095.3590 0.9759917</span></a>
+<a class="sourceLine" id="cb3-55" data-line-number="55"><span class="co">#&gt; LZ1097 1092.5475 1090.9819 1094.1130 0.7880311</span></a>
+<a class="sourceLine" id="cb3-56" data-line-number="56"><span class="co">#&gt; LZ1096  841.6006  840.2618  842.9394 0.6738873</span></a></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## Activity plot</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="../reference/plot_date.html">plot_date</a></span>(model, <span class="dt">type =</span> <span class="st">"activity"</span>, <span class="dt">select =</span> <span class="st">"LZ1105"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a>

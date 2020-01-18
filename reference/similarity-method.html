@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -99,9 +99,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -180,7 +177,7 @@ used (see details). Any unambiguous substring can be given.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>similarity</code> returns a symmetric matrix of class
- <a href='SimilarityMatrix-class.html'>SimilarityMatrix</a>.</p>
+ SimilarityMatrix.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>\(\beta\)-diversity can be measured by addressing <em>similarity</em>
@@ -231,7 +228,7 @@ used (see details). Any unambiguous substring can be given.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Data from Huntley 2008</span>
-<span class='no'>ceramics</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='CountMatrix-class.html'>CountMatrix</a></span>(
+<span class='no'>ceramics</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>16</span>, <span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>1</span>,
            <span class='fl'>13</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
            <span class='fl'>9</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>0</span>,
@@ -251,7 +248,7 @@ used (see details). Any unambiguous substring can be given.</p></td>
 <span class='no'>C</span> <span class='kw'>&lt;-</span> <span class='fu'>similarity</span>(<span class='no'>ceramics</span>, <span class='st'>"brainerd"</span>)
 <span class='fu'><a href='plot_spot.html'>plot_spot</a></span>(<span class='no'>C</span>)</div><div class='img'><img src='similarity-method-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Data from Magurran 1988, p. 166</span>
-<span class='no'>birds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='CountMatrix-class.html'>CountMatrix</a></span>(
+<span class='no'>birds</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.4</span>, <span class='fl'>4.3</span>, <span class='fl'>2.9</span>, <span class='fl'>8.6</span>, <span class='fl'>4.2</span>, <span class='fl'>15.7</span>, <span class='fl'>2.0</span>, <span class='fl'>50</span>, <span class='fl'>1</span>, <span class='fl'>11.4</span>, <span class='fl'>11.4</span>, <span class='fl'>4.3</span>, <span class='fl'>13.0</span>,
            <span class='fl'>14.3</span>, <span class='fl'>8.6</span>, <span class='fl'>7.1</span>, <span class='fl'>10.0</span>, <span class='fl'>1.4</span>, <span class='fl'>2.9</span>, <span class='fl'>5.7</span>, <span class='fl'>1.4</span>, <span class='fl'>11.4</span>, <span class='fl'>2.9</span>, <span class='fl'>4.3</span>, <span class='fl'>1.4</span>, <span class='fl'>2.9</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5.7</span>, <span class='fl'>2.5</span>, <span class='fl'>5.7</span>, <span class='fl'>8.6</span>, <span class='fl'>5.7</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
@@ -260,26 +257,26 @@ used (see details). Any unambiguous substring can be given.</p></td>
 )
 
 <span class='co'># Jaccard measure (presence/absence data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (jaccard):
-#&gt; (f3dab857-2be0-4542-ab4b-2b282feb8c47)
+<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: dfab2aea-e5f7-435f-9625-403e4f182d0f&gt;
+#&gt;  2 x 2 (dis)similarity matrix (jaccard):
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4615385
 #&gt; managed   0.4615385 1.0000000</div><div class='input'>
 <span class='co'># Sorenson measure (presence/absence data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (sorenson):
-#&gt; (9c83f2a2-bb17-4ac6-b5f9-7675784c7f97)
+<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 4102f66b-f785-46b7-976a-84e01fcaf5f5&gt;
+#&gt;  2 x 2 (dis)similarity matrix (sorenson):
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.6315789
 #&gt; managed   0.6315789 1.0000000</div><div class='input'>
 <span class='co'># Jaccard measure (Bray's formula ; count data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (bray):
-#&gt; (aef713eb-a6b1-4596-af66-64b8da8e850d)
+<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: e872fdaa-235a-47d3-9431-651069bfb3c8&gt;
+#&gt;  2 x 2 (dis)similarity matrix (bray):
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4442754
 #&gt; managed   0.4442754 1.0000000</div><div class='input'>
 <span class='co'># Morisita-Horn measure (count data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; 2 x 2 (dis)similarity matrix (morisita):
-#&gt; (a07a99a6-3ed5-4c80-b400-4e67f38db3c7)
+<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 772aa2a6-655f-472e-9011-3588dc602e50&gt;
+#&gt;  2 x 2 (dis)similarity matrix (morisita):
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.8134497
 #&gt; managed   0.8134497 1.0000000</div></pre>

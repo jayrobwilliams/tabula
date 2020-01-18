@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -99,9 +99,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -141,7 +138,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Date Archaeological Assemblages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/date.R'><code>R/date.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/extract.R'><code>R/extract.R</code></a>, and 2 more</small>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/date.R'><code>R/date.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/refine.R'><code>R/refine.R</code></a></small>
     <div class="hidden name"><code>date.Rd</code></div>
     </div>
 
@@ -149,11 +146,7 @@
     <p><code>date_mcd</code> estimates the Mean Ceramic Date of an assemblage.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_dates</span>(<span class='no'>object</span>)
-
-<span class='fu'>set_dates</span>(<span class='no'>object</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
-
-<span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
@@ -167,12 +160,6 @@
 <span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>,
   <span class='no'>...</span>)
 
-<span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>get_dates</span>(<span class='no'>object</span>)
-
-<span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>set_dates</span>(<span class='no'>object</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
-
 <span class='co'># S4 method for DateModel</span>
 <span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>,
   <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
@@ -183,12 +170,7 @@
     <tr>
       <th>object</th>
       <td><p>A \(m \times p\) matrix of count data (typically of
-class <a href='CountMatrix-class.html'>CountMatrix</a>).</p></td>
-    </tr>
-    <tr>
-      <th>value</th>
-      <td><p>A possible value for the element(s) of <code>object</code> (see
-below).</p></td>
+class CountMatrix).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -249,8 +231,6 @@ method to be used. This must be one of "<code>jackknife</code>",
 assemblage.</p>
 <p><code>refine_dates</code> checks the stability of a date model with resampling
 methods.</p>
-<p><code>set_dates</code> and <code>get_dates</code> allow to get or set the dates of an
-object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Bellanger <em>et al.</em> did not publish the data supporting their
@@ -261,25 +241,6 @@ object.</p>
  objects. To monitor the execution of these re-sampling procedures, a
  progress bar will automatically be displayed if the
  <code><a href='https://rdrr.io/pkg/pbapply/man/pbapply.html'>pbapply</a></code> package is installed on your machine.</p>
-    <h2 class="hasAnchor" id="set-dates"><a class="anchor" href="#set-dates"></a>Set dates</h2>
-
-    
-
-<p>An attempt is made to interpret the argument <code>value</code> in a suitable way.
- <em>Note</em> that errors are assumed to be given at <code>1</code> sigma.</p>
-<p>If <code>value</code> is a:</p><dl class='dl-horizontal'>
-  <dt><code>character</code> vector</dt><dd><p>it is assumed to contain Roman numerals.</p></dd>
-  <dt><code>numeric</code> or <code>integer</code> <code>vector</code></dt><dd><p>these values are
-  assumed to represent dates without known errors.</p></dd>
-  <dt><code>list</code></dt><dd><p>containing components "<code>value</code>" and "<code>error</code>",
-  these are used to define dates and corresponding errors.</p></dd>
-  <dt><code>matrix</code> or <code>data.frame</code> with two or more columns</dt><dd><p>the
-  first is assumed to contain the dates and the second the error values.
-  <em>Note</em> that if <code>value</code> has columns named "<code>value</code>" and
-  "<code>error</code>", these columns will be used.</p></dd>
- 
-</dl>
-
     <h2 class="hasAnchor" id="mean-ceramic-date"><a class="anchor" href="#mean-ceramic-date"></a>Mean Ceramic Date</h2>
 
     
@@ -382,12 +343,12 @@ object.</p>
  New York: Academic Press.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='deprecated.html'>refine</a></p></div>
+    <div class='dont-index'><p><a href='http://arkhe.archaeo.science/reference/chronology.html'>set_dates</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Mean Ceramic Date</span>
 <span class='co'>## Coerce the zuni dataset to an abundance (count) matrix</span>
-<span class='no'>zuni_counts</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_count</a></span>(<span class='no'>zuni</span>)
+<span class='no'>zuni_counts</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>zuni</span>)
 
 <span class='co'>## Set the start and end dates for each ceramic type</span>
 <span class='no'>zuni_dates</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
@@ -406,13 +367,13 @@ object.</p>
 <span class='co'>## Calculate MCD</span>
 <span class='co'>## (we use a bootstrapping procedure to estimate the confidence interval)</span>
 <span class='no'>zuni_mcd</span> <span class='kw'>&lt;-</span> <span class='fu'>date_mcd</span>(<span class='no'>zuni_counts</span>, <span class='kw'>dates</span> <span class='kw'>=</span> <span class='no'>zuni_mid</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='no'>zuni_error</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>zuni_mcd</span>)</div><div class='output co'>#&gt;       id      date    error     lower     upper
-#&gt; 1 LZ1105 1162.5000 49.03861 1160.5289 1162.6055
-#&gt; 2 LZ1103 1137.8378 18.82518 1135.0760 1138.3470
-#&gt; 3 LZ1100 1154.4643 24.20615 1153.7826 1157.2263
-#&gt; 4 LZ1099 1090.6250 26.51650 1090.2237 1090.7513
-#&gt; 5 LZ1097 1092.1875 26.51650 1090.3901 1096.7068
-#&gt; 6 LZ1096  841.0714 43.59484  836.8402  844.2669</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>zuni_mcd</span>)</div><div class='output co'>#&gt;       id      date    error     lower    upper
+#&gt; 1 LZ1105 1162.5000 49.03861 1160.5609 1162.630
+#&gt; 2 LZ1103 1137.8378 18.82518 1135.1952 1138.447
+#&gt; 3 LZ1100 1154.4643 24.20615 1154.2346 1157.687
+#&gt; 4 LZ1099 1090.6250 26.51650 1090.1506 1090.693
+#&gt; 5 LZ1097 1092.1875 26.51650 1087.2620 1093.679
+#&gt; 6 LZ1096  841.0714 43.59484  837.0617  844.874</div><div class='input'>
 <span class='co'>## Plot dates</span>
 <span class='no'>keep_sites</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"CS11"</span>, <span class='st'>"CS12"</span>, <span class='st'>"CS144"</span>, <span class='st'>"CS195"</span>, <span class='st'>"CS40"</span>, <span class='st'>"LZ0219"</span>, <span class='st'>"LZ0280"</span>,
                 <span class='st'>"LZ0367"</span>, <span class='st'>"LZ0508"</span>, <span class='st'>"LZ0560"</span>, <span class='st'>"LZ1076"</span>, <span class='st'>"LZ1087"</span>)
@@ -432,7 +393,6 @@ object.</p>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#note">Note</a></li>
-      <li><a href="#set-dates">Set dates</a></li>
       <li><a href="#mean-ceramic-date">Mean Ceramic Date</a></li>
       <li><a href="#event-and-accumulation-dates">Event and Accumulation Dates</a></li>
       <li><a href="#date-model-checking">Date Model Checking</a></li>

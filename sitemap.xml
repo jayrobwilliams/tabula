@@ -7,49 +7,19 @@
     <loc>http://tabula.archaeo.science/reference/BootCA-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/CountMatrix-class.html</loc>
-  </url>
-  <url>
     <loc>http://tabula.archaeo.science/reference/DateModel-class.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/DiversityIndex.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/FrequencyMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/IncidenceMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/LogicalMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/Matrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/NumericMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/OccurrenceMatrix-class.html</loc>
-  </url>
-  <url>
     <loc>http://tabula.archaeo.science/reference/PermutationOrder-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/SimilarityMatrix-class.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/SpaceTime-class.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/access.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/boves.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/coerce.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/compiegne.html</loc>
@@ -59,9 +29,6 @@
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/deprecated.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/geography.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/heterogeneity-index.html</loc>
@@ -122,9 +89,6 @@
   </url>
   <url>
     <loc>http://tabula.archaeo.science/articles/diversity.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/articles/matrix.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/articles/seriation.html</loc>

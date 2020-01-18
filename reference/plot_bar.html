@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -99,9 +99,6 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -237,9 +234,10 @@ details)?</p></td>
   <code><a href='plot_matrix.html'>plot_matrix</a></code>, <code><a href='plot_spot.html'>plot_spot</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Abundance data</span>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix</span>
-<span class='no'>mississippi_count</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_count</a></span>(<span class='no'>mississippi</span>)
+<span class='no'>mississippi_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>mississippi</span>)
 
 <span class='co'>## Plot a Bertin diagram...</span>
 <span class='co'>## ...without threshold</span>
@@ -250,12 +248,13 @@ details)?</p></td>
 <span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>scale_01</span>)</div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix (data from Desachy 2004)</span>
-<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_count</a></span>(<span class='no'>compiegne</span>)
+<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
 
 <span class='co'>## Plot a Ford diagram...</span>
 <span class='co'>## ...without threshold</span>
 <span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>)</div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
-<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_bar-5.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_bar-5.png' alt='' width='700' height='433' /></div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

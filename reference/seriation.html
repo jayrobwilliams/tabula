@@ -81,7 +81,7 @@ refine_seriation performs a partial bootstrap correspondence analysis
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -103,9 +103,6 @@ refine_seriation performs a partial bootstrap correspondence analysis
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -206,7 +203,7 @@ refine_seriation performs a partial bootstrap correspondence analysis
     <tr>
       <th>object</th>
       <td><p>An \(m \times p\) data matrix (typically an object
-of class <a href='CountMatrix-class.html'>CountMatrix</a> or <a href='IncidenceMatrix-class.html'>IncidenceMatrix</a>.</p></td>
+of class CountMatrix or IncidenceMatrix.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -259,8 +256,8 @@ indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></co
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>seriate_*</code> returns a <a href='PermutationOrder-class.html'>PermutationOrder</a> object.</p>
-<p><code>permute</code> returns either a <a href='CountMatrix-class.html'>CountMatrix</a> or an
- <a href='IncidenceMatrix-class.html'>IncidenceMatrix</a> (the same as <code>object</code>).</p>
+<p><code>permute</code> returns either a CountMatrix or an
+ IncidenceMatrix (the same as <code>object</code>).</p>
 <p><code>refine_seriation</code> returns a <a href='BootCA-class.html'>BootCA</a> object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
@@ -346,22 +343,22 @@ indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></co
  DOI: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='deprecated.html'>refine</a>, <a href='https://rdrr.io/pkg/ca/man/ca.html'>ca</a></p></div>
+    <div class='dont-index'><p><a href='https://rdrr.io/pkg/ca/man/ca.html'>ca</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Matrix seriation</span>
 <span class='co'>## Replicates Desachy 2004 results</span>
 <span class='co'>## Coerce dataset to abundance matrix</span>
-<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='coerce.html'>as_count</a></span>(<span class='no'>compiegne</span>)
+<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
 
 <span class='co'>## Get seriation order for columns on EPPM using the reciprocal averaging method</span>
 <span class='co'>## Expected column order: N, A, C, K, P, L, B, E, I, M, D, G, O, J, F, H</span>
 (<span class='no'>compiegne_indices</span> <span class='kw'>&lt;-</span> <span class='fu'>seriate_reciprocal</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                                         <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; Permutation order for matrix seriation: 
-#&gt;    Matrix ID: 166521e9-e9b2-4f0b-9cdb-e56a8ae778af 
-#&gt;    Row order: 1 2 3 4 5 
-#&gt;    Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8 
-#&gt;    Method: reciprocal</div><div class='input'>
+                                         <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; &lt;PermutationOrder: 006918a7-5266-4550-b2ee-c66ebea17883&gt;
+#&gt; Permutation order for matrix seriation:
+#&gt; - Row order: 1 2 3 4 5...
+#&gt; - Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8...
+#&gt; - Method: reciprocal</div><div class='input'>
 <span class='co'>## Permute columns</span>
 <span class='no'>compiegne_new</span> <span class='kw'>&lt;-</span> <span class='fu'>permute</span>(<span class='no'>compiegne_count</span>, <span class='no'>compiegne_indices</span>)
 

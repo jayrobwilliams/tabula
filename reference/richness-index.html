@@ -80,7 +80,7 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
@@ -102,9 +102,6 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/matrix.html">Matrix Classes</a>
-    </li>
     <li>
       <a href="../articles/diversity.html">Diversity Measures</a>
     </li>
@@ -340,22 +337,24 @@ between rare/infrequent and abundant/frequent species. Only used if
     <pre class="examples"><div class='input'><span class='co'>## Richness</span>
 <span class='co'>## Margalef and Menhinick index</span>
 <span class='co'>## Data from Magurran 1988, p. 128-129</span>
-<span class='no'>trap</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='CountMatrix-class.html'>CountMatrix</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
+<span class='no'>trap</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
                              <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>0</span>),
                     <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>NULL</span>))
-<span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"margalef"</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
-#&gt;      index
-#&gt; A 2.551432
-#&gt; B 1.949356</div><div class='input'><span class='co'>## A 2.55 1.88</span>
-<span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"menhinick"</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
-#&gt;      index
-#&gt; A 1.876630
-#&gt; B 1.664101</div><div class='input'><span class='co'>## B 1.95 1.66</span>
+<span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"margalef"</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: 315f1673-60ed-4716-81ed-9a622c8ff72f&gt;
+#&gt; - Method: margalef
+#&gt;   size    index
+#&gt; A   23 2.551432
+#&gt; B   13 1.949356</div><div class='input'><span class='co'>## A 2.55 1.88</span>
+<span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"menhinick"</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: 315f1673-60ed-4716-81ed-9a622c8ff72f&gt;
+#&gt; - Method: menhinick
+#&gt;   size    index
+#&gt; A   23 1.876630
+#&gt; B   13 1.664101</div><div class='input'><span class='co'>## B 1.95 1.66</span>
 
 <span class='co'>## Asymptotic species richness</span>
 <span class='co'>## Chao1-type estimators</span>
 <span class='co'>## Data from Chao &amp; Chiu 2016</span>
-<span class='no'>brazil</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='CountMatrix-class.html'>CountMatrix</a></span>(
+<span class='no'>brazil</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>21</span>, <span class='fl'>23</span>, <span class='fl'>25</span>, <span class='fl'>27</span>, <span class='fl'>28</span>, <span class='fl'>30</span>, <span class='fl'>32</span>, <span class='fl'>34</span>:<span class='fl'>37</span>, <span class='fl'>41</span>,
                    <span class='fl'>45</span>, <span class='fl'>46</span>, <span class='fl'>49</span>, <span class='fl'>52</span>, <span class='fl'>89</span>, <span class='fl'>110</span>, <span class='fl'>123</span>, <span class='fl'>140</span>),
              <span class='kw'>times</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>113</span>, <span class='fl'>50</span>, <span class='fl'>39</span>, <span class='fl'>29</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>13</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>4</span>,
@@ -364,12 +363,14 @@ between rare/infrequent and abundant/frequent species. Only used if
   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )
 
-<span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>), <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: chao1&gt;
-#&gt;      index
-#&gt; 1 461.6254</div><div class='input'><span class='co'>## 461.625</span>
-<span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>), <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: ace&gt;
-#&gt;      index
-#&gt; 1 445.8224</div><div class='input'><span class='co'>## 445.822</span>
+<span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>), <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: b2884a41-5111-448e-83ce-99190a132fc2&gt;
+#&gt; - Method: chao1
+#&gt;   size    index
+#&gt; 1 1978 461.6254</div><div class='input'><span class='co'>## 461.625</span>
+<span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>), <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; &lt;RichnessIndex: b2884a41-5111-448e-83ce-99190a132fc2&gt;
+#&gt; - Method: ace
+#&gt;   size    index
+#&gt; 1 1978 445.8224</div><div class='input'><span class='co'>## 445.822</span>
 
 <span class='co'>## Rarefaction</span>
 <span class='fu'>rarefaction</span>(<span class='no'>trap</span>, <span class='kw'>sample</span> <span class='kw'>=</span> <span class='fl'>13</span>) <span class='co'># 6.56</span></div><div class='output co'>#&gt; $hurlbert
