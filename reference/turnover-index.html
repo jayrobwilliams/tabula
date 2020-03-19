@@ -78,7 +78,7 @@ transect." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
@@ -151,14 +151,20 @@ transect.</p>
     <pre class="usage"><span class='fu'>turnover</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>turnover</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>,
-  <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>), <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>)
+<span class='fu'>turnover</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>turnover</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>,
-  <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
-  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>turnover</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -221,8 +227,10 @@ simplified to a matrix?</p></td>
  DOI: <a href='https://doi.org/10.2307/2259551'>10.2307/2259551</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other diversity: <code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
-  <code><a href='richness-index.html'>richness-index</a></code>, <code><a href='similarity-method.html'>similarity</a></code></p></div>
+    <div class='dont-index'><p>Other diversity: 
+<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
+<code><a href='richness-index.html'>richness-index</a></code>,
+<code><a href='similarity-method.html'>similarity</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Data from Magurran 1988, p. 162</span>

@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
@@ -153,16 +153,13 @@
 <span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
+<span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>,
-  <span class='no'>...</span>)
+<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for DateModel</span>
-<span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>,
-  <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -383,7 +380,7 @@ methods.</p>
 <span class='co'>## Event and accumulation dates (Bellanger et al.)</span>
 <span class='co'>## See the vignette:</span>
 <span class='co'># \donttest{</span>
-<span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"dating"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='message'>starting httpd help server ...</span></div><div class='output co'>#&gt; <span class='message'> done</span></div><div class='input'># }
+<span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"dating"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘dating’ not found</span></div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

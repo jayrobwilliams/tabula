@@ -78,7 +78,7 @@ index_evenness returns an evenness measure." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
@@ -153,14 +153,28 @@ index_evenness returns an evenness measure." />
 <span class='fu'>index_evenness</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>index_heterogeneity</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"berger"</span>,
-  <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>), <span class='kw'>jackknife</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>bootstrap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
+<span class='fu'>index_heterogeneity</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>),
+  <span class='kw'>jackknife</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>bootstrap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.8</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>index_evenness</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"shannon"</span>,
-  <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"simpson"</span>), <span class='kw'>jackknife</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>bootstrap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>index_evenness</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"shannon"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"simpson"</span>),
+  <span class='kw'>jackknife</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>bootstrap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.8</span>,
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -301,8 +315,10 @@ replications.</p></td>
 
     <div class='dont-index'><p><code><a href='turnover-index.html'>turnover</a></code>
  <code><a href='similarity-method.html'>similarity</a></code></p>
-<p>Other diversity: <code><a href='richness-index.html'>richness-index</a></code>,
-  <code><a href='similarity-method.html'>similarity</a></code>, <code><a href='turnover-index.html'>turnover-index</a></code></p></div>
+<p>Other diversity: 
+<code><a href='richness-index.html'>richness-index</a></code>,
+<code><a href='similarity-method.html'>similarity</a>()</code>,
+<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Shannon diversity index</span>
@@ -314,11 +330,11 @@ replications.</p></td>
            <span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"oakwood"</span>, <span class='st'>"spruce"</span>), <span class='kw'>NULL</span>))
 
-<span class='fu'>index_heterogeneity</span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 2.40 2.06</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 79649838-41e6-44eb-9215-f25b62083909&gt;
+<span class='fu'>index_heterogeneity</span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 2.40 2.06</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 547e4ed0-6540-431d-92ae-402fae1371ab&gt;
 #&gt; - Method: shannon
 #&gt;         size    index
 #&gt; oakwood  170 2.407983
-#&gt; spruce   198 2.055991</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 0.80 0.78</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 79649838-41e6-44eb-9215-f25b62083909&gt;
+#&gt; spruce   198 2.055991</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 0.80 0.78</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 547e4ed0-6540-431d-92ae-402fae1371ab&gt;
 #&gt; - Method: shannon
 #&gt;         size     index
 #&gt; oakwood  170 0.8038044
@@ -328,10 +344,10 @@ replications.</p></td>
 <span class='no'>moths</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
                      <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='fu'>index_heterogeneity</span>(<span class='no'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 1.88</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: e1c2b679-d1e7-4de9-9dcf-e2bdd4c68c3d&gt;
+<span class='fu'>index_heterogeneity</span>(<span class='no'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 1.88</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 9b1f1944-5ba9-4b42-aadc-6a069076fb36&gt;
 #&gt; - Method: brillouin
 #&gt;   size    index
-#&gt; 1   67 1.876307</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 0.83</span></div><div class='output co'>#&gt; &lt;EvennessIndex: e1c2b679-d1e7-4de9-9dcf-e2bdd4c68c3d&gt;
+#&gt; 1   67 1.876307</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 0.83</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 9b1f1944-5ba9-4b42-aadc-6a069076fb36&gt;
 #&gt; - Method: brillouin
 #&gt;   size     index
 #&gt; 1   67 0.8275138</div><div class='input'>
@@ -343,10 +359,10 @@ replications.</p></td>
   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )
 
-<span class='fu'>index_heterogeneity</span>(<span class='no'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 1.19</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 428c2014-8e5e-4390-b4c9-4579bfc259d2&gt;
+<span class='fu'>index_heterogeneity</span>(<span class='no'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 1.19</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 8cd1c560-2bc4-446d-8133-31b9fc8684d1&gt;
 #&gt; - Method: simpson
 #&gt;   size    index
-#&gt; 1 1996 0.186547</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 0.21</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 428c2014-8e5e-4390-b4c9-4579bfc259d2&gt;
+#&gt; 1 1996 0.186547</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 0.21</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 8cd1c560-2bc4-446d-8133-31b9fc8684d1&gt;
 #&gt; - Method: simpson
 #&gt;   size     index
 #&gt; 1 1996 0.2144231</div><div class='input'>
@@ -358,10 +374,10 @@ replications.</p></td>
   <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )
 
-<span class='fu'>index_heterogeneity</span>(<span class='no'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.71</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 188b6039-3225-4511-91c4-05bca4bbf430&gt;
+<span class='fu'>index_heterogeneity</span>(<span class='no'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.71</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: be419854-0757-4b0f-959b-dbc5bbc82225&gt;
 #&gt; - Method: mcintosh
 #&gt;   size     index
-#&gt; 1 1100 0.7066343</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.82</span></div><div class='output co'>#&gt; &lt;EvennessIndex: 188b6039-3225-4511-91c4-05bca4bbf430&gt;
+#&gt; 1 1100 0.7066343</div><div class='input'><span class='fu'>index_evenness</span>(<span class='no'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.82</span></div><div class='output co'>#&gt; &lt;EvennessIndex: be419854-0757-4b0f-959b-dbc5bbc82225&gt;
 #&gt; - Method: mcintosh
 #&gt;   size     index
 #&gt; 1 1100 0.8180305</div><div class='input'>
@@ -378,7 +394,7 @@ replications.</p></td>
                     <span class='st'>"station 4"</span>, <span class='st'>"station 5"</span>), <span class='kw'>NULL</span>)
 )
 
-<span class='fu'>index_heterogeneity</span>(<span class='no'>fishes</span>, <span class='st'>"berger"</span>) <span class='co'># 0.71 0.63 0.50 0.60 0.51</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: cb5f92a7-44d6-4786-ab36-93e49f5fecdf&gt;
+<span class='fu'>index_heterogeneity</span>(<span class='no'>fishes</span>, <span class='st'>"berger"</span>) <span class='co'># 0.71 0.63 0.50 0.60 0.51</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: 6384b29b-1628-43e8-9d57-516e24d4c54f&gt;
 #&gt; - Method: berger
 #&gt;           size     index
 #&gt; station 1 4881 0.7144028

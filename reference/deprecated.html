@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
       </span>
     </div>
 
@@ -165,20 +165,16 @@
 <span class='fu'>richness</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>refine</span>(<span class='no'>object</span>, <span class='no'>cutoff</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,
-  <span class='fl'>2</span>), <span class='no'>...</span>)
+<span class='fu'>refine</span>(<span class='no'>object</span>, <span class='no'>cutoff</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
 
 <span class='co'># S4 method for DateModel</span>
-<span class='fu'>refine</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>,
-  <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
+<span class='fu'>refine</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>plotBar</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>horizontal</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>plotBar</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>horizontal</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>plotBar</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>horizontal</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>plotBar</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>horizontal</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
 <span class='fu'>plotMatrix</span>(<span class='no'>object</span>, <span class='kw'>PVI</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
@@ -208,35 +204,62 @@
 <span class='fu'>plotSpot</span>(<span class='no'>object</span>)
 
 <span class='co'># S4 method for CountMatrix,missing</span>
-<span class='fu'>seriate</span>(<span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"correspondance"</span>, <span class='st'>"reciprocal"</span>), <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='no'>...</span>)
+<span class='fu'>seriate</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"correspondance"</span>, <span class='st'>"reciprocal"</span>),
+  <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
+  <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for IncidenceMatrix,missing</span>
-<span class='fu'>seriate</span>(<span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"correspondance"</span>, <span class='st'>"reciprocal"</span>), <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='no'>...</span>)
+<span class='fu'>seriate</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"correspondance"</span>, <span class='st'>"reciprocal"</span>),
+  <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
+  <span class='kw'>stop</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for CountMatrix,BootCA</span>
-<span class='fu'>seriate</span>(<span class='no'>object</span>, <span class='no'>subset</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>),
-  <span class='no'>...</span>)
+<span class='fu'>seriate</span>(<span class='no'>object</span>, <span class='no'>subset</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>diversity</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"berger"</span>,
-  <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>), <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>diversity</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>),
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>evenness</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"brillouin"</span>,
-  <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>), <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+<span class='fu'>evenness</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>),
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>richness</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>, <span class='st'>"chao1"</span>,
-  <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span>, <span class='st'>"none"</span>), <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>richness</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>, <span class='st'>"chao1"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span>, <span class='st'>"none"</span>),
+  <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>richness</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao2"</span>, <span class='st'>"ice"</span>),
-  <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>richness</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao2"</span>, <span class='st'>"ice"</span>),
+  <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -282,8 +305,8 @@ confidence level to be drawn.</p></td>
     </tr>
     <tr>
       <th>EPPM</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the EPPM be drawn (see
-details)?</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the seriation be computed
+on EPPM instead of raw data?</p></td>
     </tr>
     <tr>
       <th>center</th>
@@ -347,11 +370,6 @@ and "<code>xy</code>" or "<code>yx</code>" if both axes are to be logarithmic (b
       <th>facet</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a matrix of panels
 defined by case/sample be drawn?</p></td>
-    </tr>
-    <tr>
-      <th>EPPM</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the seriation be computed
-on EPPM instead of raw data?</p></td>
     </tr>
     <tr>
       <th>sample</th>
