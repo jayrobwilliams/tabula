@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,8 +48,10 @@
 
 <meta property="og:title" content="Bar Plot — plot_bar" />
 <meta property="og:description" content="Plots a Bertin, Ford (battleship curve) or Dice-Leraas diagram." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@nfrerebeau" />
+<meta name="twitter:site" content="@nfrerebeau" />
 
 
 
@@ -63,7 +69,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -77,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
       </span>
     </div>
 
@@ -138,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Bar Plot</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot-bar.R'><code>R/plot-bar.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_bertin.R'><code>R/plot_bertin.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_ford.R'><code>R/plot_ford.R</code></a></small>
     <div class="hidden name"><code>plot_bar.Rd</code></div>
     </div>
 
@@ -182,13 +188,17 @@ If <code>NULL</code> (the default), no scaling is performed.</p></td>
     <tr>
       <th>EPPM</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the EPPM be drawn (see
-details)?</p></td>
+below)?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></code> object.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If <code>EPPM</code> is <code>TRUE</code> and if a relative abundance is greater than
+ the mean percentage of the type, the exceeding part is highlighted.</p>
     <h2 class="hasAnchor" id="bertin-matrix"><a class="anchor" href="#bertin-matrix"></a>Bertin Matrix</h2>
 
     
@@ -199,19 +209,17 @@ details)?</p></td>
  with real valued variables. For each variable, draw a bar chart of variable
  value by case. High-light all bars representing a value above some sample
  threshold for that variable."</p>
-    <h2 class="hasAnchor" id="ford-diagram"><a class="anchor" href="#ford-diagram"></a>Ford Diagram</h2>
+    <h2 class="hasAnchor" id="eppm"><a class="anchor" href="#eppm"></a>EPPM</h2>
 
     
 
-<p>If <code>EPPM</code> is <code>TRUE</code> and if a relative abundance is greater than
- the mean percentage of the type, the exceeding part is highlighted.
- This positive difference from the column mean percentage (in french "écart
+<p>This positive difference from the column mean percentage (in french "écart
  positif au pourcentage moyen", EPPM) represents a deviation from the
  situation of statistical independence. As independence can be interpreted as
  the absence of relationships between types and the chronological order of
  the assemblages, <code>EPPM</code> is a useful graphical tool to explore
  significance of relationship between rows and columns related to
- <code><a href='deprecated.html'>seriation</a></code> (Desachy 2004).</p>
+ seriation (Desachy 2004).</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Bertin, J. (1977). <em>La graphique et le traitement graphique de
@@ -228,7 +236,8 @@ details)?</p></td>
  chronology</em>. Washington, DC: Pan American Union. Technical manual 1.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other plot: 
+    <div class='dont-index'><p><a href='statistic.html'>calculate_eppm</a></p>
+<p>Other plot: 
 <code><a href='plot_date.html'>plot_date</a>()</code>,
 <code><a href='plot_diversity.html'>plot_diversity</a>()</code>,
 <code><a href='plot_line.html'>plot_line</a></code>,
@@ -243,35 +252,23 @@ details)?</p></td>
 
 <span class='co'>## Plot a Bertin diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><div class='img'><img src='plot_bar-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with the variable mean as threshold</span>
-<span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>mean</span>)</div><div class='img'><img src='plot_bar-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'>## ...with variables scaled to 0-1</span>
+<span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><div class='img'><img src='plot_bar-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with variables scaled to 0-1 and the variable mean as threshold</span>
 <span class='no'>scale_01</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) (<span class='no'>x</span> - <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>x</span>)) / (<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>) - <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>x</span>))
-<span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>scale_01</span>)</div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_bertin</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>scale_01</span>)</div><div class='img'><img src='plot_bar-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix (data from Desachy 2004)</span>
 <span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
 
 <span class='co'>## Plot a Ford diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>)</div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
-<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_bar-5.png' alt='' width='700' height='433' /></div><div class='input'># }
+<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>)</div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
+<span class='fu'>plot_ford</span>(<span class='no'>compiegne_count</span>, <span class='kw'>EPPM</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'># }
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#bertin-matrix">Bertin Matrix</a></li>
-      <li><a href="#ford-diagram">Ford Diagram</a></li>
-      <li><a href="#references">References</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>N. Frerebeau</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -282,7 +279,7 @@ details)?</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

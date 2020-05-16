@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -43,9 +47,14 @@
 
 
 <meta property="og:title" content="Date Archaeological Assemblages — date" />
-<meta property="og:description" content="date_mcd estimates the Mean Ceramic Date of an assemblage." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:description" content="date_mcd estimates the Mean Ceramic Date of an assemblage.
+date_event fit a date event model.
+predict_event estimates the event and accumulation dates of an
+ assemblage." />
+<meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@nfrerebeau" />
+<meta name="twitter:site" content="@nfrerebeau" />
 
 
 
@@ -63,7 +72,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -77,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
       </span>
     </div>
 
@@ -138,60 +147,56 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Date Archaeological Assemblages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/date.R'><code>R/date.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/refine.R'><code>R/refine.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/date_event.R'><code>R/date_event.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/date_mcd.R'><code>R/date_mcd.R</code></a></small>
     <div class="hidden name"><code>date.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p><code>date_mcd</code> estimates the Mean Ceramic Date of an assemblage.</p>
+<p><code>date_event</code> fit a date event model.</p>
+<p><code>predict_event</code> estimates the event and accumulation dates of an
+ assemblage.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='no'>...</span>)
 
-<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='no'>...</span>)
 
-<span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='no'>...</span>)
 
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)
+<span class='co'># S4 method for CountMatrix,numeric</span>
+<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='no'>...</span>)
 
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='no'>...</span>)
+<span class='co'># S4 method for DateModel,missing</span>
+<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>...</span>)
 
-<span class='co'># S4 method for DateModel</span>
-<span class='fu'>refine_dates</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
+<span class='co'># S4 method for DateModel,CountMatrix</span>
+<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for CountMatrix,numeric</span>
+<span class='fu'>date_mcd</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>A \(m \times p\) matrix of count data (typically of
-class CountMatrix).</p></td>
+      <td><p>A CountMatrix or a <a href='DateClass.html'>DateModel</a>
+object.</p></td>
+    </tr>
+    <tr>
+      <th>dates</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of dates. If named,
+the names must match the row names of <code>object</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Further arguments to be passed to internal methods.</p></td>
     </tr>
     <tr>
-      <th>dates</th>
-      <td><p>A length-\(p\) numeric vector giving the mid-date of each type
-(year AD).</p></td>
-    </tr>
-    <tr>
-      <th>errors</th>
-      <td><p>A length-\(p\) numeric vector giving the absolute error of
-each date.</p></td>
-    </tr>
-    <tr>
-      <th>level</th>
-      <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
-confidence level.</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
-replications (see below).</p></td>
+      <th>data</th>
+      <td><p>A CountMatrix object for which to predict
+event and accumulation dates.</p></td>
     </tr>
     <tr>
       <th>cutoff</th>
@@ -201,17 +206,26 @@ variance used to select CA factorial components for linear model fitting
 less than the <code>cutoff</code> value will be retained.</p></td>
     </tr>
     <tr>
-      <th>method</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the resampling
-method to be used. This must be one of "<code>jackknife</code>",
-"<code>bootstrap</code>" (see details). Any unambiguous substring can be given.</p></td>
+      <th>level</th>
+      <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
+confidence level.</p></td>
+    </tr>
+    <tr>
+      <th>errors</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the absolute error of
+<code>dates</code>.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
+replications.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>date_mcd</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> with the following
- columns:</p><dl class='dl-horizontal'>
+ columns:</p><dl>
   <dt>id</dt><dd><p>An identifier to link each row to an assemblage.</p></dd>
   <dt>date</dt><dd><p>The Mean Ceramic Date.</p></dd>
   <dt>error</dt><dd><p>The error on the MCD.</p></dd>
@@ -220,24 +234,15 @@ method to be used. This must be one of "<code>jackknife</code>",
  
 </dl>
 
-<p><code>date_event</code> returns an object of class <a href='DateModel-class.html'>DateModel</a>.</p>
-<p><code>refine_dates</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p><code>date_event</code> estimates the event and accumulation dates of an
-assemblage.</p>
-<p><code>refine_dates</code> checks the stability of a date model with resampling
-methods.</p>
+<p><code>date_event</code> returns an object of class <a href='DateClass.html'>DateModel</a>.</p>
+<p><code>predict_event</code> returns an object of class <a href='DateClass.html'>DateEvent</a>.</p>
+<p><code>refine_event</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Bellanger <em>et al.</em> did not publish the data supporting their
  demonstration: no replication of their results is possible and this
  implementation must be considered <strong>experimental</strong>.
  <code>date_event</code> may be subject to major changes in a future release.</p>
-<p>Refining methods can lead to much longer execution times and larger output
- objects. To monitor the execution of these re-sampling procedures, a
- progress bar will automatically be displayed if the
- <code><a href='https://rdrr.io/pkg/pbapply/man/pbapply.html'>pbapply</a></code> package is installed on your machine.</p>
     <h2 class="hasAnchor" id="mean-ceramic-date"><a class="anchor" href="#mean-ceramic-date"></a>Mean Ceramic Date</h2>
 
     
@@ -278,15 +283,13 @@ methods.</p>
 
     
 
-<p><code>refine_date</code> can be used to check the stability of the resulting
- <a href='DateModel-class.html'>DateModel</a> with resampling methods.</p>
 <p>If <code>jackknife</code> is used, one type/fabric is removed at a
  time and all statistics are recalculated. In this way, one can assess
  whether certain type/fabric has a substantial influence on the date
  estimate.
  A six columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the results of
  the resampling procedure (jackknifing fabrics) for each assemblage (in rows)
- with the following columns:</p><dl class='dl-horizontal'>
+ with the following columns:</p><dl>
   <dt>id</dt><dd><p>An identifier to link each row to an assemblage.</p></dd>
   <dt>date</dt><dd><p>The jackknife event date estimate.</p></dd>
   <dt>lower</dt><dd><p>The lower boundary of the associated prediction interval.</p></dd>
@@ -301,15 +304,14 @@ methods.</p>
  each of the original assemblage with replacement. Then, examination of the
  bootstrap statistics makes it possible to pinpoint assemblages that require
  further investigation.
- A six columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
+ A five columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
  distribution statistics for each replicated assemblage (in rows)
- with the following columns:</p><dl class='dl-horizontal'>
-  <dt>id</dt><dd><p>An identifier to link each row to an assemblage.</p></dd>
+ with the following columns:</p><dl>
   <dt>min</dt><dd><p>Minimum value.</p></dd>
-  <dt>Q05</dt><dd><p>Sample quantile to 0.05 probability.</p></dd>
   <dt>mean</dt><dd><p>Mean value (event date).</p></dd>
-  <dt>Q95</dt><dd><p>Sample quantile to 0.95 probability.</p></dd>
   <dt>max</dt><dd><p>Maximum value.</p></dd>
+  <dt>Q5</dt><dd><p>Sample quantile to 0.05 probability.</p></dd>
+  <dt>Q95</dt><dd><p>Sample quantile to 0.95 probability.</p></dd>
  
 </dl>
 
@@ -340,13 +342,12 @@ methods.</p>
  New York: Academic Press.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://arkhe.archaeo.science/reference/chronology.html'>set_dates</a></p></div>
+    <div class='dont-index'><p><a href='refine.html'>refine_event</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Mean Ceramic Date</span>
 <span class='co'>## Coerce the zuni dataset to an abundance (count) matrix</span>
 <span class='no'>zuni_counts</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>zuni</span>)
-
 <span class='co'>## Set the start and end dates for each ceramic type</span>
 <span class='no'>zuni_dates</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
   <span class='kw'>LINO</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>600</span>, <span class='fl'>875</span>), <span class='kw'>KIAT</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>850</span>, <span class='fl'>950</span>), <span class='kw'>RED</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>900</span>, <span class='fl'>1050</span>),
@@ -356,50 +357,29 @@ methods.</p>
   <span class='kw'>SJ</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1200</span>, <span class='fl'>1300</span>), <span class='kw'>LSJ</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>), <span class='kw'>SPR</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>),
   <span class='kw'>PINER</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1325</span>), <span class='kw'>HESH</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>), <span class='kw'>KWAK</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>)
 )
-
-<span class='co'>## Calculate date midpoints and errors</span>
+<span class='co'>## Calculate date midpoints</span>
 <span class='no'>zuni_mid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>vapply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>zuni_dates</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>FUN.VALUE</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>1</span>))
-<span class='no'>zuni_error</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>vapply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>zuni_dates</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>diff</span>, <span class='kw'>FUN.VALUE</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>1</span>)) / <span class='fl'>2</span>
 
 <span class='co'>## Calculate MCD</span>
 <span class='co'>## (we use a bootstrapping procedure to estimate the confidence interval)</span>
-<span class='no'>zuni_mcd</span> <span class='kw'>&lt;-</span> <span class='fu'>date_mcd</span>(<span class='no'>zuni_counts</span>, <span class='kw'>dates</span> <span class='kw'>=</span> <span class='no'>zuni_mid</span>, <span class='kw'>errors</span> <span class='kw'>=</span> <span class='no'>zuni_error</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>zuni_mcd</span>)</div><div class='output co'>#&gt;       id      date    error     lower    upper
-#&gt; 1 LZ1105 1162.5000 49.03861 1160.5609 1162.630
-#&gt; 2 LZ1103 1137.8378 18.82518 1135.1952 1138.447
-#&gt; 3 LZ1100 1154.4643 24.20615 1154.2346 1157.687
-#&gt; 4 LZ1099 1090.6250 26.51650 1090.1506 1090.693
-#&gt; 5 LZ1097 1092.1875 26.51650 1087.2620 1093.679
-#&gt; 6 LZ1096  841.0714 43.59484  837.0617  844.874</div><div class='input'>
-<span class='co'>## Plot dates</span>
-<span class='no'>keep_sites</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"CS11"</span>, <span class='st'>"CS12"</span>, <span class='st'>"CS144"</span>, <span class='st'>"CS195"</span>, <span class='st'>"CS40"</span>, <span class='st'>"LZ0219"</span>, <span class='st'>"LZ0280"</span>,
-                <span class='st'>"LZ0367"</span>, <span class='st'>"LZ0508"</span>, <span class='st'>"LZ0560"</span>, <span class='st'>"LZ1076"</span>, <span class='st'>"LZ1087"</span>)
-<span class='fu'>set_dates</span>(<span class='no'>zuni_counts</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>value</span> <span class='kw'>=</span> <span class='no'>zuni_mcd</span>$<span class='no'>date</span>, <span class='kw'>error</span> <span class='kw'>=</span> <span class='no'>zuni_mcd</span>$<span class='no'>error</span>)
-<span class='fu'><a href='plot_date.html'>plot_date</a></span>(<span class='no'>zuni_counts</span>, <span class='kw'>select</span> <span class='kw'>=</span> <span class='no'>keep_sites</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='st'>"asc"</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>()</div><div class='img'><img src='date-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>zuni_mcd</span> <span class='kw'>&lt;-</span> <span class='fu'>date_mcd</span>(<span class='no'>zuni_counts</span>, <span class='kw'>dates</span> <span class='kw'>=</span> <span class='no'>zuni_mid</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>zuni_mcd</span>)</div><div class='output co'>#&gt;             date     lower    upper
+#&gt; LZ1105 1162.5000 1160.5609 1162.630
+#&gt; LZ1103 1137.8378 1135.1952 1138.447
+#&gt; LZ1100 1154.4643 1154.2346 1157.687
+#&gt; LZ1099 1090.6250 1090.1506 1090.693
+#&gt; LZ1097 1092.1875 1087.2620 1093.679
+#&gt; LZ1096  841.0714  837.0617  844.874</div><div class='input'>
 <span class='co'>## Event and accumulation dates (Bellanger et al.)</span>
 <span class='co'>## See the vignette:</span>
 <span class='co'># \donttest{</span>
 <span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"dating"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘dating’ not found</span></div><div class='input'># }
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#note">Note</a></li>
-      <li><a href="#mean-ceramic-date">Mean Ceramic Date</a></li>
-      <li><a href="#event-and-accumulation-dates">Event and Accumulation Dates</a></li>
-      <li><a href="#date-model-checking">Date Model Checking</a></li>
-      <li><a href="#references">References</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>N. Frerebeau</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -410,7 +390,7 @@ methods.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

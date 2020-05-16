@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="pkgdown.css" rel="stylesheet">
@@ -43,8 +47,10 @@
 
 
 <meta property="og:title" content="Background" />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@nfrerebeau" />
+<meta name="twitter:site" content="@nfrerebeau" />
 
 
 
@@ -62,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -76,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">tabula</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0</span>
       </span>
     </div>
 
@@ -153,15 +159,15 @@
 </ul>
 <div id="background" class="section level1">
 
-<p>Detecting and quantifying material and cultural variations in time and space are important methodological issues in archaeology. To solve these issues, we need to construct reliable chronologies and quantitative descriptions of archaeological assemblages, i. e. archaeological sites or intrasite units, each described as a set of $p$ different objects.</p>
-<p>Building chronologies involves distinguishing between relative (providing only a chronological sequence) and absolute dating methods (that yield calendric indicators) [@obrien2002]. Within relative dating, matrix seriation is a long-established method—it was first formulated by @petrie1899—and has allowed for the construction of reference chronologies [@ihm2005]. For a set $X$ of $n$ archaeological assemblages, the seriation problem comes down to discovering in $X$ an order inferred as chronological. This approach relies on a set of well-defined statistical and archaeological assumptions [@dunnell1970]. It may use <em>a priori</em> information, e.g., absolute dates or stratigraphical constraints [@poblome2003] and allows for the analysis of chronological patterns in a socio-economic or cultural perspective (e.g., [@bellanger2012], [@lipo2015]).</p>
+<p>Detecting and quantifying material and cultural variations in time and space are important methodological issues in archaeology. To solve these issues, we need to construct reliable chronologies and quantitative descriptions of archaeological assemblages, i. e. archaeological sites or intrasite units, each described as a set of <span class="math inline"><em>p</em></span> different objects.</p>
+<p>Building chronologies involves distinguishing between relative (providing only a chronological sequence) and absolute dating methods (that yield calendric indicators) [@obrien2002]. Within relative dating, matrix seriation is a long-established method—it was first formulated by @petrie1899—and has allowed for the construction of reference chronologies [@ihm2005]. For a set <span class="math inline"><em>X</em></span> of <span class="math inline"><em>n</em></span> archaeological assemblages, the seriation problem comes down to discovering in <span class="math inline"><em>X</em></span> an order inferred as chronological. This approach relies on a set of well-defined statistical and archaeological assumptions [@dunnell1970]. It may use <em>a priori</em> information, e.g., absolute dates or stratigraphical constraints [@poblome2003] and allows for the analysis of chronological patterns in a socio-economic or cultural perspective (e.g., [@bellanger2012], [@lipo2015]).</p>
 <p>The quantitative analysis of archaeological assemblages can thus be carried out in a synchronic, e.g., diversity measurements, or diachronic, e.g., evolutionary studies: selection process, patterns of cultural transmission, etc., way. These approaches cover a wide range of applications and have led to the development of a multitude of statistical models, but none have been systematically implemented to enable the deployment of reproducible workflows.</p>
 </div>
 <div id="summary" class="section level1">
 <h1 class="hasAnchor">
 <a href="#summary" class="anchor"></a>Summary</h1>
 <p><a href="https://CRAN.R-project.org/package=tabula"><code>tabula</code></a> provides a convenient and reproducible toolkit for analyzing, seriating, and visualizing archaeological count data, such as artifacts and faunal remains.</p>
-<p>Several R packages, e.g. <a href="https://CRAN.R-project.org/package=ade4"><code>ade4</code></a> [@dray2007], <a href="https://CRAN.R-project.org/package=SpadeR"><code>SpadeR</code></a> [@chao2016] or <a href="https://CRAN.R-project.org/package=vegan"><code>vegan</code></a> [@oksanen2019], allow for the estimation of diversity indices and implement seriation/ordination methods, but these packages are mainly oriented towards ecological issues. <code>tabula</code> provides archaeologically-orientated implementations that allow for the integration of specific data (dates, stratigraphy, etc.) and offers a consistent framework. The latter is of particular value since <code>tabula</code> is designed to be used both by archaeologists and by students with little background in courses on dating methods and applied statistics in archaeology.</p>
+<p>Several R packages, e.g. <a href="https://CRAN.R-project.org/package=ade4"><code>ade4</code></a> [@dray2007], <a href="https://CRAN.R-project.org/package=SpadeR"><code>SpadeR</code></a> [@chao2016] or <a href="https://CRAN.R-project.org/package=vegan"><code>vegan</code></a> [@oksanen2019], allow for the estimation of diversity indices and implement seriation/ordination methods, but these packages are mainly oriented towards ecological issues. <code>tabula</code> provides archaeologically-orientated implementations that allow for the integration of specific data (dates, stratigraphy, etc.) and offers a consistent framework. The latter is of particular value since <code>tabula</code> is designed to be used both by archaeologists and by students with little background in courses on dating methods and applied statistics in archaeology.</p>
 <p>The package uses a set of S4 classes for archaeological data matrices that extend the <code>matrix</code> data type. These new classes represent different specialized matrices: incidence, abundance, co-occurrence, and (dis)similarity. Methods for a variety of functions applied to objects from these classes provide tools for relative and absolute dating and analysis of (chronological) patterns.</p>
 <p><code>tabula</code> includes functions for matrix seriation (<code>seriate_*</code>), as well as chronological modeling and dating (<code>date_*</code>) of archaeological assemblages and objects. Resulting models can be checked for stability and refined with resampling methods (<code>refine_*</code>). Estimated dates can then be displayed as a tempo or activity plot [@dye2016] to assess rhythms over long periods. Beyond these, <code>tabula</code> provides several tests (<code>test_*</code>) and measures of diversity within and between archaeological assemblages (<code>index_*</code>): heterogeneity and evenness (Brillouin, Shannon, Simpson, etc.), richness and rarefaction (Chao1, Chao2, ACE, ICE, etc.), turnover and similarity (Brainerd-Robinson, etc.). Finally, the package makes it easy to visualize count data and statistical thresholds (<code>plot_*</code>): rank vs. abundance plots, heatmaps, and @ford1962 and @bertin1977 diagrams.</p>
 </div>
@@ -178,6 +184,12 @@
 
   </div>
 
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
+  </div>
+
 </div>
 
 
@@ -188,7 +200,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

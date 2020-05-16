@@ -1,11 +1,12 @@
-pandoc: 2.3.1
-pkgdown: 1.4.1
-pkgdown_sha: ~
+pandoc: 2.7.3
+pkgdown: 1.5.1.9000
+pkgdown_sha: 810084e8a9abd091378a6b75fa9d7de9ce637aa1
 articles:
   bibliography: bibliography.html
   dating: dating.html
   diversity: diversity.html
   seriation: seriation.html
+last_built: 2020-05-16T15:33Z
 urls:
   reference: http://tabula.archaeo.science/reference
   article: http://tabula.archaeo.science/articles

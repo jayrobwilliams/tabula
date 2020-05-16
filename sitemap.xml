@@ -7,7 +7,10 @@
     <loc>http://tabula.archaeo.science/reference/BootCA-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/DateModel-class.html</loc>
+    <loc>http://tabula.archaeo.science/reference/CA-class.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/DateClass.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/DiversityIndex.html</loc>
@@ -19,7 +22,13 @@
     <loc>http://tabula.archaeo.science/reference/access.html</loc>
   </url>
   <url>
+    <loc>http://tabula.archaeo.science/reference/altamira.html</loc>
+  </url>
+  <url>
     <loc>http://tabula.archaeo.science/reference/boves.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/ca.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/compiegne.html</loc>
@@ -28,7 +37,7 @@
     <loc>http://tabula.archaeo.science/reference/date.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/deprecated.html</loc>
+    <loc>http://tabula.archaeo.science/reference/deprecate.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/heterogeneity-index.html</loc>
@@ -58,6 +67,9 @@
     <loc>http://tabula.archaeo.science/reference/plot_spot.html</loc>
   </url>
   <url>
+    <loc>http://tabula.archaeo.science/reference/refine.html</loc>
+  </url>
+  <url>
     <loc>http://tabula.archaeo.science/reference/richness-index.html</loc>
   </url>
   <url>
@@ -65,6 +77,9 @@
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/similarity-method.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/statistic.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/subset.html</loc>
