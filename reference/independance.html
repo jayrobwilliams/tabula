@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Diversity Test — test_diversity • tabula</title>
+<title>Independance — independance • tabula</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Diversity Test — test_diversity" />
-<meta property="og:description" content="Compares Shannon diversity between samples." />
+<meta property="og:title" content="Independance — independance" />
+<meta property="og:description" content="Independance" />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
@@ -143,35 +143,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Diversity Test</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/test_diversity.R'><code>R/test_diversity.R</code></a></small>
-    <div class="hidden name"><code>test_diversity.Rd</code></div>
+    <h1>Independance</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/statistics.R'><code>R/statistics.R</code></a></small>
+    <div class="hidden name"><code>independance.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Compares Shannon diversity between samples.</p>
+    <p>Independance</p>
     </div>
 
-    <pre class="usage"><span class='fu'>test_diversity</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>eppm</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='fu'>pvi</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>test_diversity</span>(<span class='no'>object</span>, <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='st'>"holm"</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>eppm</span>(<span class='no'>object</span>)
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>pvi</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>A \(m \times p\) matrix of count data.</p></td>
+      <td><p>A CountMatrix object.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Further arguments to be passed to internal methods.</p></td>
-    </tr>
-    <tr>
-      <th>adjust</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the method for
-adjusting \(p\) values (see <code><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust</a></code>).</p></td>
+      <td><p>Currently not used.</p></td>
     </tr>
     </table>
 
@@ -180,36 +180,44 @@ adjusting \(p\) values (see <code><a href='https://rdrr.io/r/stats/p.adjust.html
     <p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> matrix.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This test produces two sided pairwise comparisons: it returns a matrix of
- adjusted \(p\) values.</p>
+    <p>Computes for each cell of a numeric matrix one of the following statistic.</p>
+    <h2 class="hasAnchor" id="eppm"><a class="anchor" href="#eppm"></a>EPPM</h2>
+
+    
+
+<p>This positive difference from the column mean percentage (in french "écart
+ positif au pourcentage moyen", EPPM) represents a deviation from the
+ situation of statistical independence. As independence can be interpreted as
+ the absence of relationships between types and the chronological order of
+ the assemblages, <code>EPPM</code> is a useful graphical tool to explore
+ significance of relationship between rows and columns related to
+ seriation (Desachy 2004).</p>
+    <h2 class="hasAnchor" id="pvi"><a class="anchor" href="#pvi"></a>PVI</h2>
+
+    
+
+<p><code>PVI</code> is calculated for each cell as the percentage to the column
+ theoretical independence value: <code>PVI</code> greater than \(1\) represent
+ positive deviations from the independence, whereas <code>PVI</code> smaller than
+ \(1\) represent negative deviations (Desachy 2004).</p>
+<p>The <code>PVI</code> matrix allows to explore deviations from independence
+ (an intuitive graphical approach to \(\chi^2\)),
+ in such a way that a high-contrast matrix has quite significant deviations,
+ with a low risk of being due to randomness (Desachy 2004).</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Magurran, A. E. (1988). <em>Ecological Diversity and its Measurement</em>.
- Princeton, NJ: Princeton University Press.
- DOI: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>.</p>
+    <p>Desachy, B. (2004). Le sériographe EPPM: un outil informatisé de sériation
+ graphique pour tableaux de comptages. <em>Revue archéologique de
+ Picardie</em>, 3(1), 39-56.
+ DOI: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other statistics: 
-<code><a href='independance.html'>independance</a></code>,
+    <div class='dont-index'><p><a href='plot_bar.html'>plot_ford</a>, <a href='plot_matrix.html'>plot_heatmap</a>, <a href='seriation.html'>seriate_rank</a></p>
+<p>Other statistics: 
 <code><a href='refine.html'>refine</a></code>,
+<code><a href='test_diversity.html'>test_diversity</a>()</code>,
 <code><a href='test_fit.html'>test_fit</a>()</code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Shannon diversity test</span>
-<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>)
-<span class='no'>div</span> <span class='kw'>&lt;-</span> <span class='fu'>test_diversity</span>(<span class='no'>merzbach_count</span>)
-
-<span class='co'>## Frequency Increment Test</span>
-<span class='co'>## Coerce the merzbach dataset to a count matrix</span>
-<span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
-<span class='no'>keep</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>merzbach</span>, <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>) <span class='kw'>&gt;=</span> <span class='fl'>50</span>)
-<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>[, <span class='no'>keep</span>])
-
-<span class='co'>## The data are grouped by phase</span>
-<span class='co'>## We use the row names as time coordinates (roman numerals)</span>
-<span class='fu'>set_dates</span>(<span class='no'>merzbach_count</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>merzbach</span>)
-
-<span class='no'>fit</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='test_fit.html'>test_fit</a></span>(<span class='no'>merzbach_count</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
