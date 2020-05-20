@@ -47,7 +47,10 @@
 
 
 <meta property="og:title" content="Function reference" />
-<meta property="og:image" content="/logo.svg" />
+<meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@nfrerebeau" />
+<meta name="twitter:site" content="@nfrerebeau" />
 
 
 
@@ -87,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,27 +105,27 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/bibliography.html">Bibliography</a>
+      <a href="../articles/diversity.html">Diversity Measures</a>
+    </li>
+    <li>
+      <a href="../articles/seriation.html">Seriation Methods</a>
     </li>
     <li>
       <a href="../articles/dating.html">Dating Methods</a>
     </li>
     <li>
-      <a href="../articles/diversity.html">Diversity Measures</a>
+      <a href="../articles/bibliography.html">Bibliography</a>
     </li>
     <li>
-      <a href="../articles/seriation.html">Seriation</a>
+      <a href="../news/index.html">Changelog</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/nfrerebeau/tabula/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/nfrerebeau/tabula">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -153,7 +156,156 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-diversity-measures" class="hasAnchor"><a href="#section-diversity-measures" class="anchor"></a>Diversity Measures</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="heterogeneity-index.html">index_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">index_evenness()</a></code> </p>
+        </td>
+        <td><p>Heterogeneity and Evenness</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="refine.html">refine_ca()</a></code> <code><a href="refine.html">refine_diversity()</a></code> <code><a href="refine.html">refine_event()</a></code> </p>
+        </td>
+        <td><p>Bootstrap and Jackknife Resampling</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="richness-index.html">index_richness()</a></code> <code><a href="richness-index.html">index_composition()</a></code> <code><a href="richness-index.html">rarefaction()</a></code> </p>
+        </td>
+        <td><p>Richness and Rarefaction</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="similarity-method.html">similarity()</a></code> </p>
+        </td>
+        <td><p>Similarity</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="turnover-index.html">turnover()</a></code> </p>
+        </td>
+        <td><p>Turnover</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-dating-methods" class="hasAnchor"><a href="#section-dating-methods" class="anchor"></a>Dating Methods</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="date.html">date_mcd()</a></code> <code><a href="date.html">date_event()</a></code> <code><a href="date.html">predict_event()</a></code> </p>
+        </td>
+        <td><p>Date Archaeological Assemblages</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-seriation-methods" class="hasAnchor"><a href="#section-seriation-methods" class="anchor"></a>Seriation Methods</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="seriation.html">seriate_rank()</a></code> <code><a href="seriation.html">seriate_correspondence()</a></code> <code><a href="seriation.html">permute()</a></code> <code><a href="seriation.html">get_order()</a></code> </p>
+        </td>
+        <td><p>Matrix Seriation</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-visualization-methods" class="hasAnchor"><a href="#section-visualization-methods" class="anchor"></a>Visualization Methods</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="plot_bar.html">plot_bertin()</a></code> <code><a href="plot_bar.html">plot_ford()</a></code> </p>
+        </td>
+        <td><p>Bar Plot</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_date.html">plot_date()</a></code> <code><a href="plot_date.html">plot_time()</a></code> </p>
+        </td>
+        <td><p>Date and Time Plot</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_diversity.html">plot_diversity()</a></code> </p>
+        </td>
+        <td><p>Diversity Plot</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_line.html">plot_rank()</a></code> </p>
+        </td>
+        <td><p>Line Plot</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_matrix.html">plot_heatmap()</a></code> </p>
+        </td>
+        <td><p>Heatmap</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="plot_spot.html">plot_spot()</a></code> </p>
+        </td>
+        <td><p>Spot Plot</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-tests" class="hasAnchor"><a href="#section-tests" class="anchor"></a>Tests</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="test.html">test_diversity()</a></code> <code><a href="test.html">test_fit()</a></code> </p>
+        </td>
+        <td><p>Tests on Abundance Data</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-classes" class="hasAnchor"><a href="#section-classes" class="anchor"></a>Classes</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
@@ -192,13 +344,45 @@
           <p><code><a href="PermutationOrder-class.html">PermutationOrder-class</a></code> </p>
         </td>
         <td><p>Permutation Order</p></td>
-      </tr><tr>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-getters-and-setters" class="hasAnchor"><a href="#section-getters-and-setters" class="anchor"></a>Getters and Setters</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="access.html">access</a></code> </p>
         </td>
         <td><p>Get or Set Parts of an Object</p></td>
       </tr><tr>
+        
+        <td>
+          <p><code><a href="subset.html">`[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DiversityIndex&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;CA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;PermutationOrder&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Extract or Replace Parts of an Object</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="altamira.html">altamira</a></code> </p>
@@ -213,33 +397,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="ca.html">run_ca()</a></code> <code><a href="ca.html">predict_ca()</a></code> <code><a href="ca.html">plot_ca()</a></code> </p>
-        </td>
-        <td><p>Correspondence Analysis</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="compiegne.html">compiegne</a></code> </p>
         </td>
         <td><p>Compiègne ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="date.html">date_mcd()</a></code> <code><a href="date.html">date_event()</a></code> <code><a href="date.html">predict_event()</a></code> </p>
-        </td>
-        <td><p>Date Archaeological Assemblages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="deprecate.html">seriate_reciprocal()</a></code> <code><a href="deprecate.html">refine_seriation()</a></code> </p>
-        </td>
-        <td><p>Deprecated Methods</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="heterogeneity-index.html">index_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">index_evenness()</a></code> </p>
-        </td>
-        <td><p>Heterogeneity and Evenness</p></td>
       </tr><tr>
         
         <td>
@@ -252,90 +412,6 @@
           <p><code><a href="mississippi.html">mississippi</a></code> </p>
         </td>
         <td><p>Mississippi ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_bar.html">plot_bertin()</a></code> <code><a href="plot_bar.html">plot_ford()</a></code> </p>
-        </td>
-        <td><p>Bar Plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_date.html">plot_date()</a></code> <code><a href="plot_date.html">plot_time()</a></code> </p>
-        </td>
-        <td><p>Date and Time Plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_diversity.html">plot_diversity()</a></code> </p>
-        </td>
-        <td><p>Diversity Plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_line.html">plot_rank()</a></code> </p>
-        </td>
-        <td><p>Line Plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_matrix.html">plot_heatmap()</a></code> </p>
-        </td>
-        <td><p>Heatmap</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_spot.html">plot_spot()</a></code> </p>
-        </td>
-        <td><p>Spot Plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="refine.html">refine_ca()</a></code> <code><a href="refine.html">refine_diversity()</a></code> <code><a href="refine.html">refine_event()</a></code> </p>
-        </td>
-        <td><p>Bootstrap and Jackknife Resampling</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="richness-index.html">index_richness()</a></code> <code><a href="richness-index.html">index_composition()</a></code> <code><a href="richness-index.html">rarefaction()</a></code> </p>
-        </td>
-        <td><p>Richness and Rarefaction</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="seriation.html">seriate_rank()</a></code> <code><a href="seriation.html">seriate_correspondence()</a></code> <code><a href="seriation.html">permute()</a></code> <code><a href="seriation.html">get_order()</a></code> </p>
-        </td>
-        <td><p>Matrix Seriation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="similarity-method.html">similarity()</a></code> </p>
-        </td>
-        <td><p>Similarity</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="statistic.html">calculate_eppm()</a></code> <code><a href="statistic.html">calculate_pvi()</a></code> </p>
-        </td>
-        <td><p>Independance</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="subset.html">`[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DiversityIndex&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;CA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;PermutationOrder&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Extract or Replace Parts of an Object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="test.html">test_diversity()</a></code> <code><a href="test.html">test_fit()</a></code> </p>
-        </td>
-        <td><p>Tests on Abundance Data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="turnover-index.html">turnover()</a></code> </p>
-        </td>
-        <td><p>Turnover</p></td>
       </tr><tr>
         
         <td>
