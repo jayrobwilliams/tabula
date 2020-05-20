@@ -34,10 +34,13 @@
     <loc>http://tabula.archaeo.science/reference/compiegne.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/date.html</loc>
+    <loc>http://tabula.archaeo.science/reference/date_mcd.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/deprecate.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/event.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/heterogeneity-index.html</loc>
@@ -88,7 +91,10 @@
     <loc>http://tabula.archaeo.science/reference/tabula-package.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/test.html</loc>
+    <loc>http://tabula.archaeo.science/reference/test_diversity.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/test_fit.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/turnover-index.html</loc>

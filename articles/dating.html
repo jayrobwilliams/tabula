@@ -75,10 +75,10 @@
     <li>
       <a href="../articles/bibliography.html">Bibliography</a>
     </li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -186,15 +186,15 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 
 <span class="co">## Calculate MCD</span>
 <span class="co">## (we use a bootstrapping procedure to estimate the confidence interval)</span>
-<span class="no">zuni_mcd</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/date.html">date_mcd</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">zuni_mid</span>)
+<span class="no">zuni_mcd</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/date_mcd.html">date_mcd</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">zuni_mid</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">zuni_mcd</span>)
 <span class="co">#&gt;             date     lower     upper</span>
-<span class="co">#&gt; LZ1105 1162.5000 1161.7351 1163.9024</span>
-<span class="co">#&gt; LZ1103 1137.8378 1136.7935 1139.9815</span>
-<span class="co">#&gt; LZ1100 1154.4643 1152.3548 1155.9595</span>
-<span class="co">#&gt; LZ1099 1090.6250 1090.5482 1091.0893</span>
-<span class="co">#&gt; LZ1097 1092.1875 1090.2105 1096.4738</span>
-<span class="co">#&gt; LZ1096  841.0714  837.6519  845.0088</span></pre></body></html></div>
+<span class="co">#&gt; LZ1105 1162.5000 1161.3796 1163.5423</span>
+<span class="co">#&gt; LZ1103 1137.8378 1135.1847 1138.5382</span>
+<span class="co">#&gt; LZ1100 1154.4643 1152.3011 1155.8793</span>
+<span class="co">#&gt; LZ1099 1090.6250 1090.2682 1090.8068</span>
+<span class="co">#&gt; LZ1097 1092.1875 1088.3534 1095.0403</span>
+<span class="co">#&gt; LZ1096  841.0714  835.2252  842.7748</span></pre></body></html></div>
 </div>
 </div>
 <div id="event-accumulation-date" class="section level1">
@@ -297,7 +297,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <span class="no">dates</span>[<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="fl">1</span>:<span class="fl">420</span>, <span class="fl">320</span>, <span class="fl">FALSE</span>)] <span class="kw">&lt;-</span> <span class="fl">NA</span>
 
 <span class="co">## Model the event and accumulation date for each assemblage</span>
-<span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/date.html">date_event</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">dates</span>, <span class="kw">cutoff</span> <span class="kw">=</span> <span class="fl">90</span>)
+<span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/event.html">date_event</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">dates</span>, <span class="kw">cutoff</span> <span class="kw">=</span> <span class="fl">90</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">model</span><span class="kw">[[</span><span class="st">"model"</span>]])
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
@@ -327,7 +327,7 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <span class="co">#&gt; F-statistic: 3.411e+04 on 9 and 90 DF,  p-value: &lt; 2.2e-16</span>
 
 <span class="co">## Estimate event and accumulation dates</span>
-<span class="no">event</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/date.html">predict_event</a></span>(<span class="no">model</span>, <span class="no">zuni_counts</span>, <span class="kw">level</span> <span class="kw">=</span> <span class="fl">0.95</span>)
+<span class="no">event</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/event.html">predict_event</a></span>(<span class="no">model</span>, <span class="no">zuni_counts</span>, <span class="kw">level</span> <span class="kw">=</span> <span class="fl">0.95</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">event</span><span class="kw">[[</span><span class="st">"row_events"</span>]])
 <span class="co">#&gt;             date     lower     upper     error</span>
 <span class="co">#&gt; LZ1105 1163.8996 1162.1479 1165.6512 0.8816960</span>

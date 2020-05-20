@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Boves ceramics — boves • tabula</title>
+<title>Frequency Increment Test — test_fit • tabula</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,8 @@
 
 
 
-<meta property="og:title" content="Boves ceramics — boves" />
-<meta property="og:description" content="A dataset containing the ceramic counts from the castle site of Boves
- (Somme, France). The data are grouped into eight periods ranging from the
- 10th to the 18th century and thirteen ceramic types." />
+<meta property="og:title" content="Frequency Increment Test — test_fit" />
+<meta property="og:description" content="Frequency Increment Test" />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
@@ -145,52 +143,75 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Boves ceramics</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>boves.Rd</code></div>
+    <h1>Frequency Increment Test</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/test_fit.R'><code>R/test_fit.R</code></a></small>
+    <div class="hidden name"><code>test_fit.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing the ceramic counts from the castle site of Boves
- (Somme, France). The data are grouped into eight periods ranging from the
- 10th to the 18th century and thirteen ceramic types.</p>
+    <p>Frequency Increment Test</p>
     </div>
 
-    <pre class="usage"><span class='no'>boves</span></pre>
+    <pre class="usage"><span class='fu'>test_fit</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>test_fit</span>(<span class='no'>object</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>A \(m \times p\) matrix of count data.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Currently not used.</p></td>
+    </tr>
+    <tr>
+      <th>simplify</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the result be
+simplified to a matrix?</p></td>
+    </tr>
+    </table>
 
-    <p>A numeric matrix with 8 rows and 13 variables (ceramic types):</p><dl>
-   <dt>I</dt><dd><p></p></dd>
-   <dt>IIa</dt><dd><p></p></dd>
-   <dt>IIb</dt><dd><p></p></dd>
-   <dt>IIIa</dt><dd><p></p></dd>
-   <dt>IIIb</dt><dd><p></p></dd>
-   <dt>IIIc</dt><dd><p></p></dd>
-   <dt>IVa</dt><dd><p></p></dd>
-   <dt>IVb</dt><dd><p></p></dd>
-   <dt>Va</dt><dd><p></p></dd>
-   <dt>Vb</dt><dd><p></p></dd>
-   <dt>VI</dt><dd><p></p></dd>
-   <dt>VII</dt><dd><p></p></dd>
- 
-</dl>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <p>If <code>simplify</code> is <code>FALSE</code>, returns a list (default), else returns
+ a matrix.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Racinet P. (2002). Le site castral et prioral de Boves du Xe au XVIIe
- siècle. Bilan des recherches 1996-2000. <em>Revue archéologique de
- Picardie</em>. Numéro spécial 20, 123 p.</p>
+    <p>The Frequency Increment Test (FIT) rejects neutrality if the distribution
+ of normalized variant frequency increments exhibits a mean that deviates
+ significantly from zero.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Feder, A. F., Kryazhimskiy, S. &amp; Plotkin, J. B. (2014). Identifying
+ Signatures of Selection in Genetic Time Series. <em>Genetics</em>, 196(2),
+ 509-522.
+ DOI: <a href='https://doi.org/10.1534/genetics.113.158220'>10.1534/genetics.113.158220</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other datasets: 
-<code><a href='altamira.html'>altamira</a></code>,
-<code><a href='compiegne.html'>compiegne</a></code>,
-<code><a href='merzbach.html'>merzbach</a></code>,
-<code><a href='mississippi.html'>mississippi</a></code>,
-<code><a href='zuni.html'>zuni</a></code></p></div>
+    <div class='dont-index'><p>Other statistics: 
+<code><a href='refine.html'>refine</a></code>,
+<code><a href='test_diversity.html'>test_diversity</a>()</code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Shannon diversity test</span>
+<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>)
+<span class='no'>div</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='test_diversity.html'>test_diversity</a></span>(<span class='no'>merzbach_count</span>)
+
+<span class='co'>## Frequency Increment Test</span>
+<span class='co'>## Coerce the merzbach dataset to a count matrix</span>
+<span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
+<span class='no'>keep</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>merzbach</span>, <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>) <span class='kw'>&gt;=</span> <span class='fl'>50</span>)
+<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>[, <span class='no'>keep</span>])
+
+<span class='co'>## The data are grouped by phase</span>
+<span class='co'>## We use the row names as time coordinates (roman numerals)</span>
+<span class='fu'>set_dates</span>(<span class='no'>merzbach_count</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>merzbach</span>)
+
+<span class='no'>fit</span> <span class='kw'>&lt;-</span> <span class='fu'>test_fit</span>(<span class='no'>merzbach_count</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

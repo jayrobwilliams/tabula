@@ -87,10 +87,10 @@
     <li>
       <a href="articles/bibliography.html">Bibliography</a>
     </li>
-    <li>
-      <a href="news/index.html">Changelog</a>
-    </li>
   </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -210,7 +210,7 @@
 <div id="dating" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dating" class="anchor"></a>Dating</h3>
-<p>This package provides an implementation of the chronological modeling method developed by Bellanger and Husi (<a href="https://doi.org/10.1016/j.jas.2011.06.031">2012</a>). This method is slightly modified here and allows the construction of different probability density curves of archaeological assemblage dates (<em>event</em>, <em>activity</em> and <em>tempo</em>). Note that this implementation is experimental (see <code><a href="reference/date.html">help(date_event)</a></code>).</p>
+<p>This package provides an implementation of the chronological modeling method developed by Bellanger and Husi (<a href="https://doi.org/10.1016/j.jas.2011.06.031">2012</a>). This method is slightly modified here and allows the construction of different probability density curves of archaeological assemblage dates (<em>event</em>, <em>activity</em> and <em>tempo</em>). Note that this implementation is experimental (see <code><a href="reference/event.html">help(date_event)</a></code>).</p>
 <div class="sourceCode" id="cb9"><pre class="r"><span class="co"># Coerce dataset to abundance (count) matrix</span>
 <span class="no">zuni_counts</span> <span class="kw">&lt;-</span> <span class="fu">as_count</span>(<span class="no">zuni</span>)
 <span class="co"># Assume that some assemblages are reliably dated (this is NOT a real example)</span>
@@ -223,9 +223,9 @@
 )
 
 <span class="co"># Model the event date for each assemblage</span>
-<span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/date.html">date_event</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">zuni_dates</span>, <span class="kw">cutoff</span> <span class="kw">=</span> <span class="fl">90</span>)
+<span class="no">model</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/event.html">date_event</a></span>(<span class="no">zuni_counts</span>, <span class="kw">dates</span> <span class="kw">=</span> <span class="no">zuni_dates</span>, <span class="kw">cutoff</span> <span class="kw">=</span> <span class="fl">90</span>)
 <span class="co"># Predict event and accumulation dates</span>
-<span class="no">event</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/date.html">predict_event</a></span>(<span class="no">model</span>, <span class="no">zuni_counts</span>)
+<span class="no">event</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/event.html">predict_event</a></span>(<span class="no">model</span>, <span class="no">zuni_counts</span>)
 
 <span class="co"># Plot activity and tempo distributions</span>
 <span class="fu"><a href="reference/plot_date.html">plot_date</a></span>(<span class="no">event</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">"activity"</span>, <span class="kw">select</span> <span class="kw">=</span> <span class="st">"LZ1105"</span>) +
@@ -270,7 +270,7 @@
 <span class="co">## (returns a matrix of adjusted p values)</span>
 <span class="no">mississippi</span>[<span class="fl">1</span>:<span class="fl">5</span>, ] <span class="kw">%&gt;%</span>
   <span class="fu">as_count</span>() <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="reference/test.html">test_diversity</a></span>()
+  <span class="fu"><a href="reference/test_diversity.html">test_diversity</a></span>()
 <span class="co">#&gt;               10-P-1       11-N-9       11-N-1   11-O-10</span>
 <span class="co">#&gt; 11-N-9  0.000000e+00           NA           NA        NA</span>
 <span class="co">#&gt; 11-N-1  3.609626e-08 8.538298e-05           NA        NA</span>

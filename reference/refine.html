@@ -120,10 +120,10 @@ refine_diversity checks the stability of a
     <li>
       <a href="../articles/bibliography.html">Bibliography</a>
     </li>
-    <li>
-      <a href="../news/index.html">Changelog</a>
-    </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -317,13 +317,11 @@ confidence level.</p></td>
  DOI: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='date.html'>date_event</a>, <a href='heterogeneity-index.html'>index_heterogeneity</a>,
+    <div class='dont-index'><p><a href='event.html'>date_event</a>, <a href='heterogeneity-index.html'>index_heterogeneity</a>,
  <a href='heterogeneity-index.html'>index_evenness</a>, <a href='richness-index.html'>index_richness</a>, <a href='seriation.html'>seriate_correspondence</a></p>
-<p>Other diversity: 
-<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
-<code><a href='richness-index.html'>richness-index</a></code>,
-<code><a href='similarity-method.html'>similarity</a>()</code>,
-<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
+<p>Other statistics: 
+<code><a href='test_diversity.html'>test_diversity</a>()</code>,
+<code><a href='test_fit.html'>test_fit</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Data from Magurran 1988, p. 145-149</span>
@@ -337,15 +335,15 @@ confidence level.</p></td>
 <span class='co'>## Shannon diversity</span>
 <span class='no'>heterogeneity</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>)
 <span class='fu'>refine_diversity</span>(<span class='no'>heterogeneity</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min      mean     max      Q5       Q95     
-#&gt; oakwood 2.101978 2.34839  2.551411 2.219175 2.458895
-#&gt; spruce  1.806633 2.023061 2.206104 1.915666 2.125985</div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>heterogeneity</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean     bias       error    
+#&gt; oakwood 2.094642 2.35041  2.573477 2.23074  2.468232
+#&gt; spruce  1.793914 2.021042 2.209898 1.915112 2.127804</div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>heterogeneity</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean     bias       error    
 #&gt; oakwood 2.362648 -0.9520239 0.1233832
 #&gt; spruce  2.012326 -0.9169561 0.2490786</div><div class='input'>
 <span class='co'>## Shannon evenness</span>
 <span class='no'>evenness</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>)
 <span class='fu'>refine_diversity</span>(<span class='no'>evenness</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min       mean      max       Q5        Q95      
-#&gt; oakwood 0.7508747 0.8140957 0.8804647 0.7779164 0.847611 
-#&gt; spruce  0.7121807 0.7887231 0.8651255 0.7499545 0.8283691</div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>evenness</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean      bias        error     
+#&gt; oakwood 0.7233923 0.8152063 0.8876801 0.7793649 0.8508275
+#&gt; spruce  0.7101253 0.7888973 0.8581119 0.748665  0.82948  </div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>evenness</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean      bias        error     
 #&gt; oakwood 0.8011374 -0.05600727 0.03567978
 #&gt; spruce  0.776363  -0.05669112 0.07771685</div></pre>
   </div>
