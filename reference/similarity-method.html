@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,17 +162,17 @@
     <p>Similarity</p>
     </div>
 
-    <pre class="usage"><span class='fu'>similarity</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>similarity</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"brainerd"</span>, <span class='st'>"bray"</span>, <span class='st'>"jaccard"</span>, <span class='st'>"morisita"</span>, <span class='st'>"sorenson"</span>, <span class='st'>"binomial"</span>),
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"brainerd"</span>, <span class='st'>"bray"</span>, <span class='st'>"jaccard"</span>, <span class='st'>"morisita"</span>, <span class='st'>"sorenson"</span>, <span class='st'>"binomial"</span>),
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>similarity</span>(<span class='no'>object</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jaccard"</span>, <span class='st'>"sorenson"</span>), <span class='no'>...</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>object</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jaccard"</span>, <span class='st'>"sorenson"</span>), <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -231,17 +241,17 @@ used (see details). Any unambiguous substring can be given.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other diversity: 
-<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
-<code><a href='richness-index.html'>richness-index</a></code>,
-<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>heterogeneity-index</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/richness-index.html'>richness-index</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover-index</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Data from Huntley 2008</span>
-<span class='no'>ceramics</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>16</span>, <span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>1</span>,
+<span class='kw'>ceramics</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
+  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>16</span>, <span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>1</span>,
            <span class='fl'>13</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
            <span class='fl'>9</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>0</span>,
            <span class='fl'>14</span>, <span class='fl'>12</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
@@ -250,41 +260,41 @@ used (see details). Any unambiguous substring can be given.</p></td>
            <span class='fl'>0</span>, <span class='fl'>11</span>, <span class='fl'>3</span>, <span class='fl'>13</span>, <span class='fl'>0</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>17</span>, <span class='fl'>0</span>, <span class='fl'>16</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>18</span>, <span class='fl'>0</span>, <span class='fl'>14</span>),
-  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>9</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Atsinna"</span>, <span class='st'>"Cienega"</span>, <span class='st'>"Mirabal"</span>, <span class='st'>"PdMuertos"</span>,
+  nrow = <span class='fl'>9</span>, byrow = <span class='fl'>TRUE</span>,
+  dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Atsinna"</span>, <span class='st'>"Cienega"</span>, <span class='st'>"Mirabal"</span>, <span class='st'>"PdMuertos"</span>,
                     <span class='st'>"Hesh"</span>, <span class='st'>"LowPesc"</span>, <span class='st'>"BoxS"</span>, <span class='st'>"Ojo Bon"</span>, <span class='st'>"S170"</span>),
                   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"DLH-1"</span>, <span class='st'>"DLH-2a"</span>, <span class='st'>"DLH-2b"</span>, <span class='st'>"DLH-2c"</span>, <span class='st'>"DLH-4"</span>))
 )
 
 <span class='co'># Brainerd-Robinson measure (count data)</span>
-<span class='no'>C</span> <span class='kw'>&lt;-</span> <span class='fu'>similarity</span>(<span class='no'>ceramics</span>, <span class='st'>"brainerd"</span>)
-<span class='fu'><a href='plot_spot.html'>plot_spot</a></span>(<span class='no'>C</span>)</div><div class='img'><img src='similarity-method-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>C</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>ceramics</span>, <span class='st'>"brainerd"</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>C</span>)</div><div class='img'><img src='similarity-method-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Data from Magurran 1988, p. 166</span>
-<span class='no'>birds</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.4</span>, <span class='fl'>4.3</span>, <span class='fl'>2.9</span>, <span class='fl'>8.6</span>, <span class='fl'>4.2</span>, <span class='fl'>15.7</span>, <span class='fl'>2.0</span>, <span class='fl'>50</span>, <span class='fl'>1</span>, <span class='fl'>11.4</span>, <span class='fl'>11.4</span>, <span class='fl'>4.3</span>, <span class='fl'>13.0</span>,
+<span class='kw'>birds</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
+  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.4</span>, <span class='fl'>4.3</span>, <span class='fl'>2.9</span>, <span class='fl'>8.6</span>, <span class='fl'>4.2</span>, <span class='fl'>15.7</span>, <span class='fl'>2.0</span>, <span class='fl'>50</span>, <span class='fl'>1</span>, <span class='fl'>11.4</span>, <span class='fl'>11.4</span>, <span class='fl'>4.3</span>, <span class='fl'>13.0</span>,
            <span class='fl'>14.3</span>, <span class='fl'>8.6</span>, <span class='fl'>7.1</span>, <span class='fl'>10.0</span>, <span class='fl'>1.4</span>, <span class='fl'>2.9</span>, <span class='fl'>5.7</span>, <span class='fl'>1.4</span>, <span class='fl'>11.4</span>, <span class='fl'>2.9</span>, <span class='fl'>4.3</span>, <span class='fl'>1.4</span>, <span class='fl'>2.9</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5.7</span>, <span class='fl'>2.5</span>, <span class='fl'>5.7</span>, <span class='fl'>8.6</span>, <span class='fl'>5.7</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
-           <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5.7</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>) * <span class='fl'>10</span>,
-  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"unmanaged"</span>, <span class='st'>"managed"</span>), <span class='kw'>NULL</span>)
+           <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5.7</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>, <span class='fl'>0</span>, <span class='fl'>2.9</span>) <span class='op'>*</span> <span class='fl'>10</span>,
+  nrow = <span class='fl'>2</span>, byrow = <span class='fl'>TRUE</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"unmanaged"</span>, <span class='st'>"managed"</span>), <span class='kw'>NULL</span>)
 )
 
 <span class='co'># Jaccard measure (presence/absence data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>birds</span>, <span class='st'>"jaccard"</span>) <span class='co'># 0.46</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4615385
 #&gt; managed   0.4615385 1.0000000</div><div class='input'>
 <span class='co'># Sorenson measure (presence/absence data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>birds</span>, <span class='st'>"sorenson"</span>) <span class='co'># 0.63</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.6315789
 #&gt; managed   0.6315789 1.0000000</div><div class='input'>
 <span class='co'># Jaccard measure (Bray's formula ; count data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>birds</span>, <span class='st'>"bray"</span>) <span class='co'># 0.44</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.4442754
 #&gt; managed   0.4442754 1.0000000</div><div class='input'>
 <span class='co'># Morisita-Horn measure (count data)</span>
-<span class='fu'>similarity</span>(<span class='no'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
+<span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>birds</span>, <span class='st'>"morisita"</span>) <span class='co'># 0.81</span></div><div class='output co'>#&gt; &lt;SimilarityMatrix: 2 x 2&gt;
 #&gt;           unmanaged   managed
 #&gt; unmanaged 1.0000000 0.8134497
 #&gt; managed   0.8134497 1.0000000</div></pre>

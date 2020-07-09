@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,10 +162,10 @@
     <p>Compares Shannon diversity between samples.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>test_diversity</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>test_diversity</span>(<span class='no'>object</span>, <span class='kw'>adjust</span> <span class='kw'>=</span> <span class='st'>"holm"</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>object</span>, adjust = <span class='st'>"holm"</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -190,29 +200,29 @@ adjusting \(p\) values (see <code><a href='https://rdrr.io/r/stats/p.adjust.html
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other statistics: 
-<code><a href='independance.html'>independance</a></code>,
-<code><a href='refine.html'>refine</a></code>,
-<code><a href='test_fit.html'>test_fit</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/independance.html'>independance</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/refine.html'>refine</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Shannon diversity test</span>
-<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>)
-<span class='no'>div</span> <span class='kw'>&lt;-</span> <span class='fu'>test_diversity</span>(<span class='no'>merzbach_count</span>)
+<span class='kw'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>merzbach</span>)
+<span class='kw'>div</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>merzbach_count</span>)
 
 <span class='co'>## Frequency Increment Test</span>
 <span class='co'>## Coerce the merzbach dataset to a count matrix</span>
 <span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
-<span class='no'>keep</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>merzbach</span>, <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>) <span class='kw'>&gt;=</span> <span class='fl'>50</span>)
-<span class='no'>merzbach_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>[, <span class='no'>keep</span>])
+<span class='kw'>keep</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(X = <span class='kw'>merzbach</span>, MARGIN = <span class='fl'>2</span>, FUN = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>x</span>) <span class='op'>&gt;=</span> <span class='fl'>50</span>)
+<span class='kw'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>merzbach</span>[, <span class='kw'>keep</span>])
 
 <span class='co'>## The data are grouped by phase</span>
 <span class='co'>## We use the row names as time coordinates (roman numerals)</span>
-<span class='fu'>set_dates</span>(<span class='no'>merzbach_count</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>merzbach</span>)
+<span class='fu'>set_dates</span>(<span class='kw'>merzbach_count</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='kw'>merzbach</span>)
 
-<span class='no'>fit</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='test_fit.html'>test_fit</a></span>(<span class='no'>merzbach_count</span>, <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
+<span class='kw'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a></span>(<span class='kw'>merzbach_count</span>, simplify = <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

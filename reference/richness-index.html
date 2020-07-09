@@ -69,6 +69,16 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -158,43 +168,43 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
  rarefaction.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>index_richness</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>index_composition</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>rarefaction</span>(<span class='no'>object</span>, <span class='no'>...</span>)
-
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>rarefaction</span>(<span class='no'>object</span>, <span class='no'>sample</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hurlbert"</span>), <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>index_richness</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span>),
-  <span class='kw'>simulate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>quantiles</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.8</span>,
-  <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>object</span>, <span class='kw'>sample</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hurlbert"</span>), simplify = <span class='fl'>TRUE</span>, <span class='kw'>...</span>)
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span>),
+  simulate = <span class='fl'>FALSE</span>,
+  quantiles = <span class='fl'>TRUE</span>,
+  level = <span class='fl'>0.8</span>,
+  step = <span class='fl'>1</span>,
+  n = <span class='fl'>1000</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>index_composition</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>, <span class='st'>"ace"</span>),
-  <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>, <span class='st'>"ace"</span>),
+  unbiased = <span class='fl'>FALSE</span>,
+  improved = <span class='fl'>FALSE</span>,
+  k = <span class='fl'>10</span>
 )
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>index_composition</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao2"</span>, <span class='st'>"ice"</span>),
-  <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>improved</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao2"</span>, <span class='st'>"ice"</span>),
+  unbiased = <span class='fl'>FALSE</span>,
+  improved = <span class='fl'>FALSE</span>,
+  k = <span class='fl'>10</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -274,7 +284,7 @@ between rare/infrequent and abundant/frequent species. Only used if
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>index_richness</code> and <code>index_composition</code> return a
- <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
+ <a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object.</p>
 <p>If <code>simplify</code> is <code>FALSE</code>, then <code>rarefaction</code> returns a list
  (default), else return a matrix.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -359,11 +369,11 @@ between rare/infrequent and abundant/frequent species. Only used if
  <em>The American Naturalist</em>, 102(925), 243-282.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='plot_diversity.html'>plot_diversity</a>, <a href='refine.html'>refine_diversity</a></p>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>, <a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></p>
 <p>Other diversity: 
-<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
-<code><a href='similarity-method.html'>similarity</a>()</code>,
-<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>heterogeneity-index</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover-index</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -372,35 +382,35 @@ between rare/infrequent and abundant/frequent species. Only used if
     <pre class="examples"><div class='input'><span class='co'>## Richness</span>
 <span class='co'>## Margalef and Menhinick index</span>
 <span class='co'>## Data from Magurran 1988, p. 128-129</span>
-<span class='no'>trap</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
+<span class='kw'>trap</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
                              <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>0</span>),
-                    <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>NULL</span>))
-<span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"margalef"</span>) <span class='co'># 2.55 1.88</span></div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
+                    nrow = <span class='fl'>2</span>, byrow = <span class='fl'>TRUE</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>NULL</span>))
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>trap</span>, method = <span class='st'>"margalef"</span>) <span class='co'># 2.55 1.88</span></div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
 #&gt;   size    index
 #&gt; A   23 2.551432
-#&gt; B   13 1.949356</div><div class='input'><span class='fu'>index_richness</span>(<span class='no'>trap</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"menhinick"</span>) <span class='co'># 1.95 1.66</span></div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
+#&gt; B   13 1.949356</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>trap</span>, method = <span class='st'>"menhinick"</span>) <span class='co'># 1.95 1.66</span></div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
 #&gt;   size    index
 #&gt; A   23 1.876630
 #&gt; B   13 1.664101</div><div class='input'>
 <span class='co'>## Asymptotic species richness</span>
 <span class='co'>## Chao1-type estimators</span>
 <span class='co'>## Data from Chao &amp; Chiu 2016</span>
-<span class='no'>brazil</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>21</span>, <span class='fl'>23</span>, <span class='fl'>25</span>, <span class='fl'>27</span>, <span class='fl'>28</span>, <span class='fl'>30</span>, <span class='fl'>32</span>, <span class='fl'>34</span>:<span class='fl'>37</span>, <span class='fl'>41</span>,
+<span class='kw'>brazil</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
+  data = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(x = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>21</span>, <span class='fl'>23</span>, <span class='fl'>25</span>, <span class='fl'>27</span>, <span class='fl'>28</span>, <span class='fl'>30</span>, <span class='fl'>32</span>, <span class='fl'>34</span><span class='op'>:</span><span class='fl'>37</span>, <span class='fl'>41</span>,
                    <span class='fl'>45</span>, <span class='fl'>46</span>, <span class='fl'>49</span>, <span class='fl'>52</span>, <span class='fl'>89</span>, <span class='fl'>110</span>, <span class='fl'>123</span>, <span class='fl'>140</span>),
-             <span class='kw'>times</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>113</span>, <span class='fl'>50</span>, <span class='fl'>39</span>, <span class='fl'>29</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>13</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>4</span>,
+             times = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>113</span>, <span class='fl'>50</span>, <span class='fl'>39</span>, <span class='fl'>29</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>13</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>4</span>,
                        <span class='fl'>3</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
                        <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)),
-  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+  nrow = <span class='fl'>1</span>, byrow = <span class='fl'>TRUE</span>
 )
 
-<span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>), <span class='kw'>unbiased</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='co'># 461.625</span></div><div class='output co'>#&gt; &lt;CompositionIndex: chao1&gt;
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>brazil</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>), unbiased = <span class='fl'>FALSE</span>) <span class='co'># 461.625</span></div><div class='output co'>#&gt; &lt;CompositionIndex: chao1&gt;
 #&gt;      size    index
-#&gt; row1 1978 461.6254</div><div class='input'><span class='fu'>index_composition</span>(<span class='no'>brazil</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>), <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>) <span class='co'># 445.822</span></div><div class='output co'>#&gt; &lt;CompositionIndex: ace&gt;
+#&gt; row1 1978 461.6254</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>brazil</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>), k = <span class='fl'>10</span>) <span class='co'># 445.822</span></div><div class='output co'>#&gt; &lt;CompositionIndex: ace&gt;
 #&gt;      size    index
 #&gt; row1 1978 445.8224</div><div class='input'>
 <span class='co'>## Rarefaction</span>
-<span class='fu'>rarefaction</span>(<span class='no'>trap</span>, <span class='kw'>sample</span> <span class='kw'>=</span> <span class='fl'>13</span>) <span class='co'># 6.56</span></div><div class='output co'>#&gt;        A        B 
+<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>trap</span>, sample = <span class='fl'>13</span>) <span class='co'># 6.56</span></div><div class='output co'>#&gt;        A        B 
 #&gt; 6.556735       NA </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

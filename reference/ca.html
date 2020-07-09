@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,23 +162,23 @@
     <p>Performs a correspondence analysis.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>run_ca</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>run_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>predict_ca</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>predict_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>data</span>, <span class='kw'>...</span>)
 
-<span class='fu'>plot_ca</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>plot_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CA</span>
-<span class='fu'>plot_ca</span>(<span class='no'>object</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>map</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>), <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>plot_ca</a></span>(<span class='kw'>object</span>, axes = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), map = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>), <span class='kw'>...</span>)
 
 <span class='co'># S4 method for BootCA</span>
-<span class='fu'>plot_ca</span>(<span class='no'>object</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>map</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>), <span class='kw'>keep</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>plot_ca</a></span>(<span class='kw'>object</span>, axes = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), map = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>), keep = <span class='kw'>NULL</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>run_ca</span>(<span class='no'>object</span>, <span class='kw'>dimensions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>run_ca</a></span>(<span class='kw'>object</span>, dimensions = <span class='kw'>NULL</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CA,CountMatrix</span>
-<span class='fu'>predict_ca</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>predict_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>data</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -201,7 +211,7 @@ Any unambiguous substring can be given.</p></td>
       <th>keep</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector specifying the subset to plot.
 It must be <code>NULL</code> or one or both of "<code>rows</code>" or "<code>columns</code>".
-(see <code><a href='refine.html'>refine_ca</a></code>).</p></td>
+(see <code><a href='http://tabula.archaeo.science/reference/refine.html'>refine_ca</a></code>).</p></td>
     </tr>
     <tr>
       <th>dimensions</th>
@@ -213,19 +223,18 @@ dimensions are kept.</p></td>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='refine.html'>refine_ca</a>, <a href='seriation.html'>seriate_correspondence</a></p></div>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/refine.html'>refine_ca</a>, <a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Coerce dataset to a count matrix</span>
-<span class='no'>counts</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
+<span class='kw'>counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>compiegne</span>)
 
 <span class='co'>## Computes correspondence analysis</span>
-<span class='no'>ca</span> <span class='kw'>&lt;-</span> <span class='fu'>run_ca</span>(<span class='no'>counts</span>)
-<span class='fu'>plot_ca</span>(<span class='no'>ca</span>, <span class='kw'>map</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>))</div><div class='img'><img src='ca-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+<span class='kw'>ca</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>run_ca</a></span>(<span class='kw'>counts</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/ca.html'>plot_ca</a></span>(<span class='kw'>ca</span>, map = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"rows"</span>, <span class='st'>"columns"</span>))</div><div class='img'><img src='ca-1.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,43 +162,43 @@
     <p><code>plot_date</code> produces an activity or tempo plot.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_date</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>plot_time</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_time</a></span>(<span class='kw'>object</span>, <span class='kw'>dates</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix,missing</span>
-<span class='fu'>plot_time</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>highlight</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>roll</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>window</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>facet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_time</a></span>(
+  <span class='kw'>object</span>,
+  highlight = <span class='kw'>NULL</span>,
+  level = <span class='fl'>0.95</span>,
+  roll = <span class='fl'>FALSE</span>,
+  window = <span class='fl'>5</span>,
+  facet = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for DataMatrix</span>
-<span class='fu'>plot_date</span>(<span class='no'>object</span>, <span class='kw'>select</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='st'>"dsc"</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a></span>(<span class='kw'>object</span>, select = <span class='kw'>NULL</span>, sort = <span class='st'>"dsc"</span>)
 
 <span class='co'># S4 method for DateEvent</span>
-<span class='fu'>plot_date</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"activity"</span>, <span class='st'>"tempo"</span>),
-  <span class='kw'>event</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>select</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>500</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a></span>(
+  <span class='kw'>object</span>,
+  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"activity"</span>, <span class='st'>"tempo"</span>),
+  event = <span class='fl'>FALSE</span>,
+  select = <span class='fl'>1</span>,
+  n = <span class='fl'>500</span>
 )
 
 <span class='co'># S4 method for CountMatrix,numeric</span>
-<span class='fu'>plot_time</span>(
-  <span class='no'>object</span>,
-  <span class='no'>dates</span>,
-  <span class='kw'>highlight</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>roll</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>window</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>facet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_time</a></span>(
+  <span class='kw'>object</span>,
+  <span class='kw'>dates</span>,
+  highlight = <span class='kw'>NULL</span>,
+  level = <span class='fl'>0.95</span>,
+  roll = <span class='fl'>FALSE</span>,
+  window = <span class='fl'>5</span>,
+  facet = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -196,7 +206,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>An object of class <a href='DateClass.html'>DateModel</a> to be plotted.</p></td>
+      <td><p>An object of class <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateModel</a> to be plotted.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -304,7 +314,7 @@ desired length of the vector of quantiles for density computation.</p></td>
  each time series is subsetted according to <code>window</code> to see if episodes
  of selection can be identified among decoration types that might not show
  overall selection. If so, shading highlights the data points where
- <code><a href='test_fit.html'>test_fit</a></code> identifies selection.</p>
+ <code><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a></code> identifies selection.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Bellanger, L. &amp; Husi, P. (2012). Statistical Tool for Dating and
@@ -320,13 +330,13 @@ desired length of the vector of quantiles for density computation.</p></td>
  v3.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='event.html'>date_event</a>, <a href='test_fit.html'>test_fit</a></p>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/event.html'>date_event</a>, <a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a></p>
 <p>Other plot: 
-<code><a href='plot_bar.html'>plot_bar</a></code>,
-<code><a href='plot_diversity.html'>plot_diversity</a>()</code>,
-<code><a href='plot_line.html'>plot_line</a></code>,
-<code><a href='plot_matrix.html'>plot_matrix</a></code>,
-<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bar</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_line</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_matrix</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -334,15 +344,15 @@ desired length of the vector of quantiles for density computation.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Coerce the merzbach dataset to a count matrix</span>
 <span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
-<span class='no'>keep</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>merzbach</span>, <span class='kw'>MARGIN</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>) <span class='kw'>&gt;=</span> <span class='fl'>50</span>)
-<span class='no'>counts</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>merzbach</span>[, <span class='no'>keep</span>])
+<span class='kw'>keep</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(X = <span class='kw'>merzbach</span>, MARGIN = <span class='fl'>2</span>, FUN = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>x</span>) <span class='op'>&gt;=</span> <span class='fl'>50</span>)
+<span class='kw'>counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>merzbach</span>[, <span class='kw'>keep</span>])
 
 <span class='co'>## The data are grouped by phase</span>
 <span class='co'>## We use the row names as time coordinates (roman numerals)</span>
-<span class='no'>dates</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/roman.html'>as.roman</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>counts</span>)))
+<span class='kw'>dates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='kw'>utils</span>::<span class='fu'><a href='https://rdrr.io/r/utils/roman.html'>as.roman</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='kw'>counts</span>)))
 <span class='co'>## Plot time vs abundance</span>
-<span class='fu'>plot_time</span>(<span class='no'>counts</span>, <span class='no'>dates</span>)</div><div class='img'><img src='plot_date-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## Plot time vs abundance and highlight selection</span>
-<span class='fu'>plot_time</span>(<span class='no'>counts</span>, <span class='no'>dates</span>, <span class='kw'>highlight</span> <span class='kw'>=</span> <span class='st'>"FIT"</span>, <span class='kw'>roll</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_date-2.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_time</a></span>(<span class='kw'>counts</span>, <span class='kw'>dates</span>)</div><div class='img'><img src='plot_date-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## Plot time vs abundance and highlight selection</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_time</a></span>(<span class='kw'>counts</span>, <span class='kw'>dates</span>, highlight = <span class='st'>"FIT"</span>, roll = <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_date-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

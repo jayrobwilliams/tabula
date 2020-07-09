@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,19 +162,19 @@
     <p>Plots a spot matrix.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_spot</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>plot_spot</span>(<span class='no'>object</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>object</span>, threshold = <span class='kw'>NULL</span>)
 
 <span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>plot_spot</span>(<span class='no'>object</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>object</span>, threshold = <span class='kw'>NULL</span>)
 
 <span class='co'># S4 method for SimilarityMatrix</span>
-<span class='fu'>plot_spot</span>(<span class='no'>object</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>object</span>)
 
 <span class='co'># S4 method for OccurrenceMatrix</span>
-<span class='fu'>plot_spot</span>(<span class='no'>object</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -191,7 +201,7 @@ If <code>NULL</code> (the default), no threshold is computed.</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The spot matrix can be considered as a variant of the
- <a href='plot_bar.html'>Bertin diagram</a> where the data are first transformed to
+ <a href='http://tabula.archaeo.science/reference/plot_bar.html'>Bertin diagram</a> where the data are first transformed to
  relative frequencies.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
@@ -201,11 +211,11 @@ If <code>NULL</code> (the default), no threshold is computed.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other plot: 
-<code><a href='plot_bar.html'>plot_bar</a></code>,
-<code><a href='plot_date.html'>plot_date</a>()</code>,
-<code><a href='plot_diversity.html'>plot_diversity</a>()</code>,
-<code><a href='plot_line.html'>plot_line</a></code>,
-<code><a href='plot_matrix.html'>plot_matrix</a></code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bar</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_line</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_matrix</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -214,17 +224,17 @@ If <code>NULL</code> (the default), no threshold is computed.</p></td>
     <pre class="examples"><div class='input'><span class='co'>## Plot spot diagram...</span>
 
 <span class='co'>## ...of count data...</span>
-<span class='no'>mississippi_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>mississippi</span>)
+<span class='kw'>mississippi_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>mississippi</span>)
 <span class='co'>### ...without threshod</span>
-<span class='fu'>plot_spot</span>(<span class='no'>mississippi_count</span>)</div><div class='img'><img src='plot_spot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the  column means as threshold</span>
-<span class='fu'>plot_spot</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>mean</span>)</div><div class='img'><img src='plot_spot-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the column medians as threshold</span>
-<span class='fu'>plot_spot</span>(<span class='no'>mississippi_count</span>, <span class='kw'>threshold</span> <span class='kw'>=</span> <span class='no'>median</span>)</div><div class='img'><img src='plot_spot-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>mississippi_count</span>)</div><div class='img'><img src='plot_spot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the  column means as threshold</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>mississippi_count</span>, threshold = <span class='kw'>mean</span>)</div><div class='img'><img src='plot_spot-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the column medians as threshold</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>mississippi_count</span>, threshold = <span class='kw'>median</span>)</div><div class='img'><img src='plot_spot-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## ...of a similarity matrix</span>
-<span class='no'>sim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='similarity-method.html'>similarity</a></span>(<span class='no'>mississippi_count</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"brainerd"</span>)
-<span class='fu'>plot_spot</span>(<span class='no'>sim</span>)</div><div class='img'><img src='plot_spot-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>sim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a></span>(<span class='kw'>mississippi_count</span>, method = <span class='st'>"brainerd"</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>sim</span>)</div><div class='img'><img src='plot_spot-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## ...of a co-occurrence matrix</span>
-<span class='no'>occ</span> <span class='kw'>&lt;-</span> <span class='fu'>as_occurrence</span>(<span class='no'>mississippi</span>)
-<span class='fu'>plot_spot</span>(<span class='no'>occ</span>)</div><div class='img'><img src='plot_spot-5.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>occ</span> <span class='op'>&lt;-</span> <span class='fu'>as_occurrence</span>(<span class='kw'>mississippi</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a></span>(<span class='kw'>occ</span>)</div><div class='img'><img src='plot_spot-5.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

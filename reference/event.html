@@ -68,6 +68,16 @@ predict_event estimates the event and accumulation dates of an
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -156,25 +166,25 @@ predict_event estimates the event and accumulation dates of an
  assemblage.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/event.html'>date_event</a></span>(<span class='kw'>object</span>, <span class='kw'>dates</span>, <span class='kw'>...</span>)
 
-<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/event.html'>predict_event</a></span>(<span class='kw'>object</span>, <span class='kw'>data</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix,numeric</span>
-<span class='fu'>date_event</span>(<span class='no'>object</span>, <span class='no'>dates</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/event.html'>date_event</a></span>(<span class='kw'>object</span>, <span class='kw'>dates</span>, cutoff = <span class='fl'>90</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for DateModel,missing</span>
-<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/event.html'>predict_event</a></span>(<span class='kw'>object</span>, level = <span class='fl'>0.95</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for DateModel,CountMatrix</span>
-<span class='fu'>predict_event</span>(<span class='no'>object</span>, <span class='no'>data</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/event.html'>predict_event</a></span>(<span class='kw'>object</span>, <span class='kw'>data</span>, level = <span class='fl'>0.95</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>A CountMatrix or a <a href='DateClass.html'>DateModel</a>
+      <td><p>A CountMatrix or a <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateModel</a>
 object.</p></td>
     </tr>
     <tr>
@@ -207,8 +217,8 @@ confidence level.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>date_event</code> returns an object of class <a href='DateClass.html'>DateModel</a>.</p>
-<p><code>predict_event</code> returns an object of class <a href='DateClass.html'>DateEvent</a>.</p>
+    <p><code>date_event</code> returns an object of class <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateModel</a>.</p>
+<p><code>predict_event</code> returns an object of class <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateEvent</a>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This is an implementation of the chronological modeling method proposed by
@@ -226,7 +236,7 @@ confidence level.</p></td>
  of the long term.</p>
 <p>This method relies on strong archaeological and statistical assumptions.
  Use it only if you know what you are doing (see references below and the
- vignette: <code><a href='../articles/dating.html'>utils::vignette("dating", package = "tabula")</a></code>).</p>
+ vignette: <code><a href='http://tabula.archaeo.science/articles/dating.html'>utils::vignette("dating", package = "tabula")</a></code>).</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Bellanger <em>et al.</em> did not publish the data supporting their
@@ -294,9 +304,9 @@ confidence level.</p></td>
  Culture.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='refine.html'>refine_event</a></p>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/refine.html'>refine_event</a></p>
 <p>Other dating: 
-<code><a href='date_mcd.html'>date_mcd</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/date_mcd.html'>date_mcd</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -304,23 +314,23 @@ confidence level.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Mean Ceramic Date</span>
 <span class='co'>## Coerce the zuni dataset to an abundance (count) matrix</span>
-<span class='no'>zuni_counts</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>zuni</span>)
+<span class='kw'>zuni_counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>zuni</span>)
 <span class='co'>## Set the start and end dates for each ceramic type</span>
-<span class='no'>zuni_dates</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-  <span class='kw'>LINO</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>600</span>, <span class='fl'>875</span>), <span class='kw'>KIAT</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>850</span>, <span class='fl'>950</span>), <span class='kw'>RED</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>900</span>, <span class='fl'>1050</span>),
-  <span class='kw'>GALL</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1025</span>, <span class='fl'>1125</span>), <span class='kw'>ESC</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1050</span>, <span class='fl'>1150</span>), <span class='kw'>PUBW</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1050</span>, <span class='fl'>1150</span>),
-  <span class='kw'>RES</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1000</span>, <span class='fl'>1200</span>), <span class='kw'>TULA</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1175</span>, <span class='fl'>1300</span>), <span class='kw'>PINE</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1350</span>),
-  <span class='kw'>PUBR</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1000</span>, <span class='fl'>1200</span>), <span class='kw'>WING</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1100</span>, <span class='fl'>1200</span>), <span class='kw'>WIPO</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1125</span>, <span class='fl'>1225</span>),
-  <span class='kw'>SJ</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1200</span>, <span class='fl'>1300</span>), <span class='kw'>LSJ</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>), <span class='kw'>SPR</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>),
-  <span class='kw'>PINER</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1325</span>), <span class='kw'>HESH</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>), <span class='kw'>KWAK</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>)
+<span class='kw'>zuni_dates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+  LINO = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>600</span>, <span class='fl'>875</span>), KIAT = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>850</span>, <span class='fl'>950</span>), RED = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>900</span>, <span class='fl'>1050</span>),
+  GALL = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1025</span>, <span class='fl'>1125</span>), ESC = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1050</span>, <span class='fl'>1150</span>), PUBW = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1050</span>, <span class='fl'>1150</span>),
+  RES = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1000</span>, <span class='fl'>1200</span>), TULA = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1175</span>, <span class='fl'>1300</span>), PINE = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1350</span>),
+  PUBR = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1000</span>, <span class='fl'>1200</span>), WING = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1100</span>, <span class='fl'>1200</span>), WIPO = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1125</span>, <span class='fl'>1225</span>),
+  SJ = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1200</span>, <span class='fl'>1300</span>), LSJ = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>), SPR = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1250</span>, <span class='fl'>1300</span>),
+  PINER = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1325</span>), HESH = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>), KWAK = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1275</span>, <span class='fl'>1450</span>)
 )
 <span class='co'>## Calculate date midpoints</span>
-<span class='no'>zuni_mid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>vapply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>zuni_dates</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>FUN.VALUE</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>1</span>))
+<span class='kw'>zuni_mid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>vapply</a></span>(X = <span class='kw'>zuni_dates</span>, FUN = <span class='kw'>mean</span>, FUN.VALUE = <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>1</span>))
 
 <span class='co'>## Calculate MCD</span>
 <span class='co'>## (we use a bootstrapping procedure to estimate the confidence interval)</span>
-<span class='no'>zuni_mcd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='date_mcd.html'>date_mcd</a></span>(<span class='no'>zuni_counts</span>, <span class='kw'>dates</span> <span class='kw'>=</span> <span class='no'>zuni_mid</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>zuni_mcd</span>)</div><div class='output co'>#&gt;             date     lower     upper
+<span class='kw'>zuni_mcd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/date_mcd.html'>date_mcd</a></span>(<span class='kw'>zuni_counts</span>, dates = <span class='kw'>zuni_mid</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>zuni_mcd</span>)</div><div class='output co'>#&gt;             date     lower     upper
 #&gt; LZ1105 1162.5000 1161.6253 1163.7935
 #&gt; LZ1103 1137.8378 1136.3041 1139.5966
 #&gt; LZ1100 1154.4643 1151.4066 1155.0416
@@ -330,7 +340,7 @@ confidence level.</p></td>
 <span class='co'>## Event and accumulation dates (Bellanger et al.)</span>
 <span class='co'>## See the vignette:</span>
 <span class='co'># \donttest{</span>
-<span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"dating"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘dating’ not found</span></div><div class='input'><span class='co'># }</span></div></pre>
+<span class='kw'>utils</span>::<span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"dating"</span>, package = <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘dating’ not found</span></div><div class='input'><span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -65,6 +65,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -257,15 +267,15 @@
 <li>
 <code>DiversityIndex</code>, <code>HeterogeneityIndex</code>, <code>EvennessIndex</code> and <code>RichnessIndex</code>: S4 classes that represent diversity index.</li>
 <li>
-<code><a href="../reference/heterogeneity-index.html">index_heterogeneity()</a></code> replaces <code>diversity()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/heterogeneity-index.html">index_heterogeneity()</a></code> replaces <code>diversity()</code>.</li>
 <li>
-<code><a href="../reference/heterogeneity-index.html">index_evenness()</a></code> replaces <code>evenness()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/heterogeneity-index.html">index_evenness()</a></code> replaces <code>evenness()</code>.</li>
 <li>
-<code><a href="../reference/richness-index.html">index_richness()</a></code> replaces <code>richness()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/richness-index.html">index_richness()</a></code> replaces <code>richness()</code>.</li>
 <li>
-<code><a href="../reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
+<code><a href="http://tabula.archaeo.science/reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
 <li>
-<code><a href="../reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
 <li>Add replacement methods for the <code>*Matrix</code> classes.</li>
 </ul>
 </div>
@@ -301,33 +311,33 @@
 <li>
 <code>as_*()</code> coerce a <code>matrix</code> or <code>data.frame</code> to a <code>CountMatrix</code>, <code>FrequencyMatrix</code>, <code>IncidenceMatrix</code>, <code>OccurrenceMatrix</code> or <code>SimilarityMatrix</code>.</li>
 <li>
-<code><a href="../reference/event.html">date_event()</a></code> replaces <code>dateEvent()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/event.html">date_event()</a></code> replaces <code>dateEvent()</code>.</li>
 <li>
-<code><a href="../reference/date_mcd.html">date_mcd()</a></code> allows Mean Ceramic Date estimation.</li>
+<code><a href="http://tabula.archaeo.science/reference/date_mcd.html">date_mcd()</a></code> allows Mean Ceramic Date estimation.</li>
 <li>
 <code>get_dates()</code> and <code>set_dates&lt;-</code> allow to extract and replace chronological informations in <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code><a href="../reference/plot_bar.html">plot_bertin()</a></code> and <code><a href="../reference/plot_bar.html">plot_ford()</a></code> replace <code>plotBar()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_bar.html">plot_bertin()</a></code> and <code><a href="http://tabula.archaeo.science/reference/plot_bar.html">plot_ford()</a></code> replace <code>plotBar()</code>.</li>
 <li>
-<code><a href="../reference/plot_date.html">plot_date()</a></code> replaces <code>plotDate()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> replaces <code>plotDate()</code>.</li>
 <li>
-<code><a href="../reference/plot_date.html">plot_date()</a></code> gained a method for <code>AbundanceMatrix</code> objects.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> gained a method for <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code><a href="../reference/plot_matrix.html">plot_heatmap()</a></code> replaces <code>plotMatrix()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_matrix.html">plot_heatmap()</a></code> replaces <code>plotMatrix()</code>.</li>
 <li>
-<code><a href="../reference/plot_line.html">plot_rank()</a></code> replaces <code>plotRank()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_line.html">plot_rank()</a></code> replaces <code>plotRank()</code>.</li>
 <li>
-<code><a href="../reference/plot_spot.html">plot_spot()</a></code> replaces <code>plotSpot()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_spot.html">plot_spot()</a></code> replaces <code>plotSpot()</code>.</li>
 <li>
-<code><a href="../reference/plot_date.html">plot_time()</a></code> produces an abundance <em>vs.</em> time graph.</li>
+<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_time()</a></code> produces an abundance <em>vs.</em> time graph.</li>
 <li>
-<code>refine_dates()</code> and <code><a href="../reference/deprecate.html">refine_seriation()</a></code> replace <code><a href="../reference/refine.html">refine()</a></code>.</li>
+<code>refine_dates()</code> and <code><a href="http://tabula.archaeo.science/reference/deprecate.html">refine_seriation()</a></code> replace <code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code>.</li>
 <li>
-<code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code> and <code>seriate_correspondance()</code> replace <code>seriate()</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/deprecate.html">seriate_reciprocal()</a></code> and <code>seriate_correspondance()</code> replace <code>seriate()</code>.</li>
 <li>
-<code><a href="../reference/test_diversity.html">test_diversity()</a></code> allows Shannon diversity test.</li>
+<code><a href="http://tabula.archaeo.science/reference/test_diversity.html">test_diversity()</a></code> allows Shannon diversity test.</li>
 <li>
-<code><a href="../reference/test_fit.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
+<code><a href="http://tabula.archaeo.science/reference/test_fit.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
 </ul>
 </div>
 <div id="bugfixes--changes-4" class="section level3">
@@ -336,7 +346,7 @@
 <ul>
 <li>
 <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code> now also contain the <code>SpaceTime</code> class.</li>
-<li>Deprecate <code>plotBar()</code>, <code>plotMatrix()</code>, <code>plotRank()</code>, <code>plotSpot()</code>, <code><a href="../reference/refine.html">refine()</a></code>, <code>seriate()</code>.</li>
+<li>Deprecate <code>plotBar()</code>, <code>plotMatrix()</code>, <code>plotRank()</code>, <code>plotSpot()</code>, <code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code>, <code>seriate()</code>.</li>
 <li>Remove <code>dateEvent()</code>.</li>
 <li>Empty rows/columns are removed prior to CA seriation to avoid error in <code><a href="https://rdrr.io/r/base/svd.html">svd()</a></code>.</li>
 </ul>
@@ -346,7 +356,7 @@
 <a href="#enhancements-1" class="anchor"></a>Enhancements</h3>
 <ul>
 <li>Add the Merzbach ceramics dataset.</li>
-<li>The <code><a href="../reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
+<li>The <code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
 </ul>
 </div>
 <div id="internals-3" class="section level3">
@@ -355,7 +365,7 @@
 <ul>
 <li>Reduce required R version to 3.2.</li>
 <li>Error handling has been revised and error messages have been harmonized.</li>
-<li>Refer to {ggplot2} functions using <code>::</code> (stop importing the entire package).</li>
+<li>Refer to {ggplot2} functions using <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> (stop importing the entire package).</li>
 <li>Use {vdiffr} to test graphical output.</li>
 <li>Replace <code>FactoMinerR::CA()</code> with <code><a href="https://rdrr.io/pkg/ca/man/ca.html">ca::ca()</a></code> (this avoids having to install all {FactoMineR} dependencies when only one function is used).</li>
 <li>Remove {dplyr} from the imported packages, move {magrittr} to suggested packages.</li>
@@ -401,7 +411,7 @@
 <li>
 <code>OccurrenceMatrix</code> now stores the number of times each pair of taxa occurs together in at least one sample.</li>
 <li>
-<code><a href="../reference/similarity-method.html">similarity()</a></code> now returns an object of class <code>SimilarityMatrix</code>.</li>
+<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> now returns an object of class <code>SimilarityMatrix</code>.</li>
 <li>
 <code>plotBar()</code> no longer add confidence interval by default.</li>
 <li>Remove useless accessors.</li>
@@ -412,7 +422,7 @@
 <a href="#enhancements-2" class="anchor"></a>Enhancements</h3>
 <ul>
 <li>
-<code><a href="../reference/similarity-method.html">similarity()</a></code> gained a new estimator: binomial co-occurrence assessment method (similarity between types).</li>
+<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> gained a new estimator: binomial co-occurrence assessment method (similarity between types).</li>
 <li>
 <code>seriate()</code> gained a new argument to pass a <code>BootCA</code> object.</li>
 </ul>
@@ -434,7 +444,7 @@
 <a href="#bugfixes--changes-6" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
-<code><a href="../reference/similarity-method.html">similarity()</a></code> now returns a symmetric matrix.</li>
+<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> now returns a symmetric matrix.</li>
 </ul>
 </div>
 <div id="enhancements-3" class="section level3">
@@ -479,7 +489,7 @@
 <a href="#bugfixes--changes-7" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>
-<code><a href="../reference/refine.html">refine()</a></code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
+<code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
 </ul>
 </div>
 <div id="enhancements-4" class="section level3">
@@ -488,7 +498,7 @@
 <ul>
 <li>Add the Zuni and Mississippi ceramics datasets.</li>
 <li>
-<code><a href="../reference/similarity-method.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
+<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
 </ul>
 </div>
 <div id="internals-6" class="section level3">

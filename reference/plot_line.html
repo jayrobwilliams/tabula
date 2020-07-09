@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,13 +162,13 @@
     <p><code>plot_rank</code> plots a rank <em>vs</em> relative abundance diagram.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_rank</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_rank</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>plot_rank</span>(<span class='no'>object</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>facet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_rank</a></span>(<span class='kw'>object</span>, log = <span class='kw'>NULL</span>, facet = <span class='fl'>TRUE</span>)
 
 <span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>plot_rank</span>(<span class='no'>object</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>facet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_rank</a></span>(<span class='kw'>object</span>, log = <span class='kw'>NULL</span>, facet = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,11 +205,11 @@ defined by case/sample be drawn?</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other plot: 
-<code><a href='plot_bar.html'>plot_bar</a></code>,
-<code><a href='plot_date.html'>plot_date</a>()</code>,
-<code><a href='plot_diversity.html'>plot_diversity</a>()</code>,
-<code><a href='plot_matrix.html'>plot_matrix</a></code>,
-<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bar</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_matrix</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -207,10 +217,10 @@ defined by case/sample be drawn?</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Abundance matrix</span>
 <span class='co'>## Coerce datasets to a count matrix (data from Desachy 2004)</span>
-<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
+<span class='kw'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>compiegne</span>)
 
 <span class='co'>## Plot rank vs abundance</span>
-<span class='fu'>plot_rank</span>(<span class='no'>compiegne_count</span>)</div><div class='img'><img src='plot_line-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>plot_rank</span>(<span class='no'>compiegne_count</span>, <span class='kw'>facet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='plot_line-2.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_rank</a></span>(<span class='kw'>compiegne_count</span>)</div><div class='img'><img src='plot_line-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_rank</a></span>(<span class='kw'>compiegne_count</span>, facet = <span class='fl'>FALSE</span>)</div><div class='img'><img src='plot_line-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

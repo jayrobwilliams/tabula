@@ -66,6 +66,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -152,16 +162,16 @@
     <p>Plots a heatmap.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_heatmap</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>plot_heatmap</span>(<span class='no'>object</span>, <span class='kw'>PVI</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>frequency</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>object</span>, PVI = <span class='fl'>FALSE</span>, frequency = <span class='fl'>TRUE</span>)
 
 <span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>plot_heatmap</span>(<span class='no'>object</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>object</span>)
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>plot_heatmap</span>(<span class='no'>object</span>)</pre>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -214,13 +224,13 @@ be drawn? If <code>FALSE</code>, raw data are plotted.</p></td>
  DOI: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='independance.html'>pvi</a></p>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/independance.html'>pvi</a></p>
 <p>Other plot: 
-<code><a href='plot_bar.html'>plot_bar</a></code>,
-<code><a href='plot_date.html'>plot_date</a>()</code>,
-<code><a href='plot_diversity.html'>plot_diversity</a>()</code>,
-<code><a href='plot_line.html'>plot_line</a></code>,
-<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bar</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_line</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -228,18 +238,18 @@ be drawn? If <code>FALSE</code>, raw data are plotted.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix (data from Desachy 2004)</span>
-<span class='no'>compiegne_count</span> <span class='kw'>&lt;-</span> <span class='fu'>as_count</span>(<span class='no'>compiegne</span>)
+<span class='kw'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>compiegne</span>)
 
 <span class='co'>## Plot matrix diagram...</span>
 <span class='co'>## ...without threshod (i.e. heatmap)</span>
-<span class='fu'>plot_heatmap</span>(<span class='no'>compiegne_count</span>)</div><div class='img'><img src='plot_matrix-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with PVI as threshold (i.e. Bruno Desachy's matrigraphe)</span>
-<span class='fu'>plot_heatmap</span>(<span class='no'>compiegne_count</span>, <span class='kw'>PVI</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient2</a></span>(<span class='kw'>midpoint</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='plot_matrix-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>compiegne_count</span>)</div><div class='img'><img src='plot_matrix-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with PVI as threshold (i.e. Bruno Desachy's matrigraphe)</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>compiegne_count</span>, PVI = <span class='fl'>TRUE</span>) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient2</a></span>(midpoint = <span class='fl'>1</span>)</div><div class='img'><img src='plot_matrix-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Presence/absence data</span>
-<span class='no'>bin</span> <span class='kw'>&lt;-</span> <span class='fu'>IncidenceMatrix</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
-                       <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>10</span>)
-<span class='fu'>plot_heatmap</span>(<span class='no'>bin</span>) +
-  <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"TRUE"</span> <span class='kw'>=</span> <span class='st'>"black"</span>, <span class='st'>"FALSE"</span> <span class='kw'>=</span> <span class='st'>"white"</span>))</div><div class='img'><img src='plot_matrix-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>bin</span> <span class='op'>&lt;-</span> <span class='fu'>IncidenceMatrix</span>(data = <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>0</span><span class='op'>:</span><span class='fl'>1</span>, size = <span class='fl'>100</span>, replace = <span class='fl'>TRUE</span>),
+                       nrow = <span class='fl'>10</span>, ncol = <span class='fl'>10</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_heatmap</a></span>(<span class='kw'>bin</span>) <span class='op'>+</span>
+  <span class='kw'>ggplot2</span>::<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span>(values = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"TRUE"</span> = <span class='st'>"black"</span>, <span class='st'>"FALSE"</span> = <span class='st'>"white"</span>))</div><div class='img'><img src='plot_matrix-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

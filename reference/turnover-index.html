@@ -67,6 +67,16 @@ transect." />
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -154,22 +164,22 @@ transect." />
 transect.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>turnover</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>turnover</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
-  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
+  simplify = <span class='fl'>FALSE</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'>turnover</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
-  <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"whittaker"</span>, <span class='st'>"cody"</span>, <span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>, <span class='st'>"wilson"</span>),
+  simplify = <span class='fl'>FALSE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -234,41 +244,41 @@ simplified to a matrix?</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other diversity: 
-<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
-<code><a href='richness-index.html'>richness-index</a></code>,
-<code><a href='similarity-method.html'>similarity</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>heterogeneity-index</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/richness-index.html'>richness-index</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Data from Magurran 1988, p. 162</span>
-<span class='no'>trees</span> <span class='kw'>&lt;-</span> <span class='fu'>IncidenceMatrix</span>(
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
+<span class='kw'>trees</span> <span class='op'>&lt;-</span> <span class='fu'>IncidenceMatrix</span>(
+  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
            <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
            <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>),
-  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>6</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span>, <span class='st'>"5"</span>, <span class='st'>"6"</span>),
+  nrow = <span class='fl'>6</span>, byrow = <span class='fl'>FALSE</span>,
+  dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span>, <span class='st'>"5"</span>, <span class='st'>"6"</span>),
                   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Birch"</span>, <span class='st'>"Oak"</span>, <span class='st'>"Rowan"</span>, <span class='st'>"Beech"</span>, <span class='st'>"Hazel"</span>, <span class='st'>"Holly"</span>))
 )
 
 <span class='co'>## Whittaker's measure</span>
-<span class='fu'>turnover</span>(<span class='no'>trees</span>, <span class='st'>"whittaker"</span>) <span class='co'># 1</span></div><div class='output co'>#&gt; $whittaker
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(<span class='kw'>trees</span>, <span class='st'>"whittaker"</span>) <span class='co'># 1</span></div><div class='output co'>#&gt; $whittaker
 #&gt; [1] 1
 #&gt; </div><div class='input'>
 <span class='co'>## Cody's measure</span>
-<span class='fu'>turnover</span>(<span class='no'>trees</span>, <span class='st'>"cody"</span>) <span class='co'># 3</span></div><div class='output co'>#&gt; $cody
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(<span class='kw'>trees</span>, <span class='st'>"cody"</span>) <span class='co'># 3</span></div><div class='output co'>#&gt; $cody
 #&gt; [1] 3
 #&gt; </div><div class='input'>
 <span class='co'>## Routledge's measures</span>
-<span class='fu'>turnover</span>(<span class='no'>trees</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>),
-         <span class='kw'>simplify</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>) <span class='co'>## 0.29 0.56 1.75</span></div><div class='output co'>#&gt; routledge1 routledge2 routledge3 
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(<span class='kw'>trees</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"routledge1"</span>, <span class='st'>"routledge2"</span>, <span class='st'>"routledge3"</span>),
+         simplify = <span class='fl'>TRUE</span>) <span class='co'>## 0.29 0.56 1.75</span></div><div class='output co'>#&gt; routledge1 routledge2 routledge3 
 #&gt;  0.2857143  0.5594978  1.7497936 </div><div class='input'>
 <span class='co'>## Wilson and Shmida's measure</span>
-<span class='fu'>turnover</span>(<span class='no'>trees</span>, <span class='st'>"wilson"</span>) <span class='co'># 1</span></div><div class='output co'>#&gt; $wilson
+<span class='fu'><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></span>(<span class='kw'>trees</span>, <span class='st'>"wilson"</span>) <span class='co'># 1</span></div><div class='output co'>#&gt; $wilson
 #&gt; [1] 1
 #&gt; </div></pre>
   </div>

@@ -69,6 +69,16 @@ refine_diversity checks the stability of a
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172160955-1');
+</script>
+
 
   </head>
 
@@ -153,46 +163,46 @@ refine_diversity checks the stability of a
 
     <div class="ref-description">
     <p><code>refine_ca</code> performs a partial bootstrap correspondence analysis.</p>
-<p><code>refine_date</code> checks the stability of a <a href='DateClass.html'>DateModel</a> object.</p>
+<p><code>refine_date</code> checks the stability of a <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateModel</a> object.</p>
 <p><code>refine_diversity</code> checks the stability of a
- <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
+ <a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>refine_ca</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>refine_diversity</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
-<span class='fu'>refine_event</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_event</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S4 method for CA</span>
-<span class='fu'>refine_ca</span>(<span class='no'>object</span>, <span class='no'>cutoff</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='no'>...</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_ca</a></span>(<span class='kw'>object</span>, <span class='kw'>cutoff</span>, n = <span class='fl'>1000</span>, axes = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>...</span>)
 
 <span class='co'># S4 method for DateModel</span>
-<span class='fu'>refine_event</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
-  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_event</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
+  level = <span class='fl'>0.95</span>,
+  probs = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
+  n = <span class='fl'>1000</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for HeterogeneityIndex</span>
-<span class='fu'>refine_diversity</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
-  <span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
+  probs = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
+  n = <span class='fl'>1000</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S4 method for EvennessIndex</span>
-<span class='fu'>refine_diversity</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
-  <span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(
+  <span class='kw'>object</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span>),
+  probs = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.05</span>, <span class='fl'>0.95</span>),
+  n = <span class='fl'>1000</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -200,8 +210,8 @@ refine_diversity checks the stability of a
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>A <a href='CA-class.html'>CA</a>, <a href='DateClass.html'>DateModel</a> or
-<a href='DiversityIndex.html'>DiversityIndex</a> object.</p></td>
+      <td><p>A <a href='http://tabula.archaeo.science/reference/CA-class.html'>CA</a>, <a href='http://tabula.archaeo.science/reference/DateClass.html'>DateModel</a> or
+<a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -244,7 +254,7 @@ confidence level.</p></td>
 
     <p><code>refine_diversity</code> and <code>refine_event</code> return a
   <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
-<p><code>refine_ca</code> returns a <a href='BootCA-class.html'>BootCA</a> object.</p>
+<p><code>refine_ca</code> returns a <a href='http://tabula.archaeo.science/reference/BootCA-class.html'>BootCA</a> object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Refining method can lead to much longer execution times and larger output
@@ -265,7 +275,7 @@ confidence level.</p></td>
  [results in] a reduced dataset where the position of individuals within the
  CA are highly stable and which produces an ordering consistent with the
  assumptions of frequency seriation."</p>
-<p>If the results of <code>refine</code> is used as an input argument in
+<p>If the results of <code><a href='http://tabula.archaeo.science/reference/refine.html'>refine</a></code> is used as an input argument in
  <code>seriate</code>, a correspondence analysis is performed on the subset of
  <code>object</code> which matches the samples to be kept. Then excluded samples
  are projected onto the dimensions of the CA coordinate space using the row
@@ -317,37 +327,37 @@ confidence level.</p></td>
  DOI: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='event.html'>date_event</a>, <a href='heterogeneity-index.html'>index_heterogeneity</a>,
- <a href='heterogeneity-index.html'>index_evenness</a>, <a href='richness-index.html'>index_richness</a>, <a href='seriation.html'>seriate_correspondence</a></p>
+    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/event.html'>date_event</a>, <a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a>,
+ <a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a>, <a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a>, <a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></p>
 <p>Other statistics: 
-<code><a href='independance.html'>independance</a></code>,
-<code><a href='test_diversity.html'>test_diversity</a>()</code>,
-<code><a href='test_fit.html'>test_fit</a>()</code></p></div>
+<code><a href='http://tabula.archaeo.science/reference/independance.html'>independance</a></code>,
+<code><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a>()</code>,
+<code><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Data from Magurran 1988, p. 145-149</span>
-<span class='no'>birds</span> <span class='kw'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>35</span>, <span class='fl'>26</span>, <span class='fl'>25</span>, <span class='fl'>21</span>, <span class='fl'>16</span>, <span class='fl'>11</span>, <span class='fl'>6</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>3</span>,
+<span class='kw'>birds</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
+  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>35</span>, <span class='fl'>26</span>, <span class='fl'>25</span>, <span class='fl'>21</span>, <span class='fl'>16</span>, <span class='fl'>11</span>, <span class='fl'>6</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>3</span>,
            <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
            <span class='fl'>30</span>, <span class='fl'>30</span>, <span class='fl'>3</span>, <span class='fl'>65</span>, <span class='fl'>20</span>, <span class='fl'>11</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>14</span>,
            <span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-  <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"oakwood"</span>, <span class='st'>"spruce"</span>), <span class='kw'>NULL</span>))
+  nrow = <span class='fl'>2</span>, byrow = <span class='fl'>TRUE</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"oakwood"</span>, <span class='st'>"spruce"</span>), <span class='kw'>NULL</span>))
 
 <span class='co'>## Shannon diversity</span>
-<span class='no'>heterogeneity</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>)
-<span class='fu'>refine_diversity</span>(<span class='no'>heterogeneity</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min      mean     max      Q5       Q95     
+<span class='kw'>heterogeneity</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>birds</span>, <span class='st'>"shannon"</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(<span class='kw'>heterogeneity</span>, method = <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min      mean     max      Q5       Q95     
 #&gt; oakwood 2.094642 2.35041  2.573477 2.23074  2.468232
-#&gt; spruce  1.793914 2.021042 2.209898 1.915112 2.127804</div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>heterogeneity</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean     bias       error    
+#&gt; spruce  1.793914 2.021042 2.209898 1.915112 2.127804</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(<span class='kw'>heterogeneity</span>, method = <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean     bias       error    
 #&gt; oakwood 2.362648 -0.9520239 0.1233832
 #&gt; spruce  2.012326 -0.9169561 0.2490786</div><div class='input'>
 <span class='co'>## Shannon evenness</span>
-<span class='no'>evenness</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span>(<span class='no'>birds</span>, <span class='st'>"shannon"</span>)
-<span class='fu'>refine_diversity</span>(<span class='no'>evenness</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min       mean      max       Q5        Q95      
+<span class='kw'>evenness</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>birds</span>, <span class='st'>"shannon"</span>)
+<span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(<span class='kw'>evenness</span>, method = <span class='st'>"bootstrap"</span>)</div><div class='output co'>#&gt;         min       mean      max       Q5        Q95      
 #&gt; oakwood 0.7233923 0.8152063 0.8876801 0.7793649 0.8508275
-#&gt; spruce  0.7101253 0.7888973 0.8581119 0.748665  0.82948  </div><div class='input'><span class='fu'>refine_diversity</span>(<span class='no'>evenness</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean      bias        error     
+#&gt; spruce  0.7101253 0.7888973 0.8581119 0.748665  0.82948  </div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></span>(<span class='kw'>evenness</span>, method = <span class='st'>"jackknife"</span>)</div><div class='output co'>#&gt;         mean      bias        error     
 #&gt; oakwood 0.8011374 -0.05600727 0.03567978
 #&gt; spruce  0.776363  -0.05669112 0.07771685</div></pre>
   </div>
