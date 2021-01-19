@@ -168,17 +168,7 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
 <span class='fu'>rarefaction</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>sample</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hurlbert"</span><span class='op'>)</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>index_richness</span><span class='op'>(</span>
-  <span class='va'>object</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>,
-  simulate <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  quantiles <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  level <span class='op'>=</span> <span class='fl'>0.8</span>,
-  step <span class='op'>=</span> <span class='fl'>1</span>,
-  n <span class='op'>=</span> <span class='fl'>1000</span>,
-  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
+<span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>object</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
 <span class='fu'>index_composition</span><span class='op'>(</span>
@@ -224,39 +214,6 @@ Any unambiguous substring can be given.</p></td>
       <th>simplify</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the result be
 simplified to a matrix? The default value, <code>FALSE</code>, returns a list.</p></td>
-    </tr>
-    <tr>
-      <th>simulate</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: simulated assemblages
-be computed?</p></td>
-    </tr>
-    <tr>
-      <th>quantiles</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
-be used as confidence interval? If <code>TRUE</code> (the default),
-sample quantiles are used as described in Kintigh (1989), else quantiles of
-the normal distribution are used. Only used if <code>simulate</code> is
-<code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>level</th>
-      <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
-confidence level. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>step</th>
-      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the increment of the
-sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
-replications. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>progress</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a progress bar be
-displayed?</p></td>
     </tr>
     <tr>
       <th>unbiased</th>
@@ -370,7 +327,7 @@ between rare/infrequent and abundant/frequent species. Only used if
  <em>The American Naturalist</em>, 102(925), 243-282.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='plot_diversity.html'>plot_diversity</a>, <a href='refine.html'>refine_diversity</a></p>
+    <div class='dont-index'><p><a href='plot_diversity.html'>plot_diversity</a>, <a href='refine.html'>refine</a></p>
 <p>Other diversity: 
 <code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
 <code><a href='similarity.html'>similarity</a>()</code>,

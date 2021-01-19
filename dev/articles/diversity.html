@@ -105,7 +105,7 @@
       <h1 data-toc-skip>Diversity Measures</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2021-01-15</h4>
+            <h4 class="date">2021-01-19</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/diversity.Rmd"><code>vignettes/diversity.Rmd</code></a></small>
       <div class="hidden name"><code>diversity.Rmd</code></div>
@@ -491,7 +491,7 @@
 <code class="sourceCode R"><span class="va">mississippi</span> <span class="op">%&gt;%</span>
   <span class="fu">as_count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/heterogeneity-index.html">index_evenness</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"shannon"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/refine.html">refine_diversity</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"jackknife"</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/refine.html">jackknife</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;             mean      bias        error     </span>
 <span class="co">#&gt; 10-P-1      0.8541826 -0.121058   0.1724729 </span>
 <span class="co">#&gt; 11-N-9      0.5229102 -0.2580555  0.3156586 </span>
@@ -712,7 +712,7 @@
 <span class="va">altamira</span> <span class="op">%&gt;%</span>
   <span class="fu">as_count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/richness-index.html">index_richness</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"none"</span>, simulate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/plot_diversity.html">plot_diversity</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="http://khroma.archaeo.science/reference/plot.html">plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="diversity_files/figure-html/sample-size-1.png" width="480" style="display: block; margin: auto;"></p>
 </div>
 <div id="abundance-models" class="section level1">

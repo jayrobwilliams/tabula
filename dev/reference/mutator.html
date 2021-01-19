@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Diversity Plot — plot_diversity • tabula</title>
+<title>Get or Set Parts of an Object — mutator • tabula</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Diversity Plot — plot_diversity" />
-<meta property="og:description" content="Diversity Plot" />
+<meta property="og:title" content="Get or Set Parts of an Object — mutator" />
+<meta property="og:description" content="Getters and setters to extract or replace parts of an object." />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
@@ -143,60 +143,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Diversity Plot</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_diversity.R'><code>R/plot_diversity.R</code></a></small>
-    <div class="hidden name"><code>plot_diversity.Rd</code></div>
+    <h1>Get or Set Parts of an Object</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/mutators.R'><code>R/mutators.R</code></a></small>
+    <div class="hidden name"><code>mutator.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Diversity Plot</p>
+    <p>Getters and setters to extract or replace parts of an object.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S4 method for DiversityIndex,missing</span>
-<span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_order</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S4 method for DiversityIndex</span>
+<span class='fu'>get_method</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A <a href='DiversityIndex.html'>DiversityIndex</a> object to be plotted.</p></td>
+      <td><p>An object from which to get or set element(s).</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An object of the same sort as <code>object</code> with the new values assigned.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='heterogeneity-index.html'>index_heterogeneity</a>, <a href='heterogeneity-index.html'>index_evenness</a>,
- <a href='richness-index.html'>index_richness</a></p>
-<p>Other plot: 
-<code><a href='plot_bar.html'>plot_bar</a></code>,
-<code><a href='plot_date.html'>plot_date</a>()</code>,
-<code><a href='plot_line.html'>plot_line</a></code>,
-<code><a href='plot_matrix.html'>plot_matrix</a></code>,
-<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
+    <div class='dont-index'><p>Other mutator: 
+<code><a href='subset.html'>subset</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://magrittr.tidyverse.org'>magrittr</a></span><span class='op'>)</span>
-
-<span class='co'># \donttest{</span>
-<span class='co'>## Assemblage diversity size comparison</span>
-<span class='co'>## Warning: this may take a few seconds!</span>
-<span class='va'>altamira</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>as_count</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/simulate.html'>simulate</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='plot_diversity-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='va'>altamira</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>as_count</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='richness-index.html'>index_richness</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/simulate.html'>simulate</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

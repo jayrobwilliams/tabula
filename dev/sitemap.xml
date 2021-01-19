@@ -16,9 +16,6 @@
     <loc>http://tabula.archaeo.science/reference/PermutationOrder-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/access.html</loc>
-  </url>
-  <url>
     <loc>http://tabula.archaeo.science/reference/altamira.html</loc>
   </url>
   <url>
@@ -50,6 +47,9 @@
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/mississippi.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/mutator.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/plot_bar.html</loc>

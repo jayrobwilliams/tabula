@@ -158,9 +158,11 @@ refine_diversity checks the stability of a
  <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>refine_ca</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>refine_diversity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>refine_ca</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='fu'>refine_event</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
@@ -185,21 +187,20 @@ refine_diversity checks the stability of a
   <span class='va'>...</span>
 <span class='op'>)</span>
 
-<span class='co'># S4 method for HeterogeneityIndex</span>
-<span class='fu'>refine_diversity</span><span class='op'>(</span>
-  <span class='va'>object</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span><span class='op'>)</span>,
-  probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
-  n <span class='op'>=</span> <span class='fl'>1000</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
+<span class='co'># S4 method for DiversityIndex</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>object</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
 
-<span class='co'># S4 method for EvennessIndex</span>
-<span class='fu'>refine_diversity</span><span class='op'>(</span>
+<span class='co'># S4 method for DiversityIndex</span>
+<span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for DiversityIndex</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/simulate.html'>simulate</a></span><span class='op'>(</span>
   <span class='va'>object</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span><span class='op'>)</span>,
-  probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  quantiles <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  level <span class='op'>=</span> <span class='fl'>0.8</span>,
+  step <span class='op'>=</span> <span class='fl'>1</span>,
   n <span class='op'>=</span> <span class='fl'>1000</span>,
+  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -251,12 +252,24 @@ confidence level.</p></td>
       <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of probabilities with values in
 \([0,1]\) (see <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>).</p></td>
     </tr>
+    <tr>
+      <th>quantiles</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
+be used as confidence interval? If <code>TRUE</code> (the default),
+sample quantiles are used as described in Kintigh (1989), else quantiles of
+the normal distribution are used. Only used if <code>simulate</code> is
+<code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>step</th>
+      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the increment of the
+sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>refine_diversity</code> and <code>refine_event</code> return a
-  <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
+    <p><code>bootstrap</code> and <code>jackknife</code> return a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
 <p><code>refine_ca</code> returns a <a href='BootCA-class.html'>BootCA</a> object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
@@ -350,20 +363,20 @@ confidence level.</p></td>
   nrow <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span>, dimnames <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"oakwood"</span>, <span class='st'>"spruce"</span><span class='op'>)</span>, <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>## Shannon diversity</span>
-<span class='va'>heterogeneity</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_heterogeneity</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
-<span class='fu'>refine_diversity</span><span class='op'>(</span><span class='va'>heterogeneity</span>, method <span class='op'>=</span> <span class='st'>"bootstrap"</span><span class='op'>)</span>
+<span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_heterogeneity</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         min      mean     max      Q5       Q95     
-#&gt; oakwood 2.094642 2.35041  2.573477 2.23074  2.468232
-#&gt; spruce  1.793914 2.021042 2.209898 1.915112 2.127804</div><div class='input'><span class='fu'>refine_diversity</span><span class='op'>(</span><span class='va'>heterogeneity</span>, method <span class='op'>=</span> <span class='st'>"jackknife"</span><span class='op'>)</span>
+#&gt; oakwood 2.094179 2.349454 2.561595 2.221407 2.464952
+#&gt; spruce  1.766463 2.018874 2.196539 1.910521 2.119757</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         mean     bias       error    
 #&gt; oakwood 2.362648 -0.9520239 0.1233832
 #&gt; spruce  2.012326 -0.9169561 0.2490786</div><div class='input'>
 <span class='co'>## Shannon evenness</span>
-<span class='va'>evenness</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
-<span class='fu'>refine_diversity</span><span class='op'>(</span><span class='va'>evenness</span>, method <span class='op'>=</span> <span class='st'>"bootstrap"</span><span class='op'>)</span>
+<span class='va'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         min       mean      max       Q5        Q95      
-#&gt; oakwood 0.7233923 0.8152063 0.8876801 0.7793649 0.8508275
-#&gt; spruce  0.7101253 0.7888973 0.8581119 0.748665  0.82948  </div><div class='input'><span class='fu'>refine_diversity</span><span class='op'>(</span><span class='va'>evenness</span>, method <span class='op'>=</span> <span class='st'>"jackknife"</span><span class='op'>)</span>
+#&gt; oakwood 0.7396814 0.8137179 0.8825439 0.7775748 0.8485847
+#&gt; spruce  0.7185432 0.7890128 0.8566873 0.7462424 0.8327806</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         mean      bias        error     
 #&gt; oakwood 0.8011374 -0.05600727 0.03567978
 #&gt; spruce  0.776363  -0.05669112 0.07771685</div></pre>
