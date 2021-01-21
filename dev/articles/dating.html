@@ -105,7 +105,7 @@
       <h1 data-toc-skip>Dating Methods</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2021-01-19</h4>
+            <h4 class="date">2021-01-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/dating.Rmd"><code>vignettes/dating.Rmd</code></a></small>
       <div class="hidden name"><code>dating.Rmd</code></div>
@@ -115,7 +115,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load packages</span>
+<code class="sourceCode R"><span class="co">## Load packages</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tabula.archaeo.science">tabula</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: arkhe</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span></code></pre></div>
@@ -188,16 +188,18 @@ t^{MCD}_i = \sum_{j = 1}^{p} t_j \times \frac{x_{ij}}{x_{i \cdot}}
 <span class="va">zuni_mid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">zuni_dates</span>, FUN <span class="op">=</span> <span class="va">mean</span>, FUN.VALUE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co">## Calculate MCD</span>
-<span class="co">## (we use a bootstrapping procedure to estimate the confidence interval)</span>
 <span class="va">zuni_mcd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/date_mcd.html">date_mcd</a></span><span class="op">(</span><span class="va">zuni_counts</span>, dates <span class="op">=</span> <span class="va">zuni_mid</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">zuni_mcd</span><span class="op">)</span>
-<span class="co">#&gt;             date     lower     upper</span>
-<span class="co">#&gt; LZ1105 1162.5000 1161.9040 1164.1179</span>
-<span class="co">#&gt; LZ1103 1137.8378 1136.5871 1139.9865</span>
-<span class="co">#&gt; LZ1100 1154.4643 1151.6089 1155.0911</span>
-<span class="co">#&gt; LZ1099 1090.6250 1090.3220 1090.8655</span>
-<span class="co">#&gt; LZ1097 1092.1875 1092.9474 1099.1995</span>
-<span class="co">#&gt; LZ1096  841.0714  833.7249  841.3751</span></code></pre></div>
+
+<span class="va">zuni_mcd</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;       id      date error</span>
+<span class="co">#&gt; 1 LZ1105 1162.5000     0</span>
+<span class="co">#&gt; 2 LZ1103 1137.8378     0</span>
+<span class="co">#&gt; 3 LZ1100 1154.4643     0</span>
+<span class="co">#&gt; 4 LZ1099 1090.6250     0</span>
+<span class="co">#&gt; 5 LZ1097 1092.1875     0</span>
+<span class="co">#&gt; 6 LZ1096  841.0714     0</span></code></pre></div>
 </div>
 </div>
 <div id="event-accumulation-date" class="section level1">
@@ -291,63 +293,68 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Bellanger et al. did not publish the data supporting their demonstration: </span>
 <span class="co">## no replication of their results is possible. </span>
-<span class="co">## Here is a pseudo-replication using the zuni dataset and results of the </span>
-<span class="co">## previous example.</span>
+<span class="co">## Here is a pseudo-replication using the zuni dataset</span>
 
-<span class="co">## Randomly picks 100 assemblages and assume that they are reliably dated</span>
-<span class="co">## (this is NOT a real example)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12345</span><span class="op">)</span>
-<span class="va">dates</span> <span class="op">&lt;-</span> <span class="va">zuni_mcd</span><span class="op">$</span><span class="va">date</span>
-<span class="va">dates</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">420</span>, <span class="fl">320</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span>
+<span class="co">## Assume that some assemblages are reliably dated (this is NOT a real example)</span>
+<span class="co">## The names of the vector entries must match the names of the assemblages</span>
+<span class="va">zuni_dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+  LZ0569 <span class="op">=</span> <span class="fl">1097</span>, LZ0279 <span class="op">=</span> <span class="fl">1119</span>, CS16 <span class="op">=</span> <span class="fl">1328</span>, LZ0066 <span class="op">=</span> <span class="fl">1111</span>,
+  LZ0852 <span class="op">=</span> <span class="fl">1216</span>, LZ1209 <span class="op">=</span> <span class="fl">1251</span>, CS144 <span class="op">=</span> <span class="fl">1262</span>, LZ0563 <span class="op">=</span> <span class="fl">1206</span>,
+  LZ0329 <span class="op">=</span> <span class="fl">1076</span>, LZ0005Q <span class="op">=</span> <span class="fl">859</span>, LZ0322 <span class="op">=</span> <span class="fl">1109</span>, LZ0067 <span class="op">=</span> <span class="fl">863</span>,
+  LZ0578 <span class="op">=</span> <span class="fl">1180</span>, LZ0227 <span class="op">=</span> <span class="fl">1104</span>, LZ0610 <span class="op">=</span> <span class="fl">1074</span>
+<span class="op">)</span>
 
 <span class="co">## Model the event and accumulation date for each assemblage</span>
-<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/event.html">date_event</a></span><span class="op">(</span><span class="va">zuni_counts</span>, dates <span class="op">=</span> <span class="va">dates</span>, cutoff <span class="op">=</span> <span class="fl">90</span><span class="op">)</span>
+<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/event.html">date_event</a></span><span class="op">(</span><span class="va">zuni_counts</span>, dates <span class="op">=</span> <span class="va">zuni_dates</span>, cutoff <span class="op">=</span> <span class="fl">90</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">[[</span><span class="st">"model"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; stats::lm(formula = date ~ ., data = contexts)</span>
+<span class="co">#&gt; stats::lm(formula = date ~ ., data = contexts, na.action = stats::na.omit)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Residuals:</span>
-<span class="co">#&gt;     Min      1Q  Median      3Q     Max </span>
-<span class="co">#&gt; -5.2087 -1.5065 -0.2089  1.0650  9.1631 </span>
+<span class="co">#&gt;         1         2         3         4         5         6         7         8 </span>
+<span class="co">#&gt;  0.517235 -4.017534 -0.279200  0.662137 -1.246499  0.576044  2.634482 -4.383683 </span>
+<span class="co">#&gt;         9        10        11        12        13        14        15 </span>
+<span class="co">#&gt; -1.093837 -0.005002  2.543773 -0.032706  3.480918 -0.759429  1.403301 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;              Estimate Std. Error  t value Pr(&gt;|t|)    </span>
-<span class="co">#&gt; (Intercept) 1164.9603     0.3153 3694.357  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA1         -155.9303     0.2922 -533.602  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA2          -21.0837     0.2754  -76.561  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA3           -0.3062     0.2990   -1.024  0.30849    </span>
-<span class="co">#&gt; CA4          -10.8489     0.5257  -20.636  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA5            1.4325     0.4514    3.173  0.00206 ** </span>
-<span class="co">#&gt; CA6           -5.0523     0.3734  -13.531  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA7           -6.2901     0.5105  -12.323  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA8          -10.2887     0.5214  -19.733  &lt; 2e-16 ***</span>
-<span class="co">#&gt; CA9            4.3033     0.5038    8.541 3.09e-13 ***</span>
+<span class="co">#&gt;             Estimate Std. Error  t value Pr(&gt;|t|)    </span>
+<span class="co">#&gt; (Intercept) 1164.350      1.892  615.459 2.15e-13 ***</span>
+<span class="co">#&gt; CA1         -158.314      1.472 -107.582 1.32e-09 ***</span>
+<span class="co">#&gt; CA2          -25.629      1.444  -17.753 1.04e-05 ***</span>
+<span class="co">#&gt; CA3           -5.546      1.905   -2.912   0.0333 *  </span>
+<span class="co">#&gt; CA4          -11.416      3.407   -3.351   0.0203 *  </span>
+<span class="co">#&gt; CA5           -2.713      2.448   -1.108   0.3183    </span>
+<span class="co">#&gt; CA6           -2.697      1.181   -2.285   0.0711 .  </span>
+<span class="co">#&gt; CA7           -3.966      3.001   -1.322   0.2435    </span>
+<span class="co">#&gt; CA8          -11.132      2.941   -3.785   0.0128 *  </span>
+<span class="co">#&gt; CA9            4.886      2.020    2.418   0.0602 .  </span>
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Residual standard error: 2.553 on 90 degrees of freedom</span>
-<span class="co">#&gt; Multiple R-squared:  0.9997, Adjusted R-squared:  0.9997 </span>
-<span class="co">#&gt; F-statistic: 3.411e+04 on 9 and 90 DF,  p-value: &lt; 2.2e-16</span>
+<span class="co">#&gt; Residual standard error: 3.669 on 5 degrees of freedom</span>
+<span class="co">#&gt;   (405 observations deleted due to missingness)</span>
+<span class="co">#&gt; Multiple R-squared:  0.9997, Adjusted R-squared:  0.9992 </span>
+<span class="co">#&gt; F-statistic:  1979 on 9 and 5 DF,  p-value: 2.456e-08</span>
 
 <span class="co">## Estimate event and accumulation dates</span>
-<span class="va">event</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/event.html">predict_event</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">zuni_counts</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span>
+<span class="va">event</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/event.html">predict_event</a></span><span class="op">(</span><span class="va">model</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">event</span><span class="op">[[</span><span class="st">"row_events"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;             date     lower     upper     error</span>
-<span class="co">#&gt; LZ1105 1163.8996 1162.1479 1165.6512 0.8816960</span>
-<span class="co">#&gt; LZ1103 1139.0535 1138.2156 1139.8914 0.4217688</span>
-<span class="co">#&gt; LZ1100 1155.5852 1154.6134 1156.5570 0.4891426</span>
-<span class="co">#&gt; LZ1099 1090.7211 1088.8860 1092.5562 0.9236978</span>
-<span class="co">#&gt; LZ1097 1091.2531 1089.5720 1092.9343 0.8462204</span>
-<span class="co">#&gt; LZ1096  841.6346  840.1886  843.0805 0.7278297</span>
+<span class="co">#&gt;             date     lower     upper    error</span>
+<span class="co">#&gt; LZ1105 1167.9681 1158.2354 1177.7008 3.786202</span>
+<span class="co">#&gt; LZ1103 1142.8337 1139.1334 1146.5340 1.439488</span>
+<span class="co">#&gt; LZ1100 1155.6732 1147.6296 1163.7169 3.129114</span>
+<span class="co">#&gt; LZ1099 1099.2725 1092.1529 1106.3921 2.769655</span>
+<span class="co">#&gt; LZ1097 1088.3559 1079.8561 1096.8557 3.306570</span>
+<span class="co">#&gt; LZ1096  839.3155  829.2385  849.3925 3.920110</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">event</span><span class="op">[[</span><span class="st">"accumulation"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;            date error</span>
-<span class="co">#&gt; LZ1105 1166.678     0</span>
-<span class="co">#&gt; LZ1103 1137.932     0</span>
-<span class="co">#&gt; LZ1100 1157.092     0</span>
-<span class="co">#&gt; LZ1099 1081.647     0</span>
-<span class="co">#&gt; LZ1097 1092.986     0</span>
-<span class="co">#&gt; LZ1096  879.002     0</span></code></pre></div>
+<span class="co">#&gt;             date error</span>
+<span class="co">#&gt; LZ1105 1170.0050     0</span>
+<span class="co">#&gt; LZ1103 1139.6745     0</span>
+<span class="co">#&gt; LZ1100 1157.5166     0</span>
+<span class="co">#&gt; LZ1099 1086.8919     0</span>
+<span class="co">#&gt; LZ1097 1092.1504     0</span>
+<span class="co">#&gt; LZ1096  874.8204     0</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Activity plot</span>
 <span class="fu"><a href="../reference/plot_date.html">plot_date</a></span><span class="op">(</span><span class="va">event</span>, type <span class="op">=</span> <span class="st">"activity"</span>, event <span class="op">=</span> <span class="cn">TRUE</span>, select <span class="op">=</span> <span class="st">"LZ1105"</span><span class="op">)</span> <span class="op">+</span>
@@ -361,26 +368,26 @@ t^A_i \sim \frac{x_{ij}}{x_{i \cdot}} \mathcal{N}(\widehat{t^E_j},\widehat{V_j}^
 <code class="sourceCode R"><span class="co">## Check model variability</span>
 <span class="co">## Warning: this may take a few seconds</span>
 <span class="co">## Jackknife fabrics</span>
-<span class="va">refined_jack</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">refine_event</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="st">"jackknife"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">refined_jack</span><span class="op">)</span>
-<span class="co">#&gt;             date     lower     upper     error       bias</span>
-<span class="co">#&gt; LZ1105 1167.7836 1166.0320 1169.5352 0.8816960  66.028668</span>
-<span class="co">#&gt; LZ1103 1140.1584 1139.3205 1140.9963 0.4217688  18.783313</span>
-<span class="co">#&gt; LZ1100 1159.2865 1158.3147 1160.2583 0.4891426  62.921773</span>
-<span class="co">#&gt; LZ1099 1089.5954 1087.7603 1091.4304 0.9236978 -19.137987</span>
-<span class="co">#&gt; LZ1097 1091.5224 1089.8413 1093.2036 0.8462204   4.578076</span>
-<span class="co">#&gt; LZ1096  843.6308  842.1849  845.0768 0.7278297  33.936325</span>
+<span class="va">jack</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">jackknife</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">jack</span><span class="op">)</span>
+<span class="co">#&gt;             date     lower     upper    error       bias</span>
+<span class="co">#&gt; LZ1105 1078.2044 1068.4716 1087.9371 3.786202 -1525.9834</span>
+<span class="co">#&gt; LZ1103  929.4291  925.7288  933.1294 1.439488 -3627.8785</span>
+<span class="co">#&gt; LZ1100  931.8044  923.7607  939.8480 3.129114 -3805.7705</span>
+<span class="co">#&gt; LZ1099 1088.8060 1081.6863 1095.9256 2.769655  -177.9309</span>
+<span class="co">#&gt; LZ1097  807.1626  798.6628  815.6624 3.306570 -4780.2864</span>
+<span class="co">#&gt; LZ1096  929.9436  919.8666  940.0206 3.920110  1540.6777</span>
 
 <span class="co">## Bootstrap of assemblages</span>
-<span class="va">refined_boot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">refine_event</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="st">"bootstrap"</span>, n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">refined_boot</span><span class="op">)</span>
-<span class="co">#&gt;            min     mean      max       Q5      Q95</span>
-<span class="co">#&gt; LZ1105 737.805 1099.653 1357.191 757.7879 1256.203</span>
-<span class="co">#&gt; LZ1103 737.805 1099.653 1357.191 757.7879 1256.203</span>
-<span class="co">#&gt; LZ1100 737.805 1099.653 1357.191 757.7879 1256.203</span>
-<span class="co">#&gt; LZ1099 737.805 1099.653 1357.191 757.7879 1256.203</span>
-<span class="co">#&gt; LZ1097 737.805 1099.653 1357.191 757.7879 1256.203</span>
-<span class="co">#&gt; LZ1096 737.805 1099.653 1357.191 757.7879 1256.203</span></code></pre></div>
+<span class="va">boot</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">bootstrap</a></span><span class="op">(</span><span class="va">model</span>, n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">boot</span><span class="op">)</span>
+<span class="co">#&gt;              min     mean      max        Q5       Q95</span>
+<span class="co">#&gt; LZ1105 1110.5901 1167.267 1216.627 1139.8542 1194.0551</span>
+<span class="co">#&gt; LZ1103 1042.4823 1142.850 1220.529 1097.4496 1186.5028</span>
+<span class="co">#&gt; LZ1100 1053.3255 1156.330 1231.718 1101.4462 1205.1216</span>
+<span class="co">#&gt; LZ1099 1088.9847 1099.359 1118.772 1090.8833 1107.7511</span>
+<span class="co">#&gt; LZ1097  905.1117 1088.557 1213.103  997.5077 1171.7862</span>
+<span class="co">#&gt; LZ1096  725.8462  841.131 1066.254  725.8462  952.7848</span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">

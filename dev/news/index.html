@@ -160,19 +160,19 @@
 <li>
 <code>CompositionIndex</code>: S4 class that represent an asymptotic species richness.</li>
 <li>
-<code>calculate_eppm</code> and <code>calculate_pvi</code> allow to calculate independance statistics.</li>
+<code>IncrementTest</code>: S4 class that represent a Frequency Increment Test results.</li>
 <li>
-<code>run_ca</code>, <code>predict_ca</code> and <code>plot_ca</code> allow to perform a correspondence analysis, predict projection for new rows and plot results.</li>
+<code><a href="../reference/independance.html">eppm()</a></code> and <code><a href="../reference/independance.html">pvi()</a></code> allow to calculate independence statistics.</li>
 <li>
-<code>predict_event</code> allows to estimate the event and accumulation dates of an assemblage (returns a <code>DateEvent</code> object).</li>
+<code><a href="../reference/event.html">predict_event()</a></code> allows to estimate the event and accumulation dates of an assemblage (returns a <code>DateEvent</code> object).</li>
 <li>
-<code>refine_diversity</code> allows to perform bootstrap and jackknife resampling on a <code>DiversityIndex</code> object.</li>
+<code><a href="../reference/refine.html">bootstrap()</a></code> and <code><a href="../reference/refine.html">jackknife()</a></code> allow to perform bootstrap and jackknife resampling on a <code>CA</code>, <code>DiversityIndex</code> object.</li>
 <li>
-<code>refine_ca</code> replaces <code>refine_seriation</code>.</li>
+<code><a href="https://rdrr.io/r/stats/simulate.html">simulate()</a></code> allows to measure diversity in simulated assemblages (from a <code>DiversityIndex</code> object).</li>
 <li>
-<code>refine_event</code> replaces <code>refine_dates</code>.</li>
+<code><a href="../reference/seriation.html">seriate_average()</a></code> replaces <code>seriate_correspondance()</code>.</li>
 <li>
-<code>seriate_rank</code> replaces <code>seriate_reciprocal</code>.</li>
+<code><a href="../reference/seriation.html">seriate_rank()</a></code> replaces <code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code>.</li>
 </ul>
 </div>
 <div id="bugfixes--changes" class="section level3">
@@ -180,15 +180,20 @@
 <a href="#bugfixes--changes" class="anchor"></a>Bugfixes &amp; changes</h3>
 <ul>
 <li>Remove all previously deprecated methods.</li>
-<li>Deprecate <code>seriate_reciprocal</code> and <code>refine_seriation</code>.</li>
+<li>Remove <code>seriate_correspondance()</code> method for <code>CountMatrix</code> and <code>BootCA</code>.</li>
+<li>Deprecate <code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code> and <code><a href="../reference/deprecate.html">refine_seriation()</a></code> and <code>refine_dates()</code>,</li>
 <li>
-<code>index_composition</code> now return a <code>CompositionIndex</code> object.</li>
+<code><a href="../reference/richness-index.html">index_composition()</a></code> now return a <code>CompositionIndex</code> object.</li>
 <li>
-<code>DiversityIndex</code> lost <code>bootstrap</code> and <code>jackknife</code> slots.</li>
+<code><a href="../reference/date_mcd.html">date_mcd()</a></code> now returns an <code>DateMCD</code> object.</li>
+<li>
+<code><a href="../reference/test_fit.html">test_fit()</a></code> now returns an <code>IncrementTest</code> object.</li>
+<li>
+<code>DiversityIndex</code> lost <code><a href="../reference/refine.html">bootstrap()</a></code> and <code><a href="../reference/refine.html">jackknife()</a></code> slots.</li>
 <li>
 <code>DateModel</code> lost <code>count</code>, <code>level</code>, <code>rows</code> and <code>columns</code> slots (moved to <code>DateEvent</code>).</li>
 <li>
-<code>BootCA</code> now inherits from <code>CA</code>.</li>
+<code>BootCA</code> now inherits from <code>arkhe::CA</code>.</li>
 <li>Rename <code>BootCA</code> slots <code>rows</code> and <code>columns</code> to <code>row_chull</code> and <code>column_chull</code>.</li>
 </ul>
 </div>
@@ -197,9 +202,7 @@
 <a href="#enhancements" class="anchor"></a>Enhancements</h3>
 <ul>
 <li>
-<code>date_mcd</code>, <code>date_event</code> and <code>plot_time</code> gained a new <code>dates</code> argument.</li>
-<li>
-<code>index_heterogeneity</code>, <code>index_evenness</code> and <code>index_richness</code> gained a new <code>step</code> argument.</li>
+<code><a href="../reference/date_mcd.html">date_mcd()</a></code>, <code><a href="../reference/event.html">date_event()</a></code> and <code><a href="../reference/plot_date.html">plot_time()</a></code> gained a new <code>dates</code> argument.</li>
 </ul>
 </div>
 <div id="internals" class="section level3">
@@ -208,6 +211,7 @@
 <ul>
 <li>Depends on {arkhe} &gt; 0.2.2</li>
 <li>Remove {pbapply} from suggested packages.</li>
+<li>Rewrite <code><a href="../reference/plot_bar.html">plot_ford()</a></code> and <code><a href="../reference/plot_bar.html">plot_bertin()</a></code>.</li>
 </ul>
 </div>
 </div>

@@ -251,24 +251,24 @@ below)?</p></td>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix</span>
-<span class='va'>mississippi_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>mississippi</span><span class='op'>)</span>
+<span class='va'>counts1</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>mississippi</span><span class='op'>)</span>
 
 <span class='co'>## Plot a Bertin diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>mississippi_count</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>counts1</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_bar-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with variables scaled to 0-1 and the variable mean as threshold</span>
 <span class='va'>scale_01</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>mississippi_count</span>, threshold <span class='op'>=</span> <span class='va'>mean</span>, scale <span class='op'>=</span> <span class='va'>scale_01</span><span class='op'>)</span>
+<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>counts1</span>, threshold <span class='op'>=</span> <span class='va'>mean</span>, scale <span class='op'>=</span> <span class='va'>scale_01</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_bar-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix (data from Desachy 2004)</span>
-<span class='va'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>compiegne</span><span class='op'>)</span>
+<span class='va'>counts2</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>compiegne</span><span class='op'>)</span>
 
 <span class='co'>## Plot a Ford diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>compiegne_count</span><span class='op'>)</span>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>counts2</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
-<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>compiegne_count</span>, EPPM <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>counts2</span>, EPPM <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>

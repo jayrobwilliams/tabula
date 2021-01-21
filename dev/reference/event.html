@@ -233,7 +233,7 @@ confidence level.</p></td>
  demonstration: no replication of their results is possible and this
  implementation must be considered <strong>experimental</strong>.
  <code>date_event</code> may be subject to major changes in a future release.</p>
-    <h2 class="hasAnchor" id="date-model-checking"><a class="anchor" href="#date-model-checking"></a>Date Model Checking</h2>
+    <h2 class="hasAnchor" id="date-model"><a class="anchor" href="#date-model"></a>Date Model</h2>
 
     
 
@@ -257,8 +257,8 @@ confidence level.</p></td>
  bootstrap assemblages is created, with the same sample size, by resampling
  each of the original assemblage with replacement. Then, examination of the
  bootstrap statistics makes it possible to pinpoint assemblages that require
- further investigation.
- A five columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
+ further investigation.</p>
+<p>A five columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
  distribution statistics for each replicated assemblage (in rows)
  with the following columns:</p><dl>
   <dt>min</dt><dd><p>Minimum value.</p></dd>
@@ -294,7 +294,7 @@ confidence level.</p></td>
  Culture.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='refine.html'>refine_event</a></p>
+    <div class='dont-index'><p><a href='refine.html'>refine</a></p>
 <p>Other dating: 
 <code><a href='date_mcd.html'>date_mcd</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
@@ -302,37 +302,11 @@ confidence level.</p></td>
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Mean Ceramic Date</span>
-<span class='co'>## Coerce the zuni dataset to an abundance (count) matrix</span>
-<span class='va'>zuni_counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>zuni</span><span class='op'>)</span>
-<span class='co'>## Set the start and end dates for each ceramic type</span>
-<span class='va'>zuni_dates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-  LINO <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>600</span>, <span class='fl'>875</span><span class='op'>)</span>, KIAT <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>850</span>, <span class='fl'>950</span><span class='op'>)</span>, RED <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>900</span>, <span class='fl'>1050</span><span class='op'>)</span>,
-  GALL <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1025</span>, <span class='fl'>1125</span><span class='op'>)</span>, ESC <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1050</span>, <span class='fl'>1150</span><span class='op'>)</span>, PUBW <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1050</span>, <span class='fl'>1150</span><span class='op'>)</span>,
-  RES <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>1200</span><span class='op'>)</span>, TULA <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1175</span>, <span class='fl'>1300</span><span class='op'>)</span>, PINE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1275</span>, <span class='fl'>1350</span><span class='op'>)</span>,
-  PUBR <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>1200</span><span class='op'>)</span>, WING <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1100</span>, <span class='fl'>1200</span><span class='op'>)</span>, WIPO <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1125</span>, <span class='fl'>1225</span><span class='op'>)</span>,
-  SJ <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1200</span>, <span class='fl'>1300</span><span class='op'>)</span>, LSJ <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1250</span>, <span class='fl'>1300</span><span class='op'>)</span>, SPR <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1250</span>, <span class='fl'>1300</span><span class='op'>)</span>,
-  PINER <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1275</span>, <span class='fl'>1325</span><span class='op'>)</span>, HESH <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1275</span>, <span class='fl'>1450</span><span class='op'>)</span>, KWAK <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1275</span>, <span class='fl'>1450</span><span class='op'>)</span>
-<span class='op'>)</span>
-<span class='co'>## Calculate date midpoints</span>
-<span class='va'>zuni_mid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>vapply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='va'>zuni_dates</span>, FUN <span class='op'>=</span> <span class='va'>mean</span>, FUN.VALUE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'>## Calculate MCD</span>
-<span class='co'>## (we use a bootstrapping procedure to estimate the confidence interval)</span>
-<span class='va'>zuni_mcd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='date_mcd.html'>date_mcd</a></span><span class='op'>(</span><span class='va'>zuni_counts</span>, dates <span class='op'>=</span> <span class='va'>zuni_mid</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>zuni_mcd</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;             date     lower     upper
-#&gt; LZ1105 1162.5000 1161.6253 1163.7935
-#&gt; LZ1103 1137.8378 1136.3041 1139.5966
-#&gt; LZ1100 1154.4643 1151.4066 1155.0416
-#&gt; LZ1099 1090.6250 1090.2343 1090.7594
-#&gt; LZ1097 1092.1875 1085.0092 1091.5314
-#&gt; LZ1096  841.0714  835.8282  843.3111</div><div class='input'>
-<span class='co'>## Event and accumulation dates (Bellanger et al.)</span>
+    <pre class="examples"><div class='input'><span class='co'>## Event and accumulation dates (Bellanger et al.)</span>
 <span class='co'>## See the vignette:</span>
-<span class='co'># \donttest{</span>
-<span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='st'>"dating"</span>, package <span class='op'>=</span> <span class='st'>"tabula"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘dating’ not found</span></div><div class='input'><span class='co'># }</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='st'>"dating"</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

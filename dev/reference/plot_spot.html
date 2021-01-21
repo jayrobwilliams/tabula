@@ -155,16 +155,16 @@
     <pre class="usage"><span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for AbundanceMatrix</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for SimilarityMatrix</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for OccurrenceMatrix</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,7 +175,7 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Currently not used.</p></td>
+      <td><p>Extra parameters to be passed to <code>threshold</code>.</p></td>
     </tr>
     <tr>
       <th>threshold</th>
@@ -214,16 +214,16 @@ If <code>NULL</code> (the default), no threshold is computed.</p></td>
     <pre class="examples"><div class='input'><span class='co'>## Plot spot diagram...</span>
 
 <span class='co'>## ...of count data...</span>
-<span class='va'>mississippi_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>mississippi</span><span class='op'>)</span>
+<span class='va'>counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>mississippi</span><span class='op'>)</span>
 <span class='co'>### ...without threshod</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>mississippi_count</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>counts</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_spot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the  column means as threshold</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>mississippi_count</span>, threshold <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>counts</span>, threshold <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_spot-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>### ...with the column medians as threshold</span>
-<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>mississippi_count</span>, threshold <span class='op'>=</span> <span class='va'>median</span><span class='op'>)</span>
+<span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>counts</span>, threshold <span class='op'>=</span> <span class='va'>median</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_spot-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## ...of a similarity matrix</span>
-<span class='va'>sim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='similarity.html'>similarity</a></span><span class='op'>(</span><span class='va'>mississippi_count</span>, method <span class='op'>=</span> <span class='st'>"brainerd"</span><span class='op'>)</span>
+<span class='va'>sim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='similarity.html'>similarity</a></span><span class='op'>(</span><span class='va'>counts</span>, method <span class='op'>=</span> <span class='st'>"brainerd"</span><span class='op'>)</span>
 <span class='fu'>plot_spot</span><span class='op'>(</span><span class='va'>sim</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_spot-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## ...of a co-occurrence matrix</span>

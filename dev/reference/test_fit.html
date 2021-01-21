@@ -144,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Frequency Increment Test</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/test_fit.R'><code>R/test_fit.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_time.R'><code>R/plot_time.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/test_fit.R'><code>R/test_fit.R</code></a></small>
     <div class="hidden name"><code>test_fit.Rd</code></div>
     </div>
 
@@ -154,8 +154,11 @@
 
     <pre class="usage"><span class='fu'>test_fit</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
+<span class='co'># S4 method for IncrementTest,missing</span>
+<span class='fu'><a href='plot_date.html'>plot_time</a></span><span class='op'>(</span><span class='va'>object</span>, level <span class='op'>=</span> <span class='fl'>0.95</span>, roll <span class='op'>=</span> <span class='cn'>FALSE</span>, window <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'>test_fit</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>dates</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>test_fit</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>dates</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -169,13 +172,24 @@
       <td><p>Currently not used.</p></td>
     </tr>
     <tr>
-      <th>dates</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of dates.</p></td>
+      <th>level</th>
+      <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
+confidence level.</p></td>
     </tr>
     <tr>
-      <th>simplify</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should the result be
-simplified to a matrix?</p></td>
+      <th>roll</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should each time series be
+subsetted to look for episodes of selection?
+Only used if <code>highlight</code> is "<code>FIT</code>" (see details).</p></td>
+    </tr>
+    <tr>
+      <th>window</th>
+      <td><p>An odd <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the size of the rolling
+window. Only used if <code>roll</code> is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>dates</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of dates.</p></td>
     </tr>
     </table>
 
@@ -205,22 +219,21 @@ simplified to a matrix?</p></td>
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Shannon diversity test</span>
-<span class='va'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>merzbach</span><span class='op'>)</span>
-<span class='va'>div</span> <span class='op'>&lt;-</span> <span class='fu'><a href='test_diversity.html'>test_diversity</a></span><span class='op'>(</span><span class='va'>merzbach_count</span><span class='op'>)</span>
-
-<span class='co'>## Frequency Increment Test</span>
-<span class='co'>## Coerce the merzbach dataset to a count matrix</span>
+    <pre class="examples"><div class='input'><span class='co'>## Coerce the merzbach dataset to a count matrix</span>
 <span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
 <span class='va'>keep</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='va'>merzbach</span>, MARGIN <span class='op'>=</span> <span class='fl'>2</span>, FUN <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>&gt;=</span> <span class='fl'>50</span><span class='op'>)</span>
-<span class='va'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>merzbach</span><span class='op'>[</span>, <span class='va'>keep</span><span class='op'>]</span><span class='op'>)</span>
-
-<span class='co'>## The data are grouped by phase</span>
+<span class='va'>counts</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span><span class='op'>(</span><span class='va'>merzbach</span><span class='op'>[</span>, <span class='va'>keep</span><span class='op'>]</span><span class='op'>)</span>
+<span class='co'>## Group by phase</span>
 <span class='co'>## We use the row names as time coordinates (roman numerals)</span>
-<span class='va'>merzbach_date</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/roman.html'>as.roman</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>merzbach</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>dates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/roman.html'>as.roman</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>counts</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'>test_fit</span><span class='op'>(</span><span class='va'>merzbach_count</span>, dates <span class='op'>=</span> <span class='va'>merzbach_date</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div></pre>
+<span class='co'>## Frequency Increment Test</span>
+<span class='va'>freq</span> <span class='op'>&lt;-</span> <span class='fu'>test_fit</span><span class='op'>(</span><span class='va'>counts</span>, <span class='va'>dates</span><span class='op'>)</span>
+
+<span class='co'>## Plot time vs abundance and highlight selection</span>
+<span class='fu'><a href='plot_date.html'>plot_time</a></span><span class='op'>(</span><span class='va'>freq</span><span class='op'>)</span>
+</div><div class='img'><img src='test_fit-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='plot_date.html'>plot_time</a></span><span class='op'>(</span><span class='va'>freq</span>, roll <span class='op'>=</span> <span class='cn'>TRUE</span>, window <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+</div><div class='img'><img src='test_fit-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

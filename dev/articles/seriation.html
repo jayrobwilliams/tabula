@@ -105,7 +105,7 @@
       <h1 data-toc-skip>Seriation</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2021-01-19</h4>
+            <h4 class="date">2021-01-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/nfrerebeau/tabula/blob/master/vignettes/seriation.Rmd"><code>vignettes/seriation.Rmd</code></a></small>
       <div class="hidden name"><code>seriation.Rmd</code></div>
@@ -153,18 +153,17 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Build an incidence matrix with random data</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12345</span><span class="op">)</span>
-<span class="va">incidence1</span> <span class="op">&lt;-</span> <span class="fu">IncidenceMatrix</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, <span class="fl">400</span>, <span class="cn">TRUE</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.6</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span>,
-                              nrow <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>
+<span class="va">bin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, <span class="fl">400</span>, <span class="cn">TRUE</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.6</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span>
+<span class="va">incidence1</span> <span class="op">&lt;-</span> <span class="fu">IncidenceMatrix</span><span class="op">(</span>data <span class="op">=</span> <span class="va">bin</span>, nrow <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>
 
 <span class="co">## Get seriation order on rows and columns</span>
 <span class="co">## If no convergence is reached before the maximum number of iterations (100), </span>
 <span class="co">## it stops with a warning.</span>
 <span class="op">(</span><span class="va">indices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_rank</a></span><span class="op">(</span><span class="va">incidence1</span>, margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, stop <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; &lt;PermutationOrder&gt;</span>
+<span class="co">#&gt; &lt;PermutationOrder: reciprocal ranking&gt;</span>
 <span class="co">#&gt; Permutation order for matrix seriation:</span>
 <span class="co">#&gt; - Row order: 1 4 20 3 9 16 19 10 13 2 11 7 17 5 6 18 14 15 8 12...</span>
 <span class="co">#&gt; - Column order: 1 16 9 4 8 14 3 20 13 2 6 18 7 17 5 11 19 12 15 10...</span>
-<span class="co">#&gt; - Method: reciprocal ranking</span>
 
 <span class="co">## Permute matrix rows and columns</span>
 <span class="va">incidence2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">permute</a></span><span class="op">(</span><span class="va">incidence1</span>, <span class="va">indices</span><span class="op">)</span>
@@ -176,30 +175,34 @@
 <span class="fu"><a href="../reference/plot_matrix.html">plot_heatmap</a></span><span class="op">(</span><span class="va">incidence2</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Rearranged matrix"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TRUE"</span> <span class="op">=</span> <span class="st">"black"</span>, <span class="st">"FALSE"</span> <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="seriation_files/figure-html/ranking-1.png" width="700"><img src="seriation_files/figure-html/ranking-2.png" width="700"></p>
+<p><img src="seriation_files/figure-html/reciprocal-1.png" width="700"><img src="seriation_files/figure-html/reciprocal-2.png" width="700"></p>
 <p>The positive difference from the column mean percentage (in french “écart positif au pourcentage moyen”, EPPM) represents a deviation from the situation of statistical independence <span class="citation">(Desachy 2004)</span>. As independence can be interpreted as the absence of relationships between types and the chronological order of the assemblages, EPPM is a useful graphical tool to explore significance of relationship between rows and columns related to seriation <span class="citation">(Desachy 2004)</span>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Replicates Desachy 2004 results</span>
 <span class="co">## Coerce dataset to an abundance matrix</span>
-<span class="va">compiegne_counts</span> <span class="op">&lt;-</span> <span class="fu">as_count</span><span class="op">(</span><span class="va">compiegne</span><span class="op">)</span>
+<span class="va">ccounts1</span> <span class="op">&lt;-</span> <span class="fu">as_count</span><span class="op">(</span><span class="va">compiegne</span><span class="op">)</span>
 
 <span class="co">## Plot original data matrix</span>
-<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">compiegne_counts</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">ccounts1</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Original dataset"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">khroma</span><span class="fu">::</span><span class="fu"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_fill_bright</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co">## Get seriation order for columns on EPPM using the reciprocal averaging method</span>
 <span class="co">## Expected column order: N, A, C, K, P, L, B, E, I, M, D, G, O, J, F, H</span>
-<span class="va">compiegne_indices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_rank</a></span><span class="op">(</span><span class="va">compiegne_counts</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="op">(</span><span class="va">cindices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_rank</a></span><span class="op">(</span><span class="va">ccounts1</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; &lt;PermutationOrder: reciprocal ranking&gt;</span>
+<span class="co">#&gt; Permutation order for matrix seriation:</span>
+<span class="co">#&gt; - Row order: 1 2 3 4 5...</span>
+<span class="co">#&gt; - Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8...</span>
 
 <span class="co">## Permute columns</span>
-<span class="va">compiegne_seriation</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">permute</a></span><span class="op">(</span><span class="va">compiegne_counts</span>, <span class="va">compiegne_indices</span><span class="op">)</span>
+<span class="va">ccounts2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">permute</a></span><span class="op">(</span><span class="va">ccounts1</span>, <span class="va">cindices</span><span class="op">)</span>
 
 <span class="co">## Plot new matrix</span>
-<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">compiegne_seriation</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">ccounts2</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Reordered dataset"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">khroma</span><span class="fu">::</span><span class="fu"><a href="http://khroma.archaeo.science/reference/scale_tol_discrete.html">scale_fill_bright</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="seriation_files/figure-html/averaging-1.png" width="672"><img src="seriation_files/figure-html/averaging-2.png" width="672"></p>
+<p><img src="seriation_files/figure-html/average-1.png" width="672"><img src="seriation_files/figure-html/average-2.png" width="672"></p>
 </div>
 <div id="correspondence-analysis" class="section level1">
 <h1 class="hasAnchor">
@@ -210,465 +213,39 @@
 <p>correspondence Analysis (CA) is an effective method for the seriation of archaeological assemblages. The order of the rows and columns is given by the coordinates along one dimension of the CA space, assumed to account for temporal variation. The direction of temporal change within the correspondence analysis space is arbitrary: additional information is needed to determine the actual order in time.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Coerce dataset to an count matrix</span>
-<span class="va">zuni_counts</span> <span class="op">&lt;-</span> <span class="fu">as_count</span><span class="op">(</span><span class="va">zuni</span><span class="op">)</span>
+<span class="va">zcounts1</span> <span class="op">&lt;-</span> <span class="fu">as_count</span><span class="op">(</span><span class="va">zuni</span><span class="op">)</span>
 <span class="co">## correspondence analysis of the whole dataset</span>
-<span class="va">corresp</span> <span class="op">&lt;-</span> <span class="fu">arkhe</span><span class="fu">::</span><span class="fu"><a href="http://arkhe.archaeo.science/reference/correspondence.html">ca</a></span><span class="op">(</span><span class="va">zuni_counts</span><span class="op">)</span>
+<span class="va">corresp</span> <span class="op">&lt;-</span> <span class="fu">arkhe</span><span class="fu">::</span><span class="fu"><a href="http://arkhe.archaeo.science/reference/correspondence.html">ca</a></span><span class="op">(</span><span class="va">zcounts1</span><span class="op">)</span>
+
+<span class="co">## Get row (blue) and column (red) coordinates</span>
+<span class="va">rcoords</span> <span class="op">&lt;-</span> <span class="fu">arkhe</span><span class="fu">::</span><span class="fu"><a href="http://arkhe.archaeo.science/reference/correspondence.html">get_coordinates</a></span><span class="op">(</span><span class="va">corresp</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">ccoords</span> <span class="op">&lt;-</span> <span class="fu">arkhe</span><span class="fu">::</span><span class="fu"><a href="http://arkhe.archaeo.science/reference/correspondence.html">get_coordinates</a></span><span class="op">(</span><span class="va">corresp</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
 <span class="co">## Plot CA results</span>
-<span class="fu"><a href="../reference/ca.html">plot_ca</a></span><span class="op">(</span><span class="va">corresp</span>, axes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, map <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rows"</span>, <span class="st">"columns"</span><span class="op">)</span><span class="op">)</span>  <span class="op">+</span> 
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;                  CA1          CA2  legend</span>
-<span class="co">#&gt; LZ1105   0.052212965 -0.931670946    rows</span>
-<span class="co">#&gt; LZ1103   0.259100627 -0.371677363    rows</span>
-<span class="co">#&gt; LZ1100   0.108941939 -0.600216813    rows</span>
-<span class="co">#&gt; LZ1099   0.879290470 -1.949664094    rows</span>
-<span class="co">#&gt; LZ1097   0.621602538 -0.700561856    rows</span>
-<span class="co">#&gt; LZ1096   1.995206628  0.731913136    rows</span>
-<span class="co">#&gt; LZ1095   0.276556034 -1.051118421    rows</span>
-<span class="co">#&gt; LZ1092   0.543372043 -1.242720904    rows</span>
-<span class="co">#&gt; LZ1091   0.249619355 -0.935749148    rows</span>
-<span class="co">#&gt; LZ1090   2.348303999  1.448090197    rows</span>
-<span class="co">#&gt; LZ1088   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ1087   1.445814456 -0.137844926    rows</span>
-<span class="co">#&gt; LZ1083   1.565643089 -0.103985514    rows</span>
-<span class="co">#&gt; LZ1082   1.202390888 -1.102840954    rows</span>
-<span class="co">#&gt; LZ1078   1.186399590 -0.022918651    rows</span>
-<span class="co">#&gt; LZ1077   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ1076  -0.223400498 -0.029498532    rows</span>
-<span class="co">#&gt; LZ1075   0.887312217  0.610849160    rows</span>
-<span class="co">#&gt; LZ1074   2.278601070  1.139680410    rows</span>
-<span class="co">#&gt; LZ1073   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ1072   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ1070   0.432819251 -1.471396753    rows</span>
-<span class="co">#&gt; LZ1066   1.975070559 -0.045112635    rows</span>
-<span class="co">#&gt; LZ1065   0.448633808 -0.215543566    rows</span>
-<span class="co">#&gt; LZ1064   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ1063  -0.197848543 -0.156845931    rows</span>
-<span class="co">#&gt; LZ1062  -0.222367303  0.111346982    rows</span>
-<span class="co">#&gt; LZ1061   0.414372058  0.237898453    rows</span>
-<span class="co">#&gt; LZ1060   0.334877227  0.655170894    rows</span>
-<span class="co">#&gt; LZ1059   2.136881082  0.766406550    rows</span>
-<span class="co">#&gt; LZ1058   0.014369809 -0.717462386    rows</span>
-<span class="co">#&gt; LZ1054  -0.252523693 -0.270048891    rows</span>
-<span class="co">#&gt; LZ1053   1.242874684 -0.807614819    rows</span>
-<span class="co">#&gt; LZ1052   2.061538827  1.573909588    rows</span>
-<span class="co">#&gt; LZ1047   0.024031146 -0.808753472    rows</span>
-<span class="co">#&gt; LZ1045   1.882523302  0.261684340    rows</span>
-<span class="co">#&gt; LZ1043  -0.398417669 -0.025744584    rows</span>
-<span class="co">#&gt; LZ1038  -0.227862531 -0.424405190    rows</span>
-<span class="co">#&gt; LZ1036   0.197195390 -0.594430445    rows</span>
-<span class="co">#&gt; LZ1035  -0.055974839 -0.347369883    rows</span>
-<span class="co">#&gt; LZ1034   0.521585727 -0.949242588    rows</span>
-<span class="co">#&gt; LZ1033   0.398409172 -0.843024162    rows</span>
-<span class="co">#&gt; LZ1025   0.628663178 -0.239299441    rows</span>
-<span class="co">#&gt; LZ1023   0.850515863 -0.718908504    rows</span>
-<span class="co">#&gt; LZ1020   0.459213123  0.536908681    rows</span>
-<span class="co">#&gt; LZ1019   0.254086618 -0.094545901    rows</span>
-<span class="co">#&gt; LZ1018  -0.320214296 -0.188267844    rows</span>
-<span class="co">#&gt; LZ1016   0.632773607 -0.805290028    rows</span>
-<span class="co">#&gt; LZ1015   0.580974859 -1.596583321    rows</span>
-<span class="co">#&gt; LZ1010   1.015100075 -1.384607809    rows</span>
-<span class="co">#&gt; LZ1009   0.893086209 -1.095232382    rows</span>
-<span class="co">#&gt; LZ1008   0.584526229 -1.647803869    rows</span>
-<span class="co">#&gt; LZ1007   0.091795415 -1.029733790    rows</span>
-<span class="co">#&gt; LZ1004   0.081452100 -0.672022115    rows</span>
-<span class="co">#&gt; LZ1001   1.413276859 -0.201520843    rows</span>
-<span class="co">#&gt; LZ0988   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0987   0.340046697 -1.123195414    rows</span>
-<span class="co">#&gt; LZ0986   0.805620927 -2.002100718    rows</span>
-<span class="co">#&gt; LZ0983   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0982   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0980   0.566405860 -1.717472691    rows</span>
-<span class="co">#&gt; LZ0978   1.063263248 -1.432574246    rows</span>
-<span class="co">#&gt; LZ0977   1.461667265 -1.482073291    rows</span>
-<span class="co">#&gt; LZ0975   0.839111713 -1.899719583    rows</span>
-<span class="co">#&gt; LZ0974   0.816730995 -1.231042057    rows</span>
-<span class="co">#&gt; LZ0973   0.761655077 -1.931585965    rows</span>
-<span class="co">#&gt; LZ0969   0.835585889 -1.945454255    rows</span>
-<span class="co">#&gt; LZ0964   0.501965978 -1.721283774    rows</span>
-<span class="co">#&gt; LZ0958   1.908904012  0.558588645    rows</span>
-<span class="co">#&gt; LZ0955   1.572899643 -0.410854729    rows</span>
-<span class="co">#&gt; LZ0939   1.645847011 -0.345813681    rows</span>
-<span class="co">#&gt; LZ0937   1.876857373  0.392979056    rows</span>
-<span class="co">#&gt; LZ0936   0.743305141 -1.878116353    rows</span>
-<span class="co">#&gt; LZ0934   0.701527343 -1.839510528    rows</span>
-<span class="co">#&gt; LZ0931   0.664718222 -1.828817014    rows</span>
-<span class="co">#&gt; LZ0929   1.063725272 -1.037889943    rows</span>
-<span class="co">#&gt; LZ0927   0.688099500 -1.597697640    rows</span>
-<span class="co">#&gt; LZ0910   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0863   0.983541102 -1.862552112    rows</span>
-<span class="co">#&gt; LZ0862   0.246413773 -1.177273566    rows</span>
-<span class="co">#&gt; LZ0861   1.066486664 -1.601100827    rows</span>
-<span class="co">#&gt; LZ0860   0.598183729 -1.236249238    rows</span>
-<span class="co">#&gt; LZ0859  -0.159648910 -0.649515051    rows</span>
-<span class="co">#&gt; LZ0857   0.210454831 -1.046174341    rows</span>
-<span class="co">#&gt; LZ0856   0.274233907 -1.147677658    rows</span>
-<span class="co">#&gt; LZ0854  -0.561493301  0.254535953    rows</span>
-<span class="co">#&gt; LZ0853  -0.470515790 -0.010031992    rows</span>
-<span class="co">#&gt; LZ0852  -0.249904287 -0.300551745    rows</span>
-<span class="co">#&gt; LZ0851   0.506704452 -1.382252641    rows</span>
-<span class="co">#&gt; LZ0826   1.146473632 -1.293139678    rows</span>
-<span class="co">#&gt; LZ0822   0.893079710 -2.054218249    rows</span>
-<span class="co">#&gt; LZ0821   0.389054991 -1.331673452    rows</span>
-<span class="co">#&gt; LZ0816  -0.553751943  0.266757628    rows</span>
-<span class="co">#&gt; LZ0812  -0.560693086  0.205646410    rows</span>
-<span class="co">#&gt; LZ0809   0.805902554 -1.661114471    rows</span>
-<span class="co">#&gt; LZ0808  -0.132320496 -0.435537665    rows</span>
-<span class="co">#&gt; LZ0806  -0.085085626 -0.703299354    rows</span>
-<span class="co">#&gt; LZ0797  -0.501600492  0.143205107    rows</span>
-<span class="co">#&gt; LZ0796  -0.263316352 -0.180508135    rows</span>
-<span class="co">#&gt; LZ0789  -0.311094687 -0.325658952    rows</span>
-<span class="co">#&gt; LZ0783   0.437582911 -1.455513254    rows</span>
-<span class="co">#&gt; LZ0782   0.700667386 -1.867954230    rows</span>
-<span class="co">#&gt; LZ0778  -0.405366649 -0.010550691    rows</span>
-<span class="co">#&gt; LZ0777  -0.443161909  0.049532176    rows</span>
-<span class="co">#&gt; LZ0776   1.108260417 -1.327429162    rows</span>
-<span class="co">#&gt; LZ0773   1.073480600 -0.932422223    rows</span>
-<span class="co">#&gt; LZ0768   0.772057375 -1.596398762    rows</span>
-<span class="co">#&gt; LZ0760  -0.516759713  0.167603646    rows</span>
-<span class="co">#&gt; LZ0759  -0.604720757  0.293990655    rows</span>
-<span class="co">#&gt; LZ0754  -0.667400754  0.429146142    rows</span>
-<span class="co">#&gt; LZ0751   0.308881531 -1.018488890    rows</span>
-<span class="co">#&gt; LZ0750  -0.495865141  0.084318172    rows</span>
-<span class="co">#&gt; LZ0747  -0.504061967  0.149697999    rows</span>
-<span class="co">#&gt; LZ0744   0.867954377 -1.796769843    rows</span>
-<span class="co">#&gt; LZ0742  -0.450682321 -0.061989918    rows</span>
-<span class="co">#&gt; LZ0741  -0.181013881 -0.380828421    rows</span>
-<span class="co">#&gt; LZ0735   0.798431369 -1.928054251    rows</span>
-<span class="co">#&gt; LZ0732   0.795087658 -0.801308306    rows</span>
-<span class="co">#&gt; LZ0730   0.597734542  0.454159817    rows</span>
-<span class="co">#&gt; LZ0727   2.423363698  1.469031296    rows</span>
-<span class="co">#&gt; LZ0719  -0.159947774 -0.432477174    rows</span>
-<span class="co">#&gt; LZ0718   2.211046060  0.903828448    rows</span>
-<span class="co">#&gt; LZ0715   2.195665466  1.138244594    rows</span>
-<span class="co">#&gt; LZ0713   1.208512343 -0.723730933    rows</span>
-<span class="co">#&gt; LZ0710   1.399385895 -0.221346680    rows</span>
-<span class="co">#&gt; LZ0704  -0.574932520  0.251794175    rows</span>
-<span class="co">#&gt; LZ0703   1.297904388 -1.147082879    rows</span>
-<span class="co">#&gt; LZ0658   1.291538168 -1.943671893    rows</span>
-<span class="co">#&gt; LZ0655   1.298435140 -1.972021956    rows</span>
-<span class="co">#&gt; LZ0654   0.789304230 -1.809191740    rows</span>
-<span class="co">#&gt; LZ0653   0.929367610 -1.628780938    rows</span>
-<span class="co">#&gt; LZ0627   0.853113408 -1.744150449    rows</span>
-<span class="co">#&gt; LZ0620   1.362012400 -0.987602031    rows</span>
-<span class="co">#&gt; LZ0618   1.625169881 -0.209967533    rows</span>
-<span class="co">#&gt; LZ0612   0.977554444 -1.847121613    rows</span>
-<span class="co">#&gt; LZ0610   0.859681273 -1.778851124    rows</span>
-<span class="co">#&gt; LZ0606   0.163621282 -1.266028075    rows</span>
-<span class="co">#&gt; LZ0605   1.667201274 -0.103450561    rows</span>
-<span class="co">#&gt; LZ0597   0.888515947 -1.789330067    rows</span>
-<span class="co">#&gt; LZ0595   1.242917258 -0.792458163    rows</span>
-<span class="co">#&gt; LZ0594   0.338710664 -1.434757512    rows</span>
-<span class="co">#&gt; LZ0593  -0.230687426 -0.644055904    rows</span>
-<span class="co">#&gt; LZ0591   0.827412513 -1.619694357    rows</span>
-<span class="co">#&gt; LZ0589   0.554614421 -1.511627903    rows</span>
-<span class="co">#&gt; LZ0588   0.588782781 -1.742552948    rows</span>
-<span class="co">#&gt; LZ0587   1.015493406 -1.686737558    rows</span>
-<span class="co">#&gt; LZ0583  -0.307449043 -0.233147448    rows</span>
-<span class="co">#&gt; LZ0582  -0.117735550 -0.343371141    rows</span>
-<span class="co">#&gt; LZ0581   0.611065720 -1.632666628    rows</span>
-<span class="co">#&gt; LZ0578  -0.019861242 -0.906895344    rows</span>
-<span class="co">#&gt; LZ0570   0.484848398 -1.599820817    rows</span>
-<span class="co">#&gt; LZ0569   0.671490793 -1.548756270    rows</span>
-<span class="co">#&gt; LZ0568  -0.253950671 -0.340682916    rows</span>
-<span class="co">#&gt; LZ0567   0.014932677 -0.676864921    rows</span>
-<span class="co">#&gt; LZ0565  -0.595277821  0.257423803    rows</span>
-<span class="co">#&gt; LZ0563  -0.323295005 -0.301360174    rows</span>
-<span class="co">#&gt; LZ0562  -0.235431671 -0.378019787    rows</span>
-<span class="co">#&gt; LZ0561  -0.168043895 -0.545743079    rows</span>
-<span class="co">#&gt; LZ0560  -0.171831072 -0.562241957    rows</span>
-<span class="co">#&gt; LZ0557  -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; LZ0546   0.897528385 -1.784378139    rows</span>
-<span class="co">#&gt; LZ0545  -0.156995059 -0.534913797    rows</span>
-<span class="co">#&gt; LZ0540  -0.165718422 -0.409805931    rows</span>
-<span class="co">#&gt; LZ0539   0.162777873 -1.086459291    rows</span>
-<span class="co">#&gt; LZ0538   0.002092373 -0.792196925    rows</span>
-<span class="co">#&gt; LZ0537   0.409348417 -1.324327208    rows</span>
-<span class="co">#&gt; LZ0532   1.313303766 -2.042601761    rows</span>
-<span class="co">#&gt; LZ0531   1.017061460 -1.555779239    rows</span>
-<span class="co">#&gt; LZ0527   0.040335882 -0.909129929    rows</span>
-<span class="co">#&gt; LZ0524   1.332078395 -0.626915675    rows</span>
-<span class="co">#&gt; LZ0523   0.074179599 -0.696865398    rows</span>
-<span class="co">#&gt; LZ0516  -0.575413607  0.223727452    rows</span>
-<span class="co">#&gt; LZ0513  -0.304763565 -0.142473278    rows</span>
-<span class="co">#&gt; LZ0512  -0.419851687 -0.103908491    rows</span>
-<span class="co">#&gt; LZ0508   0.155940409 -1.103536390    rows</span>
-<span class="co">#&gt; LZ0507  -0.512407793  0.166687714    rows</span>
-<span class="co">#&gt; LZ0505   0.860962132 -1.372952949    rows</span>
-<span class="co">#&gt; LZ0502  -0.592357147  0.272632525    rows</span>
-<span class="co">#&gt; LZ0501  -0.482674812  0.434397856    rows</span>
-<span class="co">#&gt; LZ0478   0.948986166 -1.729465408    rows</span>
-<span class="co">#&gt; LZ0431   2.143499296  1.556569095    rows</span>
-<span class="co">#&gt; LZ0426  -0.568732297  0.404736231    rows</span>
-<span class="co">#&gt; LZ0423   0.308950372 -0.715114835    rows</span>
-<span class="co">#&gt; LZ0403B -0.171177757  0.871433512    rows</span>
-<span class="co">#&gt; LZ0403A  1.170306966  0.073759442    rows</span>
-<span class="co">#&gt; LZ0367   2.278223656  1.104332334    rows</span>
-<span class="co">#&gt; LZ0363   1.004739816 -1.445504250    rows</span>
-<span class="co">#&gt; LZ0362   1.783875221 -0.121380023    rows</span>
-<span class="co">#&gt; LZ0361   0.938296458 -1.801593426    rows</span>
-<span class="co">#&gt; LZ0360   0.815698784 -1.820521155    rows</span>
-<span class="co">#&gt; LZ0359   1.564400502 -0.624118344    rows</span>
-<span class="co">#&gt; LZ0358   1.804861330  0.201210792    rows</span>
-<span class="co">#&gt; LZ0355   0.674847593 -1.422693625    rows</span>
-<span class="co">#&gt; LZ0354  -0.366068894 -0.111602027    rows</span>
-<span class="co">#&gt; LZ0350   0.893466306 -1.381373631    rows</span>
-<span class="co">#&gt; LZ0349   0.376335474 -1.287466554    rows</span>
-<span class="co">#&gt; LZ0348  -0.450838616 -0.017332804    rows</span>
-<span class="co">#&gt; LZ0347  -0.115870629 -0.515323286    rows</span>
-<span class="co">#&gt; LZ0346   0.305367112 -1.169697704    rows</span>
-<span class="co">#&gt; LZ0345   2.399279995  1.497556561    rows</span>
-<span class="co">#&gt; LZ0343   0.943490411 -1.731825059    rows</span>
-<span class="co">#&gt; LZ0342   1.188956013 -1.903350599    rows</span>
-<span class="co">#&gt; LZ0341   1.170610082 -1.042586071    rows</span>
-<span class="co">#&gt; LZ0337   0.827659777 -2.015148507    rows</span>
-<span class="co">#&gt; LZ0335   0.976044179 -1.252482640    rows</span>
-<span class="co">#&gt; LZ0334   2.453975129  1.651921295    rows</span>
-<span class="co">#&gt; LZ0332   1.098751085 -1.885022286    rows</span>
-<span class="co">#&gt; LZ0329   0.791639002 -1.696229051    rows</span>
-<span class="co">#&gt; LZ0326   0.561553811 -1.517122055    rows</span>
-<span class="co">#&gt; LZ0323   0.637664706 -1.590404840    rows</span>
-<span class="co">#&gt; LZ0322   0.735851748 -1.832934257    rows</span>
-<span class="co">#&gt; LZ0319   0.202357481 -0.890611465    rows</span>
-<span class="co">#&gt; LZ0318   0.817049802 -1.843094774    rows</span>
-<span class="co">#&gt; LZ0310   1.096691790 -1.854425565    rows</span>
-<span class="co">#&gt; LZ0309   2.409737093  1.544353763    rows</span>
-<span class="co">#&gt; LZ0307   1.788977590  0.010110049    rows</span>
-<span class="co">#&gt; LZ0301   0.790125188  0.113926978    rows</span>
-<span class="co">#&gt; LZ0295   2.311649554  1.367436270    rows</span>
-<span class="co">#&gt; LZ0294   1.622922001  0.440210245    rows</span>
-<span class="co">#&gt; LZ0292   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0290   2.453975129  1.651921295    rows</span>
-<span class="co">#&gt; LZ0283   0.750356496 -1.872043735    rows</span>
-<span class="co">#&gt; LZ0282  -0.223771294 -0.300793974    rows</span>
-<span class="co">#&gt; LZ0281   0.128452839 -0.355137993    rows</span>
-<span class="co">#&gt; LZ0280   0.201950971 -1.056417724    rows</span>
-<span class="co">#&gt; LZ0279   0.571371869 -1.632942646    rows</span>
-<span class="co">#&gt; LZ0276   0.652658474 -1.605559365    rows</span>
-<span class="co">#&gt; LZ0274  -0.101595520 -0.527011263    rows</span>
-<span class="co">#&gt; LZ0273   0.108690927 -0.862969650    rows</span>
-<span class="co">#&gt; LZ0272   0.228051384 -0.899938973    rows</span>
-<span class="co">#&gt; LZ0271   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0270  -0.097139877 -0.710094386    rows</span>
-<span class="co">#&gt; LZ0265   0.299574356 -0.753184843    rows</span>
-<span class="co">#&gt; LZ0264   0.283064604 -1.185936994    rows</span>
-<span class="co">#&gt; LZ0263   1.083609892 -0.635665034    rows</span>
-<span class="co">#&gt; LZ0252   0.908333877 -1.915602259    rows</span>
-<span class="co">#&gt; LZ0251   0.727879674 -1.817084159    rows</span>
-<span class="co">#&gt; LZ0247   0.212826340 -1.118462472    rows</span>
-<span class="co">#&gt; LZ0244   0.571383914 -1.446751654    rows</span>
-<span class="co">#&gt; LZ0241   0.193480562 -1.033074359    rows</span>
-<span class="co">#&gt; LZ0235   0.748711202 -1.799583921    rows</span>
-<span class="co">#&gt; LZ0233  -0.187249657 -0.496532617    rows</span>
-<span class="co">#&gt; LZ0229  -0.073667643 -0.618021572    rows</span>
-<span class="co">#&gt; LZ0227   0.824840383 -1.828790948    rows</span>
-<span class="co">#&gt; LZ0226   0.663718030 -1.691290539    rows</span>
-<span class="co">#&gt; LZ0219   0.167149033 -1.039655512    rows</span>
-<span class="co">#&gt; LZ0218   0.153632877 -0.903494159    rows</span>
-<span class="co">#&gt; LZ0217   0.590738630 -1.623613214    rows</span>
-<span class="co">#&gt; LZ0216   0.767798092 -1.879755164    rows</span>
-<span class="co">#&gt; LZ0215  -0.031974232 -0.783834065    rows</span>
-<span class="co">#&gt; LZ0214   0.811253412 -1.846121325    rows</span>
-<span class="co">#&gt; LZ0211   0.635515399 -1.595390781    rows</span>
-<span class="co">#&gt; LZ0210  -0.443161909  0.049532176    rows</span>
-<span class="co">#&gt; LZ0209   1.144770935 -1.754128878    rows</span>
-<span class="co">#&gt; LZ0208  -0.163312082 -0.519471310    rows</span>
-<span class="co">#&gt; LZ0204  -0.173922999 -0.509177736    rows</span>
-<span class="co">#&gt; LZ0203   0.275394070 -1.104623418    rows</span>
-<span class="co">#&gt; LZ0202   1.685547316 -0.093255422    rows</span>
-<span class="co">#&gt; LZ0198   1.061163383 -1.470903932    rows</span>
-<span class="co">#&gt; LZ0195   1.839933093  0.593647309    rows</span>
-<span class="co">#&gt; LZ0106   1.374049282 -0.295684567    rows</span>
-<span class="co">#&gt; LZ0105   1.490324091 -1.091827007    rows</span>
-<span class="co">#&gt; LZ0103   0.118341422 -0.589826046    rows</span>
-<span class="co">#&gt; LZ0096   1.593019840 -0.230254432    rows</span>
-<span class="co">#&gt; LZ0094   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0093   1.045410895 -1.318163981    rows</span>
-<span class="co">#&gt; LZ0071   1.995772659  0.627060413    rows</span>
-<span class="co">#&gt; LZ0068   0.943655629 -1.078246663    rows</span>
-<span class="co">#&gt; LZ0067   1.877595936  0.474494099    rows</span>
-<span class="co">#&gt; LZ0066   0.860760076 -2.034987534    rows</span>
-<span class="co">#&gt; LZ0062   1.262449171 -1.074382122    rows</span>
-<span class="co">#&gt; LZ0060   1.232623779 -1.189699541    rows</span>
-<span class="co">#&gt; LZ0059   0.785002788 -1.348396293    rows</span>
-<span class="co">#&gt; LZ0057   2.425544997  1.594172990    rows</span>
-<span class="co">#&gt; LZ0056   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0053   2.489175550  1.723967789    rows</span>
-<span class="co">#&gt; LZ0052   0.716690687 -1.840231449    rows</span>
-<span class="co">#&gt; LZ0044   0.287812147 -0.152883285    rows</span>
-<span class="co">#&gt; LZ0042   0.440302526 -1.572987050    rows</span>
-<span class="co">#&gt; LZ0040   2.016693316  0.642657044    rows</span>
-<span class="co">#&gt; LZ0037   1.190384065 -1.317890390    rows</span>
-<span class="co">#&gt; LZ0030   1.234048753 -1.961705783    rows</span>
-<span class="co">#&gt; LZ0029   0.441896686 -0.963131370    rows</span>
-<span class="co">#&gt; LZ0027   1.241176483 -1.544436655    rows</span>
-<span class="co">#&gt; LZ0026   1.359903218 -0.384569609    rows</span>
-<span class="co">#&gt; LZ0025   1.196460878 -1.829447648    rows</span>
-<span class="co">#&gt; LZ0023   0.887431934 -1.927579930    rows</span>
-<span class="co">#&gt; LZ0020   1.908965375  0.174028061    rows</span>
-<span class="co">#&gt; LZ0019  -0.432315023  0.106709155    rows</span>
-<span class="co">#&gt; LZ0018  -0.280472835 -0.115799227    rows</span>
-<span class="co">#&gt; LZ0017   1.252883954 -1.900769561    rows</span>
-<span class="co">#&gt; LZ0015   0.772321938 -1.604051807    rows</span>
-<span class="co">#&gt; LZ0014   2.446341042  1.641081130    rows</span>
-<span class="co">#&gt; LZ0013   1.083972516 -1.886736693    rows</span>
-<span class="co">#&gt; LZ0008   1.504877025 -1.302016410    rows</span>
-<span class="co">#&gt; LZ0007   1.826670072 -0.546346488    rows</span>
-<span class="co">#&gt; LZ0006   2.513022325  1.771860083    rows</span>
-<span class="co">#&gt; LZ0005U  1.362887598 -1.573649877    rows</span>
-<span class="co">#&gt; LZ0005T  0.219747599 -0.922720686    rows</span>
-<span class="co">#&gt; LZ0005Q  1.818061838  0.206534797    rows</span>
-<span class="co">#&gt; LZ0005P  0.857413272 -1.879355374    rows</span>
-<span class="co">#&gt; LZ0005K  2.066618097  0.702016918    rows</span>
-<span class="co">#&gt; LZ0005I  1.121141862 -0.960065456    rows</span>
-<span class="co">#&gt; LZ0005F  2.226539709  1.069235337    rows</span>
-<span class="co">#&gt; LZ0005E  2.439213330  1.621936598    rows</span>
-<span class="co">#&gt; LZ0005D  2.320277551  1.230501882    rows</span>
-<span class="co">#&gt; LZ0005C  2.391582858  1.528824972    rows</span>
-<span class="co">#&gt; LZ0005B  2.150014363  0.782825295    rows</span>
-<span class="co">#&gt; LZ0005A  0.928174448 -1.672573618    rows</span>
-<span class="co">#&gt; LZ0005   1.564861842 -0.337263392    rows</span>
-<span class="co">#&gt; LZ0003   2.276833539  1.292104931    rows</span>
-<span class="co">#&gt; LZ0002   1.815161332  0.046184011    rows</span>
-<span class="co">#&gt; LZ0001   1.317354511 -1.574429950    rows</span>
-<span class="co">#&gt; JARA63  -0.503665688  0.149287567    rows</span>
-<span class="co">#&gt; JARA62  -0.507320141  0.199674797    rows</span>
-<span class="co">#&gt; JARA61  -0.457440533  0.071493911    rows</span>
-<span class="co">#&gt; JARA60  -0.411218121  0.114059247    rows</span>
-<span class="co">#&gt; JARA59  -0.391905910 -0.007020416    rows</span>
-<span class="co">#&gt; JARA58  -0.327951707  0.248772005    rows</span>
-<span class="co">#&gt; HINK31  -0.426086079  0.081096722    rows</span>
-<span class="co">#&gt; HINK29  -0.499642199  0.233857972    rows</span>
-<span class="co">#&gt; HINK28  -0.393749561 -0.016242892    rows</span>
-<span class="co">#&gt; HINK23  -0.482152740  0.136522450    rows</span>
-<span class="co">#&gt; HINK20  -0.128089858 -0.390914391    rows</span>
-<span class="co">#&gt; HINK19  -0.346211356 -0.026952620    rows</span>
-<span class="co">#&gt; HINK17  -0.337451144  0.069129028    rows</span>
-<span class="co">#&gt; HINK16  -0.418350001  0.020334053    rows</span>
-<span class="co">#&gt; HINK15  -0.325137919  0.114195230    rows</span>
-<span class="co">#&gt; HINK14  -0.360935459 -0.093607012    rows</span>
-<span class="co">#&gt; HINK13  -0.238341375 -0.147447293    rows</span>
-<span class="co">#&gt; HINK12  -0.344849964  0.225166491    rows</span>
-<span class="co">#&gt; HINK11  -0.414399458  0.195355277    rows</span>
-<span class="co">#&gt; HINK09  -0.276587735 -0.026849432    rows</span>
-<span class="co">#&gt; HINK08  -0.354048746  0.032988540    rows</span>
-<span class="co">#&gt; HINK07  -0.354996917  0.089433942    rows</span>
-<span class="co">#&gt; HINK06  -0.199118215  0.090125588    rows</span>
-<span class="co">#&gt; CS94     1.345062367 -1.862818963    rows</span>
-<span class="co">#&gt; CS9     -0.626021863  0.357377507    rows</span>
-<span class="co">#&gt; CS81    -0.636906929  0.375425356    rows</span>
-<span class="co">#&gt; CS8     -0.271364287  0.050731065    rows</span>
-<span class="co">#&gt; CS79    -0.508888409  0.140175180    rows</span>
-<span class="co">#&gt; CS77    -0.561933964  0.231054199    rows</span>
-<span class="co">#&gt; CS76    -0.571397810  0.241769584    rows</span>
-<span class="co">#&gt; CS74    -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; CS7     -0.516217889  0.176118122    rows</span>
-<span class="co">#&gt; CS63     1.437118793 -1.862085353    rows</span>
-<span class="co">#&gt; CS60    -0.618190698  0.338110270    rows</span>
-<span class="co">#&gt; CS58    -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; CS54    -0.297652150  0.346502834    rows</span>
-<span class="co">#&gt; CS53    -0.703193478  0.532372885    rows</span>
-<span class="co">#&gt; CS44    -0.618021414  0.344703391    rows</span>
-<span class="co">#&gt; CS40    -0.572234539  0.263503392    rows</span>
-<span class="co">#&gt; CS39    -0.615726745  0.334295998    rows</span>
-<span class="co">#&gt; CS35    -0.572170839  0.219345157    rows</span>
-<span class="co">#&gt; CS33    -0.403615984  0.248846705    rows</span>
-<span class="co">#&gt; CS3     -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; CS198   -0.652119307  0.422879452    rows</span>
-<span class="co">#&gt; CS195   -0.571696809  0.281049461    rows</span>
-<span class="co">#&gt; CS193   -0.456822714  0.088039449    rows</span>
-<span class="co">#&gt; CS192   -0.571914428  0.254160082    rows</span>
-<span class="co">#&gt; CS187   -0.575077004  0.277586060    rows</span>
-<span class="co">#&gt; CS180   -0.640951137  0.397368284    rows</span>
-<span class="co">#&gt; CS175   -0.606089175  0.296649780    rows</span>
-<span class="co">#&gt; CS173   -0.660778543  0.420418527    rows</span>
-<span class="co">#&gt; CS170   -0.461991176 -0.023606256    rows</span>
-<span class="co">#&gt; CS17    -0.611819098  0.312794109    rows</span>
-<span class="co">#&gt; CS169   -0.672943947  0.518766094    rows</span>
-<span class="co">#&gt; CS167   -0.580927180  0.278488972    rows</span>
-<span class="co">#&gt; CS165   -0.501858630  0.167471792    rows</span>
-<span class="co">#&gt; CS164   -0.445051414 -0.052106793    rows</span>
-<span class="co">#&gt; CS163   -0.618190698  0.338110270    rows</span>
-<span class="co">#&gt; CS16    -0.725463186  0.624962189    rows</span>
-<span class="co">#&gt; CS158   -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; CS156   -0.618060914  0.343164996    rows</span>
-<span class="co">#&gt; CS154   -0.606522112  0.318871730    rows</span>
-<span class="co">#&gt; CS144   -0.629320370  0.372612933    rows</span>
-<span class="co">#&gt; CS142   -0.620820326  0.351177279    rows</span>
-<span class="co">#&gt; CS138   -0.638721832  0.392179099    rows</span>
-<span class="co">#&gt; CS136   -0.537246892  0.156403169    rows</span>
-<span class="co">#&gt; CS124    0.439335938 -1.006419414    rows</span>
-<span class="co">#&gt; CS12    -0.594309037  0.300602926    rows</span>
-<span class="co">#&gt; CS11    -0.589899441  0.293581488    rows</span>
-<span class="co">#&gt; CS107   -0.632341702  0.373413496    rows</span>
-<span class="co">#&gt; CS106   -0.645285307  0.388230390    rows</span>
-<span class="co">#&gt; CS105   -0.575113318  0.269669300    rows</span>
-<span class="co">#&gt; CS103   -0.626534827  0.360885661    rows</span>
-<span class="co">#&gt; CS101   -0.704266901  0.534166468    rows</span>
-<span class="co">#&gt; LZ1347  -0.534806802  0.207088135    rows</span>
-<span class="co">#&gt; LZ1346  -0.595535847  0.303626416    rows</span>
-<span class="co">#&gt; LZ1342  -0.419143488  0.040969013    rows</span>
-<span class="co">#&gt; LZ1341  -0.409094409 -0.047283971    rows</span>
-<span class="co">#&gt; LZ1340  -0.619351084  0.341340718    rows</span>
-<span class="co">#&gt; LZ1338   0.805773174 -1.713693623    rows</span>
-<span class="co">#&gt; LZ1335  -0.327372809 -0.197751592    rows</span>
-<span class="co">#&gt; LZ1330  -0.598152606  0.307675903    rows</span>
-<span class="co">#&gt; LZ1329  -0.548210902  0.193505238    rows</span>
-<span class="co">#&gt; LZ1328  -0.606522112  0.318871730    rows</span>
-<span class="co">#&gt; LZ1324  -0.388158031  0.183892057    rows</span>
-<span class="co">#&gt; LZ1323  -0.506169892  0.144534762    rows</span>
-<span class="co">#&gt; LZ1316  -0.596312100  0.302038008    rows</span>
-<span class="co">#&gt; LZ1313  -0.530676304  0.193821223    rows</span>
-<span class="co">#&gt; LZ1310  -0.613328788  0.330094212    rows</span>
-<span class="co">#&gt; LZ1307  -0.559847769  0.241917572    rows</span>
-<span class="co">#&gt; LZ1306  -0.577220863  0.275830108    rows</span>
-<span class="co">#&gt; LZ1305  -0.201571819 -0.432311071    rows</span>
-<span class="co">#&gt; LZ1298  -0.647362163  0.386206619    rows</span>
-<span class="co">#&gt; LZ1257  -0.656977831  0.406451007    rows</span>
-<span class="co">#&gt; LZ1245  -0.623981730  0.349414448    rows</span>
-<span class="co">#&gt; LZ1232  -0.416270754  0.039104273    rows</span>
-<span class="co">#&gt; LZ1228  -0.550953140  0.222753703    rows</span>
-<span class="co">#&gt; LZ1211  -0.465319526  0.095029339    rows</span>
-<span class="co">#&gt; LZ1209  -0.592592370  0.300724513    rows</span>
-<span class="co">#&gt; LZ1207  -0.549649750  0.269813149    rows</span>
-<span class="co">#&gt; LZ1206  -0.563801227  0.303351557    rows</span>
-<span class="co">#&gt; LZ1205  -0.587809323  0.301757257    rows</span>
-<span class="co">#&gt; LZ1204  -0.624869288  0.346389539    rows</span>
-<span class="co">#&gt; LZ1203  -0.661014107  0.418704744    rows</span>
-<span class="co">#&gt; LZ1202  -0.396443584 -0.032009057    rows</span>
-<span class="co">#&gt; LZ1201  -0.625443007  0.351713959    rows</span>
-<span class="co">#&gt; LZ1200  -0.595505820  0.301683134    rows</span>
-<span class="co">#&gt; LINO     2.233368647  1.281419128 columns</span>
-<span class="co">#&gt; KIAT     1.183842297 -0.453388925 columns</span>
-<span class="co">#&gt; RED      1.277193609 -1.346670548 columns</span>
-<span class="co">#&gt; GALL     1.002101944 -1.673046739 columns</span>
-<span class="co">#&gt; ESC      0.673922725 -1.109188249 columns</span>
-<span class="co">#&gt; PUBW     0.622695849 -1.350914952 columns</span>
-<span class="co">#&gt; RES      0.662955602 -1.224952748 columns</span>
-<span class="co">#&gt; TULA    -0.393846048  0.035821947 columns</span>
-<span class="co">#&gt; PINE    -0.519571987  0.232524372 columns</span>
-<span class="co">#&gt; PUBR     0.689530483 -1.576841723 columns</span>
-<span class="co">#&gt; WING     0.026092550 -0.806769498 columns</span>
-<span class="co">#&gt; WIPO    -0.205016111 -0.465784834 columns</span>
-<span class="co">#&gt; SJ      -0.575322529  0.279306788 columns</span>
-<span class="co">#&gt; LSJ     -0.626596242  0.367151917 columns</span>
-<span class="co">#&gt; SPR     -0.569836948  0.291639141 columns</span>
-<span class="co">#&gt; PINER   -0.585559434  0.343186572 columns</span>
-<span class="co">#&gt; HESH    -0.618857948  0.505672423 columns</span>
-<span class="co">#&gt; KWAK    -0.670709572  0.477244737 columns</span></code></pre></div>
+<span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">CA1</span>, y <span class="op">=</span> <span class="va">CA2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rcoords</span>, colour <span class="op">=</span> <span class="st">"blue"</span>, shape <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ccoords</span>, colour <span class="op">=</span> <span class="st">"red"</span>, shape <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="seriation_files/figure-html/ca-1.png" width="700"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Get row permutations from CA coordinates</span>
-<span class="va">zuni_indices</span> <span class="op">&lt;-</span> <span class="va">zuni_counts</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/seriation.html">seriate_correspondence</a></span><span class="op">(</span>margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="op">(</span><span class="va">zindices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_average</a></span><span class="op">(</span><span class="va">zcounts1</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; &lt;PermutationOrder: average ranking&gt;</span>
+<span class="co">#&gt; Permutation order for matrix seriation:</span>
+<span class="co">#&gt; - Row order: 372 387 350 367 110 417 364 407 357 160 373 344 34...</span>
+<span class="co">#&gt; - Column order: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18...</span>
 
 <span class="co">## Permute data matrix</span>
-<span class="va">zuni_seriation</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">permute</a></span><span class="op">(</span><span class="va">zuni_counts</span>, <span class="va">zuni_indices</span><span class="op">)</span>
+<span class="va">zcounts2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">permute</a></span><span class="op">(</span><span class="va">zcounts1</span>, <span class="va">zindices</span><span class="op">)</span>
 
 <span class="co">## Plot Ford diagram</span>
 <span class="co">## Warning: this may take a few seconds!</span>
-<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">zuni_seriation</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-                 axis.ticks <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">zcounts2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Reordered dataset"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="seriation_files/figure-html/ca-seriation-1.png" width="672"></p>
 </div>
 <div id="refining" class="section level2">
@@ -685,37 +262,47 @@
 
 <span class="co">## Get indices of samples to be kept</span>
 <span class="co">## Warning: this may take a few seconds!</span>
-<span class="va">zuni_keep</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">refine_ca</a></span><span class="op">(</span><span class="va">corresp</span>, cutoff <span class="op">=</span> <span class="va">fun</span>, n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="op">(</span><span class="va">zuni_keep</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/refine.html">bootstrap</a></span><span class="op">(</span><span class="va">corresp</span>, cutoff <span class="op">=</span> <span class="va">fun</span>, n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; &lt;BootCA&gt;</span>
+<span class="co">#&gt; Partial bootstrap CA seriation refinement:</span>
+<span class="co">#&gt; - Cutoff values: 2.23 (rows) - 0.4 (columns)</span>
+<span class="co">#&gt; - Rows to keep: 351 of 420 (84%)</span>
+<span class="co">#&gt; - Columns to keep: 15 of 18 (83%)</span>
 
 <span class="co">## Plot convex hull</span>
 <span class="co">## blue: convex hull for samples; red: convex hull for types</span>
 <span class="co">### All bootstrap samples</span>
-<span class="fu"><a href="../reference/ca.html">plot_ca</a></span><span class="op">(</span><span class="va">zuni_keep</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="st">"red"</span>, rows <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+<span class="va">rchull</span> <span class="op">&lt;-</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"row_chull"</span><span class="op">]</span><span class="op">]</span>
+<span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rchull</span>, mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, group <span class="op">=</span> <span class="va">id</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"blue"</span>, alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
+
 <span class="co">### Only retained samples</span>
-<span class="fu"><a href="../reference/ca.html">plot_ca</a></span><span class="op">(</span><span class="va">zuni_keep</span>, keep <span class="op">=</span> <span class="st">"rows"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="st">"red"</span>, rows <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+<span class="va">rchull_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/subset.html">subset</a></span><span class="op">(</span><span class="va">rchull</span>, <span class="va">id</span> <span class="op">%in%</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"keep"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+<span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rchull_sub</span>, mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, group <span class="op">=</span> <span class="va">id</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"blue"</span>, alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co">## Histogram of convex hull maximum dimension length</span>
-<span class="va">hull_length</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind.data.frame</a></span><span class="op">(</span>length <span class="op">=</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"lengths"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+<span class="va">hull_length</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>length <span class="op">=</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"lengths"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hull_length</span>, mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4.5</span>, by <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"grey70"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu">fun</span><span class="op">(</span><span class="va">hull_length</span><span class="op">$</span><span class="va">length</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Convex hull max. dim."</span>, 
-                x <span class="op">=</span> <span class="st">"Maximum length"</span>, y <span class="op">=</span> <span class="st">"Count"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Convex hull max. dim."</span>, 
+    x <span class="op">=</span> <span class="st">"Maximum length"</span>, 
+    y <span class="op">=</span> <span class="st">"Count"</span>
+  <span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="seriation_files/figure-html/refine-1.png" width="700"><img src="seriation_files/figure-html/refine-2.png" width="700"><img src="seriation_files/figure-html/refine-3.png" width="700"></p>
-<p>If the results of <code>refine_seriation</code> is used as an input argument in <code>seriate</code>, a correspondence analysis is performed on the subset of <code>object</code> which matches the samples to be kept. Then excluded samples are projected onto the dimensions of the CA coordinate space using the row transition formulae. Finally, row coordinates onto the first dimension give the seriation order.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Get CA-based seriation order</span>
-<span class="op">(</span><span class="va">zuni_refined</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_correspondence</a></span><span class="op">(</span><span class="va">zuni_counts</span>, <span class="va">zuni_keep</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; &lt;PermutationOrder&gt;</span>
-<span class="co">#&gt; Permutation order for matrix seriation:</span>
-<span class="co">#&gt; - Row order: 372 387 350 367 110 417 364 407 357 160 373 344 34...</span>
-<span class="co">#&gt; - Column order: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18...</span>
-<span class="co">#&gt; - Method: refined correspondence</span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">

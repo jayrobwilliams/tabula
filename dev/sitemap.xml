@@ -10,7 +10,13 @@
     <loc>http://tabula.archaeo.science/reference/DateClass.html</loc>
   </url>
   <url>
+    <loc>http://tabula.archaeo.science/reference/DateMCD-class.html</loc>
+  </url>
+  <url>
     <loc>http://tabula.archaeo.science/reference/DiversityIndex.html</loc>
+  </url>
+  <url>
+    <loc>http://tabula.archaeo.science/reference/IncrementTest-class.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/PermutationOrder-class.html</loc>
@@ -20,9 +26,6 @@
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/boves.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/reference/ca.html</loc>
   </url>
   <url>
     <loc>http://tabula.archaeo.science/reference/compiegne.html</loc>

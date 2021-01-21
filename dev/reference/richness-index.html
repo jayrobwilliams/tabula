@@ -345,13 +345,13 @@ between rare/infrequent and abundant/frequent species. Only used if
                     nrow <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span>, dimnames <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span><span class='op'>)</span>, <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>trap</span>, method <span class='op'>=</span> <span class='st'>"margalef"</span><span class='op'>)</span> <span class='co'># 2.55 1.88</span>
 </div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
-#&gt;   size    index
-#&gt; A   23 2.551432
-#&gt; B   13 1.949356</div><div class='input'><span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>trap</span>, method <span class='op'>=</span> <span class='st'>"menhinick"</span><span class='op'>)</span> <span class='co'># 1.95 1.66</span>
+#&gt;   id size    index
+#&gt; 1  A   23 2.551432
+#&gt; 2  B   13 1.949356</div><div class='input'><span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>trap</span>, method <span class='op'>=</span> <span class='st'>"menhinick"</span><span class='op'>)</span> <span class='co'># 1.95 1.66</span>
 </div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
-#&gt;   size    index
-#&gt; A   23 1.876630
-#&gt; B   13 1.664101</div><div class='input'>
+#&gt;   id size    index
+#&gt; 1  A   23 1.876630
+#&gt; 2  B   13 1.664101</div><div class='input'>
 <span class='co'>## Asymptotic species richness</span>
 <span class='co'>## Chao1-type estimators</span>
 <span class='co'>## Data from Chao &amp; Chiu 2016</span>
@@ -366,11 +366,11 @@ between rare/infrequent and abundant/frequent species. Only used if
 
 <span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>brazil</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"chao1"</span><span class='op'>)</span>, unbiased <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='co'># 461.625</span>
 </div><div class='output co'>#&gt; &lt;CompositionIndex: chao1&gt;
-#&gt;      size    index
-#&gt; row1 1978 461.6254</div><div class='input'><span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>brazil</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ace"</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='co'># 445.822</span>
+#&gt;     id size    index
+#&gt; 1 row1 1978 461.6254</div><div class='input'><span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>brazil</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ace"</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='co'># 445.822</span>
 </div><div class='output co'>#&gt; &lt;CompositionIndex: ace&gt;
-#&gt;      size    index
-#&gt; row1 1978 445.8224</div><div class='input'>
+#&gt;     id size    index
+#&gt; 1 row1 1978 445.8224</div><div class='input'>
 <span class='co'>## Rarefaction</span>
 <span class='fu'>rarefaction</span><span class='op'>(</span><span class='va'>trap</span>, sample <span class='op'>=</span> <span class='fl'>13</span><span class='op'>)</span> <span class='co'># 6.56</span>
 </div><div class='output co'>#&gt;        A        B 

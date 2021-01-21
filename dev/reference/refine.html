@@ -47,10 +47,7 @@
 
 
 <meta property="og:title" content="Bootstrap and Jackknife Resampling — refine" />
-<meta property="og:description" content="refine_ca performs a partial bootstrap correspondence analysis.
-refine_date checks the stability of a DateModel object.
-refine_diversity checks the stability of a
- DiversityIndex object." />
+<meta property="og:description" content="Checks model with resampling methods." />
 <meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
@@ -152,22 +149,15 @@ refine_diversity checks the stability of a
     </div>
 
     <div class="ref-description">
-    <p><code>refine_ca</code> performs a partial bootstrap correspondence analysis.</p>
-<p><code>refine_date</code> checks the stability of a <a href='DateClass.html'>DateModel</a> object.</p>
-<p><code>refine_diversity</code> checks the stability of a
- <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
+    <p>Checks model with resampling methods.</p>
     </div>
 
     <pre class="usage"><span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>refine_ca</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>refine_event</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
-
 <span class='co'># S4 method for CA</span>
-<span class='fu'>refine_ca</span><span class='op'>(</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span>
   <span class='va'>object</span>,
   <span class='va'>cutoff</span>,
   n <span class='op'>=</span> <span class='fl'>1000</span>,
@@ -177,15 +167,20 @@ refine_diversity checks the stability of a
 <span class='op'>)</span>
 
 <span class='co'># S4 method for DateModel</span>
-<span class='fu'>refine_event</span><span class='op'>(</span>
+<span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>object</span>, level <span class='op'>=</span> <span class='fl'>0.95</span>, progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for DateModel</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span>
   <span class='va'>object</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jackknife"</span>, <span class='st'>"bootstrap"</span><span class='op'>)</span>,
   level <span class='op'>=</span> <span class='fl'>0.95</span>,
   probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
   n <span class='op'>=</span> <span class='fl'>1000</span>,
   progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
   <span class='va'>...</span>
 <span class='op'>)</span>
+
+<span class='co'># S4 method for DateMCD</span>
+<span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>object</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>1000</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for DiversityIndex</span>
 <span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>object</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
@@ -237,12 +232,6 @@ axes to be used (see below).</p></td>
 displayed?</p></td>
     </tr>
     <tr>
-      <th>method</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the resampling
-method to be used. This must be one of "<code>jackknife</code>",
-"<code>bootstrap</code>" (see below). Any unambiguous substring can be given.</p></td>
-    </tr>
-    <tr>
       <th>level</th>
       <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
 confidence level.</p></td>
@@ -257,8 +246,7 @@ confidence level.</p></td>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
 be used as confidence interval? If <code>TRUE</code> (the default),
 sample quantiles are used as described in Kintigh (1989), else quantiles of
-the normal distribution are used. Only used if <code>simulate</code> is
-<code>TRUE</code>.</p></td>
+the normal distribution are used.</p></td>
     </tr>
     <tr>
       <th>step</th>
@@ -270,17 +258,29 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>bootstrap</code> and <code>jackknife</code> return a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
-<p><code>refine_ca</code> returns a <a href='BootCA-class.html'>BootCA</a> object.</p>
+<p><code>bootstrap</code> returns a <a href='BootCA-class.html'>BootCA</a> object.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>bootstrap,CA-method</code>: Performs a partial bootstrap correspondence analysis.</p></li>
+<li><p><code>jackknife,DateModel-method</code>: Jackknifes fabrics.</p></li>
+<li><p><code>bootstrap,DateModel-method</code>: Bootstraps assemblages.</p></li>
+<li><p><code>bootstrap,DateMCD-method</code>: Bootstrap Mean Ceramic Date confidence intervals.</p></li>
+<li><p><code>bootstrap,DiversityIndex-method</code>: TODO.</p></li>
+<li><p><code>jackknife,DiversityIndex-method</code>: TODO.</p></li>
+<li><p><code>simulate,DiversityIndex-method</code>: TODO.</p></li>
+</ul>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Refining method can lead to much longer execution times and larger output
  objects. To monitor the execution of these re-sampling procedures, a
  progress bar will be displayed.</p>
-    <h2 class="hasAnchor" id="correspondence-analysis-refining"><a class="anchor" href="#correspondence-analysis-refining"></a>Correspondence Analysis Refining</h2>
+    <h2 class="hasAnchor" id="correspondence-analysis"><a class="anchor" href="#correspondence-analysis"></a>Correspondence Analysis</h2>
 
     
 
-<p><code>refine_ca</code> allows to identify samples that are subject to
+<p><code>bootstrap</code> allows to identify samples that are subject to
  sampling error or samples that have underlying structural relationships
  and might be influencing the ordering along the CA space.</p>
 <p>This relies on a partial bootstrap approach to CA-based seriation where each
@@ -291,13 +291,7 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
  [results in] a reduced dataset where the position of individuals within the
  CA are highly stable and which produces an ordering consistent with the
  assumptions of frequency seriation."</p>
-<p>If the results of <code>refine</code> is used as an input argument in
- <code>seriate</code>, a correspondence analysis is performed on the subset of
- <code>object</code> which matches the samples to be kept. Then excluded samples
- are projected onto the dimensions of the CA coordinate space using the row
- transition formulae. Finally, row coordinates onto the first dimension
- give the seriation order.</p>
-    <h2 class="hasAnchor" id="date-model-checking"><a class="anchor" href="#date-model-checking"></a>Date Model Checking</h2>
+    <h2 class="hasAnchor" id="date-model"><a class="anchor" href="#date-model"></a>Date Model</h2>
 
     
 
@@ -321,8 +315,8 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
  bootstrap assemblages is created, with the same sample size, by resampling
  each of the original assemblage with replacement. Then, examination of the
  bootstrap statistics makes it possible to pinpoint assemblages that require
- further investigation.
- A five columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
+ further investigation.</p>
+<p>A five columns <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> is returned, giving the bootstrap
  distribution statistics for each replicated assemblage (in rows)
  with the following columns:</p><dl>
   <dt>min</dt><dd><p>Minimum value.</p></dd>
@@ -344,7 +338,7 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='event.html'>date_event</a>, <a href='heterogeneity-index.html'>index_heterogeneity</a>,
- <a href='heterogeneity-index.html'>index_evenness</a>, <a href='richness-index.html'>index_richness</a>, <a href='seriation.html'>seriate_correspondence</a></p>
+ <a href='heterogeneity-index.html'>index_evenness</a>, <a href='richness-index.html'>index_richness</a>, <a href='deprecate.html'>seriate_correspondence</a></p>
 <p>Other statistics: 
 <code><a href='independance.html'>independance</a></code>,
 <code><a href='test_diversity.html'>test_diversity</a>()</code>,
@@ -365,21 +359,21 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
 <span class='co'>## Shannon diversity</span>
 <span class='va'>h</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_heterogeneity</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
 <span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         min      mean     max      Q5       Q95     
-#&gt; oakwood 2.094179 2.349454 2.561595 2.221407 2.464952
-#&gt; spruce  1.766463 2.018874 2.196539 1.910521 2.119757</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         mean     bias       error    
+</div><div class='output co'>#&gt;              min     mean      max       Q5      Q95
+#&gt; oakwood 2.132484 2.349854 2.541434 2.228449 2.464432
+#&gt; spruce  1.809305 2.019139 2.229615 1.901220 2.122546</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>h</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;             mean       bias     error
 #&gt; oakwood 2.362648 -0.9520239 0.1233832
 #&gt; spruce  2.012326 -0.9169561 0.2490786</div><div class='input'>
 <span class='co'>## Shannon evenness</span>
 <span class='va'>e</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>index_evenness</a></span><span class='op'>(</span><span class='va'>birds</span>, <span class='st'>"shannon"</span><span class='op'>)</span>
 <span class='fu'>bootstrap</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         min       mean      max       Q5        Q95      
-#&gt; oakwood 0.7396814 0.8137179 0.8825439 0.7775748 0.8485847
-#&gt; spruce  0.7185432 0.7890128 0.8566873 0.7462424 0.8327806</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;         mean      bias        error     
+</div><div class='output co'>#&gt;               min      mean       max        Q5       Q95
+#&gt; oakwood 0.7365646 0.8137202 0.8894414 0.7790876 0.8504914
+#&gt; spruce  0.7088000 0.7877592 0.8579943 0.7467215 0.8286775</div><div class='input'><span class='fu'>jackknife</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;              mean        bias      error
 #&gt; oakwood 0.8011374 -0.05600727 0.03567978
-#&gt; spruce  0.776363  -0.05669112 0.07771685</div></pre>
+#&gt; spruce   0.776363 -0.05669112 0.07771685</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
