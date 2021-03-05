@@ -160,6 +160,8 @@ bootstrap_* and jackknife_* perform bootstrap/jackknife
 
     <pre class="usage"><span class='fu'>index_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
+<span class='fu'>simulate_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
 <span class='fu'>bootstrap_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='fu'>jackknife_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
@@ -176,6 +178,18 @@ bootstrap_* and jackknife_* perform bootstrap/jackknife
 <span class='fu'>index_heterogeneity</span><span class='op'>(</span>
   <span class='va'>object</span>,
   method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>simulate_heterogeneity</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  quantiles <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  level <span class='op'>=</span> <span class='fl'>0.8</span>,
+  step <span class='op'>=</span> <span class='fl'>1</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
   <span class='va'>...</span>
 <span class='op'>)</span>
 
@@ -248,16 +262,6 @@ a CountMatrix object).</p></td>
 computed (see details). Any unambiguous substring can be given.</p></td>
     </tr>
     <tr>
-      <th>probs</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of probabilities with values in
-\([0,1]\) (see <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
-replications.</p></td>
-    </tr>
-    <tr>
       <th>quantiles</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
 be used as confidence interval? If <code>TRUE</code> (the default),
@@ -275,9 +279,19 @@ confidence level.</p></td>
 sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
+      <th>n</th>
+      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
+replications.</p></td>
+    </tr>
+    <tr>
       <th>progress</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a progress bar be
 displayed?</p></td>
+    </tr>
+    <tr>
+      <th>probs</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of probabilities with values in
+\([0,1]\) (see <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>).</p></td>
     </tr>
     </table>
 
@@ -441,35 +455,9 @@ displayed?</p></td>
 #&gt; P626s 0.9746702 1.5997919 1.9056849 1.3698324 1.8005937
 #&gt; P626e 1.6536757 1.8740800 2.0336751 1.7634515 1.9755950
 #&gt; P627  0.0000000 0.7066917 1.0397208 0.0000000 1.0397208
-#&gt; P628  0.8239592 1.5349087 1.9072840 1.1988493 1.8200760</div><div class='input'><span class='op'>(</span><span class='va'>boot_e</span> <span class='op'>&lt;-</span> <span class='fu'>bootstrap_evenness</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;             min      mean       max        Q5       Q95
-#&gt; P610s 0.5091373 1.4202848 1.9085353 1.0285138 1.7478681
-#&gt; P610e 0.0000000 1.0045053 1.3862944 0.5623351 1.3208883
-#&gt; P625  0.0000000 0.5299683 0.6931472 0.0000000 0.6931472
-#&gt; P630  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
-#&gt; P307  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
-#&gt; P631  0.6365142 1.4577256 1.9072840 1.0751393 1.7917595
-#&gt; P623  0.0000000 0.6776888 1.0986123 0.0000000 1.0986123
-#&gt; P624  0.8982053 1.6196549 1.9085353 1.3337360 1.8468891
-#&gt; P626s 1.1330848 1.5902510 1.8979405 1.3568772 1.8005937
-#&gt; P626e 1.6601173 1.8704970 2.0492622 1.7592601 1.9736714
-#&gt; P627  0.0000000 0.7235174 1.0397208 0.0000000 1.0397208
-#&gt; P628  0.8239592 1.5310412 1.9072840 1.1988493 1.8200760</div><div class='input'>
+#&gt; P628  0.8239592 1.5349087 1.9072840 1.1988493 1.8200760</div><div class='input'>
 <span class='co'>## Jackknife resampling</span>
 <span class='op'>(</span><span class='va'>jack_h</span> <span class='op'>&lt;-</span> <span class='fu'>jackknife_heterogeneity</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;            mean       bias     error
-#&gt; P610s 1.5680395 -0.9012101 0.2056978
-#&gt; P610e 1.1096729 -0.9300118 0.3968560
-#&gt; P625  0.5545177 -1.2476649 0.8317766
-#&gt; P630  0.0000000  0.0000000 0.0000000
-#&gt; P307  0.0000000  0.0000000 0.0000000
-#&gt; P631  1.6463856 -0.9159291 0.2108823
-#&gt; P623  0.9769728 -1.0947558 0.5574224
-#&gt; P624  1.7643489 -0.9613033 0.2126469
-#&gt; P626s 1.6152716 -0.9489415 0.2242804
-#&gt; P626e 1.8080769 -0.9312771 0.1429090
-#&gt; P627  0.9244221 -1.0376881 0.5301829
-#&gt; P628  1.7148123 -0.9473731 0.2085352</div><div class='input'><span class='op'>(</span><span class='va'>jack_e</span> <span class='op'>&lt;-</span> <span class='fu'>jackknife_evenness</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            mean       bias     error
 #&gt; P610s 1.5680395 -0.9012101 0.2056978
 #&gt; P610e 1.1096729 -0.9300118 0.3968560

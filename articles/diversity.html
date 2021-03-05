@@ -490,27 +490,27 @@
 <code class="sourceCode R"><span class="va">mississippi</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://arkhe.tesselle.org/reference/coerce.html">as_count</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/heterogeneity-index.html">jackknife_evenness</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"shannon"</span><span class="op">)</span>
-<span class="co">#&gt;                  mean        bias     error</span>
-<span class="co">#&gt; 10-P-1      1.0881771 -1.03156524 0.4585951</span>
-<span class="co">#&gt; 11-N-9      0.6696839 -0.85475299 0.4781551</span>
-<span class="co">#&gt; 11-N-1      0.8465171 -0.74592276 0.3837954</span>
-<span class="co">#&gt; 11-O-10     0.7140589 -0.97918850 0.5388552</span>
-<span class="co">#&gt; 11-N-4      0.6703821 -1.07784649 0.6315368</span>
-<span class="co">#&gt; 13-N-5      0.8804027 -1.07496349 0.5575255</span>
-<span class="co">#&gt; 13-N-4      1.0903610 -1.03354144 0.4547826</span>
-<span class="co">#&gt; 13-N-16     1.0621746 -1.03903157 0.4694629</span>
-<span class="co">#&gt; 13-O-11     1.0476789 -0.95097913 0.4130071</span>
-<span class="co">#&gt; 13-O-10     1.1755672 -1.01564994 0.4043119</span>
-<span class="co">#&gt; 13-P-1      1.1342900 -0.34420943 0.5989418</span>
-<span class="co">#&gt; 13-P-8      1.4317014 -0.88135227 0.2763459</span>
-<span class="co">#&gt; 13-P-10     1.6925562 -0.92419312 0.2162517</span>
-<span class="co">#&gt; 13-O-7      1.0588635 -0.93495792 0.3235405</span>
-<span class="co">#&gt; 13-O-5      0.9691115 -0.92461251 0.3658378</span>
-<span class="co">#&gt; 13-N-21     0.8516722 -0.62009520 0.3919445</span>
-<span class="co">#&gt; 12-O-5      1.0700314 -0.94561872 0.3570842</span>
-<span class="co">#&gt; Holden Lake 0.7321391  0.01239411 0.6961835</span>
-<span class="co">#&gt; 13-N-15     1.0308682 -0.86529927 0.3658937</span>
-<span class="co">#&gt; 12-N-3      0.9226354 -0.93954357 0.4266932</span></code></pre></div>
+<span class="co">#&gt;                  mean        bias      error</span>
+<span class="co">#&gt; 10-P-1      0.8541826 -0.12105804 0.17247290</span>
+<span class="co">#&gt; 11-N-9      0.5229102 -0.25805553 0.31565858</span>
+<span class="co">#&gt; 11-N-1      0.5024664 -0.14616113 0.20624488</span>
+<span class="co">#&gt; 11-O-10     0.4739365 -0.33600268 0.32893607</span>
+<span class="co">#&gt; 11-N-4      0.4440664 -0.42189287 0.40017752</span>
+<span class="co">#&gt; 13-N-5      0.8974920 -0.11343944 0.16354987</span>
+<span class="co">#&gt; 13-N-4      0.7262617 -0.20313477 0.22460296</span>
+<span class="co">#&gt; 13-N-16     0.7073085 -0.21950598 0.24003652</span>
+<span class="co">#&gt; 13-O-11     0.6217918 -0.19711219 0.20704537</span>
+<span class="co">#&gt; 13-O-10     0.6978373 -0.19117864 0.19056885</span>
+<span class="co">#&gt; 13-P-1      0.5751710  0.10170574 0.30684862</span>
+<span class="co">#&gt; 13-P-8      0.7787592 -0.06583308 0.11167791</span>
+<span class="co">#&gt; 13-P-10     0.8579532 -0.04839131 0.07841825</span>
+<span class="co">#&gt; 13-O-7      0.4819095 -0.20758833 0.14724961</span>
+<span class="co">#&gt; 13-O-5      0.4410617 -0.21991724 0.16649998</span>
+<span class="co">#&gt; 13-N-21     0.4315972 -0.09993810 0.19500393</span>
+<span class="co">#&gt; 12-O-5      0.5421317 -0.20674813 0.16823118</span>
+<span class="co">#&gt; Holden Lake 0.3714220  0.17999834 0.35902155</span>
+<span class="co">#&gt; 13-N-15     0.4691684 -0.18258300 0.16652541</span>
+<span class="co">#&gt; 12-N-3      0.4673624 -0.23880781 0.20782401</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -711,6 +711,7 @@
 
 <span class="va">sim_evenness</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/heterogeneity-index.html">simulate_evenness</a></span><span class="op">(</span><span class="va">chevelon</span>, method <span class="op">=</span> <span class="st">"shannon"</span><span class="op">)</span>
 <span class="fu"><a href="https://khroma.tesselle.org/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">sim_evenness</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 
 <span class="va">sim_richness</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/richness-index.html">simulate_richness</a></span><span class="op">(</span><span class="va">chevelon</span>, method <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span>
 <span class="fu"><a href="https://khroma.tesselle.org/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">sim_richness</span><span class="op">)</span></code></pre></div>
