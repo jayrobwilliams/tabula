@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Changelog" />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -64,16 +64,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -100,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +125,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -153,154 +143,158 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <small>Source: <a href='https://github.com/tesselle/tabula/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="tabula-160" class="section level2">
+    <div id="tabula-160" class="section level1">
+<h1 class="page-header" data-toc-text="1.6.0">
+<a href="#tabula-160" class="anchor"></a>tabula 1.6.0<small> Unreleased </small>
+</h1>
+<div id="new-classes-and-methods" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tabula-160" class="anchor"></a>tabula 1.6.0</h2>
-<div id="new-classes-and-methods" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes-and-methods" class="anchor"></a>New classes and methods</h3>
+<a href="#new-classes-and-methods" class="anchor"></a>New classes and methods</h2>
 <ul>
+<li>Add <code>DateEvent</code>: S4 class to store the event and accumulation times of archaeological assemblages.</li>
+<li>Add <code>CompositionIndex</code>: S4 class that represent an asymptotic species richness.</li>
+<li>Add <code>IncrementTest</code>: S4 class that represent a Frequency Increment Test results.</li>
+<li>Add <code><a href="../reference/independance.html">eppm()</a></code> and <code><a href="../reference/independance.html">pvi()</a></code> to calculate independence statistics.</li>
+<li>Add <code>occurrence()</code> to get a co-occurrence matrix.</li>
+<li>Add <code><a href="../reference/event.html">predict_event()</a></code> and <code>predict_accumulation</code> to estimate the event and accumulation dates of an assemblage.</li>
+<li>Add <code>bootstrap_*()</code> and <code>jackknife_*()</code> to perform bootstrap and jackknife resampling.</li>
+<li>Add <code><a href="../reference/heterogeneity-index.html">simulate_evenness()</a></code> and <code><a href="../reference/richness-index.html">simulate_richness()</a></code> to measure diversity in simulated assemblages.</li>
 <li>
-<code>CA</code>: S4 class to store the results of a correspondence analysis.</li>
+<code><a href="../reference/seriation.html">seriate_average()</a></code> replaces <code>seriate_correspondance()</code>.</li>
 <li>
-<code>DateEvent</code>: S4 class to store the event and accumulation times of archaeological assemblages.</li>
-<li>
-<code>CompositionIndex</code>: S4 class that represent an asymptotic species richness.</li>
-<li>
-<code>calculate_eppm</code> and <code>calculate_pvi</code> allow to calculate independance statistics.</li>
-<li>
-<code>run_ca</code>, <code>predict_ca</code> and <code>plot_ca</code> allow to perform a correspondence analysis, predict projection for new rows and plot results.</li>
-<li>
-<code>predict_event</code> allows to estimate the event and accumulation dates of an assemblage (returns a <code>DateEvent</code> object).</li>
-<li>
-<code>refine_diversity</code> allows to perform bootstrap and jackknife resampling on a <code>DiversityIndex</code> object.</li>
-<li>
-<code>refine_ca</code> replaces <code>refine_seriation</code>.</li>
-<li>
-<code>refine_event</code> replaces <code>refine_dates</code>.</li>
-<li>
-<code>seriate_rank</code> replaces <code>seriate_reciprocal</code>.</li>
+<code><a href="../reference/seriation.html">seriate_rank()</a></code> replaces <code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code>.</li>
 </ul>
 </div>
-<div id="bugfixes--changes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>Remove all previously deprecated methods.</li>
-<li>Deprecate <code>seriate_reciprocal</code> and <code>refine_seriation</code>.</li>
+<li>Deprecate <code>seriate_correspondance()</code>, <code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code> and <code>refine_dates()</code>,</li>
 <li>
-<code>index_composition</code> now return a <code>CompositionIndex</code> object.</li>
+<code><a href="../reference/richness-index.html">index_composition()</a></code> now returns a <code>CompositionIndex</code> object.</li>
 <li>
-<code>DiversityIndex</code> lost <code>bootstrap</code> and <code>jackknife</code> slots.</li>
+<code><a href="../reference/similarity.html">similarity()</a></code> now returns a <code>dist</code> object.</li>
 <li>
-<code>DateModel</code> lost <code>count</code>, <code>level</code>, <code>rows</code> and <code>columns</code> slots (moved to <code>DateEvent</code>).</li>
+<code><a href="../reference/date_mcd.html">date_mcd()</a></code> now returns an <code>DateMCD</code> object.</li>
 <li>
-<code>BootCA</code> now inherits from <code>CA</code>.</li>
-<li>Rename <code>BootCA</code> slots <code>rows</code> and <code>columns</code> to <code>row_chull</code> and <code>column_chull</code>.</li>
+<code><a href="../reference/test_fit.html">test_fit()</a></code> now returns an <code>IncrementTest</code> object.</li>
+<li>
+<code>DiversityIndex</code> lost <code><a href="http://dimensio.tesselle.org/reference/bootstrap.html">bootstrap()</a></code> and <code>jackknife()</code> slots.</li>
+<li>Rename <code>BootCA</code> to <code>RefineCA</code>.</li>
+<li>Rename <code>DateModel</code> to <code>DateEvent</code>.</li>
+<li>
+<code>RefineCA</code> and <code>DateEvent</code> now inherit from <code>dimensio::CA</code>.</li>
 </ul>
 </div>
-<div id="enhancements" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enhancements" class="anchor"></a>Enhancements</h3>
-<ul>
-<li>
-<code>date_mcd</code>, <code>date_event</code> and <code>plot_time</code> gained a new <code>dates</code> argument.</li>
-<li>
-<code>index_heterogeneity</code>, <code>index_evenness</code> and <code>index_richness</code> gained a new <code>step</code> argument.</li>
-</ul>
-</div>
-<div id="internals" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals" class="anchor"></a>Internals</h3>
-<ul>
-<li>Depends on {arkhe} &gt;= 1.0.0</li>
-<li>Remove {pbapply} from suggested packages.</li>
-</ul>
-</div>
-</div>
-    <div id="tabula-151-cran-release-date-2020-03-19" class="section level2">
+<div id="enhancements" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tabula-151-cran-release-date-2020-03-19" class="anchor"></a>tabula 1.5.1 (CRAN release date: 2020-03-19)</h2>
+<a href="#enhancements" class="anchor"></a>Enhancements</h2>
+<ul>
+<li>
+<code><a href="../reference/date_mcd.html">date_mcd()</a></code>, <code><a href="../reference/event.html">date_event()</a></code> and <code><a href="../reference/plot_date.html">plot_time()</a></code> gained a new <code>dates</code> argument.</li>
+</ul>
+</div>
+<div id="internals" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals" class="anchor"></a>Internals</h2>
+<ul>
+<li>Imports <strong>arkhe</strong> &gt;= 0.3.0</li>
+<li>Re-export methods from <strong>arkhe</strong>.</li>
+<li>Imports <strong>dimensio</strong>.</li>
+<li>Use datasets from <strong>folio</strong>.</li>
+<li>Remove <strong>pbapply</strong> from suggested packages.</li>
+<li>Rewrite <code><a href="../reference/plot_bar.html">plot_ford()</a></code> and <code><a href="../reference/plot_bar.html">plot_bertin()</a></code>.</li>
+</ul>
+</div>
+</div>
+    <div id="tabula-151" class="section level1">
+<h1 class="page-header" data-toc-text="1.5.1">
+<a href="#tabula-151" class="anchor"></a>tabula 1.5.1<small> 2020-03-19 </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.3716163"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3716163.svg" alt="DOI"></a></p>
-<div id="bugfixes--changes-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-1" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-1" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>CRAN pacakge check warning (r-devel) has been fixed (use a <code>stringsAsFactors = FALSE</code> default).</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-150-cran-release-date-2020-01-16" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-150-cran-release-date-2020-01-16" class="anchor"></a>tabula 1.5.0 (CRAN release date: 2020-01-16)</h2>
+    <div id="tabula-150" class="section level1">
+<h1 class="page-header" data-toc-text="1.5.0">
+<a href="#tabula-150" class="anchor"></a>tabula 1.5.0<small> 2020-01-16 </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.3612110"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3612110.svg" alt="DOI"></a></p>
-<div id="bugfixes--changes-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-2" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-2" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>CRAN package check error with long doubles disabled has been fixed (tested with R-hub <code>debian-gcc-devel-nold</code>).</li>
 <li>CRAN package check notes have been fixed.</li>
 </ul>
 </div>
-<div id="internals-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-1" class="anchor"></a>Internals</h3>
+<div id="internals-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-1" class="anchor"></a>Internals</h2>
 <ul>
-<li>Depend on {arkhe}.</li>
+<li>Depend on <strong>arkhe</strong>.</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-140-release-date-2019-11-25" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-140-release-date-2019-11-25" class="anchor"></a>tabula 1.4.0 (release date: 2019-11-25)</h2>
+    <div id="tabula-140" class="section level1">
+<h1 class="page-header" data-toc-text="1.4.0">
+<a href="#tabula-140" class="anchor"></a>tabula 1.4.0<small> Unreleased </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.3552904"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3552904.svg" alt="DOI"></a></p>
 <ul>
 <li>Published in the <a href="https://doi.org/10.21105/joss.01821"><em>Journal of Open Source Software</em></a>.</li>
 </ul>
-<div id="new-classes-and-methods-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes-and-methods-1" class="anchor"></a>New classes and methods</h3>
+<div id="new-classes-and-methods-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-classes-and-methods-1" class="anchor"></a>New classes and methods</h2>
 <ul>
 <li>
 <code>DiversityIndex</code>, <code>HeterogeneityIndex</code>, <code>EvennessIndex</code> and <code>RichnessIndex</code>: S4 classes that represent diversity index.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/heterogeneity-index.html">index_heterogeneity()</a></code> replaces <code>diversity()</code>.</li>
+<code><a href="../reference/heterogeneity-index.html">index_heterogeneity()</a></code> replaces <code>diversity()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/heterogeneity-index.html">index_evenness()</a></code> replaces <code>evenness()</code>.</li>
+<code><a href="../reference/heterogeneity-index.html">index_evenness()</a></code> replaces <code>evenness()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/richness-index.html">index_richness()</a></code> replaces <code>richness()</code>.</li>
+<code><a href="../reference/richness-index.html">index_richness()</a></code> replaces <code>richness()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
+<code><a href="../reference/richness-index.html">index_composition()</a></code> allows to estimate asymptotic species richness.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
+<code><a href="../reference/plot_diversity.html">plot_diversity()</a></code> produces a diversity <em>vs</em> sample size graph and allow to compare estimates with simulated assemblages.</li>
 <li>Add replacement methods for the <code>*Matrix</code> classes.</li>
 </ul>
 </div>
-<div id="bugfixes--changes-3" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-3" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-3" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-3" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>Deprecate <code>diversity()</code>, <code>evenness()</code> and <code>richness()</code>.</li>
 </ul>
 </div>
-<div id="internals-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-2" class="anchor"></a>Internals</h3>
+<div id="internals-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-2" class="anchor"></a>Internals</h2>
 <ul>
-<li>Display progress bars only if <code><a href="https://rdrr.io/r/base/interactive.html">interactive()</a></code> is <code>TRUE</code> and {pbapply} is installed.</li>
+<li>Display progress bars only if <code><a href="https://rdrr.io/r/base/interactive.html">interactive()</a></code> is <code>TRUE</code> and <strong>pbapply</strong> is installed.</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-130-cran-release-date-2019-09-20" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-130-cran-release-date-2019-09-20" class="anchor"></a>tabula 1.3.0 (CRAN release date: 2019-09-20)</h2>
+    <div id="tabula-130" class="section level1">
+<h1 class="page-header" data-toc-text="1.3.0">
+<a href="#tabula-130" class="anchor"></a>tabula 1.3.0<small> 2019-09-20 </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.3455385"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3455385.svg" alt="DOI"></a></p>
-<div id="new-classes-and-methods-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes-and-methods-2" class="anchor"></a>New classes and methods</h3>
+<div id="new-classes-and-methods-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-classes-and-methods-2" class="anchor"></a>New classes and methods</h2>
 <ul>
 <li>
 <code>Matrix</code> S4 class is now the superclass of all matrix-like classes.</li>
@@ -311,85 +305,86 @@
 <li>
 <code>as_*()</code> coerce a <code>matrix</code> or <code>data.frame</code> to a <code>CountMatrix</code>, <code>FrequencyMatrix</code>, <code>IncidenceMatrix</code>, <code>OccurrenceMatrix</code> or <code>SimilarityMatrix</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/event.html">date_event()</a></code> replaces <code>dateEvent()</code>.</li>
+<code><a href="../reference/event.html">date_event()</a></code> replaces <code>dateEvent()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/date_mcd.html">date_mcd()</a></code> allows Mean Ceramic Date estimation.</li>
+<code><a href="../reference/date_mcd.html">date_mcd()</a></code> allows Mean Ceramic Date estimation.</li>
 <li>
 <code>get_dates()</code> and <code>set_dates&lt;-</code> allow to extract and replace chronological informations in <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_bar.html">plot_bertin()</a></code> and <code><a href="http://tabula.archaeo.science/reference/plot_bar.html">plot_ford()</a></code> replace <code>plotBar()</code>.</li>
+<code><a href="../reference/plot_bar.html">plot_bertin()</a></code> and <code><a href="../reference/plot_bar.html">plot_ford()</a></code> replace <code>plotBar()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> replaces <code>plotDate()</code>.</li>
+<code><a href="../reference/plot_date.html">plot_date()</a></code> replaces <code>plotDate()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> gained a method for <code>AbundanceMatrix</code> objects.</li>
+<code><a href="../reference/plot_date.html">plot_date()</a></code> gained a method for <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_matrix.html">plot_heatmap()</a></code> replaces <code>plotMatrix()</code>.</li>
+<code><a href="../reference/plot_matrix.html">plot_heatmap()</a></code> replaces <code>plotMatrix()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_line.html">plot_rank()</a></code> replaces <code>plotRank()</code>.</li>
+<code><a href="../reference/plot_line.html">plot_rank()</a></code> replaces <code>plotRank()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_spot.html">plot_spot()</a></code> replaces <code>plotSpot()</code>.</li>
+<code><a href="../reference/plot_spot.html">plot_spot()</a></code> replaces <code>plotSpot()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_time()</a></code> produces an abundance <em>vs.</em> time graph.</li>
+<code><a href="../reference/plot_date.html">plot_time()</a></code> produces an abundance <em>vs.</em> time graph.</li>
 <li>
-<code>refine_dates()</code> and <code><a href="http://tabula.archaeo.science/reference/deprecate.html">refine_seriation()</a></code> replace <code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code>.</li>
+<code>refine_dates()</code> and <code><a href="../reference/seriation.html">refine_seriation()</a></code> replace <code>refine()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/deprecate.html">seriate_reciprocal()</a></code> and <code>seriate_correspondance()</code> replace <code>seriate()</code>.</li>
+<code><a href="../reference/deprecate.html">seriate_reciprocal()</a></code> and <code>seriate_correspondance()</code> replace <code>seriate()</code>.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/test_diversity.html">test_diversity()</a></code> allows Shannon diversity test.</li>
+<code><a href="../reference/test_diversity.html">test_diversity()</a></code> allows Shannon diversity test.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/test_fit.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
+<code><a href="../reference/test_fit.html">test_fit()</a></code> produces a Frequency Increment Test.</li>
 </ul>
 </div>
-<div id="bugfixes--changes-4" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-4" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-4" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-4" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>
 <code>CountMatrix</code>, <code>FrequencyMatrix</code> and <code>IncidenceMatrix</code> now also contain the <code>SpaceTime</code> class.</li>
-<li>Deprecate <code>plotBar()</code>, <code>plotMatrix()</code>, <code>plotRank()</code>, <code>plotSpot()</code>, <code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code>, <code>seriate()</code>.</li>
+<li>Deprecate <code>plotBar()</code>, <code>plotMatrix()</code>, <code>plotRank()</code>, <code>plotSpot()</code>, <code>refine()</code>, <code>seriate()</code>.</li>
 <li>Remove <code>dateEvent()</code>.</li>
 <li>Empty rows/columns are removed prior to CA seriation to avoid error in <code><a href="https://rdrr.io/r/base/svd.html">svd()</a></code>.</li>
 </ul>
 </div>
-<div id="enhancements-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enhancements-1" class="anchor"></a>Enhancements</h3>
+<div id="enhancements-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements-1" class="anchor"></a>Enhancements</h2>
 <ul>
 <li>Add the Merzbach ceramics dataset.</li>
-<li>The <code><a href="http://tabula.archaeo.science/reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
+<li>The <code><a href="../reference/plot_date.html">plot_date()</a></code> method for <code>DateModel</code> objects now allows to display an activity or a tempo plot.</li>
 </ul>
 </div>
-<div id="internals-3" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-3" class="anchor"></a>Internals</h3>
+<div id="internals-3" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-3" class="anchor"></a>Internals</h2>
 <ul>
 <li>Reduce required R version to 3.2.</li>
 <li>Error handling has been revised and error messages have been harmonized.</li>
-<li>Refer to {ggplot2} functions using <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> (stop importing the entire package).</li>
-<li>Use {vdiffr} to test graphical output.</li>
-<li>Replace <code>FactoMinerR::CA()</code> with <code><a href="https://rdrr.io/pkg/ca/man/ca.html">ca::ca()</a></code> (this avoids having to install all {FactoMineR} dependencies when only one function is used).</li>
-<li>Remove {dplyr} from the imported packages, move {magrittr} to suggested packages.</li>
+<li>Refer to <strong>ggplot2</strong> functions using <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> (stop importing the entire package).</li>
+<li>Use <strong>vdiffr</strong> to test graphical output.</li>
+<li>Replace <code>FactoMinerR::CA()</code> with <code>ca::ca()</code> (this avoids having to install all {FactoMineR} dependencies when only one function is used).</li>
+<li>Remove <strong>dplyr</strong> from the imported packages, move <strong>magrittr</strong> to suggested packages.</li>
 </ul>
 </div>
-<div id="experimental" class="section level3">
-<h3 class="hasAnchor">
-<a href="#experimental" class="anchor"></a>Experimental</h3>
+<div id="experimental" class="section level2">
+<h2 class="hasAnchor">
+<a href="#experimental" class="anchor"></a>Experimental</h2>
 <ul>
 <li>When a <code>Matrix</code> object is first created, an identifier (UUID v4) is generated with <code>generate_uuid()</code>. This ID is preserved when coercing to another class. This makes it possible to identify objects representing the same initial data and associate them with the results of specific computations.</li>
 <li>
-<code>get_coordinates()</code> and <code>set_coordinates&lt;-</code> allow to extract and replace spatial informations in <code>AbundanceMatrix</code> objects.</li>
+<code><a href="http://dimensio.tesselle.org/reference/mutator.html">get_coordinates()</a></code> and <code>set_coordinates&lt;-</code> allow to extract and replace spatial informations in <code>AbundanceMatrix</code> objects.</li>
 <li>
-<code>get_features()</code> allows to convert an <code>AbundanceMatrix</code> object to a <code>data.frame</code>. It is intended for compatibility with the {sf} package.</li>
+<code>get_features()</code> allows to convert an <code>AbundanceMatrix</code> object to a <code>data.frame</code>. It is intended for compatibility with the <strong>sf</strong> package.</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-120-cran-release-date-2019-03-20" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-120-cran-release-date-2019-03-20" class="anchor"></a>tabula 1.2.0 (CRAN release date: 2019-03-20)</h2>
+    <div id="tabula-120" class="section level1">
+<h1 class="page-header" data-toc-text="1.2.0">
+<a href="#tabula-120" class="anchor"></a>tabula 1.2.0<small> 2019-03-20 </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.2600844"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2600844.svg" alt="DOI"></a></p>
-<div id="new-classes-and-methods-3" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes-and-methods-3" class="anchor"></a>New classes and methods</h3>
+<div id="new-classes-and-methods-3" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-classes-and-methods-3" class="anchor"></a>New classes and methods</h2>
 <ul>
 <li>The function <code>dateEvent()</code> allows to compute chronological models as described in Bellanger and Husi (2006).</li>
 <li>
@@ -404,52 +399,53 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code> operators for several classes.</li>
 </ul>
 </div>
-<div id="bugfixes--changes-5" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-5" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-5" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-5" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>
 <code>OccurrenceMatrix</code> now stores the number of times each pair of taxa occurs together in at least one sample.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> now returns an object of class <code>SimilarityMatrix</code>.</li>
+<code><a href="../reference/similarity.html">similarity()</a></code> now returns an object of class <code>SimilarityMatrix</code>.</li>
 <li>
 <code>plotBar()</code> no longer add confidence interval by default.</li>
 <li>Remove useless accessors.</li>
 </ul>
 </div>
-<div id="enhancements-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enhancements-2" class="anchor"></a>Enhancements</h3>
+<div id="enhancements-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements-2" class="anchor"></a>Enhancements</h2>
 <ul>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> gained a new estimator: binomial co-occurrence assessment method (similarity between types).</li>
+<code><a href="../reference/similarity.html">similarity()</a></code> gained a new estimator: binomial co-occurrence assessment method (similarity between types).</li>
 <li>
 <code>seriate()</code> gained a new argument to pass a <code>BootCA</code> object.</li>
 </ul>
 </div>
-<div id="internals-4" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-4" class="anchor"></a>Internals</h3>
+<div id="internals-4" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-4" class="anchor"></a>Internals</h2>
 <ul>
 <li>Add an optional progress bars with {pbapply} in long running functions.</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-110-cran-release-date-2018-12-30" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-110-cran-release-date-2018-12-30" class="anchor"></a>tabula 1.1.0 (CRAN release date: 2018-12-30)</h2>
+    <div id="tabula-110" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0">
+<a href="#tabula-110" class="anchor"></a>tabula 1.1.0<small> Unreleased </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.2529084"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2529084.svg" alt="DOI"></a></p>
-<div id="bugfixes--changes-6" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-6" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-6" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-6" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> now returns a symmetric matrix.</li>
+<code><a href="../reference/similarity.html">similarity()</a></code> now returns a symmetric matrix.</li>
 </ul>
 </div>
-<div id="enhancements-3" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enhancements-3" class="anchor"></a>Enhancements</h3>
+<div id="enhancements-3" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements-3" class="anchor"></a>Enhancements</h2>
 <ul>
 <li>
 <code>richness()</code> gained new estimators:</li>
@@ -457,9 +453,9 @@
 <li>For replicated incidence data: Chao2, bias-corrected Chao2, improved Chao2 and Incidence-based Coverage Estimator (ICE).</li>
 </ul>
 </div>
-<div id="internals-5" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-5" class="anchor"></a>Internals</h3>
+<div id="internals-5" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-5" class="anchor"></a>Internals</h2>
 <ul>
 <li>Add references in the <code>Description</code> field of the DESCRIPTION file.</li>
 <li>Split the documentation for alpha-diversity measures.</li>
@@ -467,16 +463,17 @@
 </ul>
 </div>
 </div>
-    <div id="tabula-100-cran-release-date-2018-12-03" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-100-cran-release-date-2018-12-03" class="anchor"></a>tabula 1.0.0 (CRAN release date: 2018-12-03)</h2>
+    <div id="tabula-100" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0">
+<a href="#tabula-100" class="anchor"></a>tabula 1.0.0<small> 2018-12-03 </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.1881131"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1881131.svg" alt="DOI"></a></p>
 <ul>
 <li>Initial version on CRAN.</li>
 </ul>
-<div id="new-classes-and-methods-4" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes-and-methods-4" class="anchor"></a>New classes and methods</h3>
+<div id="new-classes-and-methods-4" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-classes-and-methods-4" class="anchor"></a>New classes and methods</h2>
 <ul>
 <li>
 <code>BootCA</code> this S4 class stores partial bootstrap CA-based seriation results.</li>
@@ -484,34 +481,35 @@
 <code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code> operators acting on <code>PermutationOrder</code> and <code>BootCA</code> to extract parts.</li>
 </ul>
 </div>
-<div id="bugfixes--changes-7" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugfixes--changes-7" class="anchor"></a>Bugfixes &amp; changes</h3>
+<div id="bugfixes--changes-7" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugfixes--changes-7" class="anchor"></a>Bugfixes &amp; changes</h2>
 <ul>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/refine.html">refine()</a></code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
+<code>refine()</code> method for <code>CountMatrix</code> now use <code>stats::rmultinorm()</code> for partial bootstrap CA.</li>
 </ul>
 </div>
-<div id="enhancements-4" class="section level3">
-<h3 class="hasAnchor">
-<a href="#enhancements-4" class="anchor"></a>Enhancements</h3>
+<div id="enhancements-4" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements-4" class="anchor"></a>Enhancements</h2>
 <ul>
 <li>Add the Zuni and Mississippi ceramics datasets.</li>
 <li>
-<code><a href="http://tabula.archaeo.science/reference/similarity-method.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
+<code><a href="../reference/similarity.html">similarity()</a></code> gained a new estimator: the Brainerd-Robinson coefficient of similarity.</li>
 </ul>
 </div>
-<div id="internals-6" class="section level3">
-<h3 class="hasAnchor">
-<a href="#internals-6" class="anchor"></a>Internals</h3>
+<div id="internals-6" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internals-6" class="anchor"></a>Internals</h2>
 <ul>
 <li>Add a vignette for matrix seriation.</li>
 </ul>
 </div>
 </div>
-    <div id="tabula-090-release-date-2018-11-16" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tabula-090-release-date-2018-11-16" class="anchor"></a>tabula 0.9.0 (release date: 2018-11-16)</h2>
+    <div id="tabula-090" class="section level1">
+<h1 class="page-header" data-toc-text="0.9.0">
+<a href="#tabula-090" class="anchor"></a>tabula 0.9.0<small> Unreleased </small>
+</h1>
 <p><a href="https://doi.org/10.5281/zenodo.1489945"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1489945.svg" alt="DOI"></a></p>
 <ul>
 <li>Beta release.</li>
@@ -534,7 +532,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

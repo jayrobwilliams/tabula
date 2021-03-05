@@ -50,8 +50,10 @@
 <meta property="og:description" content="index_richness returns sample richness. index_composition
  returns asymptotic species richness.
 rarefaction returns Hurlbert's unbiased estimate of Sander's
- rarefaction." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+ rarefaction.
+bootstrap_* and jackknife_* perform bootstrap/jackknife
+ resampling." />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -68,16 +70,6 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -104,7 +96,7 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +131,7 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -157,7 +149,7 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Richness and Rarefaction</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/index_rarefaction.R'><code>R/index_rarefaction.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/index_richness.R'><code>R/index_richness.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/index_rarefaction.R'><code>R/index_rarefaction.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/index_richness.R'><code>R/index_richness.R</code></a></small>
     <div class="hidden name"><code>richness-index.Rd</code></div>
     </div>
 
@@ -166,46 +158,69 @@ rarefaction returns Hurlbert's unbiased estimate of Sander's
  returns asymptotic species richness.</p>
 <p><code>rarefaction</code> returns Hurlbert's unbiased estimate of Sander's
  rarefaction.</p>
+<p><code>bootstrap_*</code> and <code>jackknife_*</code> perform bootstrap/jackknife
+ resampling.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+<span class='fu'>simulate_richness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+<span class='fu'>bootstrap_richness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>object</span>, <span class='kw'>sample</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"hurlbert"</span>), simplify = <span class='fl'>TRUE</span>, <span class='kw'>...</span>)
+<span class='fu'>jackknife_richness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(
-  <span class='kw'>object</span>,
-  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span>),
-  simulate = <span class='fl'>FALSE</span>,
-  quantiles = <span class='fl'>TRUE</span>,
-  level = <span class='fl'>0.8</span>,
-  step = <span class='fl'>1</span>,
-  n = <span class='fl'>1000</span>,
-  <span class='kw'>...</span>
-)
+<span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>rarefaction</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(
-  <span class='kw'>object</span>,
-  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>, <span class='st'>"ace"</span>),
-  unbiased = <span class='fl'>FALSE</span>,
-  improved = <span class='fl'>FALSE</span>,
-  k = <span class='fl'>10</span>
-)
+<span class='fu'>rarefaction</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>sample</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"hurlbert"</span><span class='op'>)</span>, simplify <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>object</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>simulate_richness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>,
+  quantiles <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  level <span class='op'>=</span> <span class='fl'>0.8</span>,
+  step <span class='op'>=</span> <span class='fl'>1</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>bootstrap_richness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>,
+  probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>jackknife_richness</span><span class='op'>(</span><span class='va'>object</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"none"</span>, <span class='st'>"margalef"</span>, <span class='st'>"menhinick"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>index_composition</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"chao1"</span>, <span class='st'>"ace"</span><span class='op'>)</span>,
+  unbiased <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  improved <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  k <span class='op'>=</span> <span class='fl'>10</span>
+<span class='op'>)</span>
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(
-  <span class='kw'>object</span>,
-  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao2"</span>, <span class='st'>"ice"</span>),
-  unbiased = <span class='fl'>FALSE</span>,
-  improved = <span class='fl'>FALSE</span>,
-  k = <span class='fl'>10</span>
-)</pre>
+<span class='fu'>index_composition</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"chao2"</span>, <span class='st'>"ice"</span><span class='op'>)</span>,
+  unbiased <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  improved <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  k <span class='op'>=</span> <span class='fl'>10</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -235,22 +250,16 @@ Any unambiguous substring can be given.</p></td>
 simplified to a matrix? The default value, <code>FALSE</code>, returns a list.</p></td>
     </tr>
     <tr>
-      <th>simulate</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: simulated assemblages
-be computed?</p></td>
-    </tr>
-    <tr>
       <th>quantiles</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
 be used as confidence interval? If <code>TRUE</code> (the default),
 sample quantiles are used as described in Kintigh (1989), else quantiles of
-the normal distribution are used. Only used if <code>simulate</code> is
-<code>TRUE</code>.</p></td>
+the normal distribution are used.</p></td>
     </tr>
     <tr>
       <th>level</th>
       <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
-confidence level. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
+confidence level.</p></td>
     </tr>
     <tr>
       <th>step</th>
@@ -260,7 +269,17 @@ sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
     <tr>
       <th>n</th>
       <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
-replications. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
+replications.</p></td>
+    </tr>
+    <tr>
+      <th>progress</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a progress bar be
+displayed?</p></td>
+    </tr>
+    <tr>
+      <th>probs</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of probabilities with values in
+\([0,1]\) (see <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>).</p></td>
     </tr>
     <tr>
       <th>unbiased</th>
@@ -283,8 +302,9 @@ between rare/infrequent and abundant/frequent species. Only used if
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>index_richness</code> and <code>index_composition</code> return a
- <a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object.</p>
+    <p><code>index_richness</code>, <code>simulate_richness</code> and <code>index_composition</code>
+ return a <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
+<p><code>bootstrap_*</code> and <code>jackknife_*</code> return a <code>data.frame</code>.</p>
 <p>If <code>simplify</code> is <code>FALSE</code>, then <code>rarefaction</code> returns a list
  (default), else return a matrix.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -331,26 +351,29 @@ between rare/infrequent and abundant/frequent species. Only used if
  Population. <em>Scandinavian Journal of Statistics</em>, 11(4), 265-270.</p>
 <p>Chao, A. (1987). Estimating the Population Size for Capture-Recapture Data
  with Unequal Catchability. <em>Biometrics</em> 43(4), 783-791.
- DOI: <a href='https://doi.org/10.2307/2531532'>10.2307/2531532</a>.</p>
+ doi: <a href='https://doi.org/10.2307/2531532'>10.2307/2531532</a>
+.</p>
 <p>Chao, A. &amp; Chiu, C.-H. (2016). Species Richness: Estimation and Comparison.
  <em>In</em> Balakrishnan, N., Colton, T., Everitt, B., Piegorsch, B., Ruggeri,
  F. &amp; Teugels, J. L. (Eds.), <em>Wiley StatsRef: Statistics Reference Online</em>.
  Chichester, UK: John Wiley &amp; Sons, Ltd., 1-26.
- DOI: <a href='https://doi.org/10.1002/9781118445112.stat03432.pub2'>10.1002/9781118445112.stat03432.pub2</a></p>
+ doi: <a href='https://doi.org/10.1002/9781118445112.stat03432.pub2'>10.1002/9781118445112.stat03432.pub2</a></p>
 <p>Chao, A. &amp; Lee, S.-M. (1992). Estimating the Number of Classes via Sample
  Coverage. <em>Journal of the American Statistical Association</em>, 87(417),
- 210-217.
- DOI: <a href='https://doi.org/10.1080/01621459.1992.10475194'>10.1080/01621459.1992.10475194</a>.</p>
+ 210-217. doi: <a href='https://doi.org/10.1080/01621459.1992.10475194'>10.1080/01621459.1992.10475194</a>
+.</p>
 <p>Chiu, C.-H., Wang, Y.-T., Walther, B. A. &amp; Chao, A. (2014). An improved
  nonparametric lower bound of species richness via a modified good-turing
  frequency formula. <em>Biometrics</em>, 70(3), 671-682.
- DOI: <a href='https://doi.org/10.1111/biom.12200'>10.1111/biom.12200</a>.</p>
+ doi: <a href='https://doi.org/10.1111/biom.12200'>10.1111/biom.12200</a>
+.</p>
 <p>Hurlbert, S. H. (1971). The Nonconcept of Species Diversity: A Critique and
  Alternative Parameters. <em>Ecology</em>, 52(4), 577-586.
- DOI: <a href='https://doi.org/10.2307/1934145'>10.2307/1934145</a>.</p>
+ doi: <a href='https://doi.org/10.2307/1934145'>10.2307/1934145</a>
+.</p>
 <p>Magurran, A. E. (1988). <em>Ecological Diversity and its Measurement</em>.
- Princeton, NJ: Princeton University Press.
- DOI: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>.</p>
+ Princeton, NJ: Princeton University Press. doi: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>
+.</p>
 <p>Kintigh, K. W. (1989). Sample Size, Significance, and Measures of
  Diversity. In Leonard, R. D. and Jones, G. T., <em>Quantifying Diversity
  in Archaeology</em>. New Directions in Archaeology. Cambridge:
@@ -361,19 +384,21 @@ between rare/infrequent and abundant/frequent species. Only used if
  3, 36-71.</p>
 <p>Menhinick, E. F. (1964). A Comparison of Some Species-Individuals Diversity
  Indices Applied to Samples of Field Insects. <em>Ecology</em>, 45(4), 859-861.
- DOI: <a href='https://doi.org/10.2307/1934933'>10.2307/1934933</a>.</p>
+ doi: <a href='https://doi.org/10.2307/1934933'>10.2307/1934933</a>
+.</p>
 <p>McIntosh, R. P. (1967). An Index of Diversity and the Relation of Certain
  Concepts to Diversity. <em>Ecology</em>, 48(3), 392-404.
- DOI: <a href='https://doi.org/10.2307/1932674'>10.2307/1932674</a>.</p>
+ doi: <a href='https://doi.org/10.2307/1932674'>10.2307/1932674</a>
+.</p>
 <p>Sander, H. L. (1968). Marine Benthic Diversity: A Comparative Study.
  <em>The American Naturalist</em>, 102(925), 243-282.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>, <a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a></p>
+    <div class='dont-index'><p><a href='plot_diversity.html'>plot_diversity</a></p>
 <p>Other diversity: 
-<code><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>heterogeneity-index</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a>()</code>,
-<code><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover-index</a></code></p></div>
+<code><a href='heterogeneity-index.html'>heterogeneity-index</a></code>,
+<code><a href='similarity.html'>similarity</a>()</code>,
+<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -382,35 +407,40 @@ between rare/infrequent and abundant/frequent species. Only used if
     <pre class="examples"><div class='input'><span class='co'>## Richness</span>
 <span class='co'>## Margalef and Menhinick index</span>
 <span class='co'>## Data from Magurran 1988, p. 128-129</span>
-<span class='kw'>trap</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
-                             <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>0</span>),
-                    nrow = <span class='fl'>2</span>, byrow = <span class='fl'>TRUE</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>NULL</span>))
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>trap</span>, method = <span class='st'>"margalef"</span>) <span class='co'># 2.55 1.88</span></div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
+<span class='va'>trap</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/CountMatrix-class.html'>CountMatrix</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>9</span>, <span class='fl'>3</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
+                             <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>0</span><span class='op'>)</span>,
+                    nrow <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span>, dimnames <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A"</span>, <span class='st'>"B"</span><span class='op'>)</span>, <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>trap</span>, method <span class='op'>=</span> <span class='st'>"margalef"</span><span class='op'>)</span> <span class='co'># 2.55 1.88</span>
+</div><div class='output co'>#&gt; &lt;RichnessIndex: margalef&gt;
 #&gt;   size    index
 #&gt; A   23 2.551432
-#&gt; B   13 1.949356</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(<span class='kw'>trap</span>, method = <span class='st'>"menhinick"</span>) <span class='co'># 1.95 1.66</span></div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
+#&gt; B   13 1.949356</div><div class='input'><span class='fu'>index_richness</span><span class='op'>(</span><span class='va'>trap</span>, method <span class='op'>=</span> <span class='st'>"menhinick"</span><span class='op'>)</span> <span class='co'># 1.95 1.66</span>
+</div><div class='output co'>#&gt; &lt;RichnessIndex: menhinick&gt;
 #&gt;   size    index
 #&gt; A   23 1.876630
 #&gt; B   13 1.664101</div><div class='input'>
 <span class='co'>## Asymptotic species richness</span>
 <span class='co'>## Chao1-type estimators</span>
 <span class='co'>## Data from Chao &amp; Chiu 2016</span>
-<span class='kw'>brazil</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  data = <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(x = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>21</span>, <span class='fl'>23</span>, <span class='fl'>25</span>, <span class='fl'>27</span>, <span class='fl'>28</span>, <span class='fl'>30</span>, <span class='fl'>32</span>, <span class='fl'>34</span><span class='op'>:</span><span class='fl'>37</span>, <span class='fl'>41</span>,
-                   <span class='fl'>45</span>, <span class='fl'>46</span>, <span class='fl'>49</span>, <span class='fl'>52</span>, <span class='fl'>89</span>, <span class='fl'>110</span>, <span class='fl'>123</span>, <span class='fl'>140</span>),
-             times = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>113</span>, <span class='fl'>50</span>, <span class='fl'>39</span>, <span class='fl'>29</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>13</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>4</span>,
+<span class='va'>brazil</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/CountMatrix-class.html'>CountMatrix</a></span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>21</span>, <span class='fl'>23</span>, <span class='fl'>25</span>, <span class='fl'>27</span>, <span class='fl'>28</span>, <span class='fl'>30</span>, <span class='fl'>32</span>, <span class='fl'>34</span><span class='op'>:</span><span class='fl'>37</span>, <span class='fl'>41</span>,
+                   <span class='fl'>45</span>, <span class='fl'>46</span>, <span class='fl'>49</span>, <span class='fl'>52</span>, <span class='fl'>89</span>, <span class='fl'>110</span>, <span class='fl'>123</span>, <span class='fl'>140</span><span class='op'>)</span>,
+             times <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>113</span>, <span class='fl'>50</span>, <span class='fl'>39</span>, <span class='fl'>29</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>13</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>4</span>,
                        <span class='fl'>3</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>,
-                       <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)),
-  nrow = <span class='fl'>1</span>, byrow = <span class='fl'>TRUE</span>
-)
+                       <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span>,
+  nrow <span class='op'>=</span> <span class='fl'>1</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>brazil</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"chao1"</span>), unbiased = <span class='fl'>FALSE</span>) <span class='co'># 461.625</span></div><div class='output co'>#&gt; &lt;CompositionIndex: chao1&gt;
+<span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>brazil</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"chao1"</span><span class='op'>)</span>, unbiased <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='co'># 461.625</span>
+</div><div class='output co'>#&gt; &lt;CompositionIndex: chao1&gt;
 #&gt;      size    index
-#&gt; row1 1978 461.6254</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_composition</a></span>(<span class='kw'>brazil</span>, method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ace"</span>), k = <span class='fl'>10</span>) <span class='co'># 445.822</span></div><div class='output co'>#&gt; &lt;CompositionIndex: ace&gt;
+#&gt; row1 1978 461.6254</div><div class='input'><span class='fu'>index_composition</span><span class='op'>(</span><span class='va'>brazil</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ace"</span><span class='op'>)</span>, k <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='co'># 445.822</span>
+</div><div class='output co'>#&gt; &lt;CompositionIndex: ace&gt;
 #&gt;      size    index
 #&gt; row1 1978 445.8224</div><div class='input'>
 <span class='co'>## Rarefaction</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>rarefaction</a></span>(<span class='kw'>trap</span>, sample = <span class='fl'>13</span>) <span class='co'># 6.56</span></div><div class='output co'>#&gt;        A        B 
+<span class='fu'>rarefaction</span><span class='op'>(</span><span class='va'>trap</span>, sample <span class='op'>=</span> <span class='fl'>13</span><span class='op'>)</span> <span class='co'># 6.56</span>
+</div><div class='output co'>#&gt;        A        B 
 #&gt; 6.556735       NA </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -427,7 +457,7 @@ between rare/infrequent and abundant/frequent species. Only used if
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

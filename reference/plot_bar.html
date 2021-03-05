@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Bar Plot — plot_bar" />
 <meta property="og:description" content="Plots a Bertin, Ford (battleship curve) or Dice-Leraas diagram." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -65,16 +65,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -101,7 +91,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +126,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Bar Plot</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_bertin.R'><code>R/plot_bertin.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_ford.R'><code>R/plot_ford.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/plot_bertin.R'><code>R/plot_bertin.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/plot_ford.R'><code>R/plot_ford.R</code></a></small>
     <div class="hidden name"><code>plot_bar.Rd</code></div>
     </div>
 
@@ -162,22 +152,25 @@
     <p>Plots a Bertin, Ford (battleship curve) or Dice-Leraas diagram.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bertin</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_ford</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for matrix</span>
+<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>object</span>, threshold <span class='op'>=</span> <span class='cn'>NULL</span>, scale <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='co'># S4 method for matrix</span>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bertin</a></span>(<span class='kw'>object</span>, threshold = <span class='kw'>NULL</span>, scale = <span class='kw'>NULL</span>)
-
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_ford</a></span>(<span class='kw'>object</span>, EPPM = <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>object</span>, EPPM <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>An object to be plotted.</p></td>
+      <td><p>An abundance matrix to be plotted.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -240,19 +233,19 @@ below)?</p></td>
  &amp; Lucius, p. 11-20.</p>
 <p>Desachy, B. (2004). Le sériographe EPPM: un outil informatisé de sériation
  graphique pour tableaux de comptages. <em>Revue archéologique de
- Picardie</em>, 3(1), 39-56.
- DOI: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>.</p>
+ Picardie</em>, 3(1), 39-56. doi: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>
+.</p>
 <p>Ford, J. A. (1962). <em>A quantitative method for deriving cultural
  chronology</em>. Washington, DC: Pan American Union. Technical manual 1.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/independance.html'>eppm</a></p>
+    <div class='dont-index'><p><a href='independance.html'>eppm</a></p>
 <p>Other plot: 
-<code><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a>()</code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>()</code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_line</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_matrix</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a>()</code></p></div>
+<code><a href='plot_date.html'>plot_date</a>()</code>,
+<code><a href='plot_diversity.html'>plot_diversity</a></code>,
+<code><a href='plot_line.html'>plot_line</a></code>,
+<code><a href='plot_matrix.html'>plot_matrix</a></code>,
+<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -261,21 +254,28 @@ below)?</p></td>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix</span>
-<span class='kw'>mississippi_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>mississippi</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"mississippi"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>counts1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>mississippi</span><span class='op'>)</span>
 
 <span class='co'>## Plot a Bertin diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bertin</a></span>(<span class='kw'>mississippi_count</span>, threshold = <span class='kw'>NULL</span>)</div><div class='img'><img src='plot_bar-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with variables scaled to 0-1 and the variable mean as threshold</span>
-<span class='kw'>scale_01</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>x</span>) (<span class='kw'>x</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='kw'>x</span>)) <span class='op'>/</span> (<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>x</span>) <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='kw'>x</span>))
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bertin</a></span>(<span class='kw'>mississippi_count</span>, threshold = <span class='kw'>mean</span>, scale = <span class='kw'>scale_01</span>)</div><div class='img'><img src='plot_bar-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>counts1</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_bar-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with variables scaled to 0-1 and the variable mean as threshold</span>
+<span class='va'>scale_01</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>/</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>plot_bertin</span><span class='op'>(</span><span class='va'>counts1</span>, threshold <span class='op'>=</span> <span class='va'>mean</span>, scale <span class='op'>=</span> <span class='va'>scale_01</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_bar-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Abundance data</span>
 <span class='co'>## Coerce dataset to a count matrix (data from Desachy 2004)</span>
-<span class='kw'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>compiegne</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"compiegne"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>counts2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>compiegne</span><span class='op'>)</span>
 
 <span class='co'>## Plot a Ford diagram...</span>
 <span class='co'>## ...without threshold</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_ford</a></span>(<span class='kw'>compiegne_count</span>)</div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_ford</a></span>(<span class='kw'>compiegne_count</span>, EPPM = <span class='fl'>TRUE</span>)</div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span></div></pre>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>counts2</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_bar-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## ...with EPPM</span>
+<span class='fu'>plot_ford</span><span class='op'>(</span><span class='va'>counts2</span>, EPPM <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_bar-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -291,7 +291,7 @@ below)?</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -47,10 +47,10 @@
 
 
 <meta property="og:title" content="Matrix Seriation — seriation" />
-<meta property="og:description" content="seriate_* computes a permutation order for rows and/or columns.
-permute rearranges a data matrix according to a permutation order.
-get_order returns the seriation order for rows and columns." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:description" content="* seriate_* computes a permutation order for rows and/or columns.
+ * permute rearranges a data matrix according to a permutation order.
+ * get_order returns the seriation order for rows and columns." />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -67,16 +67,6 @@ get_order returns the seriation order for rows and columns." />
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -103,7 +93,7 @@ get_order returns the seriation order for rows and columns." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +128,7 @@ get_order returns the seriation order for rows and columns." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -156,53 +146,66 @@ get_order returns the seriation order for rows and columns." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Matrix Seriation</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/mutators.R'><code>R/mutators.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/permute.R'><code>R/permute.R</code></a>, and 2 more</small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/deprecate.R'><code>R/deprecate.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/mutators.R'><code>R/mutators.R</code></a>, and 4 more</small>
     <div class="hidden name"><code>seriation.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>seriate_*</code> computes a permutation order for rows and/or columns.</p>
-<p><code>permute</code> rearranges a data matrix according to a permutation order.</p>
-<p><code>get_order</code> returns the seriation order for rows and columns.</p>
+    <p>* <code>seriate_*</code> computes a permutation order for rows and/or columns.
+ * <code>permute</code> rearranges a data matrix according to a permutation order.
+ * <code>get_order</code> returns the seriation order for rows and columns.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_rank</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>seriate_average</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></span>(<span class='kw'>object</span>, <span class='kw'>subset</span>, <span class='kw'>...</span>)
+<span class='fu'>seriate_rank</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>permute</a></span>(<span class='kw'>object</span>, <span class='kw'>order</span>, <span class='kw'>...</span>)
+<span class='fu'>permute</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>order</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>get_order</a></span>(<span class='kw'>object</span>)
-
-<span class='co'># S4 method for PermutationOrder</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>get_order</a></span>(<span class='kw'>object</span>)
-
-<span class='co'># S4 method for CountMatrix,PermutationOrder</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>permute</a></span>(<span class='kw'>object</span>, <span class='kw'>order</span>)
-
-<span class='co'># S4 method for IncidenceMatrix,PermutationOrder</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>permute</a></span>(<span class='kw'>object</span>, <span class='kw'>order</span>)
-
-<span class='co'># S4 method for CountMatrix,missing</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></span>(<span class='kw'>object</span>, margin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>...</span>)
-
-<span class='co'># S4 method for IncidenceMatrix,missing</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></span>(<span class='kw'>object</span>, margin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>...</span>)
-
-<span class='co'># S4 method for CountMatrix,BootCA</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_correspondence</a></span>(<span class='kw'>object</span>, <span class='kw'>subset</span>, margin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>...</span>)
+<span class='fu'>refine_seriation</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_rank</a></span>(<span class='kw'>object</span>, EPPM = <span class='fl'>FALSE</span>, margin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), stop = <span class='fl'>100</span>)
+<span class='fu'><a href='deprecate.html'>seriate_correspondence</a></span><span class='op'>(</span><span class='va'>object</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for IncidenceMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_rank</a></span>(<span class='kw'>object</span>, margin = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), stop = <span class='fl'>100</span>)</pre>
+<span class='fu'><a href='deprecate.html'>seriate_correspondence</a></span><span class='op'>(</span><span class='va'>object</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for PermutationOrder</span>
+<span class='fu'><a href='mutator.html'>get_order</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix,PermutationOrder</span>
+<span class='fu'>permute</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>order</span><span class='op'>)</span>
+
+<span class='co'># S4 method for IncidenceMatrix,PermutationOrder</span>
+<span class='fu'>permute</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>order</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CA</span>
+<span class='fu'>refine_seriation</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  <span class='va'>cutoff</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  axes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,
+  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>seriate_average</span><span class='op'>(</span><span class='va'>object</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, axes <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for IncidenceMatrix</span>
+<span class='fu'>seriate_average</span><span class='op'>(</span><span class='va'>object</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, axes <span class='op'>=</span> <span class='fl'>1</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>seriate_rank</span><span class='op'>(</span><span class='va'>object</span>, EPPM <span class='op'>=</span> <span class='cn'>FALSE</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, stop <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
+
+<span class='co'># S4 method for IncidenceMatrix</span>
+<span class='fu'>seriate_rank</span><span class='op'>(</span><span class='va'>object</span>, margin <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, stop <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
+      <th>object, x</th>
       <td><p>An \(m \times p\) data matrix (typically an object
 of class CountMatrix or IncidenceMatrix.</p></td>
     </tr>
@@ -211,13 +214,8 @@ of class CountMatrix or IncidenceMatrix.</p></td>
       <td><p>Further arguments to be passed to internal methods.</p></td>
     </tr>
     <tr>
-      <th>subset</th>
-      <td><p>A <a href='http://tabula.archaeo.science/reference/BootCA-class.html'>BootCA</a> object giving the subset of
-<code>object</code> to be used.</p></td>
-    </tr>
-    <tr>
       <th>order</th>
-      <td><p>A <a href='http://tabula.archaeo.science/reference/PermutationOrder-class.html'>PermutationOrder</a> object giving the permutation
+      <td><p>A <a href='PermutationOrder-class.html'>PermutationOrder</a> object giving the permutation
 order for rows and columns.</p></td>
     </tr>
     <tr>
@@ -226,6 +224,26 @@ order for rows and columns.</p></td>
 rearrangement will be applied over: <code>1</code> indicates rows, <code>2</code>
 indicates columns, <code><a href='https://rdrr.io/r/base/c.html'>c(1, 2)</a></code> indicates rows then columns,
 <code><a href='https://rdrr.io/r/base/c.html'>c(2, 1)</a></code> indicates columns then rows.</p></td>
+    </tr>
+    <tr>
+      <th>cutoff</th>
+      <td><p>A function that takes a numeric vector as argument and returns
+a single numeric value (see below).</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
+replications.</p></td>
+    </tr>
+    <tr>
+      <th>axes</th>
+      <td><p>An <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> vector giving the subscripts of the CA
+axes to be used.</p></td>
+    </tr>
+    <tr>
+      <th>progress</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a progress bar be
+displayed?</p></td>
     </tr>
     <tr>
       <th>EPPM</th>
@@ -241,9 +259,14 @@ on EPPM instead of raw data?</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>seriate_*</code> returns a <a href='http://tabula.archaeo.science/reference/PermutationOrder-class.html'>PermutationOrder</a> object.</p>
-<p><code>permute</code> returns either a CountMatrix or an
+    <p><code>seriate_*</code> returns a <a href='PermutationOrder-class.html'>PermutationOrder</a> object.</p>
+<p><code>refine_seriation</code> returns a <a href='RefineCA-class.html'>RefineCA</a> object.</p>
+<p><code>permute</code> returns either a permuted CountMatrix or an
  IncidenceMatrix (the same as <code>object</code>).</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Refining method can lead to much longer execution times and larger output
+ objects.</p>
     <h2 class="hasAnchor" id="seriation"><a class="anchor" href="#seriation"></a>Seriation</h2>
 
     
@@ -266,14 +289,14 @@ on EPPM instead of raw data?</p></td>
  approximate the required pattern. The resulting order is inferred
  to be chronological.</p>
 <p>The following seriation methods are available:</p><dl>
-  <dt>correspondence</dt><dd><p>Correspondence analysis-based seriation.
-  Correspondence analysis (CA) is an effective method for the seriation of
-  archaeological assemblages. The order of the rows and columns is given by
-  the coordinates along one dimension of the CA space, assumed to account
-  for temporal variation. The direction of temporal change within the
-  correspondence analysis space is arbitrary: additional information is
-  needed to determine the actual order in time.</p></dd>
-  <dt>reciprocal</dt><dd><p>Reciprocal ranking seriation. These procedures
+  <dt><code>seriate_average</code></dt><dd><p>Correspondence analysis-based seriation
+  (average ranking). Correspondence analysis (CA) is an effective method for
+  the seriation of archaeological assemblages. The order of the rows and
+  columns is given by the coordinates along one dimension of the CA space,
+  assumed to account for temporal variation. The direction of temporal change
+  within the correspondence analysis space is arbitrary: additional
+  information is needed to determine the actual order in time.</p></dd>
+  <dt><code>seriate_rank</code></dt><dd><p>Reciprocal ranking seriation. These procedures
   iteratively rearrange rows and/or columns according to their weighted rank
   in the data matrix until convergence.
   Note that this procedure could enter into an infinite loop.
@@ -282,11 +305,11 @@ on EPPM instead of raw data?</p></td>
  
 </dl>
 
-    <h2 class="hasAnchor" id="correspondence-analysis-refining"><a class="anchor" href="#correspondence-analysis-refining"></a>Correspondence Analysis Refining</h2>
+    <h2 class="hasAnchor" id="correspondence-analysis"><a class="anchor" href="#correspondence-analysis"></a>Correspondence Analysis</h2>
 
     
 
-<p><code>refine_ca</code> allows to identify samples that are subject to
+<p><code>refine_seriation</code> allows to identify samples that are subject to
  sampling error or samples that have underlying structural relationships
  and might be influencing the ordering along the CA space.</p>
 <p>This relies on a partial bootstrap approach to CA-based seriation where each
@@ -297,32 +320,28 @@ on EPPM instead of raw data?</p></td>
  [results in] a reduced dataset where the position of individuals within the
  CA are highly stable and which produces an ordering consistent with the
  assumptions of frequency seriation."</p>
-<p>If the results of <code><a href='http://tabula.archaeo.science/reference/refine.html'>refine</a></code> is used as an input argument in
- <code>seriate</code>, a correspondence analysis is performed on the subset of
- <code>object</code> which matches the samples to be kept. Then excluded samples
- are projected onto the dimensions of the CA coordinate space using the row
- transition formulae. Finally, row coordinates onto the first dimension
- give the seriation order.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Desachy, B. (2004). Le sériographe EPPM: un outil informatisé de sériation
  graphique pour tableaux de comptages. <em>Revue archéologique de
- Picardie</em>, 3(1), 39-56.
- DOI: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>.</p>
+ Picardie</em>, 3(1), 39-56. doi: <a href='https://doi.org/10.3406/pica.2004.2396'>10.3406/pica.2004.2396</a>
+.</p>
 <p>Dunnell, R. C. (1970). Seriation Method and Its Evaluation. <em>American
- Antiquity</em>, 35(03), 305-319.
- DOI: <a href='https://doi.org/10.2307/278341'>10.2307/278341</a>.</p>
+ Antiquity</em>, 35(03), 305-319. doi: <a href='https://doi.org/10.2307/278341'>10.2307/278341</a>
+.</p>
 <p>Ihm, P. (2005). A Contribution to the History of Seriation in Archaeology.
  In C. Weihs &amp; W. Gaul (Eds.), <em>Classification: The Ubiquitous
  Challenge</em>. Berlin Heidelberg: Springer, p. 307-316.
- DOI: <a href='https://doi.org/10.1007/3-540-28084-7_34'>10.1007/3-540-28084-7_34</a>.</p>
+ doi: <a href='https://doi.org/10.1007/3-540-28084-7_34'>10.1007/3-540-28084-7_34</a>
+.</p>
 <p>Peeples, M. A., &amp; Schachner, G. (2012). Refining correspondence
  analysis-based ceramic seriation of regional data sets. <em>Journal of
  Archaeological Science</em>, 39(8), 2818-2827.
- DOI: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>.</p>
+ doi: <a href='https://doi.org/10.1016/j.jas.2012.04.040'>10.1016/j.jas.2012.04.040</a>
+.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/refine.html'>refine_ca</a>, <a href='http://tabula.archaeo.science/reference/ca.html'>run_ca</a></p></div>
+    <div class='dont-index'><p>refine_seriation, <a href='http://dimensio.tesselle.org/reference/ca.html'>ca</a></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -330,23 +349,27 @@ on EPPM instead of raw data?</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Replicates Desachy 2004 results</span>
 <span class='co'>## Coerce dataset to abundance matrix</span>
-<span class='kw'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>compiegne</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"compiegne"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>compiegne_count</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>compiegne</span><span class='op'>)</span>
 
 <span class='co'>## Get seriation order for columns on EPPM using the reciprocal averaging method</span>
 <span class='co'>## Expected column order: N, A, C, K, P, L, B, E, I, M, D, G, O, J, F, H</span>
-(<span class='kw'>compiegne_indices</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>seriate_rank</a></span>(<span class='kw'>compiegne_count</span>, EPPM = <span class='fl'>TRUE</span>, margin = <span class='fl'>2</span>))</div><div class='output co'>#&gt; &lt;PermutationOrder&gt;
+<span class='op'>(</span><span class='va'>compiegne_indices</span> <span class='op'>&lt;-</span> <span class='fu'>seriate_rank</span><span class='op'>(</span><span class='va'>compiegne_count</span>, EPPM <span class='op'>=</span> <span class='cn'>TRUE</span>, margin <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;PermutationOrder: reciprocal ranking&gt;
 #&gt; Permutation order for matrix seriation:
 #&gt; - Row order: 1 2 3 4 5...
-#&gt; - Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8...
-#&gt; - Method: reciprocal ranking</div><div class='input'>
+#&gt; - Column order: 14 1 3 11 16 12 2 5 9 13 4 7 15 10 6 8...</div><div class='input'>
 <span class='co'>## Permute columns</span>
-<span class='kw'>compiegne_new</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/seriation.html'>permute</a></span>(<span class='kw'>compiegne_count</span>, <span class='kw'>compiegne_indices</span>)
+<span class='va'>compiegne_new</span> <span class='op'>&lt;-</span> <span class='fu'>permute</span><span class='op'>(</span><span class='va'>compiegne_count</span>, <span class='va'>compiegne_indices</span><span class='op'>)</span>
 
 <span class='co'>## Plot new matrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_ford</a></span>(<span class='kw'>compiegne_new</span>, EPPM = <span class='fl'>FALSE</span>)</div><div class='img'><img src='seriation-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='plot_bar.html'>plot_ford</a></span><span class='op'>(</span><span class='va'>compiegne_new</span>, EPPM <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='img'><img src='seriation-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## See the vignette:</span>
-<span class='co'># \donttest{</span>
-<span class='kw'>utils</span>::<span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span>(<span class='st'>"seriation"</span>, package = <span class='st'>"tabula"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: vignette ‘seriation’ not found</span></div><div class='input'><span class='co'># }</span></div></pre>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/vignette.html'>vignette</a></span><span class='op'>(</span><span class='st'>"seriation"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -362,7 +385,7 @@ on EPPM instead of raw data?</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Diversity Test — test_diversity" />
 <meta property="og:description" content="Compares Shannon diversity between samples." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -65,16 +65,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -101,7 +91,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +126,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Diversity Test</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/test_diversity.R'><code>R/test_diversity.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/test_diversity.R'><code>R/test_diversity.R</code></a></small>
     <div class="hidden name"><code>test_diversity.Rd</code></div>
     </div>
 
@@ -162,10 +152,10 @@
     <p>Compares Shannon diversity between samples.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>test_diversity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>object</span>, adjust = <span class='st'>"holm"</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'>test_diversity</span><span class='op'>(</span><span class='va'>object</span>, adjust <span class='op'>=</span> <span class='st'>"holm"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,34 +185,23 @@ adjusting \(p\) values (see <code><a href='https://rdrr.io/r/stats/p.adjust.html
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Magurran, A. E. (1988). <em>Ecological Diversity and its Measurement</em>.
- Princeton, NJ: Princeton University Press.
- DOI: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>.</p>
+ Princeton, NJ: Princeton University Press. doi: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>
+.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other statistics: 
-<code><a href='http://tabula.archaeo.science/reference/independance.html'>independance</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/refine.html'>refine</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a>()</code></p></div>
+<code><a href='independance.html'>independance</a></code>,
+<code><a href='test_fit.html'>test_fit</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Shannon diversity test</span>
-<span class='kw'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>merzbach</span>)
-<span class='kw'>div</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/test_diversity.html'>test_diversity</a></span>(<span class='kw'>merzbach_count</span>)
-
-<span class='co'>## Frequency Increment Test</span>
-<span class='co'>## Coerce the merzbach dataset to a count matrix</span>
-<span class='co'>## Keep only decoration types that have a maximum frequency of at least 50</span>
-<span class='kw'>keep</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(X = <span class='kw'>merzbach</span>, MARGIN = <span class='fl'>2</span>, FUN = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='kw'>x</span>) <span class='op'>&gt;=</span> <span class='fl'>50</span>)
-<span class='kw'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'>as_count</span>(<span class='kw'>merzbach</span>[, <span class='kw'>keep</span>])
-
-<span class='co'>## The data are grouped by phase</span>
-<span class='co'>## We use the row names as time coordinates (roman numerals)</span>
-<span class='fu'>set_dates</span>(<span class='kw'>merzbach_count</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='kw'>merzbach</span>)
-
-<span class='kw'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://tabula.archaeo.science/reference/test_fit.html'>test_fit</a></span>(<span class='kw'>merzbach_count</span>, simplify = <span class='fl'>TRUE</span>)</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"merzbach"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>merzbach_count</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>merzbach</span><span class='op'>)</span>
+<span class='va'>div</span> <span class='op'>&lt;-</span> <span class='fu'>test_diversity</span><span class='op'>(</span><span class='va'>merzbach_count</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -238,7 +217,7 @@ adjusting \(p\) values (see <code><a href='https://rdrr.io/r/stats/p.adjust.html
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

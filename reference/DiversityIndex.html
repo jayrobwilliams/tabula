@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Diversity Index — DiversityIndex" />
 <meta property="og:description" content="An S4 class to represent a diversity measure." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -65,16 +65,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -101,7 +91,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +126,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Diversity Index</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
     <div class="hidden name"><code>DiversityIndex.Rd</code></div>
     </div>
 
@@ -169,11 +159,13 @@
     
 
 <dl>
-<dt><code>index</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the diversity index values.</p></dd>
+<dt><code>data</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> matrix of count data.</p></dd>
+
+<dt><code>values</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the diversity index values.</p></dd>
 
 <dt><code>size</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> vector giving the sample sizes.</p></dd>
 
-<dt><code>simulation</code></dt><dd><p>A numeric <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> vector giving the diversity
+<dt><code>simulation</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> matrix giving the diversity
 measures for the simulated assemblage.</p></dd>
 
 <dt><code>method</code></dt><dd><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string specifying the method used.</p></dd>
@@ -193,10 +185,11 @@ measures for the simulated assemblage.</p></dd>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other class: 
-<code><a href='http://tabula.archaeo.science/reference/BootCA-class.html'>BootCA-class</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/CA-class.html'>CA-class</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/DateClass.html'>DateClass</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/PermutationOrder-class.html'>PermutationOrder-class</a></code></p></div>
+<code><a href='DateEvent-class.html'>DateEvent-class</a></code>,
+<code><a href='DateMCD-class.html'>DateMCD-class</a></code>,
+<code><a href='IncrementTest-class.html'>IncrementTest-class</a></code>,
+<code><a href='PermutationOrder-class.html'>PermutationOrder-class</a></code>,
+<code><a href='RefineCA-class.html'>RefineCA-class</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
@@ -216,7 +209,7 @@ measures for the simulated assemblage.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

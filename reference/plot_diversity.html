@@ -48,7 +48,7 @@
 
 <meta property="og:title" content="Diversity Plot — plot_diversity" />
 <meta property="og:description" content="Diversity Plot" />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -65,16 +65,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -101,7 +91,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,7 +126,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +144,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Diversity Plot</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/plot_diversity.R'><code>R/plot_diversity.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/plot_diversity.R'><code>R/plot_diversity.R</code></a></small>
     <div class="hidden name"><code>plot_diversity.Rd</code></div>
     </div>
 
@@ -162,56 +152,47 @@
     <p>Diversity Plot</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
-
-<span class='co'># S4 method for DiversityIndex</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a></span>(<span class='kw'>object</span>)</pre>
+    <pre class="usage"><span class='co'># S4 method for DiversityIndex,missing</span>
+<span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>A <a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object to be plotted.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Currently not used.</p></td>
+      <th>x</th>
+      <td><p>A <a href='DiversityIndex.html'>DiversityIndex</a> object to be plotted.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a>, <a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a>,
- <a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></p>
+    <div class='dont-index'><p><a href='heterogeneity-index.html'>index_heterogeneity</a>, <a href='heterogeneity-index.html'>index_evenness</a>,
+ <a href='richness-index.html'>index_richness</a></p>
 <p>Other plot: 
-<code><a href='http://tabula.archaeo.science/reference/plot_bar.html'>plot_bar</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_date.html'>plot_date</a>()</code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_line.html'>plot_line</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_matrix.html'>plot_matrix</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/plot_spot.html'>plot_spot</a>()</code></p></div>
+<code><a href='plot_bar.html'>plot_bar</a></code>,
+<code><a href='plot_date.html'>plot_date</a>()</code>,
+<code><a href='plot_line.html'>plot_line</a></code>,
+<code><a href='plot_matrix.html'>plot_matrix</a></code>,
+<code><a href='plot_spot.html'>plot_spot</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>magrittr</span>)
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='co'>## Coerce data to a count matrix</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"chevelon"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>chevelon</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>chevelon</span><span class='op'>)</span>
 
-<span class='kw'>merzbach</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>as_count</span>() <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(method = <span class='st'>"shannon"</span>, simulate = <span class='fl'>FALSE</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a></span>()</div><div class='img'><img src='plot_diversity-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># \donttest{</span>
 <span class='co'>## Assemblage diversity size comparison</span>
 <span class='co'>## Warning: this may take a few seconds!</span>
-<span class='kw'>merzbach</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>as_count</span>() <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(method = <span class='st'>"shannon"</span>, simulate = <span class='fl'>TRUE</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a></span>()</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='kw'>merzbach</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>as_count</span>() <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/richness-index.html'>index_richness</a></span>(method = <span class='st'>"none"</span>, simulate = <span class='fl'>TRUE</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a></span>()</div><div class='img'><img src='plot_diversity-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span></div></pre>
+<span class='va'>sim_evenness</span> <span class='op'>&lt;-</span> <span class='fu'><a href='heterogeneity-index.html'>simulate_evenness</a></span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span>
+<span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>sim_evenness</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_diversity-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>sim_richness</span> <span class='op'>&lt;-</span> <span class='fu'><a href='richness-index.html'>simulate_richness</a></span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span>
+<span class='fu'><a href='http://khroma.archaeo.science/reference/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>sim_richness</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_diversity-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -227,7 +208,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

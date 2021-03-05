@@ -48,8 +48,10 @@
 
 <meta property="og:title" content="Heterogeneity and Evenness — heterogeneity-index" />
 <meta property="og:description" content="index_heterogeneity returns an heterogeneity or dominance index.
-index_evenness returns an evenness measure." />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+index_evenness returns an evenness measure.
+bootstrap_* and jackknife_* perform bootstrap/jackknife
+ resampling." />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -66,16 +68,6 @@ index_evenness returns an evenness measure." />
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -102,7 +94,7 @@ index_evenness returns an evenness measure." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +129,7 @@ index_evenness returns an evenness measure." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -155,42 +147,88 @@ index_evenness returns an evenness measure." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Heterogeneity and Evenness</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nfrerebeau/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/index_evenness.R'><code>R/index_evenness.R</code></a>, <a href='https://github.com/nfrerebeau/tabula/blob/master/R/index_heterogeneity.R'><code>R/index_heterogeneity.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/tesselle/tabula/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/tesselle/tabula/blob/master/R/index_heterogeneity.R'><code>R/index_heterogeneity.R</code></a></small>
     <div class="hidden name"><code>heterogeneity-index.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p><code>index_heterogeneity</code> returns an heterogeneity or dominance index.</p>
 <p><code>index_evenness</code> returns an evenness measure.</p>
+<p><code>bootstrap_*</code> and <code>jackknife_*</code> perform bootstrap/jackknife
+ resampling.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>index_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
+<span class='fu'>bootstrap_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(
-  <span class='kw'>object</span>,
-  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"shannon"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"simpson"</span>),
-  simulate = <span class='fl'>FALSE</span>,
-  quantiles = <span class='fl'>TRUE</span>,
-  level = <span class='fl'>0.8</span>,
-  step = <span class='fl'>1</span>,
-  n = <span class='fl'>1000</span>,
-  <span class='kw'>...</span>
-)
+<span class='fu'>jackknife_heterogeneity</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>index_evenness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>simulate_evenness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>bootstrap_evenness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>jackknife_evenness</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for CountMatrix</span>
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(
-  <span class='kw'>object</span>,
-  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span>),
-  simulate = <span class='fl'>FALSE</span>,
-  quantiles = <span class='fl'>TRUE</span>,
-  level = <span class='fl'>0.8</span>,
-  step = <span class='fl'>1</span>,
-  n = <span class='fl'>1000</span>,
-  <span class='kw'>...</span>
-)</pre>
+<span class='fu'>index_heterogeneity</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>bootstrap_heterogeneity</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>jackknife_heterogeneity</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>index_evenness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"shannon"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>simulate_evenness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"shannon"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  quantiles <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  level <span class='op'>=</span> <span class='fl'>0.8</span>,
+  step <span class='op'>=</span> <span class='fl'>1</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  progress <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"tabula.progress"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>bootstrap_evenness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.05</span>, <span class='fl'>0.95</span><span class='op'>)</span>,
+  n <span class='op'>=</span> <span class='fl'>1000</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for CountMatrix</span>
+<span class='fu'>jackknife_evenness</span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"berger"</span>, <span class='st'>"brillouin"</span>, <span class='st'>"mcintosh"</span>, <span class='st'>"shannon"</span>, <span class='st'>"simpson"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,22 +248,26 @@ a CountMatrix object).</p></td>
 computed (see details). Any unambiguous substring can be given.</p></td>
     </tr>
     <tr>
-      <th>simulate</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: simulated assemblages
-be computed?</p></td>
+      <th>probs</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector of probabilities with values in
+\([0,1]\) (see <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>).</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
+replications.</p></td>
     </tr>
     <tr>
       <th>quantiles</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should sample quantiles
 be used as confidence interval? If <code>TRUE</code> (the default),
 sample quantiles are used as described in Kintigh (1989), else quantiles of
-the normal distribution are used. Only used if <code>simulate</code> is
-<code>TRUE</code>.</p></td>
+the normal distribution are used.</p></td>
     </tr>
     <tr>
       <th>level</th>
       <td><p>A length-one <code><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></code> vector giving the
-confidence level. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
+confidence level.</p></td>
     </tr>
     <tr>
       <th>step</th>
@@ -233,16 +275,17 @@ confidence level. Only used if <code>simulate</code> is <code>TRUE</code>.</p></
 sample size. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
-      <th>n</th>
-      <td><p>A non-negative <code><a href='https://rdrr.io/r/base/integer.html'>integer</a></code> giving the number of bootstrap
-replications. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
+      <th>progress</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> scalar: should a progress bar be
+displayed?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>index_heterogeneity</code> and <code>index_evenness</code> return a
- <a href='http://tabula.archaeo.science/reference/DiversityIndex.html'>DiversityIndex</a> object.</p>
+    <p><code>index_heterogeneity</code>, <code>index_evenness</code> and
+ <code>simulate_evenness</code> return a <a href='DiversityIndex.html'>DiversityIndex</a> object.</p>
+<p><code>bootstrap_*</code> and <code>jackknife_*</code> return a <code>data.frame</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><em>Diversity</em> measurement assumes that all individuals in a specific
@@ -301,121 +344,145 @@ replications. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
 
     <p>Berger, W. H. &amp; Parker, F. L. (1970). Diversity of Planktonic Foraminifera
  in Deep-Sea Sediments. <em>Science</em>, 168(3937), 1345-1347.
- DOI: <a href='https://doi.org/10.1126/science.168.3937.1345'>10.1126/science.168.3937.1345</a>.</p>
+ doi: <a href='https://doi.org/10.1126/science.168.3937.1345'>10.1126/science.168.3937.1345</a>
+.</p>
 <p>Brillouin, L. (1956). <em>Science and information theory</em>. New York:
  Academic Press.</p>
 <p>Kintigh, K. W. (1984). Measuring Archaeological Diversity by Comparison
  with Simulated Assemblages. <em>American Antiquity</em>, 49(1), 44-54.
- DOI: <a href='https://doi.org/10.2307/280511'>10.2307/280511</a>.</p>
+ doi: <a href='https://doi.org/10.2307/280511'>10.2307/280511</a>
+.</p>
 <p>Kintigh, K. W. (1989). Sample Size, Significance, and Measures of
  Diversity. In Leonard, R. D. and Jones, G. T., <em>Quantifying Diversity
  in Archaeology</em>. New Directions in Archaeology. Cambridge:
  Cambridge University Press, p. 25-36.</p>
 <p>Laxton, R. R. (1978). The measure of diversity. <em>Journal of Theoretical
  Biology</em>, 70(1), 51-67.
- DOI: <a href='https://doi.org/10.1016/0022-5193(78)90302-8'>10.1016/0022-5193(78)90302-8</a>.</p>
+ doi: <a href='https://doi.org/10.1016/0022-5193(78)90302-8'>10.1016/0022-5193(78)90302-8</a>
+.</p>
 <p>Magurran, A. E. (1988). <em>Ecological Diversity and its Measurement</em>.
  Princeton, NJ: Princeton University Press.
- DOI: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>.</p>
+ doi: <a href='https://doi.org/10.1007/978-94-015-7358-0'>10.1007/978-94-015-7358-0</a>
+.</p>
 <p>McIntosh, R. P. (1967). An Index of Diversity and the Relation of Certain
  Concepts to Diversity. <em>Ecology</em>, 48(3), 392-404.
- DOI: <a href='https://doi.org/10.2307/1932674'>10.2307/1932674</a>.</p>
+ doi: <a href='https://doi.org/10.2307/1932674'>10.2307/1932674</a>
+.</p>
 <p>Peet, R. K. (1974). The Measurement of Species Diversity. <em>Annual
  Review of Ecology and Systematics</em>, 5(1), 285-307.
- DOI: <a href='https://doi.org/10.1146/annurev.es.05.110174.001441'>10.1146/annurev.es.05.110174.001441</a>.</p>
+ doi: <a href='https://doi.org/10.1146/annurev.es.05.110174.001441'>10.1146/annurev.es.05.110174.001441</a>
+.</p>
 <p>Pielou, E. C. (1975). <em>Ecological Diversity</em>. New York: Wiley.
- DOI: <a href='https://doi.org/10.4319/lo.1977.22.1.0174b'>10.4319/lo.1977.22.1.0174b</a></p>
+ doi: <a href='https://doi.org/10.4319/lo.1977.22.1.0174b'>10.4319/lo.1977.22.1.0174b</a></p>
 <p>Shannon, C. E. (1948). A Mathematical Theory of Communication. <em>The
  Bell System Technical Journal</em>, 27, 379-423.
- DOI: <a href='https://doi.org/10.1002/j.1538-7305.1948.tb01338.x'>10.1002/j.1538-7305.1948.tb01338.x</a>.</p>
+ doi: <a href='https://doi.org/10.1002/j.1538-7305.1948.tb01338.x'>10.1002/j.1538-7305.1948.tb01338.x</a>
+.</p>
 <p>Simpson, E. H. (1949). Measurement of Diversity. <em>Nature</em>, 163(4148),
- 688-688. DOI: <a href='https://doi.org/10.1038/163688a0'>10.1038/163688a0</a>.</p>
+ 688-688. doi: <a href='https://doi.org/10.1038/163688a0'>10.1038/163688a0</a>
+.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='http://tabula.archaeo.science/reference/plot_diversity.html'>plot_diversity</a>, <a href='http://tabula.archaeo.science/reference/refine.html'>refine_diversity</a>, <a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a>,
- <a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover</a></p>
+    <div class='dont-index'><p><a href='plot_diversity.html'>plot_diversity</a>, <a href='similarity.html'>similarity</a>, <a href='turnover-index.html'>turnover</a></p>
 <p>Other diversity: 
-<code><a href='http://tabula.archaeo.science/reference/richness-index.html'>richness-index</a></code>,
-<code><a href='http://tabula.archaeo.science/reference/similarity-method.html'>similarity</a>()</code>,
-<code><a href='http://tabula.archaeo.science/reference/turnover-index.html'>turnover-index</a></code></p></div>
+<code><a href='richness-index.html'>richness-index</a></code>,
+<code><a href='similarity.html'>similarity</a>()</code>,
+<code><a href='turnover-index.html'>turnover-index</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>N. Frerebeau</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Shannon diversity index</span>
-<span class='co'>## Data from Magurran 1988, p. 145-149</span>
-<span class='kw'>birds</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>35</span>, <span class='fl'>26</span>, <span class='fl'>25</span>, <span class='fl'>21</span>, <span class='fl'>16</span>, <span class='fl'>11</span>, <span class='fl'>6</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>3</span>,
-           <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>,
-           <span class='fl'>30</span>, <span class='fl'>30</span>, <span class='fl'>3</span>, <span class='fl'>65</span>, <span class='fl'>20</span>, <span class='fl'>11</span>, <span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>14</span>,
-           <span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-  nrow = <span class='fl'>2</span>, byrow = <span class='fl'>TRUE</span>, dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"oakwood"</span>, <span class='st'>"spruce"</span>), <span class='kw'>NULL</span>))
+    <pre class="examples"><div class='input'><span class='co'>## Coerce dataset to a count matrix</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"chevelon"</span>, package <span class='op'>=</span> <span class='st'>"folio"</span><span class='op'>)</span>
+<span class='va'>chevelon</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://arkhe.tesselle.org/reference/coerce.html'>as_count</a></span><span class='op'>(</span><span class='va'>chevelon</span><span class='op'>)</span>
 
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 2.40 2.06</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: shannon&gt;
-#&gt;         size    index
-#&gt; oakwood  170 2.407983
-#&gt; spruce   198 2.055991</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>birds</span>, <span class='st'>"shannon"</span>) <span class='co'># 0.80 0.78</span></div><div class='output co'>#&gt; &lt;EvennessIndex: shannon&gt;
-#&gt;         size     index
-#&gt; oakwood  170 0.8038044
-#&gt; spruce   198 0.7790626</div><div class='input'>
-
-<span class='co'>## Brillouin diversity index</span>
-<span class='co'>## Data from Magurran 1988, p. 150-151</span>
-<span class='kw'>moths</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>17</span>, <span class='fl'>15</span>, <span class='fl'>11</span>, <span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-                     nrow = <span class='fl'>1</span>, byrow = <span class='fl'>TRUE</span>)
-
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 1.88</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: brillouin&gt;
-#&gt;      size    index
-#&gt; row1   67 1.876307</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>moths</span>, <span class='st'>"brillouin"</span>) <span class='co'># 0.83</span></div><div class='output co'>#&gt; &lt;EvennessIndex: brillouin&gt;
-#&gt;      size     index
-#&gt; row1   67 0.8275138</div><div class='input'>
-<span class='co'>## Simpson dominance index</span>
-<span class='co'>## Data from Magurran 1988, p. 152-153</span>
-<span class='kw'>trees</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>752</span>, <span class='fl'>276</span>, <span class='fl'>194</span>, <span class='fl'>126</span>, <span class='fl'>121</span>, <span class='fl'>97</span>, <span class='fl'>95</span>, <span class='fl'>83</span>, <span class='fl'>72</span>, <span class='fl'>44</span>, <span class='fl'>39</span>,
-           <span class='fl'>16</span>, <span class='fl'>15</span>, <span class='fl'>13</span>, <span class='fl'>9</span>, <span class='fl'>9</span>, <span class='fl'>9</span>, <span class='fl'>8</span>, <span class='fl'>7</span>, <span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-  nrow = <span class='fl'>1</span>, byrow = <span class='fl'>TRUE</span>
-)
-
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 1.19</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: simpson&gt;
-#&gt;      size    index
-#&gt; row1 1996 0.186547</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>trees</span>, <span class='st'>"simpson"</span>) <span class='co'># 0.21</span></div><div class='output co'>#&gt; &lt;EvennessIndex: simpson&gt;
-#&gt;      size     index
-#&gt; row1 1996 0.2144231</div><div class='input'>
-<span class='co'>## McIntosh dominance index</span>
-<span class='co'>## Data from Magurran 1988, p. 154-155</span>
-<span class='kw'>invertebrates</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>254</span>, <span class='fl'>153</span>, <span class='fl'>90</span>, <span class='fl'>69</span>, <span class='fl'>68</span>, <span class='fl'>58</span>, <span class='fl'>51</span>, <span class='fl'>45</span>, <span class='fl'>40</span>, <span class='fl'>39</span>, <span class='fl'>25</span>, <span class='fl'>23</span>, <span class='fl'>19</span>, <span class='fl'>18</span>, <span class='fl'>16</span>, <span class='fl'>14</span>, <span class='fl'>14</span>,
-           <span class='fl'>11</span>, <span class='fl'>11</span>, <span class='fl'>11</span>, <span class='fl'>11</span>, <span class='fl'>10</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>6</span>, <span class='fl'>5</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
-  nrow = <span class='fl'>1</span>, byrow = <span class='fl'>TRUE</span>
-)
-
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.71</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: mcintosh&gt;
-#&gt;      size     index
-#&gt; row1 1100 0.7066343</div><div class='input'><span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_evenness</a></span>(<span class='kw'>invertebrates</span>, <span class='st'>"mcintosh"</span>) <span class='co'># 0.82</span></div><div class='output co'>#&gt; &lt;EvennessIndex: mcintosh&gt;
-#&gt;      size     index
-#&gt; row1 1100 0.8180305</div><div class='input'>
-<span class='co'>## Berger-Parker dominance index</span>
-<span class='co'>## Data from Magurran 1988, p. 156-157</span>
-<span class='kw'>fishes</span> <span class='op'>&lt;-</span> <span class='fu'>CountMatrix</span>(
-  data = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>394</span>, <span class='fl'>3487</span>, <span class='fl'>275</span>, <span class='fl'>683</span>, <span class='fl'>22</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>6</span>, <span class='fl'>8</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>,
-           <span class='fl'>1642</span>, <span class='fl'>5681</span>, <span class='fl'>196</span>, <span class='fl'>1348</span>, <span class='fl'>12</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>48</span>, <span class='fl'>21</span>, <span class='fl'>1</span>, <span class='fl'>5</span>, <span class='fl'>7</span>, <span class='fl'>3</span>,
-           <span class='fl'>90</span>, <span class='fl'>320</span>, <span class='fl'>180</span>, <span class='fl'>46</span>, <span class='fl'>2</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>5</span>,
-           <span class='fl'>126</span>, <span class='fl'>17</span>, <span class='fl'>115</span>, <span class='fl'>436</span>, <span class='fl'>27</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>3</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>,
-           <span class='fl'>32</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>13</span>, <span class='fl'>9</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>4</span>),
-  nrow = <span class='fl'>5</span>, byrow = <span class='fl'>TRUE</span>,
-  dimnames = <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"station 1"</span>, <span class='st'>"station 2"</span>, <span class='st'>"station 3"</span>,
-                    <span class='st'>"station 4"</span>, <span class='st'>"station 5"</span>), <span class='kw'>NULL</span>)
-)
-
-<span class='fu'><a href='http://tabula.archaeo.science/reference/heterogeneity-index.html'>index_heterogeneity</a></span>(<span class='kw'>fishes</span>, <span class='st'>"berger"</span>) <span class='co'># 0.71 0.63 0.50 0.60 0.51</span></div><div class='output co'>#&gt; &lt;HeterogeneityIndex: berger&gt;
-#&gt;           size     index
-#&gt; station 1 4881 0.7144028
-#&gt; station 2 8965 0.6336866
-#&gt; station 3  647 0.4945904
-#&gt; station 4  726 0.6005510
-#&gt; station 5   63 0.5079365</div></pre>
+<span class='co'>## Shannon diversity index</span>
+<span class='op'>(</span><span class='va'>index_h</span> <span class='op'>&lt;-</span> <span class='fu'>index_heterogeneity</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;HeterogeneityIndex: shannon&gt;
+#&gt;       size     index
+#&gt; P610s   14 1.6681740
+#&gt; P610e    8 1.2130076
+#&gt; P625     4 0.6931472
+#&gt; P630     1 0.0000000
+#&gt; P307     1 0.0000000
+#&gt; P631    12 1.7481555
+#&gt; P623     3 1.0986123
+#&gt; P624    14 1.8711604
+#&gt; P626s   26 1.7207095
+#&gt; P626e  106 1.9115521
+#&gt; P627     4 1.0397208
+#&gt; P628    12 1.8200760</div><div class='input'><span class='op'>(</span><span class='va'>index_e</span> <span class='op'>&lt;-</span> <span class='fu'>index_evenness</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;EvennessIndex: shannon&gt;
+#&gt;       size     index
+#&gt; P610s   14 0.8572718
+#&gt; P610e    8 0.8750000
+#&gt; P625     4 1.0000000
+#&gt; P630     1       NaN
+#&gt; P307     1       NaN
+#&gt; P631    12 0.8983742
+#&gt; P623     3 1.0000000
+#&gt; P624    14 0.9615862
+#&gt; P626s   26 0.8842698
+#&gt; P626e  106 0.8699849
+#&gt; P627     4 0.9463946
+#&gt; P628    12 0.9353340</div><div class='input'>
+<span class='co'>## Bootstrap resampling</span>
+<span class='op'>(</span><span class='va'>boot_h</span> <span class='op'>&lt;-</span> <span class='fu'>bootstrap_heterogeneity</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;             min      mean       max        Q5       Q95
+#&gt; P610s 0.6559757 1.4217738 1.9085353 1.0547209 1.7671950
+#&gt; P610e 0.0000000 0.9829383 1.3862944 0.5623351 1.3208883
+#&gt; P625  0.0000000 0.5266198 0.6931472 0.0000000 0.6931472
+#&gt; P630  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt; P307  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt; P631  0.4505612 1.4751503 1.9072840 1.0975595 1.8200760
+#&gt; P623  0.0000000 0.6552635 1.0986123 0.0000000 1.0986123
+#&gt; P624  1.0789922 1.6280739 1.9085353 1.3337360 1.8711604
+#&gt; P626s 0.9746702 1.5997919 1.9056849 1.3698324 1.8005937
+#&gt; P626e 1.6536757 1.8740800 2.0336751 1.7634515 1.9755950
+#&gt; P627  0.0000000 0.7066917 1.0397208 0.0000000 1.0397208
+#&gt; P628  0.8239592 1.5349087 1.9072840 1.1988493 1.8200760</div><div class='input'><span class='op'>(</span><span class='va'>boot_e</span> <span class='op'>&lt;-</span> <span class='fu'>bootstrap_evenness</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;             min      mean       max        Q5       Q95
+#&gt; P610s 0.5091373 1.4202848 1.9085353 1.0285138 1.7478681
+#&gt; P610e 0.0000000 1.0045053 1.3862944 0.5623351 1.3208883
+#&gt; P625  0.0000000 0.5299683 0.6931472 0.0000000 0.6931472
+#&gt; P630  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt; P307  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000
+#&gt; P631  0.6365142 1.4577256 1.9072840 1.0751393 1.7917595
+#&gt; P623  0.0000000 0.6776888 1.0986123 0.0000000 1.0986123
+#&gt; P624  0.8982053 1.6196549 1.9085353 1.3337360 1.8468891
+#&gt; P626s 1.1330848 1.5902510 1.8979405 1.3568772 1.8005937
+#&gt; P626e 1.6601173 1.8704970 2.0492622 1.7592601 1.9736714
+#&gt; P627  0.0000000 0.7235174 1.0397208 0.0000000 1.0397208
+#&gt; P628  0.8239592 1.5310412 1.9072840 1.1988493 1.8200760</div><div class='input'>
+<span class='co'>## Jackknife resampling</span>
+<span class='op'>(</span><span class='va'>jack_h</span> <span class='op'>&lt;-</span> <span class='fu'>jackknife_heterogeneity</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;            mean       bias     error
+#&gt; P610s 1.5680395 -0.9012101 0.2056978
+#&gt; P610e 1.1096729 -0.9300118 0.3968560
+#&gt; P625  0.5545177 -1.2476649 0.8317766
+#&gt; P630  0.0000000  0.0000000 0.0000000
+#&gt; P307  0.0000000  0.0000000 0.0000000
+#&gt; P631  1.6463856 -0.9159291 0.2108823
+#&gt; P623  0.9769728 -1.0947558 0.5574224
+#&gt; P624  1.7643489 -0.9613033 0.2126469
+#&gt; P626s 1.6152716 -0.9489415 0.2242804
+#&gt; P626e 1.8080769 -0.9312771 0.1429090
+#&gt; P627  0.9244221 -1.0376881 0.5301829
+#&gt; P628  1.7148123 -0.9473731 0.2085352</div><div class='input'><span class='op'>(</span><span class='va'>jack_e</span> <span class='op'>&lt;-</span> <span class='fu'>jackknife_evenness</span><span class='op'>(</span><span class='va'>chevelon</span>, method <span class='op'>=</span> <span class='st'>"shannon"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;            mean       bias     error
+#&gt; P610s 1.5680395 -0.9012101 0.2056978
+#&gt; P610e 1.1096729 -0.9300118 0.3968560
+#&gt; P625  0.5545177 -1.2476649 0.8317766
+#&gt; P630  0.0000000  0.0000000 0.0000000
+#&gt; P307  0.0000000  0.0000000 0.0000000
+#&gt; P631  1.6463856 -0.9159291 0.2108823
+#&gt; P623  0.9769728 -1.0947558 0.5574224
+#&gt; P624  1.7643489 -0.9613033 0.2126469
+#&gt; P626s 1.6152716 -0.9489415 0.2242804
+#&gt; P626e 1.8080769 -0.9312771 0.1429090
+#&gt; P627  0.9244221 -1.0376881 0.5301829
+#&gt; P628  1.7148123 -0.9473731 0.2085352</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -431,7 +498,7 @@ replications. Only used if <code>simulate</code> is <code>TRUE</code>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

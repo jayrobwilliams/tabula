@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Function reference" />
-<meta property="og:image" content="http://tabula.archaeo.science/logo.png" />
+<meta property="og:image" content="https://tabula.tesselle.org/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@nfrerebeau" />
 <meta name="twitter:site" content="@nfrerebeau" />
@@ -64,16 +64,6 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172160955-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-172160955-1');
-</script>
 
 
   </head>
@@ -100,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +125,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/nfrerebeau/tabula">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -178,13 +168,13 @@
       <tr>
         
         <td>
-          <p><code><a href="heterogeneity-index.html">index_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">index_evenness()</a></code> </p>
+          <p><code><a href="heterogeneity-index.html">index_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">bootstrap_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">jackknife_heterogeneity()</a></code> <code><a href="heterogeneity-index.html">index_evenness()</a></code> <code><a href="heterogeneity-index.html">simulate_evenness()</a></code> <code><a href="heterogeneity-index.html">bootstrap_evenness()</a></code> <code><a href="heterogeneity-index.html">jackknife_evenness()</a></code> </p>
         </td>
         <td><p>Heterogeneity and Evenness</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="richness-index.html">index_richness()</a></code> <code><a href="richness-index.html">index_composition()</a></code> <code><a href="richness-index.html">rarefaction()</a></code> </p>
+          <p><code><a href="richness-index.html">index_richness()</a></code> <code><a href="richness-index.html">simulate_richness()</a></code> <code><a href="richness-index.html">bootstrap_richness()</a></code> <code><a href="richness-index.html">jackknife_richness()</a></code> <code><a href="richness-index.html">index_composition()</a></code> <code><a href="richness-index.html">rarefaction()</a></code> </p>
         </td>
         <td><p>Richness and Rarefaction</p></td>
       </tr><tr>
@@ -215,13 +205,13 @@
       <tr>
         
         <td>
-          <p><code><a href="date_mcd.html">date_mcd()</a></code> </p>
+          <p><code><a href="date_mcd.html">date_mcd()</a></code> <code><a href="date_mcd.html">bootstrap_mcd()</a></code> </p>
         </td>
         <td><p>Mean Ceramic Date</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="event.html">date_event()</a></code> <code><a href="event.html">predict_event()</a></code> </p>
+          <p><code><a href="event.html">date_event()</a></code> <code><a href="event.html">predict_event()</a></code> <code><a href="event.html">predict_accumulation()</a></code> <code><a href="event.html">bootstrap_event()</a></code> <code><a href="event.html">jackknife_event()</a></code> </p>
         </td>
         <td><p>Event and Accumulation Dates</p></td>
       </tr>
@@ -240,7 +230,7 @@
       <tr>
         
         <td>
-          <p><code><a href="seriation.html">seriate_rank()</a></code> <code><a href="seriation.html">seriate_correspondence()</a></code> <code><a href="seriation.html">permute()</a></code> <code><a href="seriation.html">get_order()</a></code> </p>
+          <p><code><a href="seriation.html">seriate_average()</a></code> <code><a href="seriation.html">seriate_rank()</a></code> <code><a href="seriation.html">permute()</a></code> <code><a href="seriation.html">refine_seriation()</a></code> <code><a href="seriation.html">seriate_correspondence(<i>&lt;CountMatrix&gt;</i>)</a></code> <code><a href="seriation.html">seriate_correspondence(<i>&lt;IncidenceMatrix&gt;</i>)</a></code> <code><a href="seriation.html">get_order(<i>&lt;PermutationOrder&gt;</i>)</a></code> </p>
         </td>
         <td><p>Matrix Seriation</p></td>
       </tr>
@@ -271,7 +261,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_diversity.html">plot_diversity()</a></code> </p>
+          <p><code><a href="plot_diversity.html">plot(<i>&lt;DiversityIndex&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> </p>
         </td>
         <td><p>Diversity Plot</p></td>
       </tr><tr>
@@ -314,19 +304,13 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="refine.html">refine_ca()</a></code> <code><a href="refine.html">refine_diversity()</a></code> <code><a href="refine.html">refine_event()</a></code> </p>
-        </td>
-        <td><p>Bootstrap and Jackknife Resampling</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="test_diversity.html">test_diversity()</a></code> </p>
         </td>
         <td><p>Diversity Test</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="test_fit.html">test_fit()</a></code> </p>
+          <p><code><a href="test_fit.html">test_fit()</a></code> <code><a href="test_fit.html">plot_time(<i>&lt;IncrementTest&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> </p>
         </td>
         <td><p>Frequency Increment Test</p></td>
       </tr>
@@ -345,21 +329,15 @@
       <tr>
         
         <td>
-          <p><code><a href="BootCA-class.html">BootCA-class</a></code> </p>
-        </td>
-        <td><p>Partial Bootstrap CA</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="CA-class.html">CA-class</a></code> </p>
-        </td>
-        <td><p>Correspondence Analysis</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="DateClass.html">DateClass</a></code> </p>
+          <p><code><a href="DateEvent-class.html">DateEvent-class</a></code> </p>
         </td>
         <td><p>Date Model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="DateMCD-class.html">DateMCD-class</a></code> </p>
+        </td>
+        <td><p>Mean Ceramic Date</p></td>
       </tr><tr>
         
         <td>
@@ -369,9 +347,21 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="IncrementTest-class.html">IncrementTest-class</a></code> </p>
+        </td>
+        <td><p>Frequency Increment Test</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="PermutationOrder-class.html">PermutationOrder-class</a></code> </p>
         </td>
         <td><p>Permutation Order</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="RefineCA-class.html">RefineCA-class</a></code> </p>
+        </td>
+        <td><p>Partial Bootstrap CA</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -388,13 +378,13 @@
       <tr>
         
         <td>
-          <p><code><a href="access.html">access</a></code> </p>
+          <p><code><a href="mutator.html">get_index()</a></code> <code><a href="mutator.html">get_method()</a></code> <code><a href="mutator.html">get_order()</a></code> </p>
         </td>
         <td><p>Get or Set Parts of an Object</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="subset.html">`[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DiversityIndex&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateModel&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateEvent&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;CA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;BootCA&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;PermutationOrder&gt;</i>)</a></code> </p>
+          <p><code><a href="subset.html">`[[`(<i>&lt;DiversityIndex&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;ANY&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;IncrementTest&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;ANY&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateMCD&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;ANY&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;DateEvent&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;RefineCA&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> <code><a href="subset.html">`[[`(<i>&lt;PermutationOrder&gt;</i>,<i>&lt;ANY&gt;</i>,<i>&lt;ANY&gt;</i>)</a></code> </p>
         </td>
         <td><p>Extract or Replace Parts of an Object</p></td>
       </tr>
@@ -410,43 +400,7 @@
     </tbody><tbody>
       
       
-      <tr>
-        
-        <td>
-          <p><code><a href="altamira.html">altamira</a></code> </p>
-        </td>
-        <td><p>Altamira Engraved Bones</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="boves.html">boves</a></code> </p>
-        </td>
-        <td><p>Boves ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="compiegne.html">compiegne</a></code> </p>
-        </td>
-        <td><p>Compiègne ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="merzbach.html">merzbach</a></code> </p>
-        </td>
-        <td><p>Merzbach ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mississippi.html">mississippi</a></code> </p>
-        </td>
-        <td><p>Mississippi ceramics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="zuni.html">zuni</a></code> </p>
-        </td>
-        <td><p>Zuni ceramics</p></td>
-      </tr>
+      
     </tbody>
     </table>
   </div>
@@ -465,7 +419,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

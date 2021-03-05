@@ -1,117 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://tabula.archaeo.science/index.html</loc>
+    <loc>https://tabula.tesselle.org/index.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/BootCA-class.html</loc>
+    <loc>https://tabula.tesselle.org/reference/DateEvent-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/CA-class.html</loc>
+    <loc>https://tabula.tesselle.org/reference/DateMCD-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/DateClass.html</loc>
+    <loc>https://tabula.tesselle.org/reference/DiversityIndex.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/DiversityIndex.html</loc>
+    <loc>https://tabula.tesselle.org/reference/IncrementTest-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/PermutationOrder-class.html</loc>
+    <loc>https://tabula.tesselle.org/reference/PermutationOrder-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/access.html</loc>
+    <loc>https://tabula.tesselle.org/reference/RefineCA-class.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/altamira.html</loc>
+    <loc>https://tabula.tesselle.org/reference/date_mcd.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/boves.html</loc>
+    <loc>https://tabula.tesselle.org/reference/deprecate.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/ca.html</loc>
+    <loc>https://tabula.tesselle.org/reference/event.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/compiegne.html</loc>
+    <loc>https://tabula.tesselle.org/reference/heterogeneity-index.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/date_mcd.html</loc>
+    <loc>https://tabula.tesselle.org/reference/independance.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/deprecate.html</loc>
+    <loc>https://tabula.tesselle.org/reference/mutator.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/event.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_bar.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/heterogeneity-index.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_date.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/independance.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_diversity.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/merzbach.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_line.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/mississippi.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_matrix.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_bar.html</loc>
+    <loc>https://tabula.tesselle.org/reference/plot_spot.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_date.html</loc>
+    <loc>https://tabula.tesselle.org/reference/reexports.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_diversity.html</loc>
+    <loc>https://tabula.tesselle.org/reference/richness-index.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_line.html</loc>
+    <loc>https://tabula.tesselle.org/reference/seriation.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_matrix.html</loc>
+    <loc>https://tabula.tesselle.org/reference/similarity-method.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/plot_spot.html</loc>
+    <loc>https://tabula.tesselle.org/reference/stats_bootstrap.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/refine.html</loc>
+    <loc>https://tabula.tesselle.org/reference/stats_jackknife.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/richness-index.html</loc>
+    <loc>https://tabula.tesselle.org/reference/subset.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/seriation.html</loc>
+    <loc>https://tabula.tesselle.org/reference/tabula-package.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/similarity-method.html</loc>
+    <loc>https://tabula.tesselle.org/reference/test_diversity.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/subset.html</loc>
+    <loc>https://tabula.tesselle.org/reference/test_fit.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/tabula-package.html</loc>
+    <loc>https://tabula.tesselle.org/reference/turnover-index.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/test_diversity.html</loc>
+    <loc>https://tabula.tesselle.org/articles/bibliography.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/test_fit.html</loc>
+    <loc>https://tabula.tesselle.org/articles/dating.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/turnover-index.html</loc>
+    <loc>https://tabula.tesselle.org/articles/diversity.html</loc>
   </url>
   <url>
-    <loc>http://tabula.archaeo.science/reference/zuni.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/articles/bibliography.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/articles/dating.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/articles/diversity.html</loc>
-  </url>
-  <url>
-    <loc>http://tabula.archaeo.science/articles/seriation.html</loc>
+    <loc>https://tabula.tesselle.org/articles/seriation.html</loc>
   </url>
 </urlset>
