@@ -104,7 +104,7 @@
       <h1 data-toc-skip>Seriation</h1>
                         <h4 class="author">N. Frerebeau</h4>
             
-            <h4 class="date">2021-03-05</h4>
+            <h4 class="date">2021-03-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tesselle/tabula/blob/master/vignettes/seriation.Rmd"><code>vignettes/seriation.Rmd</code></a></small>
       <div class="hidden name"><code>seriation.Rmd</code></div>
@@ -116,6 +116,8 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load packages</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tabula.tesselle.org">tabula</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://folio.tesselle.org">folio</a></span><span class="op">)</span> <span class="co"># Datasets</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dimensio.tesselle.org">dimensio</a></span><span class="op">)</span> <span class="co"># Multivariate analysis</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span></code></pre></div>
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
@@ -173,19 +175,20 @@
 <span class="fu"><a href="../reference/plot_matrix.html">plot_heatmap</a></span><span class="op">(</span><span class="va">incidence2</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Rearranged matrix"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TRUE"</span> <span class="op">=</span> <span class="st">"black"</span>, <span class="st">"FALSE"</span> <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="seriation_files/figure-html/reciprocal-1.png" width="700"><img src="seriation_files/figure-html/reciprocal-2.png" width="700"></p>
+<p><img src="seriation_files/figure-html/reciprocal-1.png" width="336"><img src="seriation_files/figure-html/reciprocal-2.png" width="336"></p>
 <p>The positive difference from the column mean percentage (in french “écart positif au pourcentage moyen”, EPPM) represents a deviation from the situation of statistical independence <span class="citation">(Desachy 2004)</span>. As independence can be interpreted as the absence of relationships between types and the chronological order of the assemblages, EPPM is a useful graphical tool to explore significance of relationship between rows and columns related to seriation <span class="citation">(Desachy 2004)</span>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Replicates Desachy 2004 results</span>
 <span class="co">## Coerce dataset to an abundance matrix</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"compiegne"</span>, package <span class="op">=</span> <span class="st">"folio"</span><span class="op">)</span>
 <span class="va">ccounts1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://arkhe.tesselle.org/reference/coerce.html">as_count</a></span><span class="op">(</span><span class="va">compiegne</span><span class="op">)</span>
 
 <span class="co">## Plot original data matrix</span>
 <span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">ccounts1</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Original dataset"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">khroma</span><span class="fu">::</span><span class="fu"><a href="https://khroma.tesselle.org/reference/scale_tol_discrete.html">scale_fill_bright</a></span><span class="op">(</span><span class="op">)</span>
-
+  <span class="fu">khroma</span><span class="fu">::</span><span class="fu"><a href="https://khroma.tesselle.org/reference/scale_tol_discrete.html">scale_fill_bright</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="seriation_files/figure-html/average-1.png" width="672"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
 <span class="co">## Get seriation order for columns on EPPM using the reciprocal averaging method</span>
 <span class="co">## Expected column order: N, A, C, K, P, L, B, E, I, M, D, G, O, J, F, H</span>
 <span class="op">(</span><span class="va">cindices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_rank</a></span><span class="op">(</span><span class="va">ccounts1</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
@@ -201,7 +204,7 @@
 <span class="fu"><a href="../reference/plot_bar.html">plot_ford</a></span><span class="op">(</span><span class="va">ccounts2</span>, EPPM <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Reordered dataset"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">khroma</span><span class="fu">::</span><span class="fu"><a href="https://khroma.tesselle.org/reference/scale_tol_discrete.html">scale_fill_bright</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="seriation_files/figure-html/average-1.png" width="672"><img src="seriation_files/figure-html/average-2.png" width="672"></p>
+<p><img src="seriation_files/figure-html/average-2.png" width="672"></p>
 </div>
 <div id="correspondence-analysis" class="section level1">
 <h1 class="hasAnchor">
@@ -210,12 +213,8 @@
 <h2 class="hasAnchor">
 <a href="#seriation" class="anchor"></a>Seriation</h2>
 <p>Correspondence Analysis (CA) is an effective method for the seriation of archaeological assemblages. The order of the rows and columns is given by the coordinates along one dimension of the CA space, assumed to account for temporal variation. The direction of temporal change within the correspondence analysis space is arbitrary: additional information is needed to determine the actual order in time.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Load packages</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dimensio.tesselle.org">dimensio</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://folio.tesselle.org">folio</a></span><span class="op">)</span>
-
-<span class="co">## Coerce dataset to an count matrix</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Coerce dataset to an count matrix</span>
 <span class="va">zcounts1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://arkhe.tesselle.org/reference/coerce.html">as_count</a></span><span class="op">(</span><span class="va">zuni</span><span class="op">)</span>
 
 <span class="co">## correspondence analysis of the whole dataset</span>
@@ -225,7 +224,7 @@
 <span class="fu">dimensio</span><span class="fu">::</span><span class="fu">plot</span><span class="op">(</span><span class="va">corresp</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="seriation_files/figure-html/ca-1.png" width="700"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Get row permutations from CA coordinates</span>
 <span class="op">(</span><span class="va">zindices</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seriation.html">seriate_average</a></span><span class="op">(</span><span class="va">zcounts1</span>, margin <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; &lt;PermutationOrder: average ranking&gt;</span>
@@ -248,7 +247,7 @@
 <a href="#refining" class="anchor"></a>Refining</h2>
 <p><span class="citation">Peeples and Schachner (2012)</span> propose a procedure to identify samples that are subject to sampling error or samples that have underlying structural relationships and might be influencing the ordering along the CA space. This relies on a partial bootstrap approach to CA-based seriation where each sample is replicated <code>n</code> times. The maximum dimension length of the convex hull around the sample point cloud allows to remove samples for a given <code>cutoff</code> value.</p>
 <p>According to <span class="citation">Peeples and Schachner (2012)</span>, “[this] point removal procedure [results in] a reduced dataset where the position of individuals within the CA are highly stable and which produces an ordering consistend with the assumptions of frequency seriation.”</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Replicates Peeples and Schachner 2012 results</span>
 <span class="co">## Samples with convex hull maximum dimension length greater than the cutoff</span>
 <span class="co">## value will be marked for removal.</span>
@@ -276,8 +275,10 @@
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
-
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="seriation_files/figure-html/refine-1.png" width="700"></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
 <span class="co">### Only retained samples</span>
 <span class="va">rchull_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/subset.html">subset</a></span><span class="op">(</span><span class="va">rchull</span>, <span class="va">id</span> <span class="op">%in%</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"rows"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"keep"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rchull_sub</span><span class="op">)</span> <span class="op">+</span>
@@ -287,8 +288,10 @@
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
-
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="seriation_files/figure-html/refine-2.png" width="700"></p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
 <span class="co">## Histogram of convex hull maximum dimension length</span>
 <span class="va">hull_length</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>length <span class="op">=</span> <span class="va">zuni_keep</span><span class="op">[[</span><span class="st">"rows"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"length"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hull_length</span><span class="op">)</span> <span class="op">+</span>
@@ -301,7 +304,7 @@
     y <span class="op">=</span> <span class="st">"Count"</span>
   <span class="op">)</span> <span class="op">+</span> 
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="seriation_files/figure-html/refine-1.png" width="700"><img src="seriation_files/figure-html/refine-2.png" width="700"><img src="seriation_files/figure-html/refine-3.png" width="700"></p>
+<p><img src="seriation_files/figure-html/refine-3.png" width="700"></p>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
